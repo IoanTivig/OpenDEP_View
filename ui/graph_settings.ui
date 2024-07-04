@@ -1,0 +1,2667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>587</width>
+    <height>422</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1">
+    <widget class="QFrame" name="verticalFrame_4">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 4px;</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_10">
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="static_odsc_label_19">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>21</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Verdana</family>
+          <pointsize>9</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(75, 75, 75);</string>
+        </property>
+        <property name="text">
+         <string>Borders</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_15">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_18" stretch="0,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="static_odsc_label_24">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(75, 75, 75);</string>
+           </property>
+           <property name="text">
+            <string>Top:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing_4">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="minimum">
+            <number>-500</number>
+           </property>
+           <property name="maximum">
+            <number>500</number>
+           </property>
+           <property name="value">
+            <number>50</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_16">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_19" stretch="0,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="static_odsc_label_25">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(75, 75, 75);</string>
+           </property>
+           <property name="text">
+            <string>Bottom:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing_9">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="minimum">
+            <number>-500</number>
+           </property>
+           <property name="maximum">
+            <number>500</number>
+           </property>
+           <property name="value">
+            <number>50</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_17">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_20" stretch="0,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="static_odsc_label_26">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(75, 75, 75);</string>
+           </property>
+           <property name="text">
+            <string>Left:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing_5">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="minimum">
+            <number>-500</number>
+           </property>
+           <property name="maximum">
+            <number>500</number>
+           </property>
+           <property name="value">
+            <number>50</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_19">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_25" stretch="0,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="static_odsc_label_28">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(75, 75, 75);</string>
+           </property>
+           <property name="text">
+            <string>Right:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing_6">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="minimum">
+            <number>-500</number>
+           </property>
+           <property name="maximum">
+            <number>500</number>
+           </property>
+           <property name="value">
+            <number>50</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QFrame" name="verticalFrame_5">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 4px;</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_11">
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="static_odsc_label_20">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>21</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Verdana</family>
+          <pointsize>9</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(75, 75, 75);</string>
+        </property>
+        <property name="text">
+         <string>Lines</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_20">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_23" stretch="0,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QCheckBox" name="qtvar_convertImages_multiSampleCheckbox">
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox::indicator
+{
+width: 15px;
+height: 15px;
+
+}
+
+QCheckBox::indicator::unchecked
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_unchecked.png);
+}
+
+QCheckBox::indicator:unchecked:hover
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_unchecked_hover.png);
+}
+
+QCheckBox::indicator:unchecked:pressed
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_unchecked_pressed.png);
+}
+
+QCheckBox::indicator::checked 
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_checked.png);
+}
+
+QCheckBox::indicator:checked:hover 
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_checked_hover.png);
+}
+
+QCheckBox::indicator:checked:pressed 
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_checked_pressed.png);
+}</string>
+           </property>
+           <property name="text">
+            <string>H-lines</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="qtvar_convertImages_multiSampleCheckbox_2">
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox::indicator
+{
+width: 15px;
+height: 15px;
+
+}
+
+QCheckBox::indicator::unchecked
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_unchecked.png);
+}
+
+QCheckBox::indicator:unchecked:hover
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_unchecked_hover.png);
+}
+
+QCheckBox::indicator:unchecked:pressed
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_unchecked_pressed.png);
+}
+
+QCheckBox::indicator::checked 
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_checked.png);
+}
+
+QCheckBox::indicator:checked:hover 
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_checked_hover.png);
+}
+
+QCheckBox::indicator:checked:pressed 
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_checked_pressed.png);
+}</string>
+           </property>
+           <property name="text">
+            <string>V-lines</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_24">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_27" stretch="0,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="static_odsc_label_32">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(75, 75, 75);</string>
+           </property>
+           <property name="text">
+            <string>Grid Lines Thickness:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing_11">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="minimum">
+            <number>-500</number>
+           </property>
+           <property name="maximum">
+            <number>500</number>
+           </property>
+           <property name="value">
+            <number>50</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_25">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_28" stretch="0,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="static_odsc_label_33">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(75, 75, 75);</string>
+           </property>
+           <property name="text">
+            <string>Axis Lines Thickness:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing_12">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="minimum">
+            <number>-500</number>
+           </property>
+           <property name="maximum">
+            <number>500</number>
+           </property>
+           <property name="value">
+            <number>50</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_26">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_29" stretch="0,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="static_odsc_label_35">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(75, 75, 75);</string>
+           </property>
+           <property name="text">
+            <string>Grid-line type:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="pyqt5_combo_ef_formula_6">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QComboBox
+{
+border-radius: 4px;
+padding-left: 5px;
+background-color: rgb(255, 184, 90);
+}
+
+QComboBox:hover
+{
+background-color: rgb(248,214,176);
+}
+
+QComboBox::drop-down{
+background-color: transparent;
+border-radius: 4px;
+}
+
+QComboBox::drop-down:hover{
+background-color: transparent;
+}
+
+QComboBox::down-arrow
+{
+image: url(:/ui/qt/resources/dropdown/dropdown_arrow.png);
+margin-right: 5px;
+}
+
+QComboBox QListView {
+background-color: rgb(255, 184, 90);
+padding:4px;
+}
+
+QComboBox QListView::item {
+padding:15px;
+}
+
+</string>
+           </property>
+           <property name="editable">
+            <bool>false</bool>
+           </property>
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <property name="frame">
+            <bool>true</bool>
+           </property>
+           <item>
+            <property name="text">
+             <string>Solid</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Dashed</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Dotted</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Dash-dot</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QFrame" name="verticalFrame_3">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 4px;</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_9">
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="static_odsc_label_18">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>21</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Verdana</family>
+          <pointsize>9</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(75, 75, 75);</string>
+        </property>
+        <property name="text">
+         <string>Font</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_12">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_15" stretch="2,1">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="static_odsc_label_21">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(75, 75, 75);</string>
+           </property>
+           <property name="text">
+            <string>Axis Title Font Size:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="minimum">
+            <number>-500</number>
+           </property>
+           <property name="maximum">
+            <number>500</number>
+           </property>
+           <property name="value">
+            <number>50</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_13">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="2,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="static_odsc_label_22">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(75, 75, 75);</string>
+           </property>
+           <property name="text">
+            <string>Axis Tick Font Size:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing_2">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="minimum">
+            <number>-500</number>
+           </property>
+           <property name="maximum">
+            <number>500</number>
+           </property>
+           <property name="value">
+            <number>50</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_14">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="2,1">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="static_odsc_label_23">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(75, 75, 75);</string>
+           </property>
+           <property name="text">
+            <string>Legend Font Size:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing_3">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="minimum">
+            <number>-500</number>
+           </property>
+           <property name="maximum">
+            <number>500</number>
+           </property>
+           <property name="value">
+            <number>50</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_21">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_21" stretch="2,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="static_odsc_label_29">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(75, 75, 75);</string>
+           </property>
+           <property name="text">
+            <string>Legend Position:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="pyqt5_combo_ef_formula_2">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QComboBox
+{
+border-radius: 4px;
+padding-left: 5px;
+background-color: rgb(255, 184, 90);
+}
+
+QComboBox:hover
+{
+background-color: rgb(248,214,176);
+}
+
+QComboBox::drop-down{
+background-color: transparent;
+border-radius: 4px;
+}
+
+QComboBox::drop-down:hover{
+background-color: transparent;
+}
+
+QComboBox::down-arrow
+{
+image: url(:/ui/qt/resources/dropdown/dropdown_arrow.png);
+margin-right: 5px;
+}
+
+QComboBox QListView {
+background-color: rgb(255, 184, 90);
+padding:4px;
+}
+
+QComboBox QListView::item {
+padding:15px;
+}
+
+</string>
+           </property>
+           <property name="editable">
+            <bool>false</bool>
+           </property>
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <property name="frame">
+            <bool>true</bool>
+           </property>
+           <item>
+            <property name="text">
+             <string>Top-left</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Top-right</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Bottom-left</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Bottom-right</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_22">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_26" stretch="2,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="static_odsc_label_30">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>21</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(75, 75, 75);</string>
+           </property>
+           <property name="text">
+            <string>Font:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="pyqt5_combo_ef_formula_3">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QComboBox
+{
+border-radius: 4px;
+padding-left: 5px;
+background-color: rgb(255, 184, 90);
+}
+
+QComboBox:hover
+{
+background-color: rgb(248,214,176);
+}
+
+QComboBox::drop-down{
+background-color: transparent;
+border-radius: 4px;
+}
+
+QComboBox::drop-down:hover{
+background-color: transparent;
+}
+
+QComboBox::down-arrow
+{
+image: url(:/ui/qt/resources/dropdown/dropdown_arrow.png);
+margin-right: 5px;
+}
+
+QComboBox QListView {
+background-color: rgb(255, 184, 90);
+padding:4px;
+}
+
+QComboBox QListView::item {
+padding:15px;
+}
+
+</string>
+           </property>
+           <property name="editable">
+            <bool>false</bool>
+           </property>
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <property name="frame">
+            <bool>true</bool>
+           </property>
+           <item>
+            <property name="text">
+             <string>Arial</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Times New Roman</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Courier New</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Calibri</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Tahoma</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QFrame" name="verticalFrame_6">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 4px;</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_12">
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="static_odsc_label_31">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>21</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Verdana</family>
+          <pointsize>9</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(75, 75, 75);</string>
+        </property>
+        <property name="text">
+         <string>Ticks</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_28">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QCheckBox" name="qtvar_convertImages_multiSampleCheckbox_5">
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>10</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QCheckBox::indicator
+{
+width: 15px;
+height: 15px;
+
+}
+
+QCheckBox::indicator::unchecked
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_unchecked.png);
+}
+
+QCheckBox::indicator:unchecked:hover
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_unchecked_hover.png);
+}
+
+QCheckBox::indicator:unchecked:pressed
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_unchecked_pressed.png);
+}
+
+QCheckBox::indicator::checked 
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_checked.png);
+}
+
+QCheckBox::indicator:checked:hover 
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_checked_hover.png);
+}
+
+QCheckBox::indicator:checked:pressed 
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_checked_pressed.png);
+}</string>
+             </property>
+             <property name="text">
+              <string>Horizontal-ticks</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="pyqt5_combo_ef_formula_4">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QComboBox
+{
+border-radius: 4px;
+padding-left: 5px;
+background-color: rgb(255, 184, 90);
+}
+
+QComboBox:hover
+{
+background-color: rgb(248,214,176);
+}
+
+QComboBox::drop-down{
+background-color: transparent;
+border-radius: 4px;
+}
+
+QComboBox::drop-down:hover{
+background-color: transparent;
+}
+
+QComboBox::down-arrow
+{
+image: url(:/ui/qt/resources/dropdown/dropdown_arrow.png);
+margin-right: 5px;
+}
+
+QComboBox QListView {
+background-color: rgb(255, 184, 90);
+padding:4px;
+}
+
+QComboBox QListView::item {
+padding:15px;
+}
+
+</string>
+             </property>
+             <property name="editable">
+              <bool>false</bool>
+             </property>
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <property name="frame">
+              <bool>true</bool>
+             </property>
+             <item>
+              <property name="text">
+               <string>Cross</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Inwards</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Outwards</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_13">
+           <item>
+            <widget class="QLabel" name="static_odsc_label_39">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>21</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>9</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(75, 75, 75);</string>
+             </property>
+             <property name="text">
+              <string>Length:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing_15">
+             <property name="minimumSize">
+              <size>
+               <width>75</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="minimum">
+              <number>-500</number>
+             </property>
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="value">
+              <number>50</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="static_odsc_label_40">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>21</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>9</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(75, 75, 75);</string>
+             </property>
+             <property name="text">
+              <string>Thickness:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing_16">
+             <property name="minimumSize">
+              <size>
+               <width>75</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="minimum">
+              <number>-500</number>
+             </property>
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="value">
+              <number>50</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_23">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 250, 245);
+border-radius: 4px;</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QCheckBox" name="qtvar_convertImages_multiSampleCheckbox_3">
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>10</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QCheckBox::indicator
+{
+width: 15px;
+height: 15px;
+
+}
+
+QCheckBox::indicator::unchecked
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_unchecked.png);
+}
+
+QCheckBox::indicator:unchecked:hover
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_unchecked_hover.png);
+}
+
+QCheckBox::indicator:unchecked:pressed
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_unchecked_pressed.png);
+}
+
+QCheckBox::indicator::checked 
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_checked.png);
+}
+
+QCheckBox::indicator:checked:hover 
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_checked_hover.png);
+}
+
+QCheckBox::indicator:checked:pressed 
+{
+	image: url(:/ui/qt/resources/checkbox/checkbox_checked_pressed.png);
+}</string>
+             </property>
+             <property name="text">
+              <string>Vertical-ticks</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="pyqt5_combo_ef_formula_5">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QComboBox
+{
+border-radius: 4px;
+padding-left: 5px;
+background-color: rgb(255, 184, 90);
+}
+
+QComboBox:hover
+{
+background-color: rgb(248,214,176);
+}
+
+QComboBox::drop-down{
+background-color: transparent;
+border-radius: 4px;
+}
+
+QComboBox::drop-down:hover{
+background-color: transparent;
+}
+
+QComboBox::down-arrow
+{
+image: url(:/ui/qt/resources/dropdown/dropdown_arrow.png);
+margin-right: 5px;
+}
+
+QComboBox QListView {
+background-color: rgb(255, 184, 90);
+padding:4px;
+}
+
+QComboBox QListView::item {
+padding:15px;
+}
+
+</string>
+             </property>
+             <property name="editable">
+              <bool>false</bool>
+             </property>
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <property name="frame">
+              <bool>true</bool>
+             </property>
+             <item>
+              <property name="text">
+               <string>Cross</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Inwards</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Outwards</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLabel" name="static_odsc_label_34">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>21</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>9</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(75, 75, 75);</string>
+             </property>
+             <property name="text">
+              <string>Length:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing_13">
+             <property name="minimumSize">
+              <size>
+               <width>75</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="minimum">
+              <number>-500</number>
+             </property>
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="value">
+              <number>50</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="static_odsc_label_37">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>21</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>9</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(75, 75, 75);</string>
+             </property>
+             <property name="text">
+              <string>Thickness:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="qtvar_convertImages_minedgespacing_14">
+             <property name="minimumSize">
+              <size>
+               <width>75</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QSpinBox {
+background-color: rgb(248, 214, 176);
+border-radius: 4px;
+padding: 0px 2px 0px 2px;
+border-width: 3;
+}
+
+QSpinBox:hover {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox:selected {
+background-color: rgb(255, 184, 90);
+}
+
+QSpinBox::up-button {
+subcontrol-origin: border;
+subcontrol-position: right;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_right.png);
+ }
+
+QSpinBox::down-button {
+subcontrol-origin: border;
+subcontrol-position: left;
+image: url(:/ui/qt/resources/spinbox/spinbox_hover_left.png);
+ }
+
+QSpinBox::up-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_right.png);
+ }
+
+QSpinBox::down-button:hover {
+image: url(:/ui/qt/resources/spinbox/spinbox_left.png);	
+ }
+
+QSpinBox::up-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_right.png);
+}
+
+QSpinBox::down-button:pressed {
+image: url(:/ui/qt/resources/spinbox/spinbox_pressed_left.png);
+ }</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="minimum">
+              <number>-500</number>
+             </property>
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="value">
+              <number>50</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resources/graphical_resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
