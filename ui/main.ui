@@ -62,27 +62,44 @@ border-radius: 4px;</string>
               </property>
               <property name="font">
                <font>
-                <family>Verdana</family>
-                <pointsize>9</pointsize>
-                <weight>75</weight>
+                <family>Roboto</family>
+                <pointsize>-1</pointsize>
+                <weight>62</weight>
+                <italic>false</italic>
                 <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border-radius: 4px;
-	background-color: rgb(255, 184, 90);
-	padding-left: 2px;
-	color: rgb(75, 75, 75);
+               <string notr="true">/* Normal State */
+QPushButton {
+    background-color: transparent;
+    border-radius: 5px; /* Ensure radius fits within button dimensions */
+    padding: 6px 12px; /* Adjust padding to fit content */
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition for hover effects */
 }
-QPushButton:hover{
-	background-color: rgb(248,214,176);	
+
+/* Hover State */
+QPushButton:hover {
+    background-color: rgba(255, 152, 0, 0.08);  /* Light primary color background */
 }
-QPushButton:pressed{
-	background-color: rgb(179, 197, 192);
+
+/* Pressed State */
+QPushButton:pressed {
+    background-color: rgba(255, 152, 0, 0.12);  /* Slightly darker primary color background */
 }
-QPushButton:disabled{
-	background-color: rgb(243, 239, 219);
+
+/* Disabled State */
+QPushButton:disabled {
+    background-color: transparent;
+    color: rgba(255, 152, 0, 0.38);  /* Disabled text color */
+    border: 2px solid rgba(255, 152, 0, 0.38);  /* Disabled border color */
 }</string>
               </property>
               <property name="text">
@@ -100,27 +117,44 @@ QPushButton:disabled{
               </property>
               <property name="font">
                <font>
-                <family>Verdana</family>
-                <pointsize>9</pointsize>
-                <weight>75</weight>
+                <family>Roboto</family>
+                <pointsize>-1</pointsize>
+                <weight>62</weight>
+                <italic>false</italic>
                 <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border-radius: 4px;
-	background-color: rgb(255, 184, 90);
-	padding-left: 2px;
-	color: rgb(75, 75, 75);
+               <string notr="true">/* Normal State */
+QPushButton {
+    background-color: transparent;
+    border-radius: 5px; /* Ensure radius fits within button dimensions */
+    padding: 6px 12px; /* Adjust padding to fit content */
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition for hover effects */
 }
-QPushButton:hover{
-	background-color: rgb(248,214,176);	
+
+/* Hover State */
+QPushButton:hover {
+    background-color: rgba(255, 152, 0, 0.08);  /* Light primary color background */
 }
-QPushButton:pressed{
-	background-color: rgb(179, 197, 192);
+
+/* Pressed State */
+QPushButton:pressed {
+    background-color: rgba(255, 152, 0, 0.12);  /* Slightly darker primary color background */
 }
-QPushButton:disabled{
-	background-color: rgb(243, 239, 219);
+
+/* Disabled State */
+QPushButton:disabled {
+    background-color: transparent;
+    color: rgba(255, 152, 0, 0.38);  /* Disabled text color */
+    border: 2px solid rgba(255, 152, 0, 0.38);  /* Disabled border color */
 }</string>
               </property>
               <property name="text">
@@ -138,27 +172,44 @@ QPushButton:disabled{
               </property>
               <property name="font">
                <font>
-                <family>Verdana</family>
-                <pointsize>9</pointsize>
-                <weight>75</weight>
+                <family>Roboto</family>
+                <pointsize>-1</pointsize>
+                <weight>62</weight>
+                <italic>false</italic>
                 <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border-radius: 4px;
-	background-color: rgb(255, 184, 90);
-	padding-left: 2px;
-	color: rgb(75, 75, 75);
+               <string notr="true">/* Normal State */
+QPushButton {
+    background-color: transparent;
+    border-radius: 5px; /* Ensure radius fits within button dimensions */
+    padding: 6px 12px; /* Adjust padding to fit content */
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition for hover effects */
 }
-QPushButton:hover{
-	background-color: rgb(248,214,176);	
+
+/* Hover State */
+QPushButton:hover {
+    background-color: rgba(255, 152, 0, 0.08);  /* Light primary color background */
 }
-QPushButton:pressed{
-	background-color: rgb(179, 197, 192);
+
+/* Pressed State */
+QPushButton:pressed {
+    background-color: rgba(255, 152, 0, 0.12);  /* Slightly darker primary color background */
 }
-QPushButton:disabled{
-	background-color: rgb(243, 239, 219);
+
+/* Disabled State */
+QPushButton:disabled {
+    background-color: transparent;
+    color: rgba(255, 152, 0, 0.38);  /* Disabled text color */
+    border: 2px solid rgba(255, 152, 0, 0.38);  /* Disabled border color */
 }</string>
               </property>
               <property name="text">
@@ -214,8 +265,11 @@ border-radius: 4px;</string>
               </property>
               <property name="font">
                <font>
-                <family>Verdana</family>
-                <pointsize>14</pointsize>
+                <family>Roboto</family>
+                <pointsize>-1</pointsize>
+                <weight>62</weight>
+                <italic>false</italic>
+                <bold>true</bold>
                </font>
               </property>
               <property name="toolTip">
@@ -225,23 +279,41 @@ border-radius: 4px;</string>
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Zoom&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border-radius: 4px;
-	background-color: rgb(255, 184, 90);
-	padding-left: 2px;
-	color: rgb(75, 75, 75);
+               <string notr="true">
+/* Normal State */
+QPushButton {
+    background-color: transparent;
+    border-radius: 5px; /* Ensure radius fits within button dimensions */
+    padding-left: 2px; /* Adjust padding to fit content */
+	padding-top: 2px; /* Adjust padding to fit content */
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition for hover effects */
 	image: url(:/ui/qt/resources/buttons/areaplot_icon.png);
 }
-QPushButton:hover{
-	background-color: rgb(248,214,176);	
+
+/* Hover State */
+QPushButton:hover {
+    background-color: rgba(255, 152, 0, 0.08);  /* Light primary color background */
 	image: url(:/ui/qt/resources/buttons/areaplot_icon.png);
 }
-QPushButton:pressed{
-	background-color: rgb(179, 197, 192);
+
+/* Pressed State */
+QPushButton:pressed {
+    background-color: rgba(255, 152, 0, 0.12);  /* Slightly darker primary color background */
 	image: url(:/ui/qt/resources/buttons/areaplot_icon.png);
 }
-QPushButton:disabled{
-	background-color: rgb(243, 239, 219);
+
+/* Disabled State */
+QPushButton:disabled {
+    background-color: transparent;
+    color: rgba(255, 152, 0, 0.38);  /* Disabled text color */
+    border: 2px solid rgba(255, 152, 0, 0.38);  /* Disabled border color */
 	image: url(:/ui/qt/resources/buttons/areaplot_icon.png);
 }</string>
               </property>
@@ -269,8 +341,11 @@ QPushButton:disabled{
               </property>
               <property name="font">
                <font>
-                <family>Verdana</family>
-                <pointsize>14</pointsize>
+                <family>Roboto</family>
+                <pointsize>-1</pointsize>
+                <weight>62</weight>
+                <italic>false</italic>
+                <bold>true</bold>
                </font>
               </property>
               <property name="toolTip">
@@ -280,23 +355,40 @@ QPushButton:disabled{
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Zoom&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border-radius: 4px;
-	background-color: rgb(255, 184, 90);
-	padding-left: 2px;
-	color: rgb(75, 75, 75);
+               <string notr="true">
+/* Normal State */
+QPushButton {
+    background-color: transparent;
+    border-radius: 5px; /* Ensure radius fits within button dimensions */
+    padding-left: 2px; /* Adjust padding to fit content */
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition for hover effects */
 	image: url(:/ui/qt/resources/buttons/stdevplot_icon.png);
 }
-QPushButton:hover{
-	background-color: rgb(248,214,176);	
+
+/* Hover State */
+QPushButton:hover {
+    background-color: rgba(255, 152, 0, 0.08);  /* Light primary color background */
 	image: url(:/ui/qt/resources/buttons/stdevplot_icon.png);
 }
-QPushButton:pressed{
-	background-color: rgb(179, 197, 192);
+
+/* Pressed State */
+QPushButton:pressed {
+    background-color: rgba(255, 152, 0, 0.12);  /* Slightly darker primary color background */
 	image: url(:/ui/qt/resources/buttons/stdevplot_icon.png);
 }
-QPushButton:disabled{
-	background-color: rgb(243, 239, 219);
+
+/* Disabled State */
+QPushButton:disabled {
+    background-color: transparent;
+    color: rgba(255, 152, 0, 0.38);  /* Disabled text color */
+    border: 2px solid rgba(255, 152, 0, 0.38);  /* Disabled border color */
 	image: url(:/ui/qt/resources/buttons/stdevplot_icon.png);
 }</string>
               </property>
@@ -369,8 +461,11 @@ border-radius: 4px;</string>
               </property>
               <property name="font">
                <font>
-                <family>Verdana</family>
-                <pointsize>14</pointsize>
+                <family>Roboto</family>
+                <pointsize>-1</pointsize>
+                <weight>62</weight>
+                <italic>false</italic>
+                <bold>true</bold>
                </font>
               </property>
               <property name="toolTip">
@@ -380,23 +475,39 @@ border-radius: 4px;</string>
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save Figure&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border-radius: 4px;
-	background-color: rgb(255, 184, 90);
-	padding-left: 2px;
-	color: rgb(75, 75, 75);
+               <string notr="true">/* Normal State */
+QPushButton {
+    background-color: transparent;
+    border-radius: 5px; /* Ensure radius fits within button dimensions */
+    padding-left: 2px; /* Adjust padding to fit content */
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition for hover effects */
 	image: url(:/ui/qt/resources/buttons/save_icon.png);
 }
-QPushButton:hover{
-	background-color: rgb(248,214,176);	
+
+/* Hover State */
+QPushButton:hover {
+    background-color: rgba(255, 152, 0, 0.08);  /* Light primary color background */
 	image: url(:/ui/qt/resources/buttons/save_icon.png);
 }
-QPushButton:pressed{
-	background-color: rgb(179, 197, 192);
+
+/* Pressed State */
+QPushButton:pressed {
+    background-color: rgba(255, 152, 0, 0.12);  /* Slightly darker primary color background */
 	image: url(:/ui/qt/resources/buttons/save_icon.png);
 }
-QPushButton:disabled{
-	background-color: rgb(243, 239, 219);
+
+/* Disabled State */
+QPushButton:disabled {
+    background-color: transparent;
+    color: rgba(255, 152, 0, 0.38);  /* Disabled text color */
+    border: 2px solid rgba(255, 152, 0, 0.38);  /* Disabled border color */
 	image: url(:/ui/qt/resources/buttons/save_icon.png);
 }</string>
               </property>
@@ -424,8 +535,11 @@ QPushButton:disabled{
               </property>
               <property name="font">
                <font>
-                <family>Verdana</family>
-                <pointsize>14</pointsize>
+                <family>Roboto</family>
+                <pointsize>-1</pointsize>
+                <weight>62</weight>
+                <italic>false</italic>
+                <bold>true</bold>
                </font>
               </property>
               <property name="toolTip">
@@ -435,23 +549,39 @@ QPushButton:disabled{
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Properties&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border-radius: 4px;
-	background-color: rgb(255, 184, 90);
-	padding-left: 2px;
-	color: rgb(75, 75, 75);
+               <string notr="true">/* Normal State */
+QPushButton {
+    background-color: transparent;
+    border-radius: 5px; /* Ensure radius fits within button dimensions */
+    padding-left: 2px; /* Adjust padding to fit content */
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition for hover effects */
 	image: url(:/ui/qt/resources/buttons/settings_icon.png);
 }
-QPushButton:hover{
-	background-color: rgb(248,214,176);	
+
+/* Hover State */
+QPushButton:hover {
+    background-color: rgba(255, 152, 0, 0.08);  /* Light primary color background */
 	image: url(:/ui/qt/resources/buttons/settings_icon.png);
 }
-QPushButton:pressed{
-	background-color: rgb(179, 197, 192);
+
+/* Pressed State */
+QPushButton:pressed {
+    background-color: rgba(255, 152, 0, 0.12);  /* Slightly darker primary color background */
 	image: url(:/ui/qt/resources/buttons/settings_icon.png);
 }
-QPushButton:disabled{
-	background-color: rgb(243, 239, 219);
+
+/* Disabled State */
+QPushButton:disabled {
+    background-color: transparent;
+    color: rgba(255, 152, 0, 0.38);  /* Disabled text color */
+    border: 2px solid rgba(255, 152, 0, 0.38);  /* Disabled border color */
 	image: url(:/ui/qt/resources/buttons/settings_icon.png);
 }</string>
               </property>
@@ -464,19 +594,19 @@ QPushButton:disabled{
              <widget class="Line" name="line_2">
               <property name="minimumSize">
                <size>
-                <width>4</width>
+                <width>2</width>
                 <height>25</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>4</width>
+                <width>2</width>
                 <height>25</height>
                </size>
               </property>
               <property name="styleSheet">
                <string notr="true">background-color: rgb(136, 136, 136);
-border-radius: 2px;</string>
+border-radius: 1px;</string>
               </property>
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -502,8 +632,11 @@ border-radius: 2px;</string>
               </property>
               <property name="font">
                <font>
-                <family>Verdana</family>
-                <pointsize>14</pointsize>
+                <family>Roboto</family>
+                <pointsize>-1</pointsize>
+                <weight>62</weight>
+                <italic>false</italic>
+                <bold>true</bold>
                </font>
               </property>
               <property name="toolTip">
@@ -513,23 +646,39 @@ border-radius: 2px;</string>
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Home&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border-radius: 4px;
-	background-color: rgb(255, 184, 90);
-	padding-left: 2px;
-	color: rgb(75, 75, 75);
+               <string notr="true">/* Normal State */
+QPushButton {
+    background-color: transparent;
+    border-radius: 5px; /* Ensure radius fits within button dimensions */
+    padding-left: 2px; /* Adjust padding to fit content */
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition for hover effects */
 	image: url(:/ui/qt/resources/buttons/home_icon.png);
 }
-QPushButton:hover{
-	background-color: rgb(248,214,176);	
+
+/* Hover State */
+QPushButton:hover {
+    background-color: rgba(255, 152, 0, 0.08);  /* Light primary color background */
 	image: url(:/ui/qt/resources/buttons/home_icon.png);
 }
-QPushButton:pressed{
-	background-color: rgb(179, 197, 192);
+
+/* Pressed State */
+QPushButton:pressed {
+    background-color: rgba(255, 152, 0, 0.12);  /* Slightly darker primary color background */
 	image: url(:/ui/qt/resources/buttons/home_icon.png);
 }
-QPushButton:disabled{
-	background-color: rgb(243, 239, 219);
+
+/* Disabled State */
+QPushButton:disabled {
+    background-color: transparent;
+    color: rgba(255, 152, 0, 0.38);  /* Disabled text color */
+    border: 2px solid rgba(255, 152, 0, 0.38);  /* Disabled border color */
 	image: url(:/ui/qt/resources/buttons/home_icon.png);
 }</string>
               </property>
@@ -557,8 +706,11 @@ QPushButton:disabled{
               </property>
               <property name="font">
                <font>
-                <family>Verdana</family>
-                <pointsize>14</pointsize>
+                <family>Roboto</family>
+                <pointsize>-1</pointsize>
+                <weight>62</weight>
+                <italic>false</italic>
+                <bold>true</bold>
                </font>
               </property>
               <property name="toolTip">
@@ -568,23 +720,39 @@ QPushButton:disabled{
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Zoom&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border-radius: 4px;
-	background-color: rgb(255, 184, 90);
-	padding-left: 2px;
-	color: rgb(75, 75, 75);
+               <string notr="true">/* Normal State */
+QPushButton {
+    background-color: transparent;
+    border-radius: 5px; /* Ensure radius fits within button dimensions */
+    padding-left: 2px; /* Adjust padding to fit content */
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition for hover effects */
 	image: url(:/ui/qt/resources/buttons/zoom_icon.png);
 }
-QPushButton:hover{
-	background-color: rgb(248,214,176);	
+
+/* Hover State */
+QPushButton:hover {
+    background-color: rgba(255, 152, 0, 0.08);  /* Light primary color background */
 	image: url(:/ui/qt/resources/buttons/zoom_icon.png);
 }
-QPushButton:pressed{
-	background-color: rgb(179, 197, 192);
+
+/* Pressed State */
+QPushButton:pressed {
+    background-color: rgba(255, 152, 0, 0.12);  /* Slightly darker primary color background */
 	image: url(:/ui/qt/resources/buttons/zoom_icon.png);
 }
-QPushButton:disabled{
-	background-color: rgb(243, 239, 219);
+
+/* Disabled State */
+QPushButton:disabled {
+    background-color: transparent;
+    color: rgba(255, 152, 0, 0.38);  /* Disabled text color */
+    border: 2px solid rgba(255, 152, 0, 0.38);  /* Disabled border color */
 	image: url(:/ui/qt/resources/buttons/zoom_icon.png);
 }</string>
               </property>
@@ -612,8 +780,11 @@ QPushButton:disabled{
               </property>
               <property name="font">
                <font>
-                <family>Verdana</family>
-                <pointsize>14</pointsize>
+                <family>Roboto</family>
+                <pointsize>-1</pointsize>
+                <weight>62</weight>
+                <italic>false</italic>
+                <bold>true</bold>
                </font>
               </property>
               <property name="toolTip">
@@ -623,23 +794,39 @@ QPushButton:disabled{
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Zoom&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border-radius: 4px;
-	background-color: rgb(255, 184, 90);
-	padding-left: 2px;
-	color: rgb(75, 75, 75);
+               <string notr="true">/* Normal State */
+QPushButton {
+    background-color: transparent;
+    border-radius: 5px; /* Ensure radius fits within button dimensions */
+    padding-left: 2px; /* Adjust padding to fit content */
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition for hover effects */
 	image: url(:/ui/qt/resources/buttons/pan_icon.png);
 }
-QPushButton:hover{
-	background-color: rgb(248,214,176);	
+
+/* Hover State */
+QPushButton:hover {
+    background-color: rgba(255, 152, 0, 0.08);  /* Light primary color background */
 	image: url(:/ui/qt/resources/buttons/pan_icon.png);
 }
-QPushButton:pressed{
-	background-color: rgb(179, 197, 192);
+
+/* Pressed State */
+QPushButton:pressed {
+    background-color: rgba(255, 152, 0, 0.12);  /* Slightly darker primary color background */
 	image: url(:/ui/qt/resources/buttons/pan_icon.png);
 }
-QPushButton:disabled{
-	background-color: rgb(243, 239, 219);
+
+/* Disabled State */
+QPushButton:disabled {
+    background-color: transparent;
+    color: rgba(255, 152, 0, 0.38);  /* Disabled text color */
+    border: 2px solid rgba(255, 152, 0, 0.38);  /* Disabled border color */
 	image: url(:/ui/qt/resources/buttons/pan_icon.png);
 }</string>
               </property>
@@ -667,8 +854,11 @@ QPushButton:disabled{
               </property>
               <property name="font">
                <font>
-                <family>Verdana</family>
-                <pointsize>14</pointsize>
+                <family>Roboto</family>
+                <pointsize>-1</pointsize>
+                <weight>62</weight>
+                <italic>false</italic>
+                <bold>true</bold>
                </font>
               </property>
               <property name="toolTip">
@@ -678,23 +868,39 @@ QPushButton:disabled{
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Zoom&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border-radius: 4px;
-	background-color: rgb(255, 184, 90);
-	padding-left: 2px;
-	color: rgb(75, 75, 75);
+               <string notr="true">/* Normal State */
+QPushButton {
+    background-color: transparent;
+    border-radius: 5px; /* Ensure radius fits within button dimensions */
+    padding-left: 2px; /* Adjust padding to fit content */
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition for hover effects */
 	image: url(:/ui/qt/resources/buttons/extend_icon.png);
 }
-QPushButton:hover{
-	background-color: rgb(248,214,176);	
+
+/* Hover State */
+QPushButton:hover {
+    background-color: rgba(255, 152, 0, 0.08);  /* Light primary color background */
 	image: url(:/ui/qt/resources/buttons/extend_icon.png);
 }
-QPushButton:pressed{
-	background-color: rgb(179, 197, 192);
+
+/* Pressed State */
+QPushButton:pressed {
+    background-color: rgba(255, 152, 0, 0.12);  /* Slightly darker primary color background */
 	image: url(:/ui/qt/resources/buttons/extend_icon.png);
 }
-QPushButton:disabled{
-	background-color: rgb(243, 239, 219);
+
+/* Disabled State */
+QPushButton:disabled {
+    background-color: transparent;
+    color: rgba(255, 152, 0, 0.38);  /* Disabled text color */
+    border: 2px solid rgba(255, 152, 0, 0.38);  /* Disabled border color */
 	image: url(:/ui/qt/resources/buttons/extend_icon.png);
 }</string>
               </property>
