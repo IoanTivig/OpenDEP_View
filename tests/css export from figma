@@ -1,0 +1,23 @@
+# Button Primary #
+QPushButton {
+    background-color: #0F172A;
+    color: #FFFFFF;
+    border-radius: 6px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 8px 16px;
+    gap: 10px;
+    width: 77px;
+    height: 40px;
+}
+
+QPushButton:hover {
+    background-color: #334155;
+}
+
+QPushButton:pressed {
+    background-color: #5F728C;
+}

@@ -1,0 +1,18 @@
+QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+	color: #D2D7DD;
+	border: 1px solid #D2D7DD;
+}

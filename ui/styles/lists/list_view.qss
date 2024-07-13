@@ -1,0 +1,66 @@
+/* General QListView styling */
+QListView {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+/* QListView item styling */
+QListView::item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+/* Selected item styling */
+QListView::item:selected {
+    background-color: #0078d7;
+    color: #ffffff;
+}
+
+/* Hovered item styling */
+QListView::item:hover {
+    background-color: #e1e1e1;
+}
+
+/* Disabled item styling */
+QListView::item:disabled {
+    background-color: #f0f0f0;
+    color: #b0b0b0;
+}
+
+/* Scrollbar styling */
+QListView QScrollBar:vertical {
+    border: none;
+    background-color: #f1f1f1;
+    width: 12px;
+    margin: 0px 0px 0px 0px;
+}
+
+QListView QScrollBar::handle:vertical {
+    background-color: #c1c1c1;
+    min-height: 20px;
+}
+
+QListView QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    background: none;
+    height: 0px;
+}
+
+QListView QScrollBar:horizontal {
+    border: none;
+    background-color: #f1f1f1;
+    height: 12px;
+    margin: 0px 0px 0px 0px;
+}
+
+QListView QScrollBar::handle:horizontal {
+    background-color: #c1c1c1;
+    min-width: 20px;
+}
+
+QListView QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    background: none;
+    width: 0px;
+}

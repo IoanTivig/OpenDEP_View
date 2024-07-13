@@ -1,0 +1,2589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>643</width>
+    <height>649</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: #FFFFFF;
+border: none;
+border-radius: 6px;
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">QFrame {
+	background: #FFFFFF;
+	border: none;
+	border-radius: 6px;
+}
+QFrame:hover {
+	 border: 1px solid #CBD5E1;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QFrame" name="pyqt5_frame_curve_details">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+	background: #FFFFFF;
+	border: none;
+	border-radius: 6px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_15">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QCheckBox" name="pyqt5_checkbox_curves_visible">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>31</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>31</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* Default State */
+QCheckBox {
+    border: none;    
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+	padding: 4px;	
+}
+
+QCheckBox:hover {
+    /* Your styles for hover state */
+	 background: #F1F5F9;  /* slate/100 */
+
+}
+
+QCheckBox:pressed {
+    /* Your styles for pressed state */
+	background: #DEE8F2;  /* Pressed background color */
+
+}
+
+QCheckBox::indicator:checked {
+    /* Your styles for checked state */
+	image: url(:/ui/qt/resources/checkbox/visible_icon.png);
+}
+
+QCheckBox::indicator:unchecked {
+    /* Your styles for checked state */
+	image: url(:/ui/qt/resources/checkbox/hiden_icon.png);
+}
+
+QCheckBox:focused {
+    border: none;
+}
+
+</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pyqt5_button_pick_curve_color">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>31</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>31</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <weight>62</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Curve color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="whatsThis">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Curve color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #E2E8F0;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    font: 500 14px/24px 'Segoe UI', sans-serif;  /* Combined font properties */
+    color: #0F172A;  /* Text color */
+    padding: 8px 16px;  /* Padding */
+}
+
+QPushButton:hover {
+    background: #F1F5F9;  /* Hover background */
+}
+
+QPushButton:pressed {
+    background: #DEE8F2;  /* Pressed background */
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="pyqt5_combo_curve_line_style">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>125</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QComboBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+}
+
+/* Drop-down button */
+QComboBox::drop-down {
+    border: none;	
+}
+
+/* Down arrow */
+QComboBox::down-arrow {
+    image: url(:/ui/qt/resources/checkbox/down_icon.png);
+	padding-right: 12px;
+}
+
+/* Down arrow when disabled */
+QComboBox::down-arrow:disabled {
+}
+
+/* Drop-down items */
+QComboBox QAbstractItemView {
+    border: 1px solid #E2E8F0; /* slate/200 */
+    selection-background-color: #F1F5F9;
+}
+
+/* Individual items */
+QComboBox::item {
+    background-color: white;
+    color: #0F172A;
+}</string>
+           </property>
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>Solid</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resources/graphical_resources.qrc">
+              <normaloff>:/ui/qt/resources/dropdown/solid_line_icon.png</normaloff>:/ui/qt/resources/dropdown/solid_line_icon.png</iconset>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Dot</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resources/graphical_resources.qrc">
+              <normaloff>:/ui/qt/resources/dropdown/dot_line_icon.png</normaloff>:/ui/qt/resources/dropdown/dot_line_icon.png</iconset>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Dash</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resources/graphical_resources.qrc">
+              <normaloff>:/ui/qt/resources/dropdown/dashed_line_icon.png</normaloff>:/ui/qt/resources/dropdown/dashed_line_icon.png</iconset>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Dash-dot</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resources/graphical_resources.qrc">
+              <normaloff>:/ui/qt/resources/dropdown/dotdash_line_icon.png</normaloff>:/ui/qt/resources/dropdown/dotdash_line_icon.png</iconset>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="pyqt5_entry_curve_name">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Change Name</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="pyqt5_checkbox_curves_expand">
+           <property name="minimumSize">
+            <size>
+             <width>31</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>31</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="whatsThis">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Expand&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* Default State */
+QCheckBox {
+    border: none;    
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+	padding: 4px;	
+}
+
+QCheckBox:hover {
+    /* Your styles for hover state */
+	 background: #F1F5F9;  /* slate/100 */
+
+}
+
+QCheckBox:pressed {
+    /* Your styles for pressed state */
+	background: #DEE8F2;  /* Pressed background color */
+
+}
+
+QCheckBox::indicator:checked {
+    /* Your styles for checked state */
+	image: url(:/ui/qt/resources/checkbox/up_icon.png);
+}
+
+QCheckBox::indicator:unchecked {
+    /* Your styles for checked state */
+	
+	image: url(:/ui/qt/resources/checkbox/down_icon.png);
+}
+
+QCheckBox:focused {
+    border: none;
+}
+
+</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="pyqt5_frame_group_parameters">
+        <property name="styleSheet">
+         <string notr="true">border: none;</string>
+        </property>
+        <layout class="QVBoxLayout" name="pyqt5_group_parameters">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QFrame" name="frame_2">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>99999</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border: none;
+background-color: #E2E8F0;
+padding-left: 5px;
+padding-right: 5px;</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QFrame" name="pyqt5_frame_menubar_models">
+             <property name="minimumSize">
+              <size>
+               <width>77</width>
+               <height>41</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>77</width>
+               <height>41</height>
+              </size>
+             </property>
+             <property name="acceptDrops">
+              <bool>true</bool>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_24">
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <property name="leftMargin">
+               <number>3</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>3</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="pyqt5_button_toggle_homogenous">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>-1</pointsize>
+                  <weight>62</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Homogenous particle model&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="whatsThis">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Homogenous particle&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */ 
+	padding: 4px;
+	image: url(:/ui/qt/resources/buttons/particle_icon.png);
+}
+
+/* Hover State */
+QPushButton:hover {
+    background: #F1F5F9;  /* slate/100 */
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/particle_icon.png);
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;  /* Pressed background color */
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/particle_icon.png);
+}
+
+QPushButton[customState=&quot;true&quot;] {
+    background: #DEE8F2;  /* Pressed background color */
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/particle_icon.png);
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pyqt5_button_toggle_singleshell">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>-1</pointsize>
+                  <weight>62</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Single-shell model&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="whatsThis">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Zoom&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */ 
+	padding: 4px;
+	image: url(:/ui/qt/resources/buttons/singleshell_icon.png);
+}
+
+/* Hover State */
+QPushButton:hover {
+    background: #F1F5F9;  /* slate/100 */
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/singleshell_icon.png);
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;  /* Pressed background color */
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/singleshell_icon.png);
+}
+
+QPushButton[customState=&quot;true&quot;] {
+    background: #DEE8F2;  /* Pressed background color */
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/singleshell_icon.png);
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QFrame" name="pyqt5_frame_menubar_models_2">
+             <property name="minimumSize">
+              <size>
+               <width>77</width>
+               <height>41</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>9999</width>
+               <height>41</height>
+              </size>
+             </property>
+             <property name="acceptDrops">
+              <bool>true</bool>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_30">
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <property name="leftMargin">
+               <number>3</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>3</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="pyqt5_button_simulate_curve_noise">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>-1</pointsize>
+                  <weight>62</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Simulate experimental data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="whatsThis">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Simulate experimental data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+	padding: 4px;
+	image: url(:/ui/qt/resources/buttons/addnoise_icon.png);
+}
+
+/* Hover State */
+QPushButton:hover {
+	background: #F1F5F9;  /* slate/100 */
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/addnoise_icon.png);
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/addnoise_icon.png);
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pyqt5_button_duplicate_curve">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>-1</pointsize>
+                  <weight>62</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Duplicate curve&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="whatsThis">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Duplicate curve&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+	padding: 4px;
+	image: url(:/ui/qt/resources/buttons/duplicate_icon.png);
+}
+
+/* Hover State */
+QPushButton:hover {
+	background: #F1F5F9;  /* slate/100 */
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/duplicate_icon.png);
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/duplicate_icon.png);
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pyqt5_button_save_curve">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>-1</pointsize>
+                  <weight>62</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export curve&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="whatsThis">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export curve&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+	padding: 4px;
+	image: url(:/ui/qt/resources/buttons/upload_file_icon.png);
+}
+
+/* Hover State */
+QPushButton:hover {
+	background: #F1F5F9;  /* slate/100 */
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/upload_file_icon.png);
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/upload_file_icon.png);
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pyqt5_button_delete_curve">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>-1</pointsize>
+                  <weight>62</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete curve&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="whatsThis">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete curve&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+	padding: 4px;
+	image: url(:/ui/qt/resources/buttons/trash_icon.png);
+}
+
+/* Hover State */
+QPushButton:hover {
+	background: #F1F5F9;  /* slate/100 */
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/trash_icon.png);
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/trash_icon.png);
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QFrame" name="pyqt5_frame_group_singleshell">
+           <layout class="QGridLayout" name="pyqt5_group_singleshell">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item row="0" column="1">
+             <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_16">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_15">
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>9</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_21">
+                 <property name="styleSheet">
+                  <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 18px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 5px;  /* Padding */</string>
+                 </property>
+                 <property name="text">
+                  <string>Citoplasm</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_27" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_22">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Permitivitty (ε&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:sub;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ss_cito_perm">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>40</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_42" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_23">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>Conductivity (S/m)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ss_cito_cond">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>0.1</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_17">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_17">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_16">
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>9</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_24">
+                 <property name="styleSheet">
+                  <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 18px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 5px;  /* Padding */</string>
+                 </property>
+                 <property name="text">
+                  <string>Dimension</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_28" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_25">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>Radius (µm)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ss_size">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>10</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_29" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_26">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>Thickness (nm)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ss_thick">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>6</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_5">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_18">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_25">
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>9</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_27">
+                 <property name="styleSheet">
+                  <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 18px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 5px;  /* Padding */</string>
+                 </property>
+                 <property name="text">
+                  <string>Membrane</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_43" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_44">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Permitivitty (&lt;/span&gt;ε&lt;span style=&quot; vertical-align:sub;&quot;&gt;0&lt;/span&gt;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ss_membr_perm">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>10</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_44" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_45">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>Conductivity (S/m)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ss_membr_cond">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>0.00001</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_18">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_15">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_14">
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>9</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_5">
+                 <property name="styleSheet">
+                  <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 18px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 5px;  /* Padding */</string>
+                 </property>
+                 <property name="text">
+                  <string>Buffer</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_25" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_19">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Permitivitty (ε&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:sub;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ss_buffer_perm">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>78</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_26" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_20">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>Conductivity (S/m)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ss_buffer_cond">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>0.01</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_16">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="pyqt5_frame_group_homogenous">
+           <layout class="QGridLayout" name="pyqt5_group_homogenous">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item row="0" column="1">
+             <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_22">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_23">
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>9</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_40">
+                 <property name="styleSheet">
+                  <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 18px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 5px;  /* Padding */</string>
+                 </property>
+                 <property name="text">
+                  <string>Particle</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_37" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_39">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Permitivitty (ε&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:sub;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ho_part_perm">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>4</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_38" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_41">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>Conductivity (S/m)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ho_part_cond">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>0.00001</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_12">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_20">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_21">
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>9</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_34">
+                 <property name="styleSheet">
+                  <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 18px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 5px;  /* Padding */</string>
+                 </property>
+                 <property name="text">
+                  <string>Buffer</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_34" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_35">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Permitivitty (ε&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:sub;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ho_buffer_perm">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>78</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_35" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_36">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>Conductivity (S/m)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ho_buffer_cond">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>0.01</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_10">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_21">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_22">
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>9</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_37">
+                 <property name="styleSheet">
+                  <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 18px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 5px;  /* Padding */</string>
+                 </property>
+                 <property name="text">
+                  <string>Dimension</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_36" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_38">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>Radius (µm)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="pyqt5_entry_param_ho_size">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>10</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_11">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resources/graphical_resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pyqt5_entry_param_ss_buffer_perm</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>pyqt5_entry_param_ho_buffer_perm</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>249</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>181</x>
+     <y>470</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pyqt5_entry_param_ho_buffer_perm</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>pyqt5_entry_param_ss_buffer_perm</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>262</x>
+     <y>466</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>266</x>
+     <y>185</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pyqt5_entry_param_ss_buffer_cond</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>pyqt5_entry_param_ho_buffer_cond</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>206</x>
+     <y>214</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>219</x>
+     <y>506</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pyqt5_entry_param_ho_buffer_cond</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>pyqt5_entry_param_ss_buffer_cond</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>297</x>
+     <y>499</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>295</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pyqt5_entry_param_ss_size</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>pyqt5_entry_param_ho_size</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>520</x>
+     <y>322</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>614</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pyqt5_entry_param_ho_size</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>pyqt5_entry_param_ss_size</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>184</x>
+     <y>616</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>586</x>
+     <y>320</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

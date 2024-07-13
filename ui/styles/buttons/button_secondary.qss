@@ -1,0 +1,22 @@
+/* Default State */
+QPushButton {
+    background: #F1F5F9;  /* slate/100 */
+    border-radius: 6px; /* Rounded corners */
+    padding: 8px 16px; /* Padding */
+    font-family: 'Segoe UI', sans-serif;
+    font-style: normal; /* Font style */
+    font-weight: 500; /* Font weight */
+    font-size: 14px; /* Font size */
+    line-height: 24px; /* identical to box height, or 171% */
+    color: #0F172A; /* Text color */
+}
+
+/* Hover State */
+QPushButton:hover {
+    background: #E2E8F0;  /* slate/200 */
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #C9D6E8;  /* secondary, pressed */
+}

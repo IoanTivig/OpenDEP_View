@@ -1,0 +1,8 @@
+QLabel {
+    border: none;
+	font-family: 'Segoe UI', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #000000;
+}
