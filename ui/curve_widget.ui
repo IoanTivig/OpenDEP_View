@@ -309,6 +309,96 @@ QComboBox::item {
           </widget>
          </item>
          <item>
+          <widget class="QDoubleSpinBox" name="pyqt5_spinbox_curve_line_width">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QDoubleSpinBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+}
+
+QDoubleSpinBox:focus {
+}
+
+QDoubleSpinBox:disabled {
+}
+
+QDoubleSpinBox::up-button {
+	background: #FFFFFF;
+	border: none; 
+	subcontrol-position: center right;
+	padding-right: 10px;
+}
+
+QDoubleSpinBox::down-button {
+	background: #FFFFFF;
+	border: none;
+	subcontrol-position: center left;
+	padding-left: 10px;
+}
+
+QDoubleSpinBox::up-arrow {
+	image: url(:/ui/qt/resources/buttons/add_icon.png);
+	width: 20px;
+    height: 20px;
+}
+
+QDoubleSpinBox::down-arrow {	
+	image: url(:/ui/qt/resources/buttons/substract_icon.png);
+	width: 20px;
+    height: 20px;
+}
+
+QDoubleSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off {
+}
+
+QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
+}</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="decimals">
+            <number>1</number>
+           </property>
+           <property name="minimum">
+            <double>0.500000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>10.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.500000000000000</double>
+           </property>
+           <property name="value">
+            <double>1.500000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QLineEdit" name="pyqt5_entry_curve_name">
            <property name="enabled">
             <bool>true</bool>

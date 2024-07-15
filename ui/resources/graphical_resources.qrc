@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/ui/qt/resources">
+    <file>buttons/substract_icon.png</file>
     <file>buttons/cloud_icon.png</file>
     <file>buttons/add_circle_icon.png</file>
     <file>buttons/add_icon.png</file>

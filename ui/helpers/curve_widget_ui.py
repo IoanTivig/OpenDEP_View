@@ -26,6 +26,7 @@ class CurveWidgetUI(QWidget):
         self.pyqt5_entry_curve_name.editingFinished.connect(self.change_curve_name)
         self.pyqt5_button_delete_curve.clicked.connect(self.delete_self)
         self.pyqt5_combo_curve_line_style.currentIndexChanged.connect(self.pick_curve_line_style)
+        self.pyqt5_spinbox_curve_line_width.valueChanged.connect(self.change_curve_thickness)
 
         # On Header focus
 
@@ -112,6 +113,11 @@ class CurveWidgetUI(QWidget):
         styles = ['-', ':', '--', '-.']
         self.parent_widget.curves_dict[self.id]["line_style"] = styles[self.pyqt5_combo_curve_line_style.currentIndex()]
         self.parent_widget.refresh_graph()
+
+    def change_curve_thickness(self):
+        self.parent_widget.curves_dict[self.id]["line_width"] = self.pyqt5_spinbox_curve_line_width.value()
+        self.parent_widget.refresh_graph()
+        self.start_focus_curve()
 
     def change_curve_name(self):
         self.parent_widget.curves_dict[self.id]["name"] = self.pyqt5_entry_curve_name.text()

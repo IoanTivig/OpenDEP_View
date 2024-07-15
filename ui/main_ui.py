@@ -181,19 +181,24 @@ class MainUI(QMainWindow):
         while id in self.curves_dict.keys():
             id = random.randint(0, 9999)
 
+        # Create base parameters for the curve
         color = general.get_random_color_hex()
         name = f"Curve {len(self.curves_dict) + 1}"
         visibility = True
         model = random.randint(0,1)
         line_style = '-'
+        line_width = 1.5
+
+        # Add the curve to the dictionary
         self.curves_dict[id] = {"name": name,
-                                  "color": color,
-                                  "line_style": line_style,
-                                  "visibility": visibility,
-                                  "model": model,
-                                  "parameters": generated_parameters,
-                                  "curves": curve_data,
-                                  "widget": new_curve_widget}
+                                "color": color,
+                                "line_style": line_style,
+                                "line_width": line_width,
+                                "visibility": visibility,
+                                "model": model,
+                                "parameters": generated_parameters,
+                                "curves": curve_data,
+                                "widget": new_curve_widget}
 
         # Populate the widget with the data
         new_curve_widget.id = id
@@ -219,19 +224,12 @@ class MainUI(QMainWindow):
                     if button.property("customState"):
                         # Calculate the index of data depending on selected model and type of graph content
                         new_index = self.curves_dict[key]["model"] * 3 + index + 1
-                        if focus_curve_id == key and focus_curve_id is not None:
-                            self.pyqt5_graph_widget.update_curve(name=self.curves_dict[key]["name"],
-                                                                color=self.curves_dict[key]["color"],
-                                                                line_style=self.curves_dict[key]["line_style"],
-                                                                x_data=self.curves_dict[key]["curves"][0],
-                                                                y_data=self.curves_dict[key]["curves"][new_index],
-                                                                line_width=3)
-                        else:
-                            self.pyqt5_graph_widget.update_curve(name=self.curves_dict[key]["name"],
-                                                                    color=self.curves_dict[key]["color"],
-                                                                    line_style=self.curves_dict[key]["line_style"],
-                                                                    x_data=self.curves_dict[key]["curves"][0],
-                                                                    y_data=self.curves_dict[key]["curves"][new_index])
+                        self.pyqt5_graph_widget.update_curve(name=self.curves_dict[key]["name"],
+                                                            color=self.curves_dict[key]["color"],
+                                                            line_style=self.curves_dict[key]["line_style"],
+                                                            x_data=self.curves_dict[key]["curves"][0],
+                                                            y_data=self.curves_dict[key]["curves"][new_index],
+                                                            line_width=self.curves_dict[key]["line_width"])
                         y_index = index
                         break
 
