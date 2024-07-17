@@ -28,15 +28,11 @@ class CurveWidgetUI(QWidget):
         self.pyqt5_combo_curve_line_style.currentIndexChanged.connect(self.pick_curve_line_style)
         self.pyqt5_spinbox_curve_line_width.valueChanged.connect(self.change_curve_thickness)
 
+        self.pyqt5_combo_model_selection.currentIndexChanged.connect(lambda:self.change_model(self.pyqt5_combo_model_selection.currentIndex()))
+        self.change_model(0)
+
         # On Header focus
 
-
-        # Plots menubar, to toggle what is displayed on the plots
-        self.pyqt5_model_buttons = [self.pyqt5_button_toggle_homogenous, self.pyqt5_button_toggle_singleshell]
-        self.pyqt5_model_tab_widgets = [self.pyqt5_frame_group_homogenous, self.pyqt5_frame_group_singleshell]
-        for button in self.pyqt5_model_buttons:
-            button.clicked.connect(lambda: self.toggle_tabs(self.pyqt5_model_buttons, self.pyqt5_model_tab_widgets))
-        self.pyqt5_model_buttons[0].click()
 
     def collapse(self, collapse=True):
         if collapse:
@@ -44,14 +40,17 @@ class CurveWidgetUI(QWidget):
         else:
             self.pyqt5_frame_group_parameters.setVisible(True)
 
-    def toggle_tabs(self, buttons, tab_widgets):
-        sender = self.sender()  # Get the button that was clicked
-        for button in buttons:
-            button.setProperty("customState", button == sender)
-            button.setStyle(button.style())  # Refresh style to apply property
+    def change_model(self, index):
+        for i in self.pyqt5_frame_input_group.findChildren(QWidget):
+            i.setVisible(True)
+        if index == 0:
+            self.pyqt5_frame_size_group.setVisible(False)
+            self.pyqt5_frame_1st_shell_group.setVisible(False)
+            self.pyqt5_frame_2nd_shell_group.setVisible(False)
+        if index == 1:
+            self.pyqt5_frame_2nd_thick.setVisible(False)
+            self.pyqt5_frame_2nd_shell_group.setVisible(False)
 
-        for i, button in enumerate(buttons):
-            tab_widgets[i].setVisible(button == sender)
 
     def get_random_color_hex(self):
         return "#{:06x}".format(random.randint(0, 0xFFFFFF))
@@ -66,29 +65,27 @@ class CurveWidgetUI(QWidget):
         self.pyqt5_button_pick_curve_color.setStyleSheet(f"background-color: {color}")
         self.pyqt5_entry_curve_name.setText(name)
         self.pyqt5_checkbox_curves_visible.setChecked(visible)
-        self.pyqt5_model_buttons[model].click()
 
-        # For Homogeneous model
-        self.pyqt5_entry_param_ho_buffer_perm.setText(str(parameters[0][0]))
-        self.pyqt5_entry_param_ho_buffer_cond.setText(str(parameters[0][1]))
+        # Model Selection
+        self.pyqt5_combo_model_selection.setCurrentIndex(model)
 
-        self.pyqt5_entry_param_ho_part_perm.setText(str(parameters[2][0]))
-        self.pyqt5_entry_param_ho_part_cond.setText(str(parameters[2][1]))
+        self.pyqt5_entry_param_buffer_perm.setText(str(parameters["buffer_perm"]))  # Buffer permittivity
+        self.pyqt5_entry_param_buffer_cond.setText(str(parameters["buffer_cond"]))  # Buffer conductivity
 
-        self.pyqt5_entry_param_ho_size.setText(str(parameters[0][2]))
+        self.pyqt5_entry_param_core_perm.setText(str(parameters["core_perm"]))  # Core permittivity
+        self.pyqt5_entry_param_core_cond.setText(str(parameters["core_cond"]))  # Core conductivity
 
-        # For single shell model
-        self.pyqt5_entry_param_ss_buffer_perm.setText(str(parameters[0][0]))
-        self.pyqt5_entry_param_ss_buffer_cond.setText(str(parameters[0][1]))
+        self.pyqt5_entry_param_1st_shell_perm.setText(str(parameters["1st_shell_perm"]))  # 1st shell permittivity
+        self.pyqt5_entry_param_1st_shell_cond.setText(str(parameters["1st_shell_cond"]))  # 1st shell conductivity
 
-        self.pyqt5_entry_param_ss_cito_perm.setText(str(parameters[1][0]))
-        self.pyqt5_entry_param_ss_cito_cond.setText(str(parameters[1][1]))
+        self.pyqt5_entry_param_2nd_shell_perm.setText(str(parameters["2nd_shell_perm"]))  # 2nd shell permittivity
+        self.pyqt5_entry_param_2nd_shell_cond.setText(str(parameters["2nd_shell_cond"]))  # 2nd shell conductivity
 
-        self.pyqt5_entry_param_ss_membr_perm.setText(str(parameters[1][2]))
-        self.pyqt5_entry_param_ss_membr_cond.setText(str(parameters[1][3]))
+        self.pyqt5_entry_param_size.setText(str(parameters["core_radius"]))  # Particle radius
+        self.pyqt5_entry_param_fieldgrad.setText(str(parameters["electric_field"]))  # Electric Field
 
-        self.pyqt5_entry_param_ss_thick.setText(str(parameters[1][4]))
-        self.pyqt5_entry_param_ss_size.setText(str(parameters[0][2]))
+        self.pyqt5_entry_param_1st_shell_thick.setText(str(parameters["1st_shell_thick"]))  # 1st shell thickness
+        self.pyqt5_entry_param_2nd_shell_thick.setText(str(parameters["2nd_shell_thick"]))  # 2nd shell thickness)
 
     def toggle_hide(self):
         if self.pyqt5_checkbox_curves_visible.isChecked():

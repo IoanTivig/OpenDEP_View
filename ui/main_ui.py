@@ -165,16 +165,13 @@ class MainUI(QMainWindow):
         generated_parameters = self.create_default_curve_data()
 
         # Generate the curve data
-        curve_data = self.generate_curve_data(generated_parameters[0],
-                                              generated_parameters[1],
-                                              generated_parameters[2],
-                                              float(self.pyqt5_entry_param_fieldgrad.text()))
+        curve_data = self.generate_curve_data(generated_parameters)
 
         # Calculate the cross over frequency
-        cross_over_freq_ho = self.get_cross_over_freq(curve_data[0], curve_data[1])
-        #print(cross_over_freq_ho)
-        cross_over_freq_ss = self.get_cross_over_freq(curve_data[0], curve_data[4])
-        #print(cross_over_freq_ss)
+        first_ho_co, second_ho_co = self.get_cross_over_freq(curve_data["frequencies"], curve_data["recm_homogenous_particle"])
+        print(f"First CO: {first_ho_co}, Second CO: {second_ho_co}")
+        first_ss_co, second_ss_co = self.get_cross_over_freq(curve_data["frequencies"], curve_data["recm_single_shell"])
+        print(f"First CO: {first_ss_co}, Second CO: {second_ss_co}")
 
         # Create Random ID which wont be already in the dictionary keys
         id = random.randint(0, 9999)
@@ -215,6 +212,16 @@ class MainUI(QMainWindow):
         self.pyqt5_graph_widget.canvas.axes.clear()
         # Some local_vars
         y_index = 0
+        curves = ["frequencies",
+                  "recm_homogenous_particle",
+                  "imcm_homogenous_particle",
+                  "depforce_homogenous_particle",
+                  "recm_single_shell",
+                  "imcm_single_shell",
+                  "depforce_single_shell",
+                  "recm_two_shell",
+                  "imcm_two_shell",
+                  "depforce_two_shell"]
 
         # Add all curves to the graph
         for key in self.curves_dict.keys():
@@ -224,11 +231,13 @@ class MainUI(QMainWindow):
                     if button.property("customState"):
                         # Calculate the index of data depending on selected model and type of graph content
                         new_index = self.curves_dict[key]["model"] * 3 + index + 1
+
+
                         self.pyqt5_graph_widget.update_curve(name=self.curves_dict[key]["name"],
                                                             color=self.curves_dict[key]["color"],
                                                             line_style=self.curves_dict[key]["line_style"],
-                                                            x_data=self.curves_dict[key]["curves"][0],
-                                                            y_data=self.curves_dict[key]["curves"][new_index],
+                                                            x_data=self.curves_dict[key]["curves"]["frequencies"],
+                                                            y_data=self.curves_dict[key]["curves"][curves[new_index]],
                                                             line_width=self.curves_dict[key]["line_width"])
                         y_index = index
                         break
@@ -249,15 +258,25 @@ class MainUI(QMainWindow):
     def create_default_curve_data(self):
         # Details: name, color, visibility, model, gen_data, ss_data, ho_data
         # ss_data: buffer permittivity, buffer conductivity, particle
-        gen_data = [78.0, 0.01, 10.0]
-        # ss_data: citoplasm permittivity, citoplasm conductivity, membrane permittivity, membrane conductivity, membrane thickness
-        ss_data = [random.randint(5,100), 0.1, random.randint(5,100), 0.00001, 6.0]
-        # ho_data: permittivity, conductivity
-        ho_data = [random.randint(2,100), 0.00001]
+        parameters = {"buffer_perm":78,
+                      "buffer_cond":0.01,
+                      "core_perm":random.randint(5,100),
+                      "core_cond":0.1,
+                      "core_radius": 10.0,
+                      "1st_shell_perm":random.randint(5,100),
+                      "1st_shell_cond":0.00001,
+                      "1st_shell_thick":6.0,
+                      "2nd_shell_perm":random.randint(5,100),
+                      "2nd_shell_cond":0.00001,
+                      "2nd_shell_thick": 6.0,
+                      "electric_field":1.0,
+                      "1st_cross_over":0.0,
+                      "2nd_cross_over":0.0
+        }
 
-        return gen_data, ss_data, ho_data
+        return parameters
 
-    def generate_curve_data(self, general_data, ss_model_data, ho_model_data, field_grad):
+    def generate_curve_data(self, parameters):
         # Generate the frequency list
         start = np.log10(float(self.pyqt5_entry_param_freq_start.text())*(1000**self.pyqt5_combo_param_freq_start_unit.currentIndex()))
         stop = np.log10(float(self.pyqt5_entry_param_freq_stop.text())*(1000**self.pyqt5_combo_param_freq_stop_unit.currentIndex()))
@@ -277,19 +296,21 @@ class MainUI(QMainWindow):
         imcm_ss_list = []
         depforce_ss_list = []
 
+        # Initialize lists for two shell particle model
+        recm_ts_list = []
+        imcm_ts_list = []
+        depforce_ts_list = []
+
         for freq in frequencies_list:
-            # gen_data: buffer permittivity, buffer conductivity, particle size
-            # ss_data: citoplasm permittivity, citoplasm conductivity, membrane permittivity, membrane conductivity, membrane thickness
-            # ho_data: permittivity, conductivity
             # Generate all lists for homogenous particle
             recm_ho, imcm_ho, depforce_ho = models.homogenous_particle_all(
                                         freq=freq,
-                                        fitting_gen_fieldgrad=field_grad,
-                                        fitting_hopa_particle_radius=general_data[2],
-                                        fitting_hopa_particle_perm=ho_model_data[0],
-                                        fitting_hopa_particle_cond=ho_model_data[1],
-                                        fitting_gen_buffer_perm=general_data[0],
-                                        fitting_gen_buffer_cond=general_data[1])
+                                        fitting_gen_fieldgrad=parameters["electric_field"],
+                                        fitting_hopa_particle_radius=parameters["core_radius"],
+                                        fitting_hopa_particle_perm=parameters["core_perm"],
+                                        fitting_hopa_particle_cond=parameters["core_cond"],
+                                        fitting_gen_buffer_perm=parameters["buffer_perm"],
+                                        fitting_gen_buffer_cond=parameters["buffer_cond"])
 
             recm_ho_list.append(recm_ho)
             imcm_ho_list.append(imcm_ho)
@@ -298,32 +319,68 @@ class MainUI(QMainWindow):
             # Generate all lists for single shell particle
             recm_ss, imcm_ss, depforce_ss = models.single_shell_all(
                         freq=freq,
-                        fitting_gen_fieldgrad=field_grad,
-                        fitting_sish_particle_radius=general_data[2],
-                        fitting_sish_membrane_thickness=ss_model_data[4],
-                        fitting_sish_membrane_perm=ss_model_data[2],
-                        fitting_sish_membrane_cond=ss_model_data[3],
-                        fitting_sish_cytoplasm_perm=ss_model_data[0],
-                        fitting_sish_cytoplasm_cond=ss_model_data[1],
-                        fitting_gen_buffer_perm=general_data[0],
-                        fitting_gen_buffer_cond=general_data[1])
+                        fitting_gen_fieldgrad=parameters["electric_field"],
+                        fitting_sish_particle_radius=parameters["core_radius"],
+                        fitting_sish_membrane_thickness=parameters["1st_shell_thick"],
+                        fitting_sish_membrane_perm=parameters["1st_shell_perm"],
+                        fitting_sish_membrane_cond=parameters["1st_shell_cond"],
+                        fitting_sish_cytoplasm_perm=parameters["core_perm"],
+                        fitting_sish_cytoplasm_cond=parameters["core_cond"],
+                        fitting_gen_buffer_perm=parameters["buffer_perm"],
+                        fitting_gen_buffer_cond=parameters["buffer_cond"])
 
             recm_ss_list.append(recm_ss)
             imcm_ss_list.append(imcm_ss)
             depforce_ss_list.append(depforce_ss)
 
-        return frequencies_list, recm_ho_list, imcm_ho_list, depforce_ho_list, recm_ss_list, imcm_ss_list, depforce_ss_list
+            # Generate all lists for two shell particle
+            recm_ts, imcm_ts, depforce_ts = models.two_shell_all(
+                        freq=freq,
+                        field_grad=parameters["electric_field"],
+                        core_radius=parameters["core_radius"],
+                        inner_shell_thickness=parameters["1st_shell_thick"],
+                        inner_shell_perm=parameters["1st_shell_perm"],
+                        inner_shell_cond=parameters["1st_shell_cond"],
+                        outer_shell_thickness=parameters["2nd_shell_thick"],
+                        outer_shell_perm=parameters["2nd_shell_perm"],
+                        outer_shell_cond=parameters["2nd_shell_cond"],
+                        core_perm=parameters["core_perm"],
+                        core_cond=parameters["core_cond"],
+                        buffer_perm=parameters["buffer_perm"],
+                        buffer_cond=parameters["buffer_cond"])
+
+            recm_ts_list.append(recm_ts)
+            imcm_ts_list.append(imcm_ts)
+            depforce_ts_list.append(depforce_ts)
+
+        curve_data = {
+            "frequencies": frequencies_list,
+            "recm_homogenous_particle": recm_ho_list,
+            "imcm_homogenous_particle": imcm_ho_list,
+            "depforce_homogenous_particle": depforce_ho_list,
+            "recm_single_shell": recm_ss_list,
+            "imcm_single_shell": imcm_ss_list,
+            "depforce_single_shell": depforce_ss_list,
+            "recm_two_shell": recm_ts_list,
+            "imcm_two_shell": imcm_ts_list,
+            "depforce_two_shell": depforce_ts_list
+        }
+
+        return curve_data
 
     def get_cross_over_freq(self, freq_list, recm_list):
         intersections = []
-        for i in range(1, len(freq_list)):
-            if (freq_list[i - 1] > 0 and freq_list[i] < 0) or (freq_list[i - 1] < 0 and freq_list[i] > 0):
-                # Linear interpolation to find the y value where x would be 0
-                x1, x2 = freq_list[i - 1], freq_list[i]
-                y1, y2 = recm_list[i - 1], recm_list[i]
-                y_intersect = y1 + (0 - x1) * (y2 - y1) / (x2 - x1)
-                intersections.append(y_intersect)
-        return intersections
+        first_co = None
+        second_co = None
+        for i in range(len(recm_list)-1):
+            if recm_list[i] < 0 and recm_list[i+1] > 0:
+                first_co = freq_list[i]
+                intersections.append(freq_list[i])
+            elif recm_list[i] > 0 and recm_list[i+1] < 0:
+                second_co = freq_list[i]
+                intersections.append(freq_list[i])
+
+        return first_co, second_co
 
 
 
