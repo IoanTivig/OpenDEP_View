@@ -49,6 +49,7 @@ class MainUI(QMainWindow):
         # Create default parameters
         self.default_curve = None
         self.curves_dict = {}
+        self.scatter_dict = {}
         self.no_curve_points = 100
 
         # Load the rest of the widgets
@@ -347,16 +348,17 @@ class MainUI(QMainWindow):
         self.pyqt5_graph_widget.canvas.axes.clear()
         # Some local_vars
         y_index = 0
-        curves = ["frequencies",
-                  "recm_homogenous_particle",
-                  "imcm_homogenous_particle",
-                  "depforce_homogenous_particle",
-                  "recm_single_shell",
-                  "imcm_single_shell",
-                  "depforce_single_shell",
-                  "recm_two_shell",
-                  "imcm_two_shell",
-                  "depforce_two_shell"]
+        curves = [
+            "frequencies",
+            "recm_homogenous_particle",
+            "depforce_homogenous_particle",
+            "imcm_homogenous_particle",
+            "recm_single_shell",
+            "depforce_single_shell",
+            "imcm_single_shell",
+            "recm_two_shell",
+            "depforce_two_shell",
+            "imcm_two_shell"]
 
         # Add all curves to the graph
         for key in self.curves_dict.keys():
@@ -366,8 +368,6 @@ class MainUI(QMainWindow):
                     if button.property("customState"):
                         # Calculate the index of data depending on selected model and type of graph content
                         new_index = self.curves_dict[key]["model"] * 3 + index + 1
-
-
                         self.pyqt5_graph_widget.update_curve(name=self.curves_dict[key]["name"],
                                                             color=self.curves_dict[key]["color"],
                                                             line_style=self.curves_dict[key]["line_style"],

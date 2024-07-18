@@ -565,13 +565,13 @@ padding-right: 5px;</string>
             <widget class="QComboBox" name="pyqt5_combo_model_selection">
              <property name="minimumSize">
               <size>
-               <width>150</width>
+               <width>175</width>
                <height>41</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>150</width>
+               <width>175</width>
                <height>41</height>
               </size>
              </property>
@@ -623,7 +623,7 @@ QComboBox::item {
               </property>
               <property name="icon">
                <iconset resource="resources/graphical_resources.qrc">
-                <normaloff>:/ui/qt/resources/buttons/particle_icon.png</normaloff>:/ui/qt/resources/buttons/particle_icon.png</iconset>
+                <normaloff>:/ui/qt/resources/buttons/homogenous_icon.png</normaloff>:/ui/qt/resources/buttons/homogenous_icon.png</iconset>
               </property>
              </item>
              <item>
@@ -637,11 +637,11 @@ QComboBox::item {
              </item>
              <item>
               <property name="text">
-               <string>Two-shell</string>
+               <string>Two-shell (in work)</string>
               </property>
               <property name="icon">
                <iconset resource="resources/graphical_resources.qrc">
-                <normaloff>:/ui/qt/resources/buttons/singleshell_icon.png</normaloff>:/ui/qt/resources/buttons/singleshell_icon.png</iconset>
+                <normaloff>:/ui/qt/resources/buttons/twoshell_icon.png</normaloff>:/ui/qt/resources/buttons/twoshell_icon.png</iconset>
               </property>
              </item>
             </widget>

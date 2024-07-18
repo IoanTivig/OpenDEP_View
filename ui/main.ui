@@ -182,60 +182,6 @@ QPushButton[customState=&quot;true&quot;] {
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pyqt5_button_graphcontent_imcmf">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Segoe UI</family>
-                   <pointsize>-1</pointsize>
-                   <weight>62</weight>
-                   <italic>false</italic>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">/* Default State */
-QPushButton {
-    border: none;
-	background: transparent;  /* Ghost button with no background */
-    color: #0F172A;  /* Text color */
-    border-radius: 6px;  /* Rounded corners */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding: 8px 16px;  /* Padding */
-}
-
-/* Hover State */
-QPushButton:hover {
-    background: #F1F5F9;  /* slate/100 */
-    color: #0F172A;  /* Text color */
-}
-
-/* Pressed State */
-QPushButton:pressed {
-    background: #DEE8F2;  /* Pressed background color */
-    color: #0F172A;  /* Text color */
-}
-
-QPushButton[customState=&quot;true&quot;] {
-    background: #DEE8F2;  /* Pressed background color */
-    color: #0F172A;  /* Text color */
-}</string>
-                 </property>
-                 <property name="text">
-                  <string>Im[CM(f)]</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QPushButton" name="pyqt5_button_graphcontent_depforce">
                  <property name="minimumSize">
                   <size>

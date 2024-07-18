@@ -124,6 +124,7 @@ def single_shell_CMfactor_imag(
     fitting_gen_buffer_perm,
     fitting_gen_buffer_cond,
 ):
+
     return single_shell_CMfactor_complex(
         freq,
         fitting_sish_particle_radius,
@@ -229,7 +230,6 @@ def single_shell_all(
         fitting_gen_buffer_perm,
         fitting_gen_buffer_cond,
     )
-
     return cm_factor_real, cm_factor_imag, dep_force
 
 ### Homogenous particle ###

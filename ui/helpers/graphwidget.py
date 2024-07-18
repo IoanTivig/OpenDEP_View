@@ -74,7 +74,7 @@ class GraphWidget(QWidget):
         self.canvas.draw()
 
     def format_graph(self, y_index=0):
-        y_labels = ['Re[CM(f)]', 'Im[CM(f)]', 'DEP force (pN)']
+        y_labels = ['Re[CM(f)]', 'DEP force (pN)', 'Im[CM(f)]',]
 
         plt.xscale('log')
         self.canvas.axes.set_xlabel('Frequency (Hz)', labelpad=5)
