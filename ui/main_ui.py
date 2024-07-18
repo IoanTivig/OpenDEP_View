@@ -7,9 +7,11 @@ from PyQt5.uic import loadUi
 from PyQt5 import QtCore
 from matplotlib.figure import Figure
 import numpy as np
+import json
 
 from src.func import models
 from src.func import general
+from src.classes.numpy_encoder import NumpyEncoder
 
 from ui.helpers.curve_widget_ui import CurveWidgetUI
 from ui.resources import graphical_resources
@@ -60,6 +62,9 @@ class MainUI(QMainWindow):
         self.pyqt5_button_fitspace_figure.clicked.connect(self.pyqt5_graph_widget.set_tight_layout)
         #self.pyqt5_button_resize_figure.clicked.connect(self.resize_graph)
 
+        # Data buttons
+        self.pyqt5_button_curve_load.clicked.connect(self.load_curve)
+
         # Hide Scrollbars
         self.pyqt5_scrollarea_plots_curve.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.pyqt5_scrollarea_plots_curve.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
@@ -93,6 +98,12 @@ class MainUI(QMainWindow):
 
         # ScrollArea buttons
         self.pyqt5_button_curves_add.clicked.connect(self.generate_new_curve)
+
+        # Entry fields for the frequency range
+        self.pyqt5_entry_param_freq_start.editingFinished.connect(self.modify_all_curves)
+        self.pyqt5_entry_param_freq_stop.editingFinished.connect(self.modify_all_curves)
+        self.pyqt5_combo_param_freq_start_unit.currentIndexChanged.connect(self.modify_all_curves)
+        self.pyqt5_combo_param_freq_stop_unit.currentIndexChanged.connect(self.modify_all_curves)
 
 
     # Functionality for the menubar buttons and toggling the tabs
@@ -157,6 +168,7 @@ class MainUI(QMainWindow):
         if color.isValid():
             print(color.name())
 
+    # Curve functionality - add, modify, duplicate, delete, save, load
     def generate_new_curve(self):
         # Create a new curve widget
         new_curve_widget = CurveWidgetUI()
@@ -168,10 +180,17 @@ class MainUI(QMainWindow):
         curve_data = self.generate_curve_data(generated_parameters)
 
         # Calculate the cross over frequency
+        # Homogenous
         first_ho_co, second_ho_co = self.get_cross_over_freq(curve_data["frequencies"], curve_data["recm_homogenous_particle"])
-        print(f"First CO: {first_ho_co}, Second CO: {second_ho_co}")
+        generated_parameters["1st_cross_over"]["homogenous"] = first_ho_co
+        generated_parameters["2nd_cross_over"]["homogenous"] = second_ho_co
+        # Single Shell
         first_ss_co, second_ss_co = self.get_cross_over_freq(curve_data["frequencies"], curve_data["recm_single_shell"])
-        print(f"First CO: {first_ss_co}, Second CO: {second_ss_co}")
+        generated_parameters["1st_cross_over"]["single_shell"] = first_ss_co
+        generated_parameters["2nd_cross_over"]["single_shell"] = second_ss_co
+        ## TO ADD The Two-Shell model after is implemented fully
+        generated_parameters["1st_cross_over"]["two_shell"] = 0.0
+        generated_parameters["2nd_cross_over"]["two_shell"] = 0.0
 
         # Create Random ID which wont be already in the dictionary keys
         id = random.randint(0, 9999)
@@ -200,13 +219,129 @@ class MainUI(QMainWindow):
         # Populate the widget with the data
         new_curve_widget.id = id
         new_curve_widget.parent_widget = self
-        new_curve_widget.populate_with_data()
+        new_curve_widget.set_entries_with_data()
 
         # Refresh all graphs with new data
         self.refresh_graph()
 
         # Dock the widget at index 0 from the top
         self.pyqt5_scrollarea_plots_curve_layout.insertWidget(0, new_curve_widget)
+
+    def modify_single_curve(self, id):
+        # Update the parameters from entry fields of the widget
+        parameters = self.curves_dict[id]["widget"].get_data_from_entries()
+        self.curves_dict[id]["parameters"] = parameters
+
+        # Generate the curve data
+        curve_data = self.generate_curve_data(self.curves_dict[id]["parameters"])
+        self.curves_dict[id]["curves"] = curve_data
+
+        # Calculate the cross over frequency
+        # Homogenous
+        first_ho_co, second_ho_co = self.get_cross_over_freq(self.curves_dict[id]["curves"]["frequencies"], self.curves_dict[id]["curves"]["recm_homogenous_particle"])
+        self.curves_dict[id]["parameters"]["1st_cross_over"]["homogenous"] = first_ho_co
+        self.curves_dict[id]["parameters"]["2nd_cross_over"]["homogenous"] = second_ho_co
+        # Single Shell
+        first_ss_co, second_ss_co = self.get_cross_over_freq(self.curves_dict[id]["curves"]["frequencies"], self.curves_dict[id]["curves"]["recm_single_shell"])
+        self.curves_dict[id]["parameters"]["1st_cross_over"]["single_shell"] = first_ss_co
+        self.curves_dict[id]["parameters"]["2nd_cross_over"]["single_shell"] = second_ss_co
+        ## TO ADD The Two-Shell model after is implemented fully
+        first_ts_co, second_ts_co = self.get_cross_over_freq(self.curves_dict[id]["curves"]["frequencies"], self.curves_dict[id]["curves"]["recm_two_shell"])
+        self.curves_dict[id]["parameters"]["1st_cross_over"]["two_shell"] = first_ts_co
+        self.curves_dict[id]["parameters"]["2nd_cross_over"]["two_shell"] = second_ts_co
+
+        # Refresh all graphs with new data
+        self.curves_dict[id]["widget"].update_crossover()
+        self.refresh_graph()
+
+    def duplicate_curve(self, id):
+        # Create a new curve widget
+        new_curve_widget = CurveWidgetUI()
+
+        # Create a new parameters list
+        data_copy = self.curves_dict[id].copy()
+
+        # Create Random ID which wont be already in the dictionary keys
+        new_id = random.randint(0, 9999)
+        while new_id in self.curves_dict.keys():
+            new_id = random.randint(0, 9999)
+
+        # Create new name
+        name = f"{self.curves_dict[id]['name']} - Copy"
+
+        self.curves_dict[new_id] = data_copy
+        self.curves_dict[new_id]["widget"] = new_curve_widget
+        self.curves_dict[new_id]["name"] = name
+
+        # Populate the widget with the data
+        new_curve_widget.id = new_id
+        new_curve_widget.parent_widget = self
+        new_curve_widget.set_entries_with_data()
+
+        # Refresh all graphs with new data
+        self.modify_all_curves()
+
+        # Dock the widget at index 0 from the top
+        self.pyqt5_scrollarea_plots_curve_layout.insertWidget(0, new_curve_widget)
+
+    def delete_curve(self, id):
+        # Remove the curve from the dictionary
+        del self.curves_dict[id]
+
+        # Refresh the graph
+        self.refresh_graph()
+
+    def save_curve(self, id, file_path):
+        # save all curve data to a json file from the dictionary
+        data = self.curves_dict[id].copy()
+        data["widget"] = None
+
+        with open(file_path, 'w') as file:
+            json.dump(data, file, cls=NumpyEncoder)
+
+        file.close()
+
+    def load_curve(self):
+        # load curve data from a json file to the dictionary
+        file_path, _ = QFileDialog.getOpenFileName(self, "Load curve", "", "OpenDEP Curve (*.odc)")
+
+        if file_path:
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+                id = random.randint(0, 9999)
+                while id in self.curves_dict.keys():
+                    id = random.randint(0, 9999)
+
+            # Create a new curve widget
+            new_curve_widget = CurveWidgetUI()
+
+            # Create a new parameters list
+            data_copy = data
+
+            # Create Random ID which wont be already in the dictionary keys
+            new_id = random.randint(0, 9999)
+            while new_id in self.curves_dict.keys():
+                new_id = random.randint(0, 9999)
+
+            # Update with the new widget and nwe data
+            self.curves_dict[new_id] = data_copy
+            self.curves_dict[new_id]["widget"] = new_curve_widget
+
+            # Populate the widget with the data
+            new_curve_widget.id = new_id
+            new_curve_widget.parent_widget = self
+            new_curve_widget.set_entries_with_data()
+
+            # Refresh all graphs with new data
+            self.modify_all_curves()
+
+            # Dock the widget at index 0 from the top
+            self.pyqt5_scrollarea_plots_curve_layout.insertWidget(0, new_curve_widget)
+
+    # Multiple curve functionality - modify all
+    def modify_all_curves(self):
+        for key in self.curves_dict.keys():
+            self.modify_single_curve(key)
 
     def refresh_graph(self, focus_curve_id=None):
         self.pyqt5_graph_widget.canvas.axes.clear()
@@ -248,13 +383,7 @@ class MainUI(QMainWindow):
         self.pyqt5_graph_widget.format_graph(y_index=y_index)
         self.pyqt5_graph_widget.canvas.draw()
 
-    def delete_curve(self, id):
-        # Remove the curve from the dictionary
-        del self.curves_dict[id]
-
-        # Refresh the graph
-        self.refresh_graph()
-
+    # Place holder parameters and data for when adding new curve
     def create_default_curve_data(self):
         # Details: name, color, visibility, model, gen_data, ss_data, ho_data
         # ss_data: buffer permittivity, buffer conductivity, particle
@@ -270,12 +399,17 @@ class MainUI(QMainWindow):
                       "2nd_shell_cond":0.00001,
                       "2nd_shell_thick": 6.0,
                       "electric_field":1.0,
-                      "1st_cross_over":0.0,
-                      "2nd_cross_over":0.0
+                      "1st_cross_over": {"homogenous": 0.0,
+                                         "single_shell": 0.0,
+                                         "two_shell": 0.0},
+                      "2nd_cross_over": {"homogenous": 0.0,
+                                         "single_shell": 0.0,
+                                         "two_shell": 0.0}
         }
 
         return parameters
 
+    # Generate the curve data for the given parameters
     def generate_curve_data(self, parameters):
         # Generate the frequency list
         start = np.log10(float(self.pyqt5_entry_param_freq_start.text())*(1000**self.pyqt5_combo_param_freq_start_unit.currentIndex()))
@@ -368,6 +502,7 @@ class MainUI(QMainWindow):
 
         return curve_data
 
+    # Calculate the cross over frequency
     def get_cross_over_freq(self, freq_list, recm_list):
         intersections = []
         first_co = None

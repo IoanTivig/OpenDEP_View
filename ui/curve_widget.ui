@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>545</width>
-    <height>543</height>
+    <width>549</width>
+    <height>708</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,7 +50,7 @@ QFrame:hover {
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1,0">
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1,0,0,0">
       <item>
        <widget class="QFrame" name="pyqt5_frame_curve_details">
         <property name="layoutDirection">
@@ -156,6 +156,49 @@ QCheckBox:focused {
            </property>
            <property name="checked">
             <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="pyqt5_entry_curve_name">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Change Name</string>
            </property>
           </widget>
          </item>
@@ -395,49 +438,6 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
            </property>
            <property name="value">
             <double>1.500000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="pyqt5_entry_curve_name">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>125</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLineEdit {
-    background: #FFFFFF;  /* Default background */
-    border: 1px solid #CBD5E1;  /* Default border */
-    border-radius: 6px;  /* Rounded corners */
-    color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding: 4px 8px;  /* Padding */
-}
-
-/* Disabled State */
-QLineEdit:disabled {
-    color: #D2D7DD;
-    border: 1px solid #D2D7DD;
-}
-</string>
-           </property>
-           <property name="text">
-            <string>Change Name</string>
            </property>
           </widget>
          </item>
@@ -2296,7 +2296,7 @@ QLineEdit:disabled {
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="frame">
+       <widget class="QFrame" name="pyqt5_frame_group_homogenous_co">
         <property name="styleSheet">
          <string notr="true">box-sizing: border-box;
 display: flex;
@@ -2341,9 +2341,9 @@ padding:6px;</string>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="pyqt5_entry_graph_width_5">
+            <widget class="QLineEdit" name="pyqt5_entry_homogenous_firstco">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -2354,9 +2354,9 @@ padding:6px;</string>
              <property name="styleSheet">
               <string notr="true">QLineEdit {
     background: #FFFFFF;  /* Default background */
-    border: 1px solid #CBD5E1;  /* Default border */
+    border: 1px solid #D2D7DD;  /* Default border */
     border-radius: 6px;  /* Rounded corners */
-    color: #0F172A;  /* Text color */
+    color: #7a7a7a;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
     font-weight: 500;  /* Font weight */
@@ -2374,6 +2374,9 @@ QLineEdit:disabled {
              </property>
              <property name="text">
               <string>600</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -2399,9 +2402,9 @@ QLineEdit:disabled {
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="pyqt5_entry_graph_height_4">
+            <widget class="QLineEdit" name="pyqt5_entry_homogenous_secondco">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -2412,9 +2415,9 @@ QLineEdit:disabled {
              <property name="styleSheet">
               <string notr="true">QLineEdit {
     background: #FFFFFF;  /* Default background */
-    border: 1px solid #CBD5E1;  /* Default border */
+    border: 1px solid #D2D7DD;  /* Default border */
     border-radius: 6px;  /* Rounded corners */
-    color: #0F172A;  /* Text color */
+    color: #7a7a7a;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
     font-weight: 500;  /* Font weight */
@@ -2427,10 +2430,316 @@ QLineEdit:disabled {
 QLineEdit:disabled {
     color: #D2D7DD;
     border: 1px solid #D2D7DD;
-}</string>
+}
+</string>
              </property>
              <property name="text">
               <string>800</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="pyqt5_frame_group_singleshell_co">
+        <property name="styleSheet">
+         <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;
+padding:6px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_49" stretch="0,0">
+         <property name="leftMargin">
+          <number>1</number>
+         </property>
+         <property name="topMargin">
+          <number>1</number>
+         </property>
+         <property name="rightMargin">
+          <number>1</number>
+         </property>
+         <property name="bottomMargin">
+          <number>1</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLabel" name="label_51">
+             <property name="styleSheet">
+              <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;CO(f)&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:sub;&quot;&gt;first&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="pyqt5_entry_singleshell_firstco">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #D2D7DD;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #7a7a7a;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>600</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QLabel" name="label_52">
+             <property name="styleSheet">
+              <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;CO(f)&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:sub;&quot;&gt;second&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="pyqt5_entry_singleshell_secondco">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #D2D7DD;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #7a7a7a;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>800</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="pyqt5_frame_group_twoshell_co">
+        <property name="styleSheet">
+         <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;
+padding:6px;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_50" stretch="0,0">
+         <property name="leftMargin">
+          <number>1</number>
+         </property>
+         <property name="topMargin">
+          <number>1</number>
+         </property>
+         <property name="rightMargin">
+          <number>1</number>
+         </property>
+         <property name="bottomMargin">
+          <number>1</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <widget class="QLabel" name="label_53">
+             <property name="styleSheet">
+              <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;CO(f)&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:sub;&quot;&gt;first&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="pyqt5_entry_twoshell_firstco">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #D2D7DD;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #7a7a7a;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>600</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLabel" name="label_54">
+             <property name="styleSheet">
+              <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;CO(f)&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:sub;&quot;&gt;second&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="pyqt5_entry_twoshell_secondco">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #D2D7DD;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #7a7a7a;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>800</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
              </property>
             </widget>
            </item>

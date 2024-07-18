@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QDialog
 from PyQt5.uic import loadUi
 
 
-# Create a class to handle the graph settings UI
+# Create a classes to handle the graph settings UI
 
 class GraphSettingsUI(QDialog):
     def __init__(self, parent=None):
