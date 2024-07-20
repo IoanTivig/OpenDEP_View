@@ -14,6 +14,7 @@ from src.func import general
 from src.classes.numpy_encoder import NumpyEncoder
 
 from ui.helpers.curve_widget_ui import CurveWidgetUI
+from ui.helpers.scatter_widget_ui import ScatterWidgetUI
 from ui.resources import graphical_resources
 from ui.helpers.graph_settings_ui import GraphSettingsUI
 
@@ -99,6 +100,7 @@ class MainUI(QMainWindow):
 
         # ScrollArea buttons
         self.pyqt5_button_curves_add.clicked.connect(self.generate_new_curve)
+        self.pyqt5_button_scatter_add.clicked.connect(self.generate_new_scatter)
 
         # Entry fields for the frequency range
         self.pyqt5_entry_param_freq_start.editingFinished.connect(self.modify_all_curves)
@@ -168,6 +170,16 @@ class MainUI(QMainWindow):
         color = QColorDialog.getColor()
         if color.isValid():
             print(color.name())
+
+    # Scatter functionality - add, modify, duplicate, delete, save, load
+    def generate_new_scatter(self):
+        # Create a new scatter widget
+        scatter_widget = ScatterWidgetUI()
+
+        # Create Random ID which wont be already in the dictionary keys
+
+        # Dock the widget at index 0 from the top
+        self.pyqt5_scrollarea_scatter_curves_layout.insertWidget(0, scatter_widget)
 
     # Curve functionality - add, modify, duplicate, delete, save, load
     def generate_new_curve(self):
