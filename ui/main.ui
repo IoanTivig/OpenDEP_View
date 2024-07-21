@@ -371,7 +371,7 @@ QCheckBox:focused {
     line-height: 24px;  /* Line height */
     padding: 4px 8px;  /* Padding */
     /* Adding icon to the beginning */
-    background-image: url(:/ui/qt/resources/buttons/height_entry_icon.png);
+    background-image: url(:/ui/qt/resources/buttons/width_entry_icon.png);
     background-repeat: no-repeat;
     background-position: left center;
     padding-left: 24px; /* Adjust padding to avoid text overlaying the icon */
@@ -379,10 +379,9 @@ QCheckBox:focused {
 
 /* Disabled State */
 QLineEdit:disabled {
-    color: #D2D7DD;
+    color:  #7a7a7a;;
     border: 1px solid #D2D7DD;
-}
-</string>
+}</string>
                  </property>
                  <property name="text">
                   <string>600</string>
@@ -421,7 +420,7 @@ QLineEdit:disabled {
 
 /* Disabled State */
 QLineEdit:disabled {
-    color: #D2D7DD;
+    color:  #7a7a7a;;
     border: 1px solid #D2D7DD;
 }</string>
                  </property>
@@ -1996,7 +1995,7 @@ QScrollBar:horizontal {
                      <x>0</x>
                      <y>0</y>
                      <width>530</width>
-                     <height>98</height>
+                     <height>94</height>
                     </rect>
                    </property>
                    <property name="sizePolicy">
@@ -2100,6 +2099,12 @@ QScrollBar:horizontal {
     height: 0px;
 }</string>
                   </property>
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                  <property name="horizontalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
                   <property name="widgetResizable">
                    <bool>true</bool>
                   </property>
@@ -2112,7 +2117,7 @@ QScrollBar:horizontal {
                      <x>0</x>
                      <y>0</y>
                      <width>530</width>
-                     <height>97</height>
+                     <height>93</height>
                     </rect>
                    </property>
                    <property name="sizePolicy">
