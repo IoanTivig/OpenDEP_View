@@ -58,6 +58,10 @@ class GraphWidget(QWidget):
     def update_curve(self, name, color, x_data, y_data, line_width=1.5, line_style='-'):
         self.canvas.axes.plot(x_data, y_data, label=name, color=color, linewidth=line_width, linestyle=line_style)
 
+    def update_scatter(self, name, color, x_data, y_data, y_errors, point_style='o', point_size=5):
+        self.canvas.axes.scatter(x_data, y_data, label=name, color=color, s=point_size, marker=point_style)
+        self.canvas.axes.errorbar(x_data, y_data, yerr=y_errors, fmt='none', ecolor=color)
+
     def focus_curve(self, name):
         for line in self.canvas.axes.lines:
             if line.get_label() == name:

@@ -31,7 +31,6 @@ class CurveWidgetUI(QWidget):
         self.pyqt5_combo_curve_line_style.currentIndexChanged.connect(self.pick_curve_line_style)
         self.pyqt5_spinbox_curve_line_width.valueChanged.connect(self.change_curve_thickness)
 
-
         # Model selection
         self.pyqt5_combo_model_selection.currentIndexChanged.connect(lambda:self.change_model(self.pyqt5_combo_model_selection.currentIndex()))
         self.change_model(index=0, init=True)

@@ -53,6 +53,9 @@ class MainUI(QMainWindow):
         self.scatter_dict = {}
         self.no_curve_points = 100
 
+        # Default styles
+        self.point_styles = ["o", "s", "v", "+", "x", "*"]
+
         # Load the rest of the widgets
         self.graph_settings = GraphSettingsUI()
 
@@ -177,9 +180,50 @@ class MainUI(QMainWindow):
         scatter_widget = ScatterWidgetUI()
 
         # Create Random ID which wont be already in the dictionary keys
+        id = random.randint(0, 9999)
+        while id in self.scatter_dict.keys():
+            id = random.randint(0, 9999)
+
+        # Create base parameters for the curve
+        color = general.get_random_color_hex()
+        name = f"Scatter {len(self.scatter_dict) + 1}"
+        visibility = True
+
+        # Create scatter data
+        scatter_data = {"frequencies": [1000.0, 2500.0, 5000.0, 7500.0, 10000.0],
+                        "recm_values": [-0.4, -0.3, -0.33, -0.11, 0.0],
+                        "recm_errors": [0.01, 0.015, 0.005, 0.02, 0.01],}
+
+        # Add the curve to the dictionary
+        self.scatter_dict[id] = {"name": name,
+                                "color": color,
+                                "point_size": 50,
+                                "point_style": 0,
+                                "visibility": visibility,
+                                "scatter": scatter_data,
+                                "widget": scatter_widget}
+
+        # Populate the widget with the data
+        scatter_widget.id = id
+        scatter_widget.parent_widget = self
+        scatter_widget.set_entries_with_data()
+
+        # Connect the buttons after the setup
+        scatter_widget.connect_buttons_after_setup()
+
+        # Refresh all graphs with new data
+        self.refresh_graph()
 
         # Dock the widget at index 0 from the top
         self.pyqt5_scrollarea_scatter_curves_layout.insertWidget(0, scatter_widget)
+
+    def modify_single_scatter(self, id):
+        # Scatter data
+        scatter_data = self.scatter_dict[id]["widget"].get_data_from_table()
+        self.scatter_dict[id]["scatter"] = scatter_data
+
+        # Refresh all graphs with new data
+        self.refresh_graph()
 
     # Curve functionality - add, modify, duplicate, delete, save, load
     def generate_new_curve(self):
@@ -388,6 +432,22 @@ class MainUI(QMainWindow):
                                                             line_width=self.curves_dict[key]["line_width"])
                         y_index = index
                         break
+
+        for key in self.scatter_dict.keys():
+            print("hey")
+            if self.scatter_dict[key]["visibility"]:
+                self.pyqt5_graph_widget.update_scatter(name=self.scatter_dict[key]["name"],
+                                                    color=self.scatter_dict[key]["color"],
+                                                    x_data=self.scatter_dict[key]["scatter"]["frequencies"],
+                                                    y_data=self.scatter_dict[key]["scatter"]["recm_values"],
+                                                    y_errors=self.scatter_dict[key]["scatter"]["recm_errors"],
+                                                    point_style=self.point_styles[self.scatter_dict[key]["point_style"]],
+                                                    point_size=self.scatter_dict[key]["point_size"])
+
+                for i in range(len(self.scatter_dict[key]["scatter"]["frequencies"])):
+                    print(self.scatter_dict[key]["scatter"]["frequencies"][i],
+                        self.scatter_dict[key]["scatter"]["recm_values"][i],
+                        self.scatter_dict[key]["scatter"]["recm_errors"][i])
 
         # TOoDO - Add the experimental data to the graph
 
