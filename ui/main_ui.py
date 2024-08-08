@@ -65,7 +65,7 @@ class MainUI(QMainWindow):
         self.pyqt5_button_save_figure.clicked.connect(self.pyqt5_graph_widget.save_figure)
         self.pyqt5_button_home_figure.clicked.connect(self.pyqt5_graph_widget.toolbar.home)
         self.pyqt5_button_zoom_figure.clicked.connect(self.pyqt5_graph_widget.toolbar.zoom)
-        self.pyqt5_button_properties_figure.clicked.connect(self.open_graph_settings)
+        self.pyqt5_button_properties_figure.clicked.connect(self.graph_settings.open_graph_settings)
         self.pyqt5_button_fitspace_figure.clicked.connect(self.pyqt5_graph_widget.set_tight_layout)
         #self.pyqt5_button_resize_figure.clicked.connect(self.resize_graph)
 
@@ -171,9 +171,6 @@ class MainUI(QMainWindow):
             self.pyqt5_button_refresh_graph_size.setVisible(False)
 
     # Graph settings
-    def open_graph_settings(self):
-        self.graph_settings.show_graph_settings()
-
     def open_color_picker(self):
         color = QColorDialog.getColor()
         if color.isValid():
