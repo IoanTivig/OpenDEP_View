@@ -19,6 +19,7 @@ class ScatterWidgetUI(QWidget):
         self.parent_widget = None
         self.id = None
         self.disable_table_signals = False
+        self.point_styles = ["o", "s", "v", "+", "x", "*"]
 
         # Some initial setup
         self.collapse(collapse=True)
@@ -29,15 +30,27 @@ class ScatterWidgetUI(QWidget):
         self.connect_buttons()
 
     def connect_buttons(self):
+        self.pyqt5_checkbox_scatter_visible.clicked.connect(self.toggle_hide)
         self.pyqt5_checkbox_curves_expand.clicked.connect(self.collapse)
+
+        self.pyqt5_spinbox_scatter_size.valueChanged.connect(self.pick_scatter_size)
+
+        self.pyqt5_combo_scatter_point_style.currentIndexChanged.connect(self.pick_scatter_point_style)
+
+        self.pyqt5_entry_scatter_name.textChanged.connect(self.pick_scatter_name)
+
         self.pyqt5_button_add_scatter_point.clicked.connect(self.add_table_scatter_point)
         self.pyqt5_button_remove_scatter_point.clicked.connect(lambda: self.remove_table_scatter_point(
             self.pyqt5_tablewidget_exp_spectra.currentRow()))
         self.pyqt5_button_pick_scatter_color.clicked.connect(self.pick_curve_color)
+        self.pyqt5_button_delete_scatter.clicked.connect(self.delete_self)
+        self.pyqt5_button_duplicate_scatter.clicked.connect(lambda: self.parent_widget.generate_new_scatter(
+            type="duplicate",
+            duplicate_id=self.id))
+        self.pyqt5_button_save_scatter.clicked.connect(self.save_self)
 
     def connect_buttons_after_setup(self):
-        self.pyqt5_tablewidget_exp_spectra.cellChanged.connect(
-            lambda: self.parent_widget.modify_single_scatter(self.id))
+        self.pyqt5_tablewidget_exp_spectra.cellChanged.connect(self.get_data_from_table)
 
     def collapse(self, collapse=True):
         if collapse:
@@ -59,6 +72,36 @@ class ScatterWidgetUI(QWidget):
             # Set color of the curve on the graph
             self.parent_widget.scatter_dict[self.id]["color"] = color.name()
             self.parent_widget.refresh_graph()
+
+    def pick_scatter_point_style(self):
+        self.parent_widget.scatter_dict[self.id]["point_style"] = self.point_styles[self.pyqt5_combo_scatter_point_style.currentIndex()]
+        self.parent_widget.refresh_graph()
+
+    def pick_scatter_size(self):
+        self.parent_widget.scatter_dict[self.id]["point_size"] = self.pyqt5_spinbox_scatter_size.value()
+        self.parent_widget.refresh_graph()
+        #self.start_focus_curve()
+
+    def pick_scatter_name(self):
+        self.parent_widget.scatter_dict[self.id]["name"] = self.pyqt5_entry_scatter_name.text()
+        self.parent_widget.refresh_graph()
+
+    def toggle_hide(self):
+        if self.pyqt5_checkbox_scatter_visible.isChecked():
+            self.parent_widget.scatter_dict[self.id]["visibility"] = True
+        else:
+            self.parent_widget.scatter_dict[self.id]["visibility"] = False
+
+        self.parent_widget.refresh_graph()
+
+    def delete_self(self):
+        self.parent_widget.delete_scatter(self.id)
+        self.close()
+
+    def save_self(self):
+        # Open file dialog and save curve as a json file with suffix .odc
+        filepath, _ = QFileDialog.getSaveFileName(self, "Save curve", "", "OpenDEP Curve (*.ods)")
+        self.parent_widget.save_scatter(self.id, filepath)
 
     def add_table_scatter_point(self):
         # Disable table signals
@@ -90,20 +133,24 @@ class ScatterWidgetUI(QWidget):
         # Enable table signals
         self.disable_table_signals = False
 
-        # Update the parent widget
-        self.parent_widget.modify_single_scatter(self.id)
+        # Update the dictionary and graph
+        self.get_data_from_table()
 
     def remove_table_scatter_point(self, row):
+        # Disable table signals
+        self.disable_table_signals = True
+
+        # Remove the row
         self.pyqt5_tablewidget_exp_spectra.removeRow(row)
 
         # Resize the table
         self.resize_table_height_to_no_rows()
 
-        # Update the parent widget
-        self.parent_widget.modify_single_scatter(self.id)
+        # Enable table signals
+        self.disable_table_signals = False
 
-        # Update the parent widget
-        self.parent_widget.modify_single_scatter(self.id)
+        # Update the dictionary and graph
+        self.get_data_from_table()
 
     def clear_table_scatter_points(self):
         self.pyqt5_tablewidget_exp_spectra.clearContents()
@@ -114,11 +161,14 @@ class ScatterWidgetUI(QWidget):
         name = self.parent_widget.scatter_dict[self.id]["name"]
         visible = self.parent_widget.scatter_dict[self.id]["visibility"]
         point_style = self.parent_widget.scatter_dict[self.id]["point_style"]
+        point_style_index = self.point_styles.index(point_style)
+        point_size = self.parent_widget.scatter_dict[self.id]["point_size"]
 
         self.pyqt5_button_pick_scatter_color.setStyleSheet(f"background-color: {color}")
         self.pyqt5_entry_scatter_name.setText(name)
         self.pyqt5_checkbox_scatter_visible.setChecked(visible)
-        self.pyqt5_combo_scatter_point_style.setCurrentIndex(point_style)
+        self.pyqt5_combo_scatter_point_style.setCurrentIndex(point_style_index)
+        self.pyqt5_spinbox_scatter_size.setValue(point_size)
 
         self.clear_table_scatter_points()
         scatter_data = self.parent_widget.scatter_dict[self.id]["scatter"]
@@ -152,4 +202,8 @@ class ScatterWidgetUI(QWidget):
                             "recm_values": cm_factors,
                             "recm_errors": cm_errors}
 
-            return scatter_data
+            # Scatter data
+            self.parent_widget.scatter_dict[self.id]["scatter"] = scatter_data
+
+            # Refresh all graphs with new data
+            self.parent_widget.refresh_graph()

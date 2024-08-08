@@ -1,5 +1,10 @@
 <RCC>
   <qresource prefix="/ui/qt/resources">
+    <file>buttons/back_icon.png</file>
+    <file>checkbox/chckbox_checked.png</file>
+    <file>checkbox/chckbox_unchecked.png.png</file>
+    <file>radiobutton/radio_enabled_checked.png</file>
+    <file>radiobutton/radio_enabled_unchecked.png</file>
     <file>buttons/homogenous_icon.png</file>
     <file>buttons/twoshell_icon.png</file>
     <file>buttons/singleshell_icon.png</file>

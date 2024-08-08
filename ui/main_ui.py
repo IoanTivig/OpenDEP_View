@@ -17,6 +17,7 @@ from ui.helpers.curve_widget_ui import CurveWidgetUI
 from ui.helpers.scatter_widget_ui import ScatterWidgetUI
 from ui.resources import graphical_resources
 from ui.helpers.graph_settings_ui import GraphSettingsUI
+from ui.helpers.noise_widget_ui import NoiseWidgetUI
 
 '''
 OpenDEP View
@@ -57,7 +58,8 @@ class MainUI(QMainWindow):
         self.point_styles = ["o", "s", "v", "+", "x", "*"]
 
         # Load the rest of the widgets
-        self.graph_settings = GraphSettingsUI()
+        self.graph_settings = GraphSettingsUI(parent=self)
+        self.noise_widget = NoiseWidgetUI(parent=self)
 
         # Toolbar buttons
         self.pyqt5_button_save_figure.clicked.connect(self.pyqt5_graph_widget.save_figure)
@@ -69,6 +71,8 @@ class MainUI(QMainWindow):
 
         # Data buttons
         self.pyqt5_button_curve_load.clicked.connect(self.load_curve)
+        self.pyqt5_button_scatter_add.clicked.connect(lambda: self.generate_new_scatter(type="new"))
+        self.pyqt5_button_scatter_load.clicked.connect(self.load_scatter)
 
         # Hide Scrollbars
         self.pyqt5_scrollarea_plots_curve.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
@@ -103,7 +107,6 @@ class MainUI(QMainWindow):
 
         # ScrollArea buttons
         self.pyqt5_button_curves_add.clicked.connect(self.generate_new_curve)
-        self.pyqt5_button_scatter_add.clicked.connect(self.generate_new_scatter)
 
         # Entry fields for the frequency range
         self.pyqt5_entry_param_freq_start.editingFinished.connect(self.modify_all_curves)
@@ -127,6 +130,8 @@ class MainUI(QMainWindow):
         for button in buttons:
             button.setProperty("customState", button == sender)
             button.setStyle(button.style())  # Refresh style to apply property
+
+        self.refresh_graph()
 
     # In Work, Graph Size functionality
     def resizeEvent(self, event=None):
@@ -175,7 +180,7 @@ class MainUI(QMainWindow):
             print(color.name())
 
     # Scatter functionality - add, modify, duplicate, delete, save, load
-    def generate_new_scatter(self):
+    def generate_new_scatter(self, type="new", duplicate_id=None, file_path=None):
         # Create a new scatter widget
         scatter_widget = ScatterWidgetUI()
 
@@ -184,21 +189,52 @@ class MainUI(QMainWindow):
         while id in self.scatter_dict.keys():
             id = random.randint(0, 9999)
 
-        # Create base parameters for the curve
-        color = general.get_random_color_hex()
-        name = f"Scatter {len(self.scatter_dict) + 1}"
+        # Create parameters for the curve
+        point_style = 'o'
+        point_size = 50
         visibility = True
 
-        # Create scatter data
-        scatter_data = {"frequencies": [1000.0, 2500.0, 5000.0, 7500.0, 10000.0],
-                        "recm_values": [-0.4, -0.3, -0.33, -0.11, 0.0],
-                        "recm_errors": [0.01, 0.015, 0.005, 0.02, 0.01],}
+        # Handle in case a new scatter is generated
+        if type == "new":
+            color = general.get_random_color_hex()
+            name = f"Scatter {len(self.scatter_dict) + 1}"
+
+
+            # Create scatter data
+            scatter_data = {"frequencies": [1000.0, 2500.0, 5000.0, 7500.0, 10000.0],
+                            "recm_values": [-0.4, -0.3, -0.33, -0.11, 0.0],
+                            "recm_errors": [0.01, 0.015, 0.005, 0.02, 0.01]}
+
+        # Handle in case a scatter based on noise is generated
+        elif type == "noise":
+            color = self.curves_dict[self.noise_widget.selected_curve_id]["color"]
+            name = self.curves_dict[self.noise_widget.selected_curve_id]["name"] + " - Noise"
+
+            # Generate noise data
+            scatter_data = self.noise_widget.generate_noise_scatter()
+
+        # Handle in case a scatter is loaded
+        elif type == "duplicate":
+            name = self.scatter_dict[duplicate_id]["name"] + " - Copy"
+            color = self.scatter_dict[duplicate_id]["color"]
+            point_size = self.scatter_dict[duplicate_id]["point_size"]
+            point_style = self.scatter_dict[duplicate_id]["point_style"]
+            scatter_data = self.scatter_dict[duplicate_id]["scatter"]
+
+        elif type == "load":
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+            name = data["name"]
+            color = data["color"]
+            point_size = data["point_size"]
+            point_style = data["point_style"]
+            scatter_data = data["scatter"]
 
         # Add the curve to the dictionary
         self.scatter_dict[id] = {"name": name,
                                 "color": color,
-                                "point_size": 50,
-                                "point_style": 0,
+                                "point_size": point_size,
+                                "point_style": point_style,
                                 "visibility": visibility,
                                 "scatter": scatter_data,
                                 "widget": scatter_widget}
@@ -217,13 +253,29 @@ class MainUI(QMainWindow):
         # Dock the widget at index 0 from the top
         self.pyqt5_scrollarea_scatter_curves_layout.insertWidget(0, scatter_widget)
 
-    def modify_single_scatter(self, id):
-        # Scatter data
-        scatter_data = self.scatter_dict[id]["widget"].get_data_from_table()
-        self.scatter_dict[id]["scatter"] = scatter_data
+    def delete_scatter(self, id):
+        # Remove the curve from the dictionary
+        del self.scatter_dict[id]
 
-        # Refresh all graphs with new data
+        # Refresh the graph
         self.refresh_graph()
+
+    def save_scatter(self, id, file_path):
+        # save all curve data to a json file from the dictionary
+        data = self.scatter_dict[id].copy()
+        data["widget"] = None
+
+        with open(file_path, 'w') as file:
+            json.dump(data, file, cls=NumpyEncoder)
+
+        file.close()
+
+    def load_scatter(self):
+        # load curve data from a json file to the dictionary
+        file_path, _ = QFileDialog.getOpenFileName(self, "Load scatter", "", "OpenDEP Scatter (*.ods)")
+
+        if file_path:
+            self.generate_new_scatter(type="load", file_path=file_path)
 
     # Curve functionality - add, modify, duplicate, delete, save, load
     def generate_new_curve(self):
@@ -433,23 +485,25 @@ class MainUI(QMainWindow):
                         y_index = index
                         break
 
+        if self.pyqt5_button_display_experimental_area.property("customState"):
+            self.pyqt5_graph_widget.scatter_style = 'area'
+        elif self.pyqt5_button_display_experimental_stdev.property("customState"):
+            self.pyqt5_graph_widget.scatter_style = 'scatter'
+
         for key in self.scatter_dict.keys():
-            print("hey")
             if self.scatter_dict[key]["visibility"]:
-                self.pyqt5_graph_widget.update_scatter(name=self.scatter_dict[key]["name"],
-                                                    color=self.scatter_dict[key]["color"],
-                                                    x_data=self.scatter_dict[key]["scatter"]["frequencies"],
-                                                    y_data=self.scatter_dict[key]["scatter"]["recm_values"],
-                                                    y_errors=self.scatter_dict[key]["scatter"]["recm_errors"],
-                                                    point_style=self.point_styles[self.scatter_dict[key]["point_style"]],
-                                                    point_size=self.scatter_dict[key]["point_size"])
-
-                for i in range(len(self.scatter_dict[key]["scatter"]["frequencies"])):
-                    print(self.scatter_dict[key]["scatter"]["frequencies"][i],
-                        self.scatter_dict[key]["scatter"]["recm_values"][i],
-                        self.scatter_dict[key]["scatter"]["recm_errors"][i])
-
-        # TOoDO - Add the experimental data to the graph
+                # Get index of the button that is active in type of graph content
+                for index, button in enumerate(self.pyqt5_frame_toolbar_graphcontent.findChildren(QPushButton)):
+                    if button.property("customState"):
+                        button_index = index
+                if button_index == 0:
+                    self.pyqt5_graph_widget.update_scatter(name=self.scatter_dict[key]["name"],
+                                                        color=self.scatter_dict[key]["color"],
+                                                        x_data=self.scatter_dict[key]["scatter"]["frequencies"],
+                                                        y_data=self.scatter_dict[key]["scatter"]["recm_values"],
+                                                        y_errors=self.scatter_dict[key]["scatter"]["recm_errors"],
+                                                        point_style=self.scatter_dict[key]["point_style"],
+                                                        point_size=self.scatter_dict[key]["point_size"])
 
         # Format the graph and draw it
         self.pyqt5_graph_widget.format_graph(y_index=y_index)

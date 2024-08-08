@@ -1502,6 +1502,19 @@ QComboBox::item {
                 </layout>
                </item>
                <item>
+                <spacer name="horizontalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
                 <spacer name="verticalSpacer_6">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
@@ -1516,19 +1529,6 @@ QComboBox::item {
                </item>
               </layout>
              </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_4">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
             </item>
            </layout>
           </item>
@@ -1768,7 +1768,7 @@ QScrollBar:horizontal {
                      <x>0</x>
                      <y>0</y>
                      <width>530</width>
-                     <height>98</height>
+                     <height>85</height>
                     </rect>
                    </property>
                    <property name="sizePolicy">
@@ -2118,7 +2118,7 @@ QScrollBar:horizontal {
                      <x>0</x>
                      <y>0</y>
                      <width>530</width>
-                     <height>97</height>
+                     <height>84</height>
                     </rect>
                    </property>
                    <property name="sizePolicy">
@@ -2252,75 +2252,7 @@ QPushButton:pressed {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pyqt5_button_simulate_curve_noise">
-                     <property name="enabled">
-                      <bool>true</bool>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>31</width>
-                       <height>31</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>31</width>
-                       <height>31</height>
-                      </size>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <family>Segoe UI</family>
-                       <pointsize>-1</pointsize>
-                       <weight>62</weight>
-                       <italic>false</italic>
-                       <bold>true</bold>
-                      </font>
-                     </property>
-                     <property name="toolTip">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Simulate experimental data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                     </property>
-                     <property name="whatsThis">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Simulate experimental data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">
-/* Default State */
-QPushButton {
-    border: none;
-	background: transparent;  /* Ghost button with no background */
-    color: #0F172A;  /* Text color */
-    border-radius: 6px;  /* Rounded corners */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-	padding: 4px;
-	image: url(:/ui/qt/resources/buttons/addnoise_icon.png);
-}
-
-/* Hover State */
-QPushButton:hover {
-	background: #F1F5F9;  /* slate/100 */
-    color: #0F172A;  /* Text color */
-	image: url(:/ui/qt/resources/buttons/addnoise_icon.png);
-}
-
-/* Pressed State */
-QPushButton:pressed {
-    background: #DEE8F2;
-    color: #0F172A;  /* Text color */
-	image: url(:/ui/qt/resources/buttons/addnoise_icon.png);
-}</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="pyqt5_button_curve_load_3">
+                    <widget class="QPushButton" name="pyqt5_button_scatter_load">
                      <property name="minimumSize">
                       <size>
                        <width>30</width>

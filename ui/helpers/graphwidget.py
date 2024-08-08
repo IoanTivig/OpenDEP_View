@@ -20,6 +20,9 @@ class GraphWidget(QWidget):
     def __init__(self, parent=None):
         QWidget.__init__(self, parent)
 
+        # somte default values
+        self.scatter_style = 'area'
+
         # Create figure with tight layout
         self.figure = plt.figure()
 
@@ -59,8 +62,17 @@ class GraphWidget(QWidget):
         self.canvas.axes.plot(x_data, y_data, label=name, color=color, linewidth=line_width, linestyle=line_style)
 
     def update_scatter(self, name, color, x_data, y_data, y_errors, point_style='o', point_size=5):
-        self.canvas.axes.scatter(x_data, y_data, label=name, color=color, s=point_size, marker=point_style)
-        self.canvas.axes.errorbar(x_data, y_data, yerr=y_errors, fmt='none', ecolor=color)
+        if self.scatter_style == 'scatter':
+            self.canvas.axes.scatter(x_data, y_data, label=name, color=color, s=point_size, marker=point_style)
+            # Plot error bars under the scatter points
+            self.canvas.axes.errorbar(x_data, y_data, yerr=y_errors, fmt='none', ecolor="black", elinewidth=1, capsize=2)
+
+        elif self.scatter_style == 'area':
+            y_min = [y_data-y_errors for y_data, y_errors in zip(y_data, y_errors)]
+            y_max = [y_data+y_errors for y_data, y_errors in zip(y_data, y_errors)]
+
+            self.canvas.axes.fill_between(x_data, y_min, y_max, color=color, alpha=0.3, label=name)
+
 
     def focus_curve(self, name):
         for line in self.canvas.axes.lines:
