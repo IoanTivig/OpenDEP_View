@@ -53,9 +53,11 @@ class MainUI(QMainWindow):
         self.curves_dict = {}
         self.scatter_dict = {}
         self.no_curve_points = 100
+        self.graph_y_index = 0
 
         # Default styles
         self.point_styles = ["o", "s", "v", "+", "x", "*"]
+        self.graph_style_parameters = None
 
         # Load the rest of the widgets
         self.graph_settings = GraphSettingsUI(parent=self)
@@ -452,7 +454,7 @@ class MainUI(QMainWindow):
     def refresh_graph(self, focus_curve_id=None):
         self.pyqt5_graph_widget.canvas.axes.clear()
         # Some local_vars
-        y_index = 0
+        self.graph_y_index = 0
         curves = [
             "frequencies",
             "recm_homogenous_particle",
@@ -479,7 +481,7 @@ class MainUI(QMainWindow):
                                                             x_data=self.curves_dict[key]["curves"]["frequencies"],
                                                             y_data=self.curves_dict[key]["curves"][curves[new_index]],
                                                             line_width=self.curves_dict[key]["line_width"])
-                        y_index = index
+                        self.graph_y_index = index
                         break
 
         if self.pyqt5_button_display_experimental_area.property("customState"):
@@ -503,8 +505,7 @@ class MainUI(QMainWindow):
                                                         point_size=self.scatter_dict[key]["point_size"])
 
         # Format the graph and draw it
-        self.pyqt5_graph_widget.format_graph(y_index=y_index)
-        self.pyqt5_graph_widget.canvas.draw()
+        self.update_graph_styling()
 
     # Place holder parameters and data for when adding new curve
     def create_default_curve_data(self):
@@ -640,10 +641,28 @@ class MainUI(QMainWindow):
 
         return first_co, second_co
 
+    # Graph UI methods
 
+    def get_graph_styling(self):
+        graph_style_parameters = {
+            'font_family': self.graph_settings.pyqt5_combo_font_family.currentText().lower(),
+            'axis_style': {'fontsize': self.graph_settings.pyqt5_spinbox_axis_title_size.value(),
+                           'fontweight': self.graph_settings.pyqt5_combo_axis_font_weight.currentText().lower(),
+                           'fontstyle': self.graph_settings.pyqt5_combo_axis_font_style.currentText().lower(),
+                           'color': '#000000',
+                           'labelpad': self.graph_settings.pyqt5_spinbox_axis_title_padding.value()},
+            'tick_style': {'fontsize': self.graph_settings.pyqt5_spinbox_tick_size.value(),
+                           'fontweight': self.graph_settings.pyqt5_combo_tick_font_weight.currentText().lower(),
+                           'fontstyle': self.graph_settings.pyqt5_combo_tick_font_style.currentText().lower(),
+                           'color': '#000000'}
+            }
 
+        return graph_style_parameters
 
-
+    def update_graph_styling(self):
+        self.graph_style_parameters = self.get_graph_styling()
+        self.pyqt5_graph_widget.format_graph(y_index=self.graph_y_index, style_params=self.graph_style_parameters)
+        self.pyqt5_graph_widget.canvas.draw()
 
 
 

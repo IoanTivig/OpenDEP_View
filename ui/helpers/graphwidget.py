@@ -20,7 +20,7 @@ class GraphWidget(QWidget):
     def __init__(self, parent=None):
         QWidget.__init__(self, parent)
 
-        # somte default values
+        # some default values
         self.scatter_style = 'area'
 
         # Create figure with tight layout
@@ -89,23 +89,49 @@ class GraphWidget(QWidget):
                 line.set_linewidth(new_line_width)
         self.canvas.draw()
 
-    def format_graph(self, y_index=0):
-        y_labels = ['Re[CM(f)]', 'DEP force (pN)', 'Im[CM(f)]',]
-
+    def format_graph(self, y_index=0, style_params=None):
+        # Allways available styling
+        y_labels = ['Re[CM(f)]', 'DEP force (pN)', 'Im[CM(f)]', ]
         plt.xscale('log')
-        self.canvas.axes.set_xlabel('Frequency (Hz)', labelpad=5)
-        self.canvas.axes.set_ylabel(y_labels[y_index], labelpad=5)
-        self.canvas.axes.tick_params(labelsize='small')
+
+        # Updatable style
+        self.canvas.axes.set_xlabel('Frequency (Hz)',
+                                    fontname=style_params['font_family'],
+                                    labelpad=style_params['axis_style']['labelpad'],
+                                    fontsize=style_params['axis_style']['fontsize'],
+                                    fontweight=style_params['axis_style']['fontweight'],
+                                    fontstyle=style_params['axis_style']['fontstyle'],
+                                    color=style_params['axis_style']['color']
+                                    )
+
+        self.canvas.axes.set_ylabel(y_labels[y_index],
+                                    fontname=style_params['font_family'],
+                                    labelpad=style_params['axis_style']['labelpad'],
+                                    fontsize=style_params['axis_style']['fontsize'],
+                                    fontweight=style_params['axis_style']['fontweight'],
+                                    fontstyle=style_params['axis_style']['fontstyle'],
+                                    color=style_params['axis_style']['color']
+                                    )
+
+        # Set x tick labels font family thorugh xticklabels
+        self.canvas.axes.set_xticklabels(self.canvas.axes.get_xticks(),
+                                        fontname=style_params['font_family'],
+                                        fontsize=style_params['tick_style']['fontsize'],
+                                        fontweight=style_params['tick_style']['fontweight'],
+                                        fontstyle=style_params['tick_style']['fontstyle'],
+                                        color=style_params['tick_style']['color']
+                                        )
+
+        self.canvas.axes.set_yticklabels(self.canvas.axes.get_yticks(),
+                                        fontname=style_params['font_family'],
+                                        fontsize=style_params['tick_style']['fontsize'],
+                                        fontweight=style_params['tick_style']['fontweight'],
+                                        fontstyle=style_params['tick_style']['fontstyle'],
+                                        color=style_params['tick_style']['color']
+                                        )
+
+        #self.canvas.axes.tick_params(labelsize=style_params['tick_style']['fontsize'])
+
         self.canvas.axes.grid(which='major', axis='both', color='lightgrey', linestyle='--')
         self.canvas.axes.yaxis.set_major_formatter(StrMethodFormatter('{x:,.3f}'))
         self.figure.tight_layout()
-
-    # Change Experimental plots to area
-    def change_scatter_to_area(self):
-        self.canvas.axes.clear()
-        self.canvas.draw()
-
-    # Change expermiental plots to scatter with stdev
-    def change_area_to_scatter(self):
-        self.canvas.axes.clear()
-        self.canvas.draw()

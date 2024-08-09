@@ -1,6 +1,6 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon, QColor
-from PyQt5.QtWidgets import QDialog, QGraphicsDropShadowEffect
+from PyQt5.QtWidgets import QDialog, QGraphicsDropShadowEffect, QColorDialog
 from PyQt5.uic import loadUi
 
 
@@ -38,6 +38,7 @@ class GraphSettingsUI(QDialog):
 
     def connect_buttons(self):
         self.pyqt5_button_back.clicked.connect(self.exit)
+        self.pyqt5_button_update_graph_styling.clicked.connect(self.parent_widget.update_graph_styling)
 
     def exit(self):
         self.close()
