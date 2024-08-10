@@ -10,9 +10,11 @@ from PyQt5.QtWidgets import *
 ## Matplotlib imports ##
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvas
-from matplotlib.ticker import StrMethodFormatter
+from matplotlib.font_manager import FontProperties
+from matplotlib.ticker import StrMethodFormatter, ScalarFormatter, LogFormatterMathtext
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.patches import Rectangle
+
 ### END IMPORTS ###
 
 
@@ -21,7 +23,7 @@ class GraphWidget(QWidget):
         QWidget.__init__(self, parent)
 
         # some default values
-        self.scatter_style = 'area'
+        self.scatter_style = "area"
 
         # Create figure with tight layout
         self.figure = plt.figure()
@@ -34,18 +36,22 @@ class GraphWidget(QWidget):
         layout.addWidget(self.canvas)
 
         self.canvas.axes = self.canvas.figure.add_subplot(111)
-        self.canvas.axes.set_xlabel('Frequency (Hz)', labelpad=5)
-        plt.xscale('log')
-        self.canvas.axes.set_ylabel('CM factor', labelpad=5)
-        self.canvas.axes.tick_params(labelsize='small')
-        self.canvas.axes.grid(which='major', axis='both', color='lightgrey', linestyle='--')
-        self.canvas.axes.yaxis.set_major_formatter(StrMethodFormatter('{x:,.3f}'))
+        self.canvas.axes.set_xlabel("Frequency (Hz)", labelpad=5)
+        plt.xscale("log")
+        self.canvas.axes.set_ylabel("CM factor", labelpad=5)
+        self.canvas.axes.tick_params(labelsize="small")
+        self.canvas.axes.yaxis.set_major_formatter(StrMethodFormatter("{x:,.3f}"))
 
         # Set tight layout
         self.setLayout(layout)
 
     def save_figure(self):
-        file_path, _ = QFileDialog.getSaveFileName(self, "Save figure", "", "PNG (*.png);;JPEG (*.jpeg);;SVG (*.svg);;PDF (*.pdf)")
+        file_path, _ = QFileDialog.getSaveFileName(
+            self,
+            "Save figure",
+            "",
+            "PNG (*.png);;JPEG (*.jpeg);;SVG (*.svg);;PDF (*.pdf)",
+        )
 
         if file_path:
             # save the figure at 300 dpi
@@ -58,21 +64,46 @@ class GraphWidget(QWidget):
         self.figure.tight_layout()
         self.canvas.draw()
 
-    def update_curve(self, name, color, x_data, y_data, line_width=1.5, line_style='-'):
-        self.canvas.axes.plot(x_data, y_data, label=name, color=color, linewidth=line_width, linestyle=line_style)
+    def update_curve(self, name, color, x_data, y_data, line_width=1.5, line_style="-"):
+        self.canvas.axes.plot(
+            x_data,
+            y_data,
+            label=name,
+            color=color,
+            linewidth=line_width,
+            linestyle=line_style,
+        )
 
-    def update_scatter(self, name, color, x_data, y_data, y_errors, point_style='o', point_size=5):
-        if self.scatter_style == 'scatter':
-            self.canvas.axes.scatter(x_data, y_data, label=name, color=color, s=point_size, marker=point_style)
+    def update_scatter(
+        self, name, color, x_data, y_data, y_errors, point_style="o", point_size=5
+    ):
+        if self.scatter_style == "scatter":
+            self.canvas.axes.scatter(
+                x_data,
+                y_data,
+                label=name,
+                color=color,
+                s=point_size,
+                marker=point_style,
+            )
             # Plot error bars under the scatter points
-            self.canvas.axes.errorbar(x_data, y_data, yerr=y_errors, fmt='none', ecolor="black", elinewidth=1, capsize=2)
+            self.canvas.axes.errorbar(
+                x_data,
+                y_data,
+                yerr=y_errors,
+                fmt="none",
+                ecolor="black",
+                elinewidth=1,
+                capsize=2,
+            )
 
-        elif self.scatter_style == 'area':
-            y_min = [y_data-y_errors for y_data, y_errors in zip(y_data, y_errors)]
-            y_max = [y_data+y_errors for y_data, y_errors in zip(y_data, y_errors)]
+        elif self.scatter_style == "area":
+            y_min = [y_data - y_errors for y_data, y_errors in zip(y_data, y_errors)]
+            y_max = [y_data + y_errors for y_data, y_errors in zip(y_data, y_errors)]
 
-            self.canvas.axes.fill_between(x_data, y_min, y_max, color=color, alpha=0.3, label=name)
-
+            self.canvas.axes.fill_between(
+                x_data, y_min, y_max, color=color, alpha=0.3, label=name
+            )
 
     def focus_curve(self, name):
         for line in self.canvas.axes.lines:
@@ -91,47 +122,152 @@ class GraphWidget(QWidget):
 
     def format_graph(self, y_index=0, style_params=None):
         # Allways available styling
-        y_labels = ['Re[CM(f)]', 'DEP force (pN)', 'Im[CM(f)]', ]
-        plt.xscale('log')
+        y_labels = [
+            "Re[CM(f)]",
+            "DEP force (pN)",
+            "Im[CM(f)]",
+        ]
+        plt.xscale("log")
 
-        # Updatable style
-        self.canvas.axes.set_xlabel('Frequency (Hz)',
-                                    fontname=style_params['font_family'],
-                                    labelpad=style_params['axis_style']['labelpad'],
-                                    fontsize=style_params['axis_style']['fontsize'],
-                                    fontweight=style_params['axis_style']['fontweight'],
-                                    fontstyle=style_params['axis_style']['fontstyle'],
-                                    color=style_params['axis_style']['color']
-                                    )
+        # Axis titles formating
+        self.canvas.axes.set_xlabel(
+            "Frequency (Hz)",
+            fontname=style_params["font_family"],
+            labelpad=style_params["axis_style"]["labelpad"],
+            fontsize=style_params["axis_style"]["fontsize"],
+            fontweight=style_params["axis_style"]["fontweight"],
+            fontstyle=style_params["axis_style"]["fontstyle"],
+            color=style_params["axis_style"]["color"],
+        )
 
-        self.canvas.axes.set_ylabel(y_labels[y_index],
-                                    fontname=style_params['font_family'],
-                                    labelpad=style_params['axis_style']['labelpad'],
-                                    fontsize=style_params['axis_style']['fontsize'],
-                                    fontweight=style_params['axis_style']['fontweight'],
-                                    fontstyle=style_params['axis_style']['fontstyle'],
-                                    color=style_params['axis_style']['color']
-                                    )
+        self.canvas.axes.set_ylabel(
+            y_labels[y_index],
+            fontname=style_params["font_family"],
+            labelpad=style_params["axis_style"]["labelpad"],
+            fontsize=style_params["axis_style"]["fontsize"],
+            fontweight=style_params["axis_style"]["fontweight"],
+            fontstyle=style_params["axis_style"]["fontstyle"],
+            color=style_params["axis_style"]["color"],
+        )
 
-        # Set x tick labels font family thorugh xticklabels
-        self.canvas.axes.set_xticklabels(self.canvas.axes.get_xticks(),
-                                        fontname=style_params['font_family'],
-                                        fontsize=style_params['tick_style']['fontsize'],
-                                        fontweight=style_params['tick_style']['fontweight'],
-                                        fontstyle=style_params['tick_style']['fontstyle'],
-                                        color=style_params['tick_style']['color']
-                                        )
+        # Tick labels formating
+        self.canvas.axes.set_xticklabels(
+            self.canvas.axes.get_xticks(),
+            fontname=style_params["font_family"],
+            fontsize=style_params["tick_style"]["fontsize"],
+            fontweight=style_params["tick_style"]["fontweight"],
+            fontstyle=style_params["tick_style"]["fontstyle"],
+            color=style_params["tick_style"]["color"],
+        )
 
-        self.canvas.axes.set_yticklabels(self.canvas.axes.get_yticks(),
-                                        fontname=style_params['font_family'],
-                                        fontsize=style_params['tick_style']['fontsize'],
-                                        fontweight=style_params['tick_style']['fontweight'],
-                                        fontstyle=style_params['tick_style']['fontstyle'],
-                                        color=style_params['tick_style']['color']
-                                        )
+        self.canvas.axes.set_yticklabels(
+            self.canvas.axes.get_yticks(),
+            fontname=style_params["font_family"],
+            fontsize=style_params["tick_style"]["fontsize"],
+            fontweight=style_params["tick_style"]["fontweight"],
+            fontstyle=style_params["tick_style"]["fontstyle"],
+            color=style_params["tick_style"]["color"],
+        )
 
-        #self.canvas.axes.tick_params(labelsize=style_params['tick_style']['fontsize'])
+        # Tick formating
+        if style_params["tick_style"]["majortickvisibility"]:
+            self.canvas.axes.tick_params(
+                which="major",
+                pad=style_params["tick_style"]["labelpad"],
+                direction=style_params["tick_style"]["majortickdirection"],
+                length=style_params["tick_style"]["majorticklength"],
+                width=style_params["tick_style"]["majortickwidth"],
+            )
+        else:
+            self.canvas.axes.tick_params(which="major", length=0, width=0)
 
-        self.canvas.axes.grid(which='major', axis='both', color='lightgrey', linestyle='--')
-        self.canvas.axes.yaxis.set_major_formatter(StrMethodFormatter('{x:,.3f}'))
+        if style_params["tick_style"]["minortickvisibility"]:
+            self.canvas.axes.tick_params(
+                which="minor",
+                direction=style_params["tick_style"]["minortickdirection"],
+                length=style_params["tick_style"]["minorticklength"],
+                width=style_params["tick_style"]["minortickwidth"],
+            )
+        else:
+            self.canvas.axes.tick_params(which="minor", length=0, width=0)
+
+        # Grid formating
+        if style_params["grid_style"]["hgridvisibility"]:
+            self.canvas.axes.grid(True, axis="x")
+            self.canvas.axes.grid(
+                axis="x",
+                color="black",
+                linestyle=style_params["grid_style"]["hgridlinestyle"],
+                linewidth=style_params["grid_style"]["hgridlinewidth"],
+                alpha=style_params["grid_style"]["hgridalpha"],
+            )
+        else:
+            self.canvas.axes.grid(False, axis="x")
+
+        if style_params["grid_style"]["vgridvisibility"]:
+            self.canvas.axes.grid(True, axis="y")
+            self.canvas.axes.grid(
+                axis="y",
+                color="black",
+                linestyle=style_params["grid_style"]["vgridlinestyle"],
+                linewidth=style_params["grid_style"]["vgridlinewidth"],
+                alpha=style_params["grid_style"]["vgridalpha"],
+            )
+        else:
+            self.canvas.axes.grid(False, axis="y")
+
+        # Legend formating
+        font_props = FontProperties(
+            family=style_params["font_family"],  # Set font family
+            style=style_params["legend_style"]["fontstyle"],  # Set font style
+            weight=style_params["legend_style"]["fontweight"],  # Set font weight
+            size=style_params["legend_style"]["fontsize"],
+        )
+
+        if style_params["legend_style"]["visibility"]:
+            self.canvas.axes.legend(
+                prop=font_props,
+                loc=style_params["legend_style"]["position"],
+            )
+        else:
+            self.canvas.axes.legend().set_visible(False)
+
+        # Figure frame formating
+        if style_params["frame_style"]["topvisbility"]:
+            self.canvas.axes.spines["top"].set_visible(True)
+            self.canvas.axes.spines["top"].set_linewidth(
+                style_params["frame_style"]["linewidth"]
+            )
+        else:
+            self.canvas.axes.spines["top"].set_visible(False)
+
+        if style_params["frame_style"]["rightvisbility"]:
+            self.canvas.axes.spines["right"].set_visible(True)
+            self.canvas.axes.spines["right"].set_linewidth(
+                style_params["frame_style"]["linewidth"]
+            )
+        else:
+            self.canvas.axes.spines["right"].set_visible(False)
+
+        if style_params["frame_style"]["bottomvisbility"]:
+            self.canvas.axes.spines["bottom"].set_visible(True)
+            self.canvas.axes.spines["bottom"].set_linewidth(
+                style_params["frame_style"]["linewidth"]
+            )
+        else:
+            self.canvas.axes.spines["bottom"].set_visible(False)
+
+        if style_params["frame_style"]["leftvisbility"]:
+            self.canvas.axes.spines["left"].set_visible(True)
+            self.canvas.axes.spines["left"].set_linewidth(
+                style_params["frame_style"]["linewidth"]
+            )
+        else:
+            self.canvas.axes.spines["left"].set_visible(False)
+
+        # Set number formating for the two axis
+        self.canvas.axes.xaxis.set_major_formatter(LogFormatterMathtext())
+        self.canvas.axes.yaxis.set_major_formatter(StrMethodFormatter("{x:,.3f}"))
+
+        # Set tight layout
         self.figure.tight_layout()

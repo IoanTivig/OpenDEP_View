@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1161</width>
-    <height>554</height>
+    <height>623</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1768,7 +1768,7 @@ QScrollBar:horizontal {
                      <x>0</x>
                      <y>0</y>
                      <width>530</width>
-                     <height>98</height>
+                     <height>133</height>
                     </rect>
                    </property>
                    <property name="sizePolicy">
@@ -1813,6 +1813,18 @@ QScrollBar:horizontal {
                 </item>
                 <item row="0" column="0">
                  <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_3">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>40</height>
+                   </size>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">border: none;
 background: #FFFFFF;
@@ -2036,6 +2048,77 @@ QPushButton:pressed {
                      </property>
                     </spacer>
                    </item>
+                   <item>
+                    <widget class="QCheckBox" name="pyqt5_checkbox_curves_visibility">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>31</width>
+                       <height>31</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>31</width>
+                       <height>31</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">/* Default State */
+QCheckBox {
+    border: none;    
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+	padding: 4px;	
+}
+
+QCheckBox:hover {
+    /* Your styles for hover state */
+	 background: #F1F5F9;  /* slate/100 */
+
+}
+
+QCheckBox:pressed {
+    /* Your styles for pressed state */
+	background: #DEE8F2;  /* Pressed background color */
+
+}
+
+QCheckBox::indicator:checked {
+    /* Your styles for checked state */
+	image: url(:/ui/qt/resources/checkbox/visible_icon.png);
+}
+
+QCheckBox::indicator:unchecked {
+    /* Your styles for checked state */
+	image: url(:/ui/qt/resources/checkbox/hiden_icon.png);
+}
+
+QCheckBox:focused {
+    border: none;
+}
+
+</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
                   </layout>
                  </widget>
                 </item>
@@ -2118,7 +2201,7 @@ QScrollBar:horizontal {
                      <x>0</x>
                      <y>0</y>
                      <width>530</width>
-                     <height>97</height>
+                     <height>133</height>
                     </rect>
                    </property>
                    <property name="sizePolicy">
@@ -2163,6 +2246,18 @@ QScrollBar:horizontal {
                 </item>
                 <item row="0" column="0">
                  <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_4">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>40</height>
+                   </size>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">border: none;
 background: #FFFFFF;
@@ -2324,6 +2419,77 @@ QPushButton:pressed {
                       </size>
                      </property>
                     </spacer>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="pyqt5_checkbox_scatters_visibility">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>31</width>
+                       <height>31</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>31</width>
+                       <height>31</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">/* Default State */
+QCheckBox {
+    border: none;    
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+	padding: 4px;	
+}
+
+QCheckBox:hover {
+    /* Your styles for hover state */
+	 background: #F1F5F9;  /* slate/100 */
+
+}
+
+QCheckBox:pressed {
+    /* Your styles for pressed state */
+	background: #DEE8F2;  /* Pressed background color */
+
+}
+
+QCheckBox::indicator:checked {
+    /* Your styles for checked state */
+	image: url(:/ui/qt/resources/checkbox/visible_icon.png);
+}
+
+QCheckBox::indicator:unchecked {
+    /* Your styles for checked state */
+	image: url(:/ui/qt/resources/checkbox/hiden_icon.png);
+}
+
+QCheckBox:focused {
+    border: none;
+}
+
+</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </widget>

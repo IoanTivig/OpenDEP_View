@@ -1,5 +1,13 @@
 <RCC>
   <qresource prefix="/ui/qt/resources">
+    <file>checkbox/bottom_frame_checked_icon.png</file>
+    <file>checkbox/bottom_frame_unchecked_icon.png</file>
+    <file>checkbox/left_frame_checked_icon.png</file>
+    <file>checkbox/left_frame_unchecked_icon.png</file>
+    <file>checkbox/right_frame_checked_icon.png</file>
+    <file>checkbox/right_frame_unchecked_icon.png</file>
+    <file>checkbox/top_frame_checked_icon.png</file>
+    <file>checkbox/top_frame_unchecked_icon.png</file>
     <file>buttons/back_icon.png</file>
     <file>checkbox/chckbox_checked.png</file>
     <file>checkbox/chckbox_unchecked.png.png</file>

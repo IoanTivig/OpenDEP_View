@@ -116,6 +116,9 @@ class MainUI(QMainWindow):
         self.pyqt5_combo_param_freq_start_unit.currentIndexChanged.connect(self.modify_all_curves)
         self.pyqt5_combo_param_freq_stop_unit.currentIndexChanged.connect(self.modify_all_curves)
 
+        # Visibility checkboxes
+        self.pyqt5_checkbox_curves_visibility.clicked.connect(self.refresh_graph)
+        self.pyqt5_checkbox_scatters_visibility.clicked.connect(self.refresh_graph)
 
     # Functionality for the menubar buttons and toggling the tabs
     def toggle_tabs(self, buttons, tab_widgets):
@@ -468,41 +471,43 @@ class MainUI(QMainWindow):
             "imcm_two_shell"]
 
         # Add all curves to the graph
-        for key in self.curves_dict.keys():
-            if self.curves_dict[key]["visibility"]:
-                # Get index of the button that is active in type of graph content
-                for index, button in enumerate(self.pyqt5_frame_toolbar_graphcontent.findChildren(QPushButton)):
-                    if button.property("customState"):
-                        # Calculate the index of data depending on selected model and type of graph content
-                        new_index = self.curves_dict[key]["model"] * 3 + index + 1
-                        self.pyqt5_graph_widget.update_curve(name=self.curves_dict[key]["name"],
-                                                            color=self.curves_dict[key]["color"],
-                                                            line_style=self.curves_dict[key]["line_style"],
-                                                            x_data=self.curves_dict[key]["curves"]["frequencies"],
-                                                            y_data=self.curves_dict[key]["curves"][curves[new_index]],
-                                                            line_width=self.curves_dict[key]["line_width"])
-                        self.graph_y_index = index
-                        break
+        if self.pyqt5_checkbox_curves_visibility.isChecked():
+            for key in self.curves_dict.keys():
+                if self.curves_dict[key]["visibility"]:
+                    # Get index of the button that is active in type of graph content
+                    for index, button in enumerate(self.pyqt5_frame_toolbar_graphcontent.findChildren(QPushButton)):
+                        if button.property("customState"):
+                            # Calculate the index of data depending on selected model and type of graph content
+                            new_index = self.curves_dict[key]["model"] * 3 + index + 1
+                            self.pyqt5_graph_widget.update_curve(name=self.curves_dict[key]["name"],
+                                                                color=self.curves_dict[key]["color"],
+                                                                line_style=self.curves_dict[key]["line_style"],
+                                                                x_data=self.curves_dict[key]["curves"]["frequencies"],
+                                                                y_data=self.curves_dict[key]["curves"][curves[new_index]],
+                                                                line_width=self.curves_dict[key]["line_width"])
+                            self.graph_y_index = index
+                            break
 
         if self.pyqt5_button_display_experimental_area.property("customState"):
             self.pyqt5_graph_widget.scatter_style = 'area'
         elif self.pyqt5_button_display_experimental_stdev.property("customState"):
             self.pyqt5_graph_widget.scatter_style = 'scatter'
 
-        for key in self.scatter_dict.keys():
-            if self.scatter_dict[key]["visibility"]:
-                # Get index of the button that is active in type of graph content
-                for index, button in enumerate(self.pyqt5_frame_toolbar_graphcontent.findChildren(QPushButton)):
-                    if button.property("customState"):
-                        button_index = index
-                if button_index == 0:
-                    self.pyqt5_graph_widget.update_scatter(name=self.scatter_dict[key]["name"],
-                                                        color=self.scatter_dict[key]["color"],
-                                                        x_data=self.scatter_dict[key]["scatter"]["frequencies"],
-                                                        y_data=self.scatter_dict[key]["scatter"]["recm_values"],
-                                                        y_errors=self.scatter_dict[key]["scatter"]["recm_errors"],
-                                                        point_style=self.scatter_dict[key]["point_style"],
-                                                        point_size=self.scatter_dict[key]["point_size"])
+        if self.pyqt5_checkbox_scatters_visibility.isChecked():
+            for key in self.scatter_dict.keys():
+                if self.scatter_dict[key]["visibility"]:
+                    # Get index of the button that is active in type of graph content
+                    for index, button in enumerate(self.pyqt5_frame_toolbar_graphcontent.findChildren(QPushButton)):
+                        if button.property("customState"):
+                            button_index = index
+                    if button_index == 0:
+                        self.pyqt5_graph_widget.update_scatter(name=self.scatter_dict[key]["name"],
+                                                            color=self.scatter_dict[key]["color"],
+                                                            x_data=self.scatter_dict[key]["scatter"]["frequencies"],
+                                                            y_data=self.scatter_dict[key]["scatter"]["recm_values"],
+                                                            y_errors=self.scatter_dict[key]["scatter"]["recm_errors"],
+                                                            point_style=self.scatter_dict[key]["point_style"],
+                                                            point_size=self.scatter_dict[key]["point_size"])
 
         # Format the graph and draw it
         self.update_graph_styling()
@@ -650,11 +655,43 @@ class MainUI(QMainWindow):
                            'fontweight': self.graph_settings.pyqt5_combo_axis_font_weight.currentText().lower(),
                            'fontstyle': self.graph_settings.pyqt5_combo_axis_font_style.currentText().lower(),
                            'color': '#000000',
-                           'labelpad': self.graph_settings.pyqt5_spinbox_axis_title_padding.value()},
+                           'labelpad': self.graph_settings.pyqt5_spinbox_axis_title_padding.value()
+                           },
             'tick_style': {'fontsize': self.graph_settings.pyqt5_spinbox_tick_size.value(),
                            'fontweight': self.graph_settings.pyqt5_combo_tick_font_weight.currentText().lower(),
                            'fontstyle': self.graph_settings.pyqt5_combo_tick_font_style.currentText().lower(),
-                           'color': '#000000'}
+                           'color': '#000000',
+                           'labelpad': self.graph_settings.pyqt5_spinbox_tick_label_padding.value(),
+                           'majortickvisibility': self.graph_settings.pyqt5_checkbox_major_tick_visibility.isChecked(),
+                           'majortickdirection': self.graph_settings.pyqt5_combo_major_tick_direction.currentText().lower(),
+                           'majorticklength': self.graph_settings.pyqt5_spinbox_major_tick_length.value(),
+                           'majortickwidth': self.graph_settings.pyqt5_spinbox_major_tick_width.value(),
+                           'minortickvisibility': self.graph_settings.pyqt5_checkbox_minor_tick_visibility.isChecked(),
+                           'minortickdirection': self.graph_settings.pyqt5_combo_minor_tick_direction.currentText().lower(),
+                           'minorticklength': self.graph_settings.pyqt5_spinbox_minor_tick_length.value(),
+                           'minortickwidth': self.graph_settings.pyqt5_spinbox_minor_tick_width.value()
+                           },
+            'grid_style': {'hgridvisibility': self.graph_settings.pyqt5_checkbox_h_grid_visibility.isChecked(),
+                           'hgridlinestyle': self.graph_settings.pyqt5_combo_h_grid_style.currentText().lower(),
+                           'hgridlinewidth': self.graph_settings.pyqt5_spinbox_h_grid_width.value(),
+                           'hgridalpha': self.graph_settings.pyqt5_spinbox_h_grid_transparency.value(),
+                           'vgridvisibility': self.graph_settings.pyqt5_checkbox_v_grid_visibility.isChecked(),
+                           'vgridlinestyle': self.graph_settings.pyqt5_combo_v_grid_style.currentText().lower(),
+                           'vgridlinewidth': self.graph_settings.pyqt5_spinbox_v_grid_width.value(),
+                            'vgridalpha': self.graph_settings.pyqt5_spinbox_v_grid_transparency.value()
+                           },
+            'legend_style': {'visibility': self.graph_settings.pyqt5_checkbox_legend_visibility.isChecked(),
+                             'fontsize': self.graph_settings.pyqt5_spinbox_legend_font_size.value(),
+                             'fontweight': self.graph_settings.pyqt5_combo_legend_font_weight.currentText().lower(),
+                             'fontstyle': self.graph_settings.pyqt5_combo_legend_font_style.currentText().lower(),
+                             'position': self.graph_settings.pyqt5_combo_legend_position.currentText().lower(),
+                             },
+            'frame_style': {'linewidth': self.graph_settings.pyqt5_spinbox_frame_width.value(),
+                            'topvisbility': self.graph_settings.pyqt5_checkbox_frame_top_visibility.isChecked(),
+                            'bottomvisbility': self.graph_settings.pyqt5_checkbox_frame_bottom_visibility.isChecked(),
+                            'leftvisbility': self.graph_settings.pyqt5_checkbox_frame_left_visibility.isChecked(),
+                            'rightvisbility': self.graph_settings.pyqt5_checkbox_frame_right_visibility.isChecked()
+                            }
             }
 
         return graph_style_parameters
