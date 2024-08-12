@@ -92,8 +92,8 @@ class GraphWidget(QWidget):
                 y_data,
                 yerr=y_errors,
                 fmt="none",
-                ecolor="black",
-                elinewidth=1,
+                ecolor="grey",
+                elinewidth=0.5,
                 capsize=2,
             )
 

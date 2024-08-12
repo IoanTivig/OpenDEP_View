@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1062</width>
-    <height>521</height>
+    <height>525</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,21 +39,21 @@
 border-radius: 10px;
 background: #F1F5F9;</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0">
       <property name="spacing">
        <number>0</number>
       </property>
       <property name="leftMargin">
-       <number>0</number>
+       <number>9</number>
       </property>
       <property name="topMargin">
        <number>5</number>
       </property>
       <property name="rightMargin">
-       <number>0</number>
+       <number>9</number>
       </property>
       <property name="bottomMargin">
-       <number>0</number>
+       <number>9</number>
       </property>
       <item>
        <widget class="QLabel" name="label_27">
@@ -80,167 +80,1070 @@ background: #F1F5F9;</string>
         <property name="styleSheet">
          <string notr="true">border: none;</string>
         </property>
-        <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,1" columnstretch="1,1,0,0">
+        <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,0" columnstretch="1,1,0,0">
          <property name="leftMargin">
-          <number>9</number>
+          <number>0</number>
          </property>
          <property name="topMargin">
           <number>9</number>
          </property>
          <property name="rightMargin">
-          <number>9</number>
+          <number>0</number>
          </property>
          <property name="bottomMargin">
-          <number>9</number>
+          <number>6</number>
          </property>
+         <item row="0" column="1">
+          <widget class="QFrame" name="pyqt5_frame_buffer_group_2">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_15">
+            <property name="spacing">
+             <number>6</number>
+            </property>
+            <property name="leftMargin">
+             <number>9</number>
+            </property>
+            <property name="topMargin">
+             <number>9</number>
+            </property>
+            <property name="rightMargin">
+             <number>9</number>
+            </property>
+            <property name="bottomMargin">
+             <number>9</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="verticalFrame">
+              <property name="styleSheet">
+               <string notr="true">background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout">
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>9</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_44" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_54">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding-left: 2px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_axis_title_size">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>100</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>250</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Axis Label Font Size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QDoubleSpinBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+}
+
+QDoubleSpinBox:focus {
+}
+
+QDoubleSpinBox:disabled {
+}
+
+QDoubleSpinBox::up-button {
+	background: #FFFFFF;
+	border: none; 
+	subcontrol-position: center right;
+	padding-right: 10px;
+}
+
+QDoubleSpinBox::down-button {
+	background: #FFFFFF;
+	border: none;
+	subcontrol-position: center left;
+	padding-left: 10px;
+}
+
+QDoubleSpinBox::up-arrow {
+	image: url(:/ui/qt/resources/buttons/add_icon.png);
+	width: 20px;
+    height: 20px;
+}
+
+QDoubleSpinBox::down-arrow {	
+	image: url(:/ui/qt/resources/buttons/substract_icon.png);
+	width: 20px;
+    height: 20px;
+}
+
+QDoubleSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off {
+}
+
+QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
+}</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="decimals">
+                    <number>0</number>
+                   </property>
+                   <property name="minimum">
+                    <double>1.000000000000000</double>
+                   </property>
+                   <property name="maximum">
+                    <double>200.000000000000000</double>
+                   </property>
+                   <property name="singleStep">
+                    <double>1.000000000000000</double>
+                   </property>
+                   <property name="value">
+                    <double>14.000000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_51" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_55">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding-left: 2px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Padding&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_axis_title_padding">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>100</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>250</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Axis Label Padding&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QDoubleSpinBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+}
+
+QDoubleSpinBox:focus {
+}
+
+QDoubleSpinBox:disabled {
+}
+
+QDoubleSpinBox::up-button {
+	background: #FFFFFF;
+	border: none; 
+	subcontrol-position: center right;
+	padding-right: 10px;
+}
+
+QDoubleSpinBox::down-button {
+	background: #FFFFFF;
+	border: none;
+	subcontrol-position: center left;
+	padding-left: 10px;
+}
+
+QDoubleSpinBox::up-arrow {
+	image: url(:/ui/qt/resources/buttons/add_icon.png);
+	width: 20px;
+    height: 20px;
+}
+
+QDoubleSpinBox::down-arrow {	
+	image: url(:/ui/qt/resources/buttons/substract_icon.png);
+	width: 20px;
+    height: 20px;
+}
+
+QDoubleSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off {
+}
+
+QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
+}</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="decimals">
+                    <number>0</number>
+                   </property>
+                   <property name="minimum">
+                    <double>1.000000000000000</double>
+                   </property>
+                   <property name="maximum">
+                    <double>200.000000000000000</double>
+                   </property>
+                   <property name="singleStep">
+                    <double>1.000000000000000</double>
+                   </property>
+                   <property name="value">
+                    <double>10.000000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_63" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_56">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding-left: 2px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Weight&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="pyqt5_combo_axis_font_weight">
+                   <property name="minimumSize">
+                    <size>
+                     <width>100</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>250</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QComboBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+}
+
+/* Drop-down button */
+QComboBox::drop-down {
+    border: none;	
+}
+
+/* Down arrow */
+QComboBox::down-arrow {
+    image: url(:/ui/qt/resources/checkbox/down_icon.png);
+	padding-right: 12px;
+}
+
+/* Down arrow when disabled */
+QComboBox::down-arrow:disabled {
+}
+
+/* Drop-down items */
+QComboBox QAbstractItemView {
+    border: 1px solid #E2E8F0; /* slate/200 */
+    selection-background-color: #F1F5F9;
+}
+
+/* Individual items */
+QComboBox::item {
+    background-color: white;
+    color: #0F172A;
+}</string>
+                   </property>
+                   <property name="currentIndex">
+                    <number>1</number>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>Light</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Normal</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Bold</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_64" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_57">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding-left: 2px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Style&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="pyqt5_combo_axis_font_style">
+                   <property name="minimumSize">
+                    <size>
+                     <width>100</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>250</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QComboBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+
+}
+
+/* Drop-down button */
+QComboBox::drop-down {
+    border: none;	
+}
+
+/* Down arrow */
+QComboBox::down-arrow {
+    image: url(:/ui/qt/resources/checkbox/down_icon.png);
+	padding-right: 12px;
+}
+
+/* Down arrow when disabled */
+QComboBox::down-arrow:disabled {
+}
+
+/* Drop-down items */
+QComboBox QAbstractItemView {
+    border: 1px solid #E2E8F0; /* slate/200 */
+    selection-background-color: #F1F5F9;
+}
+
+/* Individual items */
+QComboBox::item {
+    background-color: white;
+    color: #0F172A;
+}</string>
+                   </property>
+                   <property name="currentIndex">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>Normal</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Italic</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Oblique</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="verticalFrame_8">
+              <property name="styleSheet">
+               <string notr="true">background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_11">
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>9</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_58">
+                 <property name="styleSheet">
+                  <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 15px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding-top: 4px;  /* Padding */</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Axis Tick Font&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_47" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_59">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding-left: 2px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_tick_size">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>100</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>250</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QDoubleSpinBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+}
+
+QDoubleSpinBox:focus {
+}
+
+QDoubleSpinBox:disabled {
+}
+
+QDoubleSpinBox::up-button {
+	background: #FFFFFF;
+	border: none; 
+	subcontrol-position: center right;
+	padding-right: 10px;
+}
+
+QDoubleSpinBox::down-button {
+	background: #FFFFFF;
+	border: none;
+	subcontrol-position: center left;
+	padding-left: 10px;
+}
+
+QDoubleSpinBox::up-arrow {
+	image: url(:/ui/qt/resources/buttons/add_icon.png);
+	width: 20px;
+    height: 20px;
+}
+
+QDoubleSpinBox::down-arrow {	
+	image: url(:/ui/qt/resources/buttons/substract_icon.png);
+	width: 20px;
+    height: 20px;
+}
+
+QDoubleSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off {
+}
+
+QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
+}</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="decimals">
+                    <number>0</number>
+                   </property>
+                   <property name="minimum">
+                    <double>1.000000000000000</double>
+                   </property>
+                   <property name="maximum">
+                    <double>200.000000000000000</double>
+                   </property>
+                   <property name="singleStep">
+                    <double>1.000000000000000</double>
+                   </property>
+                   <property name="value">
+                    <double>9.000000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_65" stretch="1,1">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_60">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding-left: 2px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Padding&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_tick_label_padding">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>100</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>250</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tick Label Padding&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QDoubleSpinBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+}
+
+QDoubleSpinBox:focus {
+}
+
+QDoubleSpinBox:disabled {
+}
+
+QDoubleSpinBox::up-button {
+	background: #FFFFFF;
+	border: none; 
+	subcontrol-position: center right;
+	padding-right: 10px;
+}
+
+QDoubleSpinBox::down-button {
+	background: #FFFFFF;
+	border: none;
+	subcontrol-position: center left;
+	padding-left: 10px;
+}
+
+QDoubleSpinBox::up-arrow {
+	image: url(:/ui/qt/resources/buttons/add_icon.png);
+	width: 20px;
+    height: 20px;
+}
+
+QDoubleSpinBox::down-arrow {	
+	image: url(:/ui/qt/resources/buttons/substract_icon.png);
+	width: 20px;
+    height: 20px;
+}
+
+QDoubleSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off {
+}
+
+QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
+}</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="decimals">
+                    <number>0</number>
+                   </property>
+                   <property name="minimum">
+                    <double>1.000000000000000</double>
+                   </property>
+                   <property name="maximum">
+                    <double>200.000000000000000</double>
+                   </property>
+                   <property name="singleStep">
+                    <double>1.000000000000000</double>
+                   </property>
+                   <property name="value">
+                    <double>5.000000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_66" stretch="1,0">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_61">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding-left: 2px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Weight&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="pyqt5_combo_tick_font_weight">
+                   <property name="minimumSize">
+                    <size>
+                     <width>100</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>250</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QComboBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+}
+
+/* Drop-down button */
+QComboBox::drop-down {
+    border: none;	
+}
+
+/* Down arrow */
+QComboBox::down-arrow {
+    image: url(:/ui/qt/resources/checkbox/down_icon.png);
+	padding-right: 12px;
+}
+
+/* Down arrow when disabled */
+QComboBox::down-arrow:disabled {
+}
+
+/* Drop-down items */
+QComboBox QAbstractItemView {
+    border: 1px solid #E2E8F0; /* slate/200 */
+    selection-background-color: #F1F5F9;
+}
+
+/* Individual items */
+QComboBox::item {
+    background-color: white;
+    color: #0F172A;
+}</string>
+                   </property>
+                   <property name="currentIndex">
+                    <number>1</number>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>Light</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Normal</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Bold</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_67" stretch="1,0">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_62">
+                   <property name="styleSheet">
+                    <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding-left: 2px;  /* Padding */</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Style&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="pyqt5_combo_tick_font_style">
+                   <property name="minimumSize">
+                    <size>
+                     <width>100</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>250</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QComboBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+
+}
+
+/* Drop-down button */
+QComboBox::drop-down {
+    border: none;	
+}
+
+/* Down arrow */
+QComboBox::down-arrow {
+    image: url(:/ui/qt/resources/checkbox/down_icon.png);
+	padding-right: 12px;
+}
+
+/* Down arrow when disabled */
+QComboBox::down-arrow:disabled {
+}
+
+/* Drop-down items */
+QComboBox QAbstractItemView {
+    border: 1px solid #E2E8F0; /* slate/200 */
+    selection-background-color: #F1F5F9;
+}
+
+/* Individual items */
+QComboBox::item {
+    background-color: white;
+    color: #0F172A;
+}</string>
+                   </property>
+                   <property name="currentIndex">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>Normal</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Italic</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Oblique</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
          <item row="0" column="0">
           <layout class="QVBoxLayout" name="verticalLayout_5">
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_46" stretch="0,0">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-             <item>
-              <widget class="QPushButton" name="pyqt5_button_update_graph_styling">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>31</width>
-                 <height>31</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>99999</width>
-                 <height>31</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Segoe UI</family>
-                 <pointsize>-1</pointsize>
-                 <weight>62</weight>
-                 <italic>false</italic>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="toolTip">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Simulate experimental data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="whatsThis">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Simulate experimental data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
-    background: #FFFFFF;  /* Default background */
-    border: 1px solid #E2E8F0;  /* Default border */
-    border-radius: 6px;  /* Rounded corners */
-    font: 500 14px/24px 'Segoe UI', sans-serif;  /* Combined font properties */
-    color: #0F172A;  /* Text color */
-    padding: 8px 16px;  /* Padding */
-	text-align: center;  /* Center the text */
-    qproperty-icon: url(:/ui/qt/resources/buttons/refresh_icon.png); /* Icon path */
-    qproperty-iconSize: 16px 16px; /* Icon size */
-}
-
-/* Icon positioning */
-QPushButton::icon {
-    subcontrol-origin: padding;
-    subcontrol-position: left center; /* Position icon to the left, centered vertically */
-    margin-right: 8px; /* Minimal space between icon and text */
-}
-
-QPushButton:hover {
-    background: #F1F5F9;  /* Hover background */
-}
-
-QPushButton:pressed {
-    background: #DEE8F2;  /* Pressed background */
-}</string>
-               </property>
-               <property name="text">
-                <string>Refresh</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pyqt5_button_back">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>31</width>
-                 <height>31</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>99999</width>
-                 <height>31</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Segoe UI</family>
-                 <pointsize>-1</pointsize>
-                 <weight>62</weight>
-                 <italic>false</italic>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="toolTip">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Simulate experimental data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="whatsThis">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Simulate experimental data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
-    background: #FFFFFF;  /* Default background */
-    border: 1px solid #E2E8F0;  /* Default border */
-    border-radius: 6px;  /* Rounded corners */
-    font: 500 14px/24px 'Segoe UI', sans-serif;  /* Combined font properties */
-    color: #0F172A;  /* Text color */
-    padding: 8px 16px;  /* Padding */
-	text-align: center;  /* Center the text */
-    qproperty-icon: url(:/ui/qt/resources/buttons/back_icon.png); /* Icon path */
-    qproperty-iconSize: 16px 16px; /* Icon size */
-}
-
-/* Icon positioning */
-QPushButton::icon {
-    subcontrol-origin: padding;
-    subcontrol-position: left center; /* Position icon to the left, centered vertically */
-    margin-right: 8px; /* Minimal space between icon and text */
-}
-
-QPushButton:hover {
-    background: #F1F5F9;  /* Hover background */
-}
-
-QPushButton:pressed {
-    background: #DEE8F2;  /* Pressed background */
-}</string>
-               </property>
-               <property name="text">
-                <string>Back</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
            <item>
             <widget class="QFrame" name="pyqt5_frame_buffer_group">
              <property name="layoutDirection">
@@ -1493,1055 +2396,6 @@ QComboBox::item {
             </widget>
            </item>
           </layout>
-         </item>
-         <item row="0" column="1">
-          <widget class="QFrame" name="pyqt5_frame_buffer_group_2">
-           <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="autoFillBackground">
-            <bool>false</bool>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">box-sizing: border-box;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 25px;
-background: #FFFFFF;
-border: 1px solid #E2E8F0; /* slate/200 */
-border-radius: 6px;</string>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_15">
-            <property name="spacing">
-             <number>6</number>
-            </property>
-            <property name="leftMargin">
-             <number>9</number>
-            </property>
-            <property name="topMargin">
-             <number>9</number>
-            </property>
-            <property name="rightMargin">
-             <number>9</number>
-            </property>
-            <property name="bottomMargin">
-             <number>9</number>
-            </property>
-            <item>
-             <widget class="QFrame" name="verticalFrame">
-              <property name="styleSheet">
-               <string notr="true">background: #FFFFFF;
-border: 1px solid #E2E8F0; /* slate/200 */
-border-radius: 6px;</string>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout">
-               <property name="leftMargin">
-                <number>9</number>
-               </property>
-               <property name="topMargin">
-                <number>9</number>
-               </property>
-               <property name="rightMargin">
-                <number>9</number>
-               </property>
-               <property name="bottomMargin">
-                <number>9</number>
-               </property>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_44" stretch="1,1">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_54">
-                   <property name="styleSheet">
-                    <string notr="true"> 	border: none;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding-left: 2px;  /* Padding */</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_axis_title_size">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>100</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>250</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="toolTip">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Axis Label Font Size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QDoubleSpinBox {
-	background: #FFFFFF;
-	border: 1px solid #E2E8F0; /* slate/200 */
-	border-radius: 6px;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-}
-
-QDoubleSpinBox:focus {
-}
-
-QDoubleSpinBox:disabled {
-}
-
-QDoubleSpinBox::up-button {
-	background: #FFFFFF;
-	border: none; 
-	subcontrol-position: center right;
-	padding-right: 10px;
-}
-
-QDoubleSpinBox::down-button {
-	background: #FFFFFF;
-	border: none;
-	subcontrol-position: center left;
-	padding-left: 10px;
-}
-
-QDoubleSpinBox::up-arrow {
-	image: url(:/ui/qt/resources/buttons/add_icon.png);
-	width: 20px;
-    height: 20px;
-}
-
-QDoubleSpinBox::down-arrow {	
-	image: url(:/ui/qt/resources/buttons/substract_icon.png);
-	width: 20px;
-    height: 20px;
-}
-
-QDoubleSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off {
-}
-
-QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
-}</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="decimals">
-                    <number>0</number>
-                   </property>
-                   <property name="minimum">
-                    <double>1.000000000000000</double>
-                   </property>
-                   <property name="maximum">
-                    <double>200.000000000000000</double>
-                   </property>
-                   <property name="singleStep">
-                    <double>1.000000000000000</double>
-                   </property>
-                   <property name="value">
-                    <double>14.000000000000000</double>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_51" stretch="1,1">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_55">
-                   <property name="styleSheet">
-                    <string notr="true"> 	border: none;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding-left: 2px;  /* Padding */</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Padding&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_axis_title_padding">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>100</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>250</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="toolTip">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Axis Label Padding&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QDoubleSpinBox {
-	background: #FFFFFF;
-	border: 1px solid #E2E8F0; /* slate/200 */
-	border-radius: 6px;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-}
-
-QDoubleSpinBox:focus {
-}
-
-QDoubleSpinBox:disabled {
-}
-
-QDoubleSpinBox::up-button {
-	background: #FFFFFF;
-	border: none; 
-	subcontrol-position: center right;
-	padding-right: 10px;
-}
-
-QDoubleSpinBox::down-button {
-	background: #FFFFFF;
-	border: none;
-	subcontrol-position: center left;
-	padding-left: 10px;
-}
-
-QDoubleSpinBox::up-arrow {
-	image: url(:/ui/qt/resources/buttons/add_icon.png);
-	width: 20px;
-    height: 20px;
-}
-
-QDoubleSpinBox::down-arrow {	
-	image: url(:/ui/qt/resources/buttons/substract_icon.png);
-	width: 20px;
-    height: 20px;
-}
-
-QDoubleSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off {
-}
-
-QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
-}</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="decimals">
-                    <number>0</number>
-                   </property>
-                   <property name="minimum">
-                    <double>1.000000000000000</double>
-                   </property>
-                   <property name="maximum">
-                    <double>200.000000000000000</double>
-                   </property>
-                   <property name="singleStep">
-                    <double>1.000000000000000</double>
-                   </property>
-                   <property name="value">
-                    <double>10.000000000000000</double>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_63" stretch="1,1">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_56">
-                   <property name="styleSheet">
-                    <string notr="true"> 	border: none;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding-left: 2px;  /* Padding */</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Weight&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="pyqt5_combo_axis_font_weight">
-                   <property name="minimumSize">
-                    <size>
-                     <width>100</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>250</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QComboBox {
-	background: #FFFFFF;
-	border: 1px solid #E2E8F0; /* slate/200 */
-	border-radius: 6px;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-}
-
-/* Drop-down button */
-QComboBox::drop-down {
-    border: none;	
-}
-
-/* Down arrow */
-QComboBox::down-arrow {
-    image: url(:/ui/qt/resources/checkbox/down_icon.png);
-	padding-right: 12px;
-}
-
-/* Down arrow when disabled */
-QComboBox::down-arrow:disabled {
-}
-
-/* Drop-down items */
-QComboBox QAbstractItemView {
-    border: 1px solid #E2E8F0; /* slate/200 */
-    selection-background-color: #F1F5F9;
-}
-
-/* Individual items */
-QComboBox::item {
-    background-color: white;
-    color: #0F172A;
-}</string>
-                   </property>
-                   <property name="currentIndex">
-                    <number>1</number>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Light</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Normal</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Bold</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_64" stretch="1,1">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_57">
-                   <property name="styleSheet">
-                    <string notr="true"> 	border: none;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding-left: 2px;  /* Padding */</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Style&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="pyqt5_combo_axis_font_style">
-                   <property name="minimumSize">
-                    <size>
-                     <width>100</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>250</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QComboBox {
-	background: #FFFFFF;
-	border: 1px solid #E2E8F0; /* slate/200 */
-	border-radius: 6px;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-
-}
-
-/* Drop-down button */
-QComboBox::drop-down {
-    border: none;	
-}
-
-/* Down arrow */
-QComboBox::down-arrow {
-    image: url(:/ui/qt/resources/checkbox/down_icon.png);
-	padding-right: 12px;
-}
-
-/* Down arrow when disabled */
-QComboBox::down-arrow:disabled {
-}
-
-/* Drop-down items */
-QComboBox QAbstractItemView {
-    border: 1px solid #E2E8F0; /* slate/200 */
-    selection-background-color: #F1F5F9;
-}
-
-/* Individual items */
-QComboBox::item {
-    background-color: white;
-    color: #0F172A;
-}</string>
-                   </property>
-                   <property name="currentIndex">
-                    <number>0</number>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Normal</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Italic</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Oblique</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QFrame" name="verticalFrame_8">
-              <property name="styleSheet">
-               <string notr="true">background: #FFFFFF;
-border: 1px solid #E2E8F0; /* slate/200 */
-border-radius: 6px;</string>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_11">
-               <property name="leftMargin">
-                <number>9</number>
-               </property>
-               <property name="topMargin">
-                <number>9</number>
-               </property>
-               <property name="rightMargin">
-                <number>9</number>
-               </property>
-               <property name="bottomMargin">
-                <number>9</number>
-               </property>
-               <item>
-                <widget class="QLabel" name="label_58">
-                 <property name="styleSheet">
-                  <string notr="true"> 	border: none;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 15px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding-top: 4px;  /* Padding */</string>
-                 </property>
-                 <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Axis Tick Font&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_47" stretch="1,1">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_59">
-                   <property name="styleSheet">
-                    <string notr="true"> 	border: none;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding-left: 2px;  /* Padding */</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_tick_size">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>100</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>250</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="toolTip">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QDoubleSpinBox {
-	background: #FFFFFF;
-	border: 1px solid #E2E8F0; /* slate/200 */
-	border-radius: 6px;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-}
-
-QDoubleSpinBox:focus {
-}
-
-QDoubleSpinBox:disabled {
-}
-
-QDoubleSpinBox::up-button {
-	background: #FFFFFF;
-	border: none; 
-	subcontrol-position: center right;
-	padding-right: 10px;
-}
-
-QDoubleSpinBox::down-button {
-	background: #FFFFFF;
-	border: none;
-	subcontrol-position: center left;
-	padding-left: 10px;
-}
-
-QDoubleSpinBox::up-arrow {
-	image: url(:/ui/qt/resources/buttons/add_icon.png);
-	width: 20px;
-    height: 20px;
-}
-
-QDoubleSpinBox::down-arrow {	
-	image: url(:/ui/qt/resources/buttons/substract_icon.png);
-	width: 20px;
-    height: 20px;
-}
-
-QDoubleSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off {
-}
-
-QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
-}</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="decimals">
-                    <number>0</number>
-                   </property>
-                   <property name="minimum">
-                    <double>1.000000000000000</double>
-                   </property>
-                   <property name="maximum">
-                    <double>200.000000000000000</double>
-                   </property>
-                   <property name="singleStep">
-                    <double>1.000000000000000</double>
-                   </property>
-                   <property name="value">
-                    <double>9.000000000000000</double>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_65" stretch="1,1">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_60">
-                   <property name="styleSheet">
-                    <string notr="true"> 	border: none;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding-left: 2px;  /* Padding */</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Padding&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_tick_label_padding">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>100</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>250</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="toolTip">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tick Label Padding&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QDoubleSpinBox {
-	background: #FFFFFF;
-	border: 1px solid #E2E8F0; /* slate/200 */
-	border-radius: 6px;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-}
-
-QDoubleSpinBox:focus {
-}
-
-QDoubleSpinBox:disabled {
-}
-
-QDoubleSpinBox::up-button {
-	background: #FFFFFF;
-	border: none; 
-	subcontrol-position: center right;
-	padding-right: 10px;
-}
-
-QDoubleSpinBox::down-button {
-	background: #FFFFFF;
-	border: none;
-	subcontrol-position: center left;
-	padding-left: 10px;
-}
-
-QDoubleSpinBox::up-arrow {
-	image: url(:/ui/qt/resources/buttons/add_icon.png);
-	width: 20px;
-    height: 20px;
-}
-
-QDoubleSpinBox::down-arrow {	
-	image: url(:/ui/qt/resources/buttons/substract_icon.png);
-	width: 20px;
-    height: 20px;
-}
-
-QDoubleSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off {
-}
-
-QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
-}</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="decimals">
-                    <number>0</number>
-                   </property>
-                   <property name="minimum">
-                    <double>1.000000000000000</double>
-                   </property>
-                   <property name="maximum">
-                    <double>200.000000000000000</double>
-                   </property>
-                   <property name="singleStep">
-                    <double>1.000000000000000</double>
-                   </property>
-                   <property name="value">
-                    <double>5.000000000000000</double>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_66" stretch="1,0">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_61">
-                   <property name="styleSheet">
-                    <string notr="true"> 	border: none;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding-left: 2px;  /* Padding */</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Weight&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="pyqt5_combo_tick_font_weight">
-                   <property name="minimumSize">
-                    <size>
-                     <width>100</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>250</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QComboBox {
-	background: #FFFFFF;
-	border: 1px solid #E2E8F0; /* slate/200 */
-	border-radius: 6px;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-}
-
-/* Drop-down button */
-QComboBox::drop-down {
-    border: none;	
-}
-
-/* Down arrow */
-QComboBox::down-arrow {
-    image: url(:/ui/qt/resources/checkbox/down_icon.png);
-	padding-right: 12px;
-}
-
-/* Down arrow when disabled */
-QComboBox::down-arrow:disabled {
-}
-
-/* Drop-down items */
-QComboBox QAbstractItemView {
-    border: 1px solid #E2E8F0; /* slate/200 */
-    selection-background-color: #F1F5F9;
-}
-
-/* Individual items */
-QComboBox::item {
-    background-color: white;
-    color: #0F172A;
-}</string>
-                   </property>
-                   <property name="currentIndex">
-                    <number>1</number>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Light</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Normal</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Bold</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_67" stretch="1,0">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_62">
-                   <property name="styleSheet">
-                    <string notr="true"> 	border: none;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding-left: 2px;  /* Padding */</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Font Style&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="pyqt5_combo_tick_font_style">
-                   <property name="minimumSize">
-                    <size>
-                     <width>100</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>250</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QComboBox {
-	background: #FFFFFF;
-	border: 1px solid #E2E8F0; /* slate/200 */
-	border-radius: 6px;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-
-}
-
-/* Drop-down button */
-QComboBox::drop-down {
-    border: none;	
-}
-
-/* Down arrow */
-QComboBox::down-arrow {
-    image: url(:/ui/qt/resources/checkbox/down_icon.png);
-	padding-right: 12px;
-}
-
-/* Down arrow when disabled */
-QComboBox::down-arrow:disabled {
-}
-
-/* Drop-down items */
-QComboBox QAbstractItemView {
-    border: 1px solid #E2E8F0; /* slate/200 */
-    selection-background-color: #F1F5F9;
-}
-
-/* Individual items */
-QComboBox::item {
-    background-color: white;
-    color: #0F172A;
-}</string>
-                   </property>
-                   <property name="currentIndex">
-                    <number>0</number>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Normal</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Italic</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Oblique</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <spacer name="verticalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>0</width>
-                <height>0</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </widget>
          </item>
          <item row="0" column="2">
           <widget class="QFrame" name="pyqt5_frame_buffer_group_3">
@@ -4663,6 +4517,154 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
              </spacer>
             </item>
            </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="">
+        <property name="styleSheet">
+         <string notr="true">Border: None;</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_46" stretch="0,0,0">
+         <property name="leftMargin">
+          <number>9</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_8">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pyqt5_button_update_graph_styling">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>99999</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <weight>62</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Simulate experimental data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="whatsThis">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Simulate experimental data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #E2E8F0;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    font: 500 14px/24px 'Segoe UI', sans-serif;  /* Combined font properties */
+    color: #0F172A;  /* Text color */
+    padding: 8px 16px;  /* Padding */
+	text-align: center;  /* Center the text */
+}
+
+/* Icon positioning */
+QPushButton:hover {
+    background: #F1F5F9;  /* Hover background */
+}
+
+QPushButton:pressed {
+    background: #DEE8F2;  /* Pressed background */
+}</string>
+           </property>
+           <property name="text">
+            <string>Apply</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pyqt5_button_back">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>99999</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <weight>62</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Simulate experimental data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="whatsThis">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Simulate experimental data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #E2E8F0;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    font: 500 14px/24px 'Segoe UI', sans-serif;  /* Combined font properties */
+    color: #0F172A;  /* Text color */
+    padding: 8px 16px;  /* Padding */
+	text-align: center;  /* Center the text */
+}
+
+/* Icon positioning */
+QPushButton:hover {
+    background: #F1F5F9;  /* Hover background */
+}
+
+QPushButton:pressed {
+    background: #DEE8F2;  /* Pressed background */
+}</string>
+           </property>
+           <property name="text">
+            <string>Close</string>
+           </property>
           </widget>
          </item>
         </layout>

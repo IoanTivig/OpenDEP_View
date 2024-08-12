@@ -49,6 +49,15 @@ class ScatterWidgetUI(QWidget):
             duplicate_id=self.id))
         self.pyqt5_button_save_scatter.clicked.connect(self.save_self)
 
+        self.pyqt5_tablewidget_exp_spectra.itemSelectionChanged.connect(self.update_button_state)
+
+    def update_button_state(self):
+        # Enable the button if any items are selected, otherwise disable it
+        if self.pyqt5_tablewidget_exp_spectra.selectedItems():
+            self.pyqt5_button_remove_scatter_point.setEnabled(True)
+        else:
+            self.pyqt5_button_remove_scatter_point.setEnabled(False)
+
     def connect_buttons_after_setup(self):
         self.pyqt5_tablewidget_exp_spectra.cellChanged.connect(self.get_data_from_table)
 

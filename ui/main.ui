@@ -110,7 +110,7 @@ border-radius: 6px;</string>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_8">
                <property name="spacing">
-                <number>2</number>
+                <number>6</number>
                </property>
                <property name="leftMargin">
                 <number>5</number>
@@ -1132,423 +1132,36 @@ QPushButton[customState=&quot;true&quot;] {
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,1,1">
           <property name="spacing">
            <number>6</number>
           </property>
           <property name="leftMargin">
-           <number>0</number>
+           <number>9</number>
           </property>
           <property name="topMargin">
-           <number>0</number>
+           <number>9</number>
           </property>
           <property name="rightMargin">
-           <number>0</number>
+           <number>9</number>
           </property>
           <property name="bottomMargin">
-           <number>0</number>
+           <number>9</number>
           </property>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_5">
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_19">
-              <property name="layoutDirection">
-               <enum>Qt::LeftToRight</enum>
-              </property>
-              <property name="autoFillBackground">
-               <bool>false</bool>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">box-sizing: border-box;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 25px;
-background: #FFFFFF;
-border: 1px solid #E2E8F0; /* slate/200 */
-border-radius: 6px;</string>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_26">
-               <property name="spacing">
-                <number>6</number>
-               </property>
-               <property name="leftMargin">
-                <number>9</number>
-               </property>
-               <property name="topMargin">
-                <number>9</number>
-               </property>
-               <property name="rightMargin">
-                <number>9</number>
-               </property>
-               <property name="bottomMargin">
-                <number>9</number>
-               </property>
-               <item>
-                <widget class="QLabel" name="label_28">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true"> 	border: none;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 18px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding: 4px 5px;  /* Padding */</string>
-                 </property>
-                 <property name="text">
-                  <string>Electric Field</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_46" stretch="0,1,0">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_47">
-                   <property name="styleSheet">
-                    <string notr="true"> 	border: none;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding: 4px 8px;  /* Padding */</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;f&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:sub;&quot;&gt;start&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="pyqt5_entry_param_freq_start">
-                   <property name="enabled">
-                    <bool>true</bool>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>200</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QLineEdit {
-    background: #FFFFFF;  /* Default background */
-    border: 1px solid #CBD5E1;  /* Default border */
-    border-radius: 6px;  /* Rounded corners */
-    color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding: 4px 8px;  /* Padding */
-}
-
-/* Disabled State */
-QLineEdit:disabled {
-    color: #D2D7DD;
-    border: 1px solid #D2D7DD;
-}
-</string>
-                   </property>
-                   <property name="text">
-                    <string>1</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="pyqt5_combo_param_freq_start_unit">
-                   <property name="minimumSize">
-                    <size>
-                     <width>60</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QComboBox {
-	background: #FFFFFF;
-	border: 1px solid #E2E8F0; /* slate/200 */
-	border-radius: 6px;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-}
-
-/* Drop-down button */
-QComboBox::drop-down {
-    border: none;	
-}
-
-/* Down arrow */
-QComboBox::down-arrow {
-    image: url(:/ui/qt/resources/checkbox/down_icon.png);
-	padding-right: 12px;
-}
-
-/* Down arrow when disabled */
-QComboBox::down-arrow:disabled {
-}
-
-/* Drop-down items */
-QComboBox QAbstractItemView {
-    border: 1px solid #E2E8F0; /* slate/200 */
-    selection-background-color: #F1F5F9;
-}
-
-/* Individual items */
-QComboBox::item {
-    background-color: white;
-    color: #0F172A;
-}</string>
-                   </property>
-                   <property name="currentIndex">
-                    <number>1</number>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Hz</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>KHz</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>MHz</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_50" stretch="0,1,0">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_51">
-                   <property name="styleSheet">
-                    <string notr="true"> 	border: none;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding: 4px 8px;  /* Padding */</string>
-                   </property>
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;f&lt;span style=&quot; vertical-align:sub;&quot;&gt;stop&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="pyqt5_entry_param_freq_stop">
-                   <property name="enabled">
-                    <bool>true</bool>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>200</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QLineEdit {
-    background: #FFFFFF;  /* Default background */
-    border: 1px solid #CBD5E1;  /* Default border */
-    border-radius: 6px;  /* Rounded corners */
-    color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-    padding: 4px 8px;  /* Padding */
-}
-
-/* Disabled State */
-QLineEdit:disabled {
-    color: #D2D7DD;
-    border: 1px solid #D2D7DD;
-}
-</string>
-                   </property>
-                   <property name="text">
-                    <string>50</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="pyqt5_combo_param_freq_stop_unit">
-                   <property name="minimumSize">
-                    <size>
-                     <width>60</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QComboBox {
-	background: #FFFFFF;
-	border: 1px solid #E2E8F0; /* slate/200 */
-	border-radius: 6px;
-	color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-}
-
-/* Drop-down button */
-QComboBox::drop-down {
-    border: none;	
-}
-
-/* Down arrow */
-QComboBox::down-arrow {
-    image: url(:/ui/qt/resources/checkbox/down_icon.png);
-	padding-right: 12px;
-}
-
-/* Down arrow when disabled */
-QComboBox::down-arrow:disabled {
-}
-
-/* Drop-down items */
-QComboBox QAbstractItemView {
-    border: 1px solid #E2E8F0; /* slate/200 */
-    selection-background-color: #F1F5F9;
-}
-
-/* Individual items */
-QComboBox::item {
-    background-color: white;
-    color: #0F172A;
-}</string>
-                   </property>
-                   <property name="currentIndex">
-                    <number>2</number>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Hz</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>KHz</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>MHz</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <spacer name="verticalSpacer_6">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_4">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
           <item>
            <widget class="QFrame" name="pyqt5_frame_tabbar_plots">
             <property name="minimumSize">
              <size>
               <width>0</width>
-              <height>51</height>
+              <height>40</height>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">box-sizing: border-box;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 25px;
-background: #FFFFFF;
-border: 1px solid #E2E8F0; /* slate/200 */
-border-radius: 6px;</string>
+             <string notr="true">border: None;</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -1558,19 +1171,19 @@ border-radius: 6px;</string>
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_12">
              <property name="spacing">
-              <number>2</number>
+              <number>6</number>
              </property>
              <property name="leftMargin">
-              <number>5</number>
+              <number>0</number>
              </property>
              <property name="topMargin">
-              <number>5</number>
+              <number>0</number>
              </property>
              <property name="rightMargin">
-              <number>5</number>
+              <number>0</number>
              </property>
              <property name="bottomMargin">
-              <number>5</number>
+              <number>0</number>
              </property>
              <item>
               <widget class="QPushButton" name="pyqt5_button_plots_scatter">
@@ -1687,6 +1300,264 @@ QPushButton[customState=&quot;true&quot;] {
            </widget>
           </item>
           <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_46" stretch="0,1,1,0,1,1">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>6</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_47">
+              <property name="styleSheet">
+               <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;f&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:sub;&quot;&gt;start&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="pyqt5_entry_param_freq_start">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="pyqt5_combo_param_freq_start_unit">
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>31</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QComboBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+}
+
+/* Drop-down button */
+QComboBox::drop-down {
+    border: none;	
+}
+
+/* Down arrow */
+QComboBox::down-arrow {
+    image: url(:/ui/qt/resources/checkbox/down_icon.png);
+	padding-right: 12px;
+}
+
+/* Down arrow when disabled */
+QComboBox::down-arrow:disabled {
+}
+
+/* Drop-down items */
+QComboBox QAbstractItemView {
+    border: 1px solid #E2E8F0; /* slate/200 */
+    selection-background-color: #F1F5F9;
+}
+
+/* Individual items */
+QComboBox::item {
+    background-color: white;
+    color: #0F172A;
+}</string>
+              </property>
+              <property name="currentIndex">
+               <number>1</number>
+              </property>
+              <item>
+               <property name="text">
+                <string>Hz</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>KHz</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>MHz</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_51">
+              <property name="styleSheet">
+               <string notr="true"> 	border: none;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;f&lt;span style=&quot; vertical-align:sub;&quot;&gt;stop&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="pyqt5_entry_param_freq_stop">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Disabled State */
+QLineEdit:disabled {
+    color: #D2D7DD;
+    border: 1px solid #D2D7DD;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>50</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="pyqt5_combo_param_freq_stop_unit">
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>31</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QComboBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+}
+
+/* Drop-down button */
+QComboBox::drop-down {
+    border: none;	
+}
+
+/* Down arrow */
+QComboBox::down-arrow {
+    image: url(:/ui/qt/resources/checkbox/down_icon.png);
+	padding-right: 12px;
+}
+
+/* Down arrow when disabled */
+QComboBox::down-arrow:disabled {
+}
+
+/* Drop-down items */
+QComboBox QAbstractItemView {
+    border: 1px solid #E2E8F0; /* slate/200 */
+    selection-background-color: #F1F5F9;
+}
+
+/* Individual items */
+QComboBox::item {
+    background-color: white;
+    color: #0F172A;
+}</string>
+              </property>
+              <property name="currentIndex">
+               <number>2</number>
+              </property>
+              <item>
+               <property name="text">
+                <string>Hz</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>KHz</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>MHz</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
            <widget class="QFrame" name="pyqt5_frame_group_curve_plots">
             <property name="minimumSize">
              <size>
@@ -1739,78 +1610,6 @@ border-radius: 6px;</string>
                 <property name="rightMargin">
                  <number>9</number>
                 </property>
-                <item row="1" column="0">
-                 <widget class="QScrollArea" name="pyqt5_scrollarea_plots_curve">
-                  <property name="styleSheet">
-                   <string notr="true">QScrollArea {
-	border: none;
-}
-
-/* Hide vertical scroll bar */
-QScrollBar:vertical {
-    width: 0px;
-}
-
-/* Hide horizontal scroll bar */
-QScrollBar:horizontal {
-    height: 0px;
-}</string>
-                  </property>
-                  <property name="widgetResizable">
-                   <bool>true</bool>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-                  </property>
-                  <widget class="QWidget" name="scrollAreaWidgetContents">
-                   <property name="geometry">
-                    <rect>
-                     <x>0</x>
-                     <y>0</y>
-                     <width>530</width>
-                     <height>133</height>
-                    </rect>
-                   </property>
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <layout class="QVBoxLayout" name="pyqt5_scrollarea_plots_curve_layout" stretch="1,1">
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
-                    <item>
-                     <spacer name="verticalSpacer_2">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <spacer name="verticalSpacer">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                   </layout>
-                  </widget>
-                 </widget>
-                </item>
                 <item row="0" column="0">
                  <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_3">
                   <property name="minimumSize">
@@ -2064,7 +1863,7 @@ QPushButton:pressed {
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>31</width>
+                       <width>150</width>
                        <height>31</height>
                       </size>
                      </property>
@@ -2112,7 +1911,7 @@ QCheckBox:focused {
 </string>
                      </property>
                      <property name="text">
-                      <string/>
+                      <string>Curves Visibility</string>
                      </property>
                      <property name="checked">
                       <bool>true</bool>
@@ -2120,6 +1919,78 @@ QCheckBox:focused {
                     </widget>
                    </item>
                   </layout>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QScrollArea" name="pyqt5_scrollarea_plots_curve">
+                  <property name="styleSheet">
+                   <string notr="true">QScrollArea {
+	border: none;
+}
+
+/* Hide vertical scroll bar */
+QScrollBar:vertical {
+    width: 0px;
+}
+
+/* Hide horizontal scroll bar */
+QScrollBar:horizontal {
+    height: 0px;
+}</string>
+                  </property>
+                  <property name="widgetResizable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                  </property>
+                  <widget class="QWidget" name="scrollAreaWidgetContents">
+                   <property name="geometry">
+                    <rect>
+                     <x>0</x>
+                     <y>0</y>
+                     <width>510</width>
+                     <height>177</height>
+                    </rect>
+                   </property>
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <layout class="QVBoxLayout" name="pyqt5_scrollarea_plots_curve_layout" stretch="1,1">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <spacer name="verticalSpacer_2">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -2130,6 +2001,9 @@ QCheckBox:focused {
           </item>
           <item>
            <widget class="QFrame" name="pyqt5_frame_group_scatter_plots">
+            <property name="styleSheet">
+             <string notr="true">border: None;</string>
+            </property>
             <layout class="QVBoxLayout" name="verticalLayout_4">
              <property name="leftMargin">
               <number>0</number>
@@ -2200,8 +2074,8 @@ QScrollBar:horizontal {
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>530</width>
-                     <height>133</height>
+                     <width>510</width>
+                     <height>176</height>
                     </rect>
                    </property>
                    <property name="sizePolicy">
@@ -2436,7 +2310,7 @@ QPushButton:pressed {
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>31</width>
+                       <width>150</width>
                        <height>31</height>
                       </size>
                      </property>
@@ -2484,7 +2358,7 @@ QCheckBox:focused {
 </string>
                      </property>
                      <property name="text">
-                      <string/>
+                      <string>Scatter Visibility</string>
                      </property>
                      <property name="checked">
                       <bool>true</bool>

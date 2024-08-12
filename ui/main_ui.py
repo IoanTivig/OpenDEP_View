@@ -473,6 +473,7 @@ class MainUI(QMainWindow):
         # Add all curves to the graph
         if self.pyqt5_checkbox_curves_visibility.isChecked():
             for key in self.curves_dict.keys():
+                self.curves_dict[key]["widget"].setEnabled(True)
                 if self.curves_dict[key]["visibility"]:
                     # Get index of the button that is active in type of graph content
                     for index, button in enumerate(self.pyqt5_frame_toolbar_graphcontent.findChildren(QPushButton)):
@@ -487,6 +488,9 @@ class MainUI(QMainWindow):
                                                                 line_width=self.curves_dict[key]["line_width"])
                             self.graph_y_index = index
                             break
+        else:
+            for key in self.curves_dict.keys():
+                self.curves_dict[key]["widget"].setEnabled(False)
 
         if self.pyqt5_button_display_experimental_area.property("customState"):
             self.pyqt5_graph_widget.scatter_style = 'area'
@@ -495,6 +499,7 @@ class MainUI(QMainWindow):
 
         if self.pyqt5_checkbox_scatters_visibility.isChecked():
             for key in self.scatter_dict.keys():
+                self.scatter_dict[key]["widget"].setEnabled(True)
                 if self.scatter_dict[key]["visibility"]:
                     # Get index of the button that is active in type of graph content
                     for index, button in enumerate(self.pyqt5_frame_toolbar_graphcontent.findChildren(QPushButton)):
@@ -508,6 +513,10 @@ class MainUI(QMainWindow):
                                                             y_errors=self.scatter_dict[key]["scatter"]["recm_errors"],
                                                             point_style=self.scatter_dict[key]["point_style"],
                                                             point_size=self.scatter_dict[key]["point_size"])
+
+        else:
+            for key in self.scatter_dict.keys():
+                self.scatter_dict[key]["widget"].setEnabled(False)
 
         # Format the graph and draw it
         self.update_graph_styling()

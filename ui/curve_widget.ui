@@ -149,6 +149,10 @@ QCheckBox:focused {
     border: none;
 }
 
+QCheckBox::indicator:disabled {
+	image: url(:/ui/qt/resources/checkbox/hiden_icon.png);
+}
+
 </string>
            </property>
            <property name="text">

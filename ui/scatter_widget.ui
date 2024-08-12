@@ -149,6 +149,10 @@ QCheckBox:focused {
     border: none;
 }
 
+QCheckBox::indicator:disabled {
+	image: url(:/ui/qt/resources/checkbox/hiden_icon.png);
+}
+
 </string>
            </property>
            <property name="text">
@@ -617,13 +621,13 @@ border-radius: 6px;</string>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>31</width>
+                  <width>75</width>
                   <height>31</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>31</width>
+                  <width>135</width>
                   <height>31</height>
                  </size>
                 </property>
@@ -637,14 +641,13 @@ border-radius: 6px;</string>
                  </font>
                 </property>
                 <property name="toolTip">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add Point&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add New Frequency&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="whatsThis">
                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add Point&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">
-/* Default State */
+                 <string notr="true">/* Default State */
 QPushButton {
     border: none;
 	background: transparent;  /* Ghost button with no background */
@@ -655,43 +658,44 @@ QPushButton {
     font-weight: 500;  /* Font weight */
     font-size: 14px;  /* Font size */
     line-height: 24px;  /* Line height */
-	padding: 4px;
-	image: url(:/ui/qt/resources/buttons/add_icon.png);
+	padding: 8px;
 }
 
 /* Hover State */
 QPushButton:hover {
 	background: #F1F5F9;  /* slate/100 */
     color: #0F172A;  /* Text color */
-	image: url(:/ui/qt/resources/buttons/add_icon.png);
 }
 
 /* Pressed State */
 QPushButton:pressed {
     background: #DEE8F2;
     color: #0F172A;  /* Text color */
-	image: url(:/ui/qt/resources/buttons/add_icon.png);
+}
+
+QPushButton:disabled {
+    color: #D2D7DD;
 }</string>
                 </property>
                 <property name="text">
-                 <string/>
+                 <string>Add Frequency</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pyqt5_button_remove_scatter_point">
                 <property name="enabled">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>31</width>
+                  <width>75</width>
                   <height>31</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>31</width>
+                  <width>135</width>
                   <height>31</height>
                  </size>
                 </property>
@@ -705,7 +709,7 @@ QPushButton:pressed {
                  </font>
                 </property>
                 <property name="toolTip">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove Selected Point&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove Selected Frequency&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="whatsThis">
                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove Selected Point&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -722,26 +726,27 @@ QPushButton {
     font-weight: 500;  /* Font weight */
     font-size: 14px;  /* Font size */
     line-height: 24px;  /* Line height */
-	padding: 4px;
-	image: url(:/ui/qt/resources/buttons/substract_icon.png);
+	padding: 8px;
 }
 
 /* Hover State */
 QPushButton:hover {
 	background: #F1F5F9;  /* slate/100 */
     color: #0F172A;  /* Text color */
-	image: url(:/ui/qt/resources/buttons/substract_icon.png);
 }
 
 /* Pressed State */
 QPushButton:pressed {
     background: #DEE8F2;
     color: #0F172A;  /* Text color */
-	image: url(:/ui/qt/resources/buttons/substract_icon.png);
+}
+
+QPushButton:disabled {
+    color: #D2D7DD;
 }</string>
                 </property>
                 <property name="text">
-                 <string/>
+                 <string>Remove Frequency</string>
                 </property>
                </widget>
               </item>
@@ -1108,7 +1113,16 @@ QHeaderView::section:vertical {
 QTableWidget::item {
     border: None; /* Border color for each cell */
 	padding: 5px;
-}</string>
+}
+
+QTableWidget::item:selected {
+    background-color: #F1F5F9;  /* slate/100 */ /* Background color for selected items */
+	color: #0F172A;
+}
+
+QTableWidget::item:focus {
+}
+</string>
               </property>
               <property name="frameShape">
                <enum>QFrame::NoFrame</enum>
@@ -1130,6 +1144,9 @@ QTableWidget::item {
               </property>
               <property name="autoScroll">
                <bool>false</bool>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
               </property>
               <property name="showGrid">
                <bool>true</bool>
@@ -1159,7 +1176,7 @@ QTableWidget::item {
                <number>150</number>
               </attribute>
               <attribute name="horizontalHeaderHighlightSections">
-               <bool>true</bool>
+               <bool>false</bool>
               </attribute>
               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
                <bool>false</bool>
@@ -1174,7 +1191,7 @@ QTableWidget::item {
                <number>35</number>
               </attribute>
               <attribute name="verticalHeaderHighlightSections">
-               <bool>false</bool>
+               <bool>true</bool>
               </attribute>
               <row>
                <property name="text">
