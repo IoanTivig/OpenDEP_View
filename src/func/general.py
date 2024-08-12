@@ -1,5 +1,7 @@
 import os
 import random
+
+from PyQt5.QtGui import QDoubleValidator
 from matplotlib.font_manager import findSystemFonts
 import numpy as np
 
@@ -63,3 +65,18 @@ def get_all_os_fonts():
 
     return final_font_list
 
+
+def lock_entry_to_float(entry):
+    validator = QDoubleValidator()
+    validator.setNotation(QDoubleValidator.ScientificNotation)  # Standard floating-point notation
+    validator.setDecimals(10)  # Allows up to 6 decimal places (adjust as needed)
+    entry.setValidator(validator)
+    entry.setMaxLength(12)  # Limit the number of characters to 10
+
+
+def lock_entry_to_int(entry, min_value=1, max_value=2000, max_length=4):
+    validator = QDoubleValidator()
+    validator.setRange(min_value, max_value)
+    validator.setDecimals(0)  # Disallow decimal points
+    entry.setValidator(validator)
+    entry.setMaxLength(max_length)  # Limit the number of characters to 10

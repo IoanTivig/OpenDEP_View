@@ -120,6 +120,19 @@ class MainUI(QMainWindow):
         self.pyqt5_checkbox_curves_visibility.clicked.connect(self.refresh_graph)
         self.pyqt5_checkbox_scatters_visibility.clicked.connect(self.refresh_graph)
 
+        # Hide future buttons
+        self.pyqt5_button_cruves_load_cloud.setVisible(False)
+        self.pyqt5_button_fitspace_figure.setVisible(False)
+
+        # Lock entries to integers
+        entries_to_int = [self.pyqt5_entry_graph_width,
+                          self.pyqt5_entry_graph_height,
+                          self.pyqt5_entry_param_freq_start,
+                          self.pyqt5_entry_param_freq_stop
+                          ]
+        for entry in entries_to_int:
+            general.lock_entry_to_int(entry, min_value=1, max_value=2000, max_length=4)
+
     # Functionality for the menubar buttons and toggling the tabs
     def toggle_tabs(self, buttons, tab_widgets):
         sender = self.sender()  # Get the button that was clicked

@@ -1,5 +1,7 @@
 import random
 
+from PyQt5.QtGui import QDoubleValidator
+
 from src.func.general import *
 
 from PyQt5.QtWidgets import QWidget, QPushButton, QColorDialog, QFileDialog
@@ -48,6 +50,23 @@ class CurveWidgetUI(QWidget):
 
         for param in self.parameters_to_modify:
             getattr(self, f"pyqt5_entry_{param}").editingFinished.connect(lambda param=param: self.parent_widget.modify_single_curve(self.id))
+
+        # Restrict entries to float
+        entries_list = [self.pyqt5_entry_param_buffer_perm,
+                        self.pyqt5_entry_param_buffer_cond,
+                        self.pyqt5_entry_param_core_perm,
+                        self.pyqt5_entry_param_core_cond,
+                        self.pyqt5_entry_param_1st_shell_perm,
+                        self.pyqt5_entry_param_1st_shell_cond,
+                        self.pyqt5_entry_param_1st_shell_thick,
+                        self.pyqt5_entry_param_2nd_shell_perm,
+                        self.pyqt5_entry_param_2nd_shell_cond,
+                        self.pyqt5_entry_param_2nd_shell_thick,
+                        self.pyqt5_entry_param_size,
+                        self.pyqt5_entry_param_fieldgrad]
+
+        for entry in entries_list:
+            lock_entry_to_float(entry)
 
     def collapse(self, collapse=True):
         if collapse:

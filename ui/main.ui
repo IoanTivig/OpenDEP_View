@@ -1774,7 +1774,7 @@ QPushButton:pressed {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pyqt5_button_graphcontent_recmf_6">
+                    <widget class="QPushButton" name="pyqt5_button_cruves_load_cloud">
                      <property name="minimumSize">
                       <size>
                        <width>30</width>

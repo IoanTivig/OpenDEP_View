@@ -1,7 +1,6 @@
 import random
 
-
-
+from src.classes.pyqt import FloatDelegate
 from src.func.general import *
 
 from PyQt5.QtWidgets import QWidget, QPushButton, QColorDialog, QFileDialog, QAbstractScrollArea, QHeaderView, \
@@ -145,6 +144,10 @@ class ScatterWidgetUI(QWidget):
         # Update the dictionary and graph
         self.get_data_from_table()
 
+        # Lock table items to floats
+        delegate = FloatDelegate(self.pyqt5_tablewidget_exp_spectra)
+        self.pyqt5_tablewidget_exp_spectra.setItemDelegate(delegate)
+
     def remove_table_scatter_point(self, row):
         # Disable table signals
         self.disable_table_signals = True
@@ -195,6 +198,10 @@ class ScatterWidgetUI(QWidget):
             self.pyqt5_tablewidget_exp_spectra.setItem(i, 2, QTableWidgetItem(str(scatter_data["recm_errors"][i])))
 
         self.resize_table_height_to_no_rows()
+
+        # Lock table items to floats
+        delegate = FloatDelegate(self.pyqt5_tablewidget_exp_spectra)
+        self.pyqt5_tablewidget_exp_spectra.setItemDelegate(delegate)
 
     def get_data_from_table(self):
         if not self.disable_table_signals:

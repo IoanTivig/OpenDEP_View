@@ -233,7 +233,7 @@ QLineEdit:disabled {
             </font>
            </property>
            <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Curve color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scatter Point Color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="whatsThis">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Curve color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -274,6 +274,9 @@ QPushButton:pressed {
              <width>125</width>
              <height>16777215</height>
             </size>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scatter Point Shape&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="styleSheet">
             <string notr="true">QComboBox {
@@ -368,6 +371,9 @@ QComboBox::item {
              <width>80</width>
              <height>31</height>
             </size>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scatter Point Size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="styleSheet">
             <string notr="true">QDoubleSpinBox {
