@@ -12,7 +12,7 @@ import json
 class GraphSettingsUI(QDialog):
     def __init__(self, parent=None):
         QDialog.__init__(self, parent)
-        loadUi("ui/graph_settings_widget.ui", self)
+        loadUi("ui/widgets/graph_settings_widget.ui", self)
 
         # Initial setup
         self.style_window()

@@ -8,7 +8,6 @@ class FloatDelegate(QStyledItemDelegate):
         validator = QDoubleValidator(editor)
         validator.setNotation(QDoubleValidator.StandardNotation)
         validator.setDecimals(10)  # Adjust decimal places as needed
-        validator.setBottom(0)
         editor.setMaxLength(12)
         editor.setValidator(validator)
         return editor

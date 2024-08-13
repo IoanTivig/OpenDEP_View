@@ -12,7 +12,7 @@ from PyQt5.uic import loadUi
 class CurveWidgetUI(QWidget):
     def __init__(self, parent=None):
         QWidget.__init__(self, parent)
-        loadUi("ui/curve_widget.ui", self)
+        loadUi("ui/widgets/curve_widget.ui", self)
 
         # Varaibles
         self.parent_widget = None
@@ -255,7 +255,8 @@ class CurveWidgetUI(QWidget):
     def save_curve(self):
         # Open file dialog and save curve as a json file with suffix .odc
         filepath, _ = QFileDialog.getSaveFileName(self, "Save curve", "", "OpenDEP Curve (*.odc)")
-        self.parent_widget.save_curve(self.id, filepath)
+        if filepath:
+            self.parent_widget.save_curve(self.id, filepath)
 
     def open_noise_widget(self):
         self.parent_widget.noise_widget.selected_curve_id = self.id

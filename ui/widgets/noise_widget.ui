@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>648</width>
-    <height>405</height>
+    <height>409</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -80,7 +80,7 @@ background: #F1F5F9;</string>
         <property name="styleSheet">
          <string notr="true">border: none;</string>
         </property>
-        <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,0" columnstretch="1,0,0">
+        <layout class="QGridLayout" name="gridLayout_2" rowstretch="1" columnstretch="1,0,0">
          <property name="leftMargin">
           <number>0</number>
          </property>
@@ -1094,7 +1094,7 @@ QLineEdit:disabled {
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="">
+       <widget class="QFrame" name="frame">
         <property name="styleSheet">
          <string notr="true">border: None;</string>
         </property>
@@ -1132,13 +1132,13 @@ QLineEdit:disabled {
            <property name="minimumSize">
             <size>
              <width>31</width>
-             <height>31</height>
+             <height>35</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>99999</width>
-             <height>31</height>
+             <height>35</height>
             </size>
            </property>
            <property name="font">
@@ -1197,13 +1197,13 @@ QPushButton:pressed {
            <property name="minimumSize">
             <size>
              <width>31</width>
-             <height>31</height>
+             <height>35</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>99999</width>
-             <height>31</height>
+             <height>35</height>
             </size>
            </property>
            <property name="font">

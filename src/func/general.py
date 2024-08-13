@@ -9,6 +9,7 @@ import numpy as np
 def get_random_color_hex():
     return "#{:06x}".format(random.randint(0, 0xFFFFFF))
 
+
 def format_frequency(value):
     """
     Converts a numeric frequency into a string with the appropriate unit
@@ -41,18 +42,18 @@ def get_all_os_fonts():
     Get all available fonts on the system.
     """
     common_fonts = {
-        'arial': 'Arial',
-        'verdana': 'Verdana',
-        'helvetica': 'Helvetica',
-        'times': 'Times New Roman',
-        'cour': 'Courier New',
-        'georgia': 'Georgia',
-        'trebuc': 'Trebuchet MS',
-        'impact': 'Impact',
-        'segoeui': 'Segoe UI'
+        "arial": "Arial",
+        "verdana": "Verdana",
+        "helvetica": "Helvetica",
+        "times": "Times New Roman",
+        "cour": "Courier New",
+        "georgia": "Georgia",
+        "trebuc": "Trebuchet MS",
+        "impact": "Impact",
+        "segoeui": "Segoe UI",
     }
 
-    fonts = findSystemFonts(fontpaths=None, fontext='ttf')
+    fonts = findSystemFonts(fontpaths=None, fontext="ttf")
     font_names_list = []
     for i in fonts:
         font_name = os.path.splitext(os.path.basename(i))[0]
@@ -68,7 +69,9 @@ def get_all_os_fonts():
 
 def lock_entry_to_float(entry):
     validator = QDoubleValidator()
-    validator.setNotation(QDoubleValidator.ScientificNotation)  # Standard floating-point notation
+    validator.setNotation(
+        QDoubleValidator.ScientificNotation
+    )  # Standard floating-point notation
     validator.setDecimals(10)  # Allows up to 6 decimal places (adjust as needed)
     entry.setValidator(validator)
     entry.setMaxLength(12)  # Limit the number of characters to 10

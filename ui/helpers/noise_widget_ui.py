@@ -10,7 +10,7 @@ from src.func import models, noise
 class NoiseWidgetUI(QDialog):
     def __init__(self, parent=None):
         QDialog.__init__(self, parent)
-        loadUi("ui/noise_widget.ui", self)
+        loadUi("ui/widgets/noise_widget.ui", self)
 
         # Initial setup
         self.style_window()

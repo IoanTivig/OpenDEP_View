@@ -80,7 +80,7 @@ background: #F1F5F9;</string>
         <property name="styleSheet">
          <string notr="true">border: none;</string>
         </property>
-        <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,0" columnstretch="1,1,0,0">
+        <layout class="QGridLayout" name="gridLayout_2" rowstretch="1" columnstretch="1,1,0,0">
          <property name="leftMargin">
           <number>0</number>
          </property>
@@ -4523,7 +4523,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="">
+       <widget class="QFrame" name="frame">
         <property name="styleSheet">
          <string notr="true">Border: None;</string>
         </property>
@@ -4567,7 +4567,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
            <property name="maximumSize">
             <size>
              <width>99999</width>
-             <height>31</height>
+             <height>35</height>
             </size>
            </property>
            <property name="font">
@@ -4624,7 +4624,7 @@ QPushButton:pressed {
            <property name="maximumSize">
             <size>
              <width>99999</width>
-             <height>31</height>
+             <height>35</height>
             </size>
            </property>
            <property name="font">
@@ -4651,9 +4651,17 @@ QPushButton:pressed {
     color: #0F172A;  /* Text color */
     padding: 8px 16px;  /* Padding */
 	text-align: center;  /* Center the text */
+    qproperty-icon: url(:/ui/qt/resources/buttons/back_icon.png); /* Icon path */
+    qproperty-iconSize: 16px 16px; /* Icon size */
 }
 
 /* Icon positioning */
+QPushButton::icon {
+    subcontrol-origin: padding;
+    subcontrol-position: left center; /* Position icon to the left, centered vertically */
+    margin-right: 8px; /* Minimal space between icon and text */
+}
+
 QPushButton:hover {
     background: #F1F5F9;  /* Hover background */
 }

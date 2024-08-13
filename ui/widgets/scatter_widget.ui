@@ -6,15 +6,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>531</width>
-    <height>399</height>
+    <width>596</width>
+    <height>351</height>
    </rect>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>0</width>
-    <height>100</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -95,7 +89,7 @@ QFrame:hover {
           <number>0</number>
          </property>
          <item>
-          <widget class="QCheckBox" name="pyqt5_checkbox_curves_visible">
+          <widget class="QCheckBox" name="pyqt5_checkbox_scatter_visible">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -155,6 +149,10 @@ QCheckBox:focused {
     border: none;
 }
 
+QCheckBox::indicator:disabled {
+	image: url(:/ui/qt/resources/checkbox/hiden_icon.png);
+}
+
 </string>
            </property>
            <property name="text">
@@ -166,7 +164,7 @@ QCheckBox:focused {
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="pyqt5_entry_curve_name">
+          <widget class="QLineEdit" name="pyqt5_entry_scatter_name">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -209,7 +207,7 @@ QLineEdit:disabled {
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pyqt5_button_pick_curve_color">
+          <widget class="QPushButton" name="pyqt5_button_pick_scatter_color">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -235,7 +233,7 @@ QLineEdit:disabled {
             </font>
            </property>
            <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Curve color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scatter Point Color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="whatsThis">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Curve color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -264,7 +262,7 @@ QPushButton:pressed {
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="pyqt5_combo_curve_line_style">
+          <widget class="QComboBox" name="pyqt5_combo_scatter_point_style">
            <property name="minimumSize">
             <size>
              <width>125</width>
@@ -276,6 +274,9 @@ QPushButton:pressed {
              <width>125</width>
              <height>16777215</height>
             </size>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scatter Point Shape&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="styleSheet">
             <string notr="true">QComboBox {
@@ -321,44 +322,38 @@ QComboBox::item {
            </property>
            <item>
             <property name="text">
-             <string>Solid</string>
-            </property>
-            <property name="icon">
-             <iconset resource="resources/graphical_resources.qrc">
-              <normaloff>:/ui/qt/resources/dropdown/solid_line_icon.png</normaloff>:/ui/qt/resources/dropdown/solid_line_icon.png</iconset>
+             <string>Circle</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Dot</string>
-            </property>
-            <property name="icon">
-             <iconset resource="resources/graphical_resources.qrc">
-              <normaloff>:/ui/qt/resources/dropdown/dot_line_icon.png</normaloff>:/ui/qt/resources/dropdown/dot_line_icon.png</iconset>
+             <string>Square</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Dash</string>
-            </property>
-            <property name="icon">
-             <iconset resource="resources/graphical_resources.qrc">
-              <normaloff>:/ui/qt/resources/dropdown/dashed_line_icon.png</normaloff>:/ui/qt/resources/dropdown/dashed_line_icon.png</iconset>
+             <string>Triangle</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Dash-dot</string>
+             <string>Plus</string>
             </property>
-            <property name="icon">
-             <iconset resource="resources/graphical_resources.qrc">
-              <normaloff>:/ui/qt/resources/dropdown/dotdash_line_icon.png</normaloff>:/ui/qt/resources/dropdown/dotdash_line_icon.png</iconset>
+           </item>
+           <item>
+            <property name="text">
+             <string>X-marker</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Star</string>
             </property>
            </item>
           </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="pyqt5_spinbox_curve_line_width">
+          <widget class="QDoubleSpinBox" name="pyqt5_spinbox_scatter_size">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -376,6 +371,9 @@ QComboBox::item {
              <width>80</width>
              <height>31</height>
             </size>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scatter Point Size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="styleSheet">
             <string notr="true">QDoubleSpinBox {
@@ -431,19 +429,19 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
             <set>Qt::AlignCenter</set>
            </property>
            <property name="decimals">
-            <number>1</number>
+            <number>0</number>
            </property>
            <property name="minimum">
-            <double>0.500000000000000</double>
+            <double>1.000000000000000</double>
            </property>
            <property name="maximum">
-            <double>10.000000000000000</double>
+            <double>250.000000000000000</double>
            </property>
            <property name="singleStep">
             <double>0.500000000000000</double>
            </property>
            <property name="value">
-            <double>1.500000000000000</double>
+            <double>25.000000000000000</double>
            </property>
           </widget>
          </item>
@@ -521,16 +519,10 @@ QCheckBox:focused {
       </item>
       <item>
        <widget class="QFrame" name="pyqt5_frame_group_parameters">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
         <property name="styleSheet">
          <string notr="true">border: none;</string>
         </property>
-        <layout class="QVBoxLayout" name="pyqt5_group_parameters" stretch="0,0,1">
+        <layout class="QVBoxLayout" name="pyqt5_group_parameters">
          <property name="leftMargin">
           <number>0</number>
          </property>
@@ -541,7 +533,7 @@ QCheckBox:focused {
           <number>0</number>
          </property>
          <property name="bottomMargin">
-          <number>20</number>
+          <number>0</number>
          </property>
          <item>
           <widget class="QFrame" name="frame_2">
@@ -573,6 +565,200 @@ padding-right: 5px;</string>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QFrame" name="pyqt5_frame_menubar_models_3">
+             <property name="minimumSize">
+              <size>
+               <width>77</width>
+               <height>41</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>9999</width>
+               <height>41</height>
+              </size>
+             </property>
+             <property name="acceptDrops">
+              <bool>true</bool>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 25px;
+background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_31">
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <property name="leftMargin">
+               <number>3</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>3</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="pyqt5_button_add_scatter_point">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>75</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>135</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>-1</pointsize>
+                  <weight>62</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add New Frequency&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="whatsThis">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add Point&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+	padding: 8px;
+}
+
+/* Hover State */
+QPushButton:hover {
+	background: #F1F5F9;  /* slate/100 */
+    color: #0F172A;  /* Text color */
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;
+    color: #0F172A;  /* Text color */
+}
+
+QPushButton:disabled {
+    color: #D2D7DD;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Add Frequency</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pyqt5_button_remove_scatter_point">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>75</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>135</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>-1</pointsize>
+                  <weight>62</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove Selected Frequency&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="whatsThis">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove Selected Point&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+	padding: 8px;
+}
+
+/* Hover State */
+QPushButton:hover {
+	background: #F1F5F9;  /* slate/100 */
+    color: #0F172A;  /* Text color */
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;
+    color: #0F172A;  /* Text color */
+}
+
+QPushButton:disabled {
+    color: #D2D7DD;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Remove Frequency</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
            <item>
             <spacer name="horizontalSpacer">
              <property name="orientation">
@@ -642,7 +828,7 @@ border-radius: 6px;</string>
                <number>0</number>
               </property>
               <item>
-               <widget class="QPushButton" name="pyqt5_button_duplicate_curve">
+               <widget class="QPushButton" name="pyqt5_button_duplicate_scatter">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -668,10 +854,10 @@ border-radius: 6px;</string>
                  </font>
                 </property>
                 <property name="toolTip">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Duplicate curve&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Duplicate Scatter&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="whatsThis">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Duplicate curve&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Duplicate Scatter&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">
@@ -710,7 +896,7 @@ QPushButton:pressed {
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pyqt5_button_save_curve">
+               <widget class="QPushButton" name="pyqt5_button_save_scatter">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -736,10 +922,10 @@ QPushButton:pressed {
                  </font>
                 </property>
                 <property name="toolTip">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export curve&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export Scatter to OpenDEP File&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="whatsThis">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export curve&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export Scatter&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">
@@ -778,7 +964,7 @@ QPushButton:pressed {
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pyqt5_button_delete_curve">
+               <widget class="QPushButton" name="pyqt5_button_save_scatter_excel">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -804,10 +990,78 @@ QPushButton:pressed {
                  </font>
                 </property>
                 <property name="toolTip">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete curve&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export Scatter to Excel File&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="whatsThis">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete curve&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export Scatter&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+	padding: 4px;
+	image: url(:/ui/qt/resources/buttons/upload_excel_icon.png);
+}
+
+/* Hover State */
+QPushButton:hover {
+	background: #F1F5F9;  /* slate/100 */
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/upload_excel_icon.png);
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;
+    color: #0F172A;  /* Text color */
+	image: url(:/ui/qt/resources/buttons/upload_excel_icon.png);
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pyqt5_button_delete_scatter">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>31</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>-1</pointsize>
+                  <weight>62</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete Scatter&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="whatsThis">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete Scatter&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">
@@ -851,35 +1105,8 @@ QPushButton:pressed {
           </layout>
          </item>
          <item>
-          <widget class="QFrame" name="verticalFrame">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>100</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">	background: #FFFFFF;  /* Default background */
-    border: 1px solid #CBD5E1;  /* Default border */
-    border-radius: 6px;  /* Rounded corners */
-    color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
- /* Adding icon to the beginning */</string>
-           </property>
-           <property name="lineWidth">
-            <number>0</number>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_6">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <property name="sizeConstraint">
-             <enum>QLayout::SetDefaultConstraint</enum>
-            </property>
+          <widget class="QFrame" name="pyqt5_frame_input_group">
+           <layout class="QGridLayout" name="pyqt5_group_singleshell">
             <property name="leftMargin">
              <number>0</number>
             </property>
@@ -892,7 +1119,7 @@ QPushButton:pressed {
             <property name="bottomMargin">
              <number>0</number>
             </property>
-            <item>
+            <item row="0" column="0">
              <widget class="QTableWidget" name="pyqt5_tablewidget_exp_spectra">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -918,10 +1145,11 @@ QPushButton:pressed {
               <property name="styleSheet">
                <string notr="true">QTableWidget {
  	background: #FFFFFF;  /* Default background */
-    border: None;  /* Default border */
+    border: 1px solid #E2E8F0;;  /* Default border */
     border-radius: 6px;  /* Rounded corners */
     color: #0F172A;  /* Text color */
-    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    text-align: left;
+	font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
     font-weight: 500;  /* Font weight */
     font-size: 14px;  /* Font size */
@@ -931,8 +1159,9 @@ QPushButton:pressed {
 
 QHeaderView::section {
 	background: #FFFFFF;  /* Default background */
-    border: None;  /* Default border */
+    border: 1px solid #E2E8F0;  /* Default border */
     color: #0F172A;  /* Text color */
+	text-align: left;
 	font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
     font-weight: 500;  /* Font weight */
@@ -942,17 +1171,32 @@ QHeaderView::section {
 }
 
 QHeaderView::section:horizontal {
-    border: None;
+    border: 1px solid #E2E8F0;
 }
 
 QHeaderView::section:vertical {
-    border-: None;
+    border: 1px solid #E2E8F0;
+	font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+	padding-left: 5px;
 }
 
 QTableWidget::item {
     border: None; /* Border color for each cell */
 	padding: 5px;
-}</string>
+}
+
+QTableWidget::item:selected {
+    background-color: #F1F5F9;  /* slate/100 */ /* Background color for selected items */
+	color: #0F172A;
+}
+
+QTableWidget::item:focus {
+}
+</string>
               </property>
               <property name="frameShape">
                <enum>QFrame::NoFrame</enum>
@@ -975,6 +1219,9 @@ QTableWidget::item {
               <property name="autoScroll">
                <bool>false</bool>
               </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
+              </property>
               <property name="showGrid">
                <bool>true</bool>
               </property>
@@ -987,6 +1234,9 @@ QTableWidget::item {
               <property name="cornerButtonEnabled">
                <bool>false</bool>
               </property>
+              <property name="rowCount">
+               <number>1</number>
+              </property>
               <attribute name="horizontalHeaderVisible">
                <bool>true</bool>
               </attribute>
@@ -994,51 +1244,37 @@ QTableWidget::item {
                <bool>false</bool>
               </attribute>
               <attribute name="horizontalHeaderMinimumSectionSize">
-               <number>10</number>
+               <number>15</number>
               </attribute>
               <attribute name="horizontalHeaderDefaultSectionSize">
                <number>150</number>
               </attribute>
               <attribute name="horizontalHeaderHighlightSections">
-               <bool>true</bool>
+               <bool>false</bool>
               </attribute>
               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
                <bool>false</bool>
               </attribute>
               <attribute name="verticalHeaderVisible">
-               <bool>false</bool>
+               <bool>true</bool>
               </attribute>
               <attribute name="verticalHeaderCascadingSectionResizes">
                <bool>false</bool>
               </attribute>
-              <row>
-               <property name="text">
-                <string>New Row</string>
-               </property>
-              </row>
+              <attribute name="verticalHeaderDefaultSectionSize">
+               <number>35</number>
+              </attribute>
+              <attribute name="verticalHeaderHighlightSections">
+               <bool>true</bool>
+              </attribute>
               <row>
                <property name="text">
                 <string>1</string>
                </property>
               </row>
-              <row>
-               <property name="text">
-                <string>2</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>3</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>5</string>
-               </property>
-              </row>
               <column>
                <property name="text">
-                <string>Frequency</string>
+                <string>Frequency (Hz)</string>
                </property>
               </column>
               <column>
@@ -1051,81 +1287,6 @@ QTableWidget::item {
                 <string>Re[CM(f)] errors</string>
                </property>
               </column>
-              <item row="0" column="0">
-               <property name="text">
-                <string>1000</string>
-               </property>
-              </item>
-              <item row="0" column="1">
-               <property name="text">
-                <string>0.2</string>
-               </property>
-              </item>
-              <item row="0" column="2">
-               <property name="text">
-                <string>0.01</string>
-               </property>
-              </item>
-              <item row="1" column="0">
-               <property name="text">
-                <string>2500</string>
-               </property>
-              </item>
-              <item row="1" column="1">
-               <property name="text">
-                <string>0.32</string>
-               </property>
-              </item>
-              <item row="1" column="2">
-               <property name="text">
-                <string>0.021</string>
-               </property>
-              </item>
-              <item row="2" column="0">
-               <property name="text">
-                <string>500</string>
-               </property>
-              </item>
-              <item row="2" column="1">
-               <property name="text">
-                <string>0.54</string>
-               </property>
-              </item>
-              <item row="2" column="2">
-               <property name="text">
-                <string>0.012</string>
-               </property>
-              </item>
-              <item row="3" column="0">
-               <property name="text">
-                <string>7500</string>
-               </property>
-              </item>
-              <item row="3" column="1">
-               <property name="text">
-                <string>0.34</string>
-               </property>
-              </item>
-              <item row="3" column="2">
-               <property name="text">
-                <string>0.0213</string>
-               </property>
-              </item>
-              <item row="4" column="0">
-               <property name="text">
-                <string>10000</string>
-               </property>
-              </item>
-              <item row="4" column="1">
-               <property name="text">
-                <string>0.031</string>
-               </property>
-              </item>
-              <item row="4" column="2">
-               <property name="text">
-                <string>0.001</string>
-               </property>
-              </item>
              </widget>
             </item>
            </layout>
@@ -1140,7 +1301,7 @@ QTableWidget::item {
   </layout>
  </widget>
  <resources>
-  <include location="resources/graphical_resources.qrc"/>
+  <include location="../resources/graphical_resources.qrc"/>
  </resources>
  <connections/>
 </ui>

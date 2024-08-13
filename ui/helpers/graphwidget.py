@@ -45,18 +45,6 @@ class GraphWidget(QWidget):
         # Set tight layout
         self.setLayout(layout)
 
-    def save_figure(self):
-        file_path, _ = QFileDialog.getSaveFileName(
-            self,
-            "Save figure",
-            "",
-            "PNG (*.png);;JPEG (*.jpeg);;SVG (*.svg);;PDF (*.pdf)",
-        )
-
-        if file_path:
-            # save the figure at 300 dpi
-            self.figure.savefig(file_path, dpi=100)
-
     def get_figure_size(self):
         return self.figure.get_size_inches() * self.figure.dpi
 
@@ -83,6 +71,7 @@ class GraphWidget(QWidget):
                 y_data,
                 label=name,
                 color=color,
+                zorder=2,
                 s=point_size,
                 marker=point_style,
             )
@@ -93,6 +82,7 @@ class GraphWidget(QWidget):
                 yerr=y_errors,
                 fmt="none",
                 ecolor="grey",
+                zorder=1,
                 elinewidth=0.5,
                 capsize=2,
             )
@@ -200,6 +190,7 @@ class GraphWidget(QWidget):
                 linestyle=style_params["grid_style"]["hgridlinestyle"],
                 linewidth=style_params["grid_style"]["hgridlinewidth"],
                 alpha=style_params["grid_style"]["hgridalpha"],
+                zorder=0,
             )
         else:
             self.canvas.axes.grid(False, axis="x")
@@ -212,6 +203,7 @@ class GraphWidget(QWidget):
                 linestyle=style_params["grid_style"]["vgridlinestyle"],
                 linewidth=style_params["grid_style"]["vgridlinewidth"],
                 alpha=style_params["grid_style"]["vgridalpha"],
+                zorder=0,
             )
         else:
             self.canvas.axes.grid(False, axis="y")

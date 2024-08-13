@@ -2,6 +2,7 @@ import random
 
 from src.classes.pyqt import FloatDelegate
 from src.func.general import *
+from src.func.excel import *
 
 from PyQt5.QtWidgets import QWidget, QPushButton, QColorDialog, QFileDialog, QAbstractScrollArea, QHeaderView, \
     QTableWidgetItem
@@ -12,7 +13,7 @@ from PyQt5.uic import loadUi
 class ScatterWidgetUI(QWidget):
     def __init__(self, parent=None):
         QWidget.__init__(self, parent)
-        loadUi("ui/scatter_widget.ui", self)
+        loadUi("ui/widgets/scatter_widget.ui", self)
 
         # Varaibles
         self.parent_widget = None
@@ -46,7 +47,8 @@ class ScatterWidgetUI(QWidget):
         self.pyqt5_button_duplicate_scatter.clicked.connect(lambda: self.parent_widget.generate_new_scatter(
             type="duplicate",
             duplicate_id=self.id))
-        self.pyqt5_button_save_scatter.clicked.connect(self.save_self)
+        self.pyqt5_button_save_scatter.clicked.connect(self.save_scatter)
+        self.pyqt5_button_save_scatter_excel.clicked.connect(self.save_scatter_to_excel)
 
         self.pyqt5_tablewidget_exp_spectra.itemSelectionChanged.connect(self.update_button_state)
 
@@ -106,10 +108,16 @@ class ScatterWidgetUI(QWidget):
         self.parent_widget.delete_scatter(self.id)
         self.close()
 
-    def save_self(self):
+    def save_scatter(self):
         # Open file dialog and save curve as a json file with suffix .odc
         filepath, _ = QFileDialog.getSaveFileName(self, "Save curve", "", "OpenDEP Curve (*.ods)")
-        self.parent_widget.save_scatter(self.id, filepath)
+        if filepath:
+            self.parent_widget.save_scatter(self.id, filepath)
+
+    def save_scatter_to_excel(self):
+        filepath, _ = QFileDialog.getSaveFileName(self, "Scatter", "", "Excel (*.xlsx)")
+        if filepath:
+            save_scatter_to_excel(filepath, self.parent_widget.scatter_dict[self.id]['scatter'])
 
     def add_table_scatter_point(self):
         # Disable table signals

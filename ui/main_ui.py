@@ -1,4 +1,6 @@
 import random
+import numpy as np
+import json
 
 from PyQt5.QtCore import QSize
 from PyQt5.QtGui import QIcon
@@ -6,11 +8,10 @@ from PyQt5.QtWidgets import QMainWindow, QFileDialog, QPushButton, QListView, QS
 from PyQt5.uic import loadUi
 from PyQt5 import QtCore
 from matplotlib.figure import Figure
-import numpy as np
-import json
 
 from src.func import models
 from src.func import general
+from src.func import excel
 from src.classes.numpy_encoder import NumpyEncoder
 
 from ui.helpers.curve_widget_ui import CurveWidgetUI
@@ -18,6 +19,7 @@ from ui.helpers.scatter_widget_ui import ScatterWidgetUI
 from ui.resources import graphical_resources
 from ui.helpers.graph_settings_ui import GraphSettingsUI
 from ui.helpers.noise_widget_ui import NoiseWidgetUI
+from ui.helpers.capture_widget_ui import CaptureWidgetUI
 
 '''
 OpenDEP View
@@ -36,7 +38,7 @@ OpenDEP View
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-    You can contact the developer/owner of OpenDEP at "ioan.tivig@gmail.com".
+    You can contact the developer/owner of OpenDEP at "ioan.tivig@gmail.com" or "ioan.tivig@umfcd.ro".
 '''
 
 class MainUI(QMainWindow):
@@ -62,9 +64,10 @@ class MainUI(QMainWindow):
         # Load the rest of the widgets
         self.graph_settings = GraphSettingsUI(parent=self)
         self.noise_widget = NoiseWidgetUI(parent=self)
+        self.capture_widget = CaptureWidgetUI(parent=self)
 
         # Toolbar buttons
-        self.pyqt5_button_save_figure.clicked.connect(self.pyqt5_graph_widget.save_figure)
+        self.pyqt5_button_save_figure.clicked.connect(self.capture_widget.open_widget)
         self.pyqt5_button_home_figure.clicked.connect(self.pyqt5_graph_widget.toolbar.home)
         self.pyqt5_button_zoom_figure.clicked.connect(self.pyqt5_graph_widget.toolbar.zoom)
         self.pyqt5_button_properties_figure.clicked.connect(self.graph_settings.open_graph_settings)
@@ -72,9 +75,12 @@ class MainUI(QMainWindow):
         #self.pyqt5_button_resize_figure.clicked.connect(self.resize_graph)
 
         # Data buttons
-        self.pyqt5_button_curve_load.clicked.connect(self.load_curve)
+        self.pyqt5_button_curve_load.clicked.connect(lambda: self.load_curve(file_type="OpenDEP"))
         self.pyqt5_button_scatter_add.clicked.connect(lambda: self.generate_new_scatter(type="new"))
         self.pyqt5_button_scatter_load.clicked.connect(self.load_scatter)
+        self.pyqt5_button_scatter_load_excel.clicked.connect(self.load_excel_scatter)
+        self.pyqt5_button_curve_load_excel.clicked.connect(lambda: self.load_curve(file_type="Excel"))
+
 
         # Hide Scrollbars
         self.pyqt5_scrollarea_plots_curve.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
@@ -102,8 +108,8 @@ class MainUI(QMainWindow):
 
         # Graph size lock and size entry - all functionality for resizing the graph
         self.pyqt5_checkbox_graph_size_lock.clicked.connect(self.lock_graph_widget_size)
-        self.pyqt5_button_refresh_graph_size.clicked.connect(self.resize_to_entry)
-        self.pyqt5_button_refresh_graph_size.setVisible(False)
+        self.pyqt5_entry_graph_height.editingFinished.connect(self.resize_to_entry)
+        self.pyqt5_entry_graph_width.editingFinished.connect(self.resize_to_entry)
         self.pyqt5_entry_graph_width.setDisabled(True)
         self.pyqt5_entry_graph_height.setDisabled(True)
 
@@ -133,7 +139,7 @@ class MainUI(QMainWindow):
         for entry in entries_to_int:
             general.lock_entry_to_int(entry, min_value=1, max_value=2000, max_length=4)
 
-    # Functionality for the menubar buttons and toggling the tabs
+    # UI METHODS
     def toggle_tabs(self, buttons, tab_widgets):
         sender = self.sender()  # Get the button that was clicked
         for button in buttons:
@@ -151,50 +157,8 @@ class MainUI(QMainWindow):
 
         self.refresh_graph()
 
-    # In Work, Graph Size functionality
-    def resizeEvent(self, event=None):
-        # Get size of figure in the graph
-        new_graph_size = self.pyqt5_graph_widget.get_figure_size()
-        QMainWindow.resizeEvent(self, event)
-        # Check if self.pyqt5_graph_widget is resized
-        if self.pyqt5_graph_widget.size() != event.oldSize():
-            self.pyqt5_graph_widget.set_tight_layout()
-            self.pyqt5_entry_graph_width.setText(str(int(new_graph_size[0])))
-            self.pyqt5_entry_graph_height.setText(str(int(new_graph_size[1])))
-
-    def resize_to_entry(self):
-        dpi = int(self.pyqt5_graph_widget.figure.dpi)
-        width = int(self.pyqt5_entry_graph_width.text()) / dpi
-        height = int(self.pyqt5_entry_graph_height.text()) / dpi
-        self.pyqt5_graph_widget.figure.set_size_inches(width, height)
-        self.pyqt5_graph_widget.set_tight_layout()
-        self.pyqt5_graph_widget.canvas.draw()
-
-    def lock_graph_widget_size(self):
-        if self.pyqt5_checkbox_graph_size_lock.isChecked():
-            self.pyqt5_entry_graph_width.setDisabled(False)
-            self.pyqt5_entry_graph_height.setDisabled(False)
-            # Restrict resizing of the graph
-            self.pyqt5_graph_widget.setFixedSize(self.pyqt5_graph_widget.size())
-            self.pyqt5_graph_widget.set_tight_layout()
-            self.pyqt5_button_refresh_graph_size.setVisible(True)
-
-        else:
-            self.pyqt5_entry_graph_width.setDisabled(True)
-            self.pyqt5_entry_graph_height.setDisabled(True)
-            # Allow resizing of the graph
-            self.pyqt5_graph_widget.setMinimumSize(0, 0)
-            self.pyqt5_graph_widget.setMaximumSize(16777215, 16777215)
-            self.pyqt5_graph_widget.set_tight_layout()
-            self.pyqt5_button_refresh_graph_size.setVisible(False)
-
-    # Graph settings
-    def open_color_picker(self):
-        color = QColorDialog.getColor()
-        if color.isValid():
-            print(color.name())
-
-    # Scatter functionality - add, modify, duplicate, delete, save, load
+    # SCATTER METHODS - add, modify, duplicate, delete, save, load
+    # Generate new scatter with default parameters
     def generate_new_scatter(self, type="new", duplicate_id=None, file_path=None):
         # Create a new scatter widget
         scatter_widget = ScatterWidgetUI()
@@ -245,6 +209,19 @@ class MainUI(QMainWindow):
             point_style = data["point_style"]
             scatter_data = data["scatter"]
 
+        elif type == "load_excel":
+            data = excel.load_scatter_from_excel(file_path)
+
+            if data is None:
+                scatter_data = scatter_data = {"frequencies": [1000.0],
+                            "recm_values": [0.0],
+                            "recm_errors": [0.0]}
+            else:
+                scatter_data = data
+
+            color = general.get_random_color_hex()
+            name = file_path.split("/")[-1].split(".")[0]
+
         # Add the curve to the dictionary
         self.scatter_dict[id] = {"name": name,
                                 "color": color,
@@ -268,6 +245,7 @@ class MainUI(QMainWindow):
         # Dock the widget at index 0 from the top
         self.pyqt5_scrollarea_scatter_curves_layout.insertWidget(0, scatter_widget)
 
+    # Delete scatter from the dictionary and refresh the graph
     def delete_scatter(self, id):
         # Remove the curve from the dictionary
         del self.scatter_dict[id]
@@ -275,6 +253,7 @@ class MainUI(QMainWindow):
         # Refresh the graph
         self.refresh_graph()
 
+    # Save scatter to file
     def save_scatter(self, id, file_path):
         # save all curve data to a json file from the dictionary
         data = self.scatter_dict[id].copy()
@@ -285,6 +264,7 @@ class MainUI(QMainWindow):
 
         file.close()
 
+    # Load scatter from file
     def load_scatter(self):
         # load curve data from a json file to the dictionary
         file_path, _ = QFileDialog.getOpenFileName(self, "Load scatter", "", "OpenDEP Scatter (*.ods)")
@@ -292,7 +272,13 @@ class MainUI(QMainWindow):
         if file_path:
             self.generate_new_scatter(type="load", file_path=file_path)
 
-    # Curve functionality - add, modify, duplicate, delete, save, load
+    def load_excel_scatter(self):
+        file_path, _ = QFileDialog.getOpenFileName(self, "Load scatter", "", "Excel Scatter (*.xlsx)")
+        if file_path:
+            self.generate_new_scatter(type="load_excel", file_path=file_path)
+
+    # CURVE METHODS - add, modify, duplicate, delete, save, load
+    # Generate new curve with default parameters
     def generate_new_curve(self):
         # Create a new curve widget
         new_curve_widget = CurveWidgetUI()
@@ -351,6 +337,7 @@ class MainUI(QMainWindow):
         # Dock the widget at index 0 from the top
         self.pyqt5_scrollarea_plots_curve_layout.insertWidget(0, new_curve_widget)
 
+    # Modify single curve from the dictionary and refresh the graph
     def modify_single_curve(self, id):
         # Update the parameters from entry fields of the widget
         parameters = self.curves_dict[id]["widget"].get_data_from_entries()
@@ -378,6 +365,7 @@ class MainUI(QMainWindow):
         self.curves_dict[id]["widget"].update_crossover()
         self.refresh_graph()
 
+    # Duplicate curve from the dictionary and refresh the graph
     def duplicate_curve(self, id):
         # Create a new curve widget
         new_curve_widget = CurveWidgetUI()
@@ -408,6 +396,7 @@ class MainUI(QMainWindow):
         # Dock the widget at index 0 from the top
         self.pyqt5_scrollarea_plots_curve_layout.insertWidget(0, new_curve_widget)
 
+    # Delete curve from the dictionary and refresh the graph
     def delete_curve(self, id):
         # Remove the curve from the dictionary
         del self.curves_dict[id]
@@ -415,6 +404,7 @@ class MainUI(QMainWindow):
         # Refresh the graph
         self.refresh_graph()
 
+    # Save curve to file
     def save_curve(self, id, file_path):
         # save all curve data to a json file from the dictionary
         data = self.curves_dict[id].copy()
@@ -425,22 +415,39 @@ class MainUI(QMainWindow):
 
         file.close()
 
-    def load_curve(self):
+    # Load curve from file
+    def load_curve(self, file_type="OpenDEP"):
         # load curve data from a json file to the dictionary
-        file_path, _ = QFileDialog.getOpenFileName(self, "Load curve", "", "OpenDEP Curve (*.odc)")
+        if file_type == "OpenDEP":
+            file_path, _ = QFileDialog.getOpenFileName(self, "Load curve", "", "OpenDEP Curve (*.odc)")
+        elif file_type == "Excel":
+            file_path, _ = QFileDialog.getOpenFileName(self, "Load curve", "", "Excel Curve (*.xlsx)")
 
         if file_path:
-            with open(file_path, 'r') as file:
-                data = json.load(file)
-                id = random.randint(0, 9999)
-                while id in self.curves_dict.keys():
-                    id = random.randint(0, 9999)
-
             # Create a new curve widget
             new_curve_widget = CurveWidgetUI()
 
             # Create a new parameters list
-            data_copy = data
+            if file_type == "OpenDEP":
+                with open(file_path, 'r') as file:
+                    data = json.load(file)
+                data_copy = data
+
+            elif file_type == "Excel":
+                parameters, model = excel.load_curve_from_excel(file_path)
+                if not parameters == None:
+                    data_copy = {"name": file_path.split("/")[-1].split(".")[0],
+                                 "color": general.get_random_color_hex(),
+                                 "line_style": '-',
+                                 "line_width": 1.5,
+                                 "visibility": True,
+                                 "model": model,
+                                 "parameters": parameters,
+                                 "curves": self.generate_curve_data(parameters),
+                                 "widget": new_curve_widget}
+                else:
+                    return
+
 
             # Create Random ID which wont be already in the dictionary keys
             new_id = random.randint(0, 9999)
@@ -467,72 +474,6 @@ class MainUI(QMainWindow):
         for key in self.curves_dict.keys():
             self.modify_single_curve(key)
 
-    def refresh_graph(self, focus_curve_id=None):
-        self.pyqt5_graph_widget.canvas.axes.clear()
-        # Some local_vars
-        self.graph_y_index = 0
-        curves = [
-            "frequencies",
-            "recm_homogenous_particle",
-            "depforce_homogenous_particle",
-            "imcm_homogenous_particle",
-            "recm_single_shell",
-            "depforce_single_shell",
-            "imcm_single_shell",
-            "recm_two_shell",
-            "depforce_two_shell",
-            "imcm_two_shell"]
-
-        # Add all curves to the graph
-        if self.pyqt5_checkbox_curves_visibility.isChecked():
-            for key in self.curves_dict.keys():
-                self.curves_dict[key]["widget"].setEnabled(True)
-                if self.curves_dict[key]["visibility"]:
-                    # Get index of the button that is active in type of graph content
-                    for index, button in enumerate(self.pyqt5_frame_toolbar_graphcontent.findChildren(QPushButton)):
-                        if button.property("customState"):
-                            # Calculate the index of data depending on selected model and type of graph content
-                            new_index = self.curves_dict[key]["model"] * 3 + index + 1
-                            self.pyqt5_graph_widget.update_curve(name=self.curves_dict[key]["name"],
-                                                                color=self.curves_dict[key]["color"],
-                                                                line_style=self.curves_dict[key]["line_style"],
-                                                                x_data=self.curves_dict[key]["curves"]["frequencies"],
-                                                                y_data=self.curves_dict[key]["curves"][curves[new_index]],
-                                                                line_width=self.curves_dict[key]["line_width"])
-                            self.graph_y_index = index
-                            break
-        else:
-            for key in self.curves_dict.keys():
-                self.curves_dict[key]["widget"].setEnabled(False)
-
-        if self.pyqt5_button_display_experimental_area.property("customState"):
-            self.pyqt5_graph_widget.scatter_style = 'area'
-        elif self.pyqt5_button_display_experimental_stdev.property("customState"):
-            self.pyqt5_graph_widget.scatter_style = 'scatter'
-
-        if self.pyqt5_checkbox_scatters_visibility.isChecked():
-            for key in self.scatter_dict.keys():
-                self.scatter_dict[key]["widget"].setEnabled(True)
-                if self.scatter_dict[key]["visibility"]:
-                    # Get index of the button that is active in type of graph content
-                    for index, button in enumerate(self.pyqt5_frame_toolbar_graphcontent.findChildren(QPushButton)):
-                        if button.property("customState"):
-                            button_index = index
-                    if button_index == 0:
-                        self.pyqt5_graph_widget.update_scatter(name=self.scatter_dict[key]["name"],
-                                                            color=self.scatter_dict[key]["color"],
-                                                            x_data=self.scatter_dict[key]["scatter"]["frequencies"],
-                                                            y_data=self.scatter_dict[key]["scatter"]["recm_values"],
-                                                            y_errors=self.scatter_dict[key]["scatter"]["recm_errors"],
-                                                            point_style=self.scatter_dict[key]["point_style"],
-                                                            point_size=self.scatter_dict[key]["point_size"])
-
-        else:
-            for key in self.scatter_dict.keys():
-                self.scatter_dict[key]["widget"].setEnabled(False)
-
-        # Format the graph and draw it
-        self.update_graph_styling()
 
     # Place holder parameters and data for when adding new curve
     def create_default_curve_data(self):
@@ -668,8 +609,8 @@ class MainUI(QMainWindow):
 
         return first_co, second_co
 
-    # Graph UI methods
-
+    # GRAPH METHODS
+    # Get the styling of the graph
     def get_graph_styling(self):
         graph_style_parameters = {
             'font_family': self.graph_settings.pyqt5_combo_font_family.currentText().lower(),
@@ -718,11 +659,138 @@ class MainUI(QMainWindow):
 
         return graph_style_parameters
 
+    # Update the styling of the graph
     def update_graph_styling(self):
         self.graph_style_parameters = self.get_graph_styling()
         self.pyqt5_graph_widget.format_graph(y_index=self.graph_y_index, style_params=self.graph_style_parameters)
         self.pyqt5_graph_widget.canvas.draw()
 
+    # Refresh the graph with new data
+    def refresh_graph(self, focus_curve_id=None):
+        self.pyqt5_graph_widget.canvas.axes.clear()
+        # Some local_vars
+        self.graph_y_index = 0
+        curves = [
+            "frequencies",
+            "recm_homogenous_particle",
+            "depforce_homogenous_particle",
+            "imcm_homogenous_particle",
+            "recm_single_shell",
+            "depforce_single_shell",
+            "imcm_single_shell",
+            "recm_two_shell",
+            "depforce_two_shell",
+            "imcm_two_shell"]
 
+        # Add all curves to the graph
+        if self.pyqt5_checkbox_curves_visibility.isChecked():
+            for key in self.curves_dict.keys():
+                self.curves_dict[key]["widget"].setEnabled(True)
+                if self.curves_dict[key]["visibility"]:
+                    # Get index of the button that is active in type of graph content
+                    for index, button in enumerate(self.pyqt5_frame_toolbar_graphcontent.findChildren(QPushButton)):
+                        if button.property("customState"):
+                            # Calculate the index of data depending on selected model and type of graph content
+                            new_index = self.curves_dict[key]["model"] * 3 + index + 1
+                            self.pyqt5_graph_widget.update_curve(name=self.curves_dict[key]["name"],
+                                                                color=self.curves_dict[key]["color"],
+                                                                line_style=self.curves_dict[key]["line_style"],
+                                                                x_data=self.curves_dict[key]["curves"]["frequencies"],
+                                                                y_data=self.curves_dict[key]["curves"][curves[new_index]],
+                                                                line_width=self.curves_dict[key]["line_width"])
+                            self.graph_y_index = index
+                            break
+        else:
+            for key in self.curves_dict.keys():
+                self.curves_dict[key]["widget"].setEnabled(False)
 
+        if self.pyqt5_button_display_experimental_area.property("customState"):
+            self.pyqt5_graph_widget.scatter_style = 'area'
+        elif self.pyqt5_button_display_experimental_stdev.property("customState"):
+            self.pyqt5_graph_widget.scatter_style = 'scatter'
 
+        if self.pyqt5_checkbox_scatters_visibility.isChecked():
+            for key in self.scatter_dict.keys():
+                self.scatter_dict[key]["widget"].setEnabled(True)
+                if self.scatter_dict[key]["visibility"]:
+                    # Get index of the button that is active in type of graph content
+                    for index, button in enumerate(self.pyqt5_frame_toolbar_graphcontent.findChildren(QPushButton)):
+                        if button.property("customState"):
+                            button_index = index
+                    if button_index == 0:
+                        self.pyqt5_graph_widget.update_scatter(name=self.scatter_dict[key]["name"],
+                                                            color=self.scatter_dict[key]["color"],
+                                                            x_data=self.scatter_dict[key]["scatter"]["frequencies"],
+                                                            y_data=self.scatter_dict[key]["scatter"]["recm_values"],
+                                                            y_errors=self.scatter_dict[key]["scatter"]["recm_errors"],
+                                                            point_style=self.scatter_dict[key]["point_style"],
+                                                            point_size=self.scatter_dict[key]["point_size"])
+
+        else:
+            for key in self.scatter_dict.keys():
+                self.scatter_dict[key]["widget"].setEnabled(False)
+
+        # Format the graph and draw it
+        self.update_graph_styling()
+
+    # When the window is resized, resize the graph
+    def resizeEvent(self, event=None):
+        # Get size of figure in the graph
+        new_graph_size = self.pyqt5_graph_widget.get_figure_size()
+        QMainWindow.resizeEvent(self, event)
+        # Check if self.pyqt5_graph_widget is resized
+        if self.pyqt5_graph_widget.size() != event.oldSize():
+            self.pyqt5_graph_widget.set_tight_layout()
+            if not self.pyqt5_entry_graph_width.isEnabled():
+                self.pyqt5_entry_graph_width.setText(str(int(new_graph_size[0])))
+            if not self.pyqt5_entry_graph_height.isEnabled():
+                self.pyqt5_entry_graph_height.setText(str(int(new_graph_size[1])))
+
+    # Resize the graph to the values in the entry fields
+    def resize_to_entry(self):
+        # Get current DPI and size of the figure
+        graph_dpi = self.pyqt5_graph_widget.figure.get_dpi()
+        graph_width = self.pyqt5_graph_widget.figure.get_size_inches()[0] * graph_dpi
+        graph_height = self.pyqt5_graph_widget.figure.get_size_inches()[1] * graph_dpi
+
+        # Calculate the size difference between the window and the graph
+        old_graph_size = [graph_width, graph_height]
+        old_window_size = [self.width(), self.height()]
+        remaining_space = [old_window_size[0] - old_graph_size[0], old_window_size[1] - old_graph_size[1]]
+
+        # Get the new desired graph size from entries
+        new_graph_size_pixels = [int(self.pyqt5_entry_graph_width.text()), int(self.pyqt5_entry_graph_height.text())]
+        new_graph_size_inches = [new_graph_size_pixels[0] / graph_dpi, new_graph_size_pixels[1] / graph_dpi]
+
+        # Set the new size for the Matplotlib figure
+        self.pyqt5_graph_widget.figure.set_size_inches(new_graph_size_inches[0], new_graph_size_inches[1])
+
+        # Update the widget and window size
+        new_window_size = [new_graph_size_pixels[0] + remaining_space[0], new_graph_size_pixels[1] + remaining_space[1]]
+        self.resize(int(new_window_size[0]), int(new_window_size[1]))
+
+        # Set the size of the widget containing the figure
+        self.pyqt5_graph_widget.setFixedSize(new_graph_size_pixels[0], new_graph_size_pixels[1])
+
+        # Apply tight layout if needed and redraw the canvas
+        self.pyqt5_graph_widget.set_tight_layout()
+        self.pyqt5_graph_widget.canvas.draw()
+
+        print("Resized")
+
+    # Lock the graph widget size
+    def lock_graph_widget_size(self):
+        if self.pyqt5_checkbox_graph_size_lock.isChecked():
+            self.pyqt5_entry_graph_width.setDisabled(False)
+            self.pyqt5_entry_graph_height.setDisabled(False)
+            # Restrict resizing of the graph
+            self.pyqt5_graph_widget.setFixedSize(self.pyqt5_graph_widget.size())
+            self.pyqt5_graph_widget.set_tight_layout()
+
+        else:
+            self.pyqt5_entry_graph_width.setDisabled(True)
+            self.pyqt5_entry_graph_height.setDisabled(True)
+            # Allow resizing of the graph
+            self.pyqt5_graph_widget.setMinimumSize(0, 0)
+            self.pyqt5_graph_widget.setMaximumSize(16777215, 16777215)
+            self.pyqt5_graph_widget.set_tight_layout()

@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="/ui/qt/resources">
+    <file>buttons/upload_excel_icon.png</file>
+    <file>buttons/load_excel_icon.png</file>
+    <file>buttons/open_folder_icon.png</file>
     <file>checkbox/bottom_frame_checked_icon.png</file>
     <file>checkbox/bottom_frame_unchecked_icon.png</file>
     <file>checkbox/left_frame_checked_icon.png</file>

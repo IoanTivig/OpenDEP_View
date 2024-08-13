@@ -1,7 +1,8 @@
 import math
 import numpy as np
 
-### General functions ###
+
+# General functions #
 def complex_perm(freq, relperm, cond):
     # Ensure inputs are of a higher precision data type
     relperm = np.array(relperm, dtype=np.float64)
@@ -14,7 +15,8 @@ def complex_perm(freq, relperm, cond):
     # Ensure the result is of complex type to handle imaginary parts correctly
     return np.array(result, dtype=np.complex128)
 
-### Single-shell model ###
+
+# Single-shell model #
 # Single-Shell Models composed of a cytoplasm surrounded by a cell membrane
 # Calculate the equivalent complex permittivity for a single-shell model
 def single_shell_equivalent_complex_permittivity(
@@ -124,7 +126,6 @@ def single_shell_CMfactor_imag(
     fitting_gen_buffer_perm,
     fitting_gen_buffer_cond,
 ):
-
     return single_shell_CMfactor_complex(
         freq,
         fitting_sish_particle_radius,
@@ -182,6 +183,7 @@ def single_shell_DEP_force(
 
     return result
 
+
 def single_shell_all(
     freq,
     fitting_gen_fieldgrad,
@@ -232,7 +234,8 @@ def single_shell_all(
     )
     return cm_factor_real, cm_factor_imag, dep_force
 
-### Homogenous particle ###
+
+# Homogenous particle #
 # Calculate Complex Claussius-Mossotti Factor
 def homogenous_particle_CMfactor_complex(
     freq,
@@ -328,6 +331,7 @@ def homogenous_particle_DEP_force(
 
     return result
 
+
 def homogenous_particle_all(
     freq,
     fitting_gen_fieldgrad,
@@ -365,7 +369,8 @@ def homogenous_particle_all(
 
     return cm_factor_real, cm_factor_imag, dep_force
 
-### Two-shell model ###
+
+# Two-shell model #
 def complex_perm(freq, relperm, cond):
     # Ensure inputs are of a higher precision data type
     relperm = np.array(relperm, dtype=np.float64)
@@ -377,6 +382,7 @@ def complex_perm(freq, relperm, cond):
 
     # Ensure the result is of complex type to handle imaginary parts correctly
     return np.array(result, dtype=np.complex128)
+
 
 # Two-Shell Models composed of a core, inner shell, and outer shell
 # Calculate the equivalent complex permittivity for a two-shell model
@@ -427,6 +433,7 @@ def two_shell_equivalent_complex_permittivity(
 
     return complex_perm_outer_shell * (numerator_combined / denominator_combined)
 
+
 # Claussius-Mossotti Factor calculation for two-shell model
 def two_shell_CMfactor_complex(
     freq,
@@ -465,6 +472,7 @@ def two_shell_CMfactor_complex(
     # Return the final result
     return (numerator / denominator).real
 
+
 # Claussius-Mossotti Factor calculation - real part only for two-shell model
 def two_shell_CMfactor_real(
     freq,
@@ -495,6 +503,7 @@ def two_shell_CMfactor_real(
         buffer_cond,
     ).real
 
+
 # Claussius-Mossotti Factor calculation - imaginary part only for two-shell model
 def two_shell_CMfactor_imag(
     freq,
@@ -524,6 +533,7 @@ def two_shell_CMfactor_imag(
         buffer_perm,
         buffer_cond,
     ).imag
+
 
 # Two-shell DEP Force calculation
 def two_shell_DEP_force(
@@ -575,6 +585,7 @@ def two_shell_DEP_force(
     )
 
     return result
+
 
 def two_shell_all(
     freq,
