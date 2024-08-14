@@ -47,7 +47,7 @@ class MainUI(QMainWindow):
 
         # Load the main UI
         loadUi("ui/main.ui", self)
-        self.setWindowTitle("OpenDEP Force Calculator")
+        self.setWindowTitle("OpenDEP View")
         self.setWindowIcon(QIcon("icon.png"))
 
         # Create default parameters
