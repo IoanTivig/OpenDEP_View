@@ -45,14 +45,17 @@ def load_scatter_from_excel(file):
             break
         scatter_data['frequencies'].append(row[0].value)
         scatter_data['recm_values'].append(row[1].value)
-        scatter_data['recm_errors'].append(row[2].value)
+        if row[2].value is None:
+            scatter_data['recm_errors'].append(0)
+        else:
+            scatter_data['recm_errors'].append(row[2].value)
 
     # Check if all values are numbers and if the list is not empty and all lists have the same length
     if all(isinstance(x, (int, float)) for x in scatter_data['frequencies']) and \
             all(isinstance(x, (int, float)) for x in scatter_data['recm_values']) and \
             all(isinstance(x, (int, float)) for x in scatter_data['recm_errors']) and \
             len(scatter_data['frequencies']) > 0 and \
-            len(scatter_data['frequencies']) == len(scatter_data['recm_values']) == len(scatter_data['recm_errors']):
+            len(scatter_data['frequencies']) == len(scatter_data['recm_values']):
         return scatter_data
 
     else:
