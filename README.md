@@ -13,7 +13,7 @@ Published under the GNU GPL v3.0 license.
 - **Spectra Visualization**: Easily visualize DEP spectra using the homogeneous particle model and single-shell model.
 - **Spectra Generation**: Generate DEP spectra based on user-defined parameters.
 - **Generation/Simulation of Synthetic Experimental Data**: Simulate synthetic experimental data for testing and analysis.
-- **Cosmetization of Graphs**: Customize and format graphs to be publication-ready without needing additional software.
+- **Graphs Formating**: Customize and format graphs to be publication-ready without needing additional software.
 - **Compatibility with OpenDEP Compute Data**: Works with data exported from OpenDEP Compute (currently supports Excel exports).
 - **Standalone Execution on Windows**: The software can now be run directly from the `.exe` file in the root of the program.
 
