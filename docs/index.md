@@ -33,7 +33,7 @@ Press **F1** or click **Help** in the top bar. The guide opens at the page of th
 
 ## Citation
 
-If you use OpenDEP View in your research, please cite: [OpenDEP: An Open-Source Platform for Dielectrophoresis Spectra Acquisition and Analysis](https://pubs.acs.org/doi/10.1021/acsomega.3c06052), *ACS Omega*.
+If you use OpenDEP View in your research, please cite: [OpenDEP: An Open-Source Platform for Dielectrophoresis Spectra Acquisition and Analysis](https://pubs.acs.org/doi/10.1021/acsomega.3c06052), *ACS Omega* (2023). For single-cell measurements, also: [All-in-One Method for Iterative Single-Cell Dielectrophoretic and Optical Characterization: Advancing the OpenDEP Platform](https://pubs.acs.org/doi/10.1021/acsomega.5c06195), *ACS Omega* (2025).
 
 ## License
 
