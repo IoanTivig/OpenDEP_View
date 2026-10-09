@@ -1,6 +1,6 @@
 # OpenDEP View
 
-**Views, simulates and compares dielectrophoresis (DEP) spectra.** OpenDEP View draws Clausius-Mossotti (CM) curves from the dielectric models of cells and particles, shows measured spectra next to them, averages replicate measurements into groups, ranks how well two cell populations can be separated, and makes publication-ready graphs and reports. It is part of the OpenDEP suite, with [OpenDEP Control](https://github.com/IoanTivig/OpenDEP_Control) (runs the experiments), [OpenDEP Compute](https://github.com/IoanTivig/OpenDEP_Compute) (converts images into spectra and fits them) and [OpenDEP Neuralnet](https://github.com/IoanTivig/OpenDEP_Neuralnet) (classifies DEP population images).
+**Views, simulates and compares dielectrophoresis (DEP) spectra.** OpenDEP View draws Clausius-Mossotti (CM) curves from the dielectric models of cells and particles, shows measured spectra next to them, averages replicate measurements into groups, ranks how well two cell populations can be separated, and makes publication-ready graphs and reports. It is part of the OpenDEP suite, with [OpenDEP Control](https://github.com/IoanTivig/OpenDEP_Control) (runs the experiments) and [OpenDEP Compute](https://github.com/IoanTivig/OpenDEP_Compute) (converts images into spectra and fits them).
 
 ## What it does
 

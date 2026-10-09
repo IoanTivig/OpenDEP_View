@@ -46,7 +46,7 @@ from ui.helpers.bug_report_widget_ui import install_crash_handler
 
 
 # Destroy the window while the application still exists: left to the interpreter's exit, Qt objects are destroyed
-# in random order and the finished process sometimes crashed (as in OpenDEP Compute and Neuralnet)
+# in random order and the finished process sometimes crashed (as in OpenDEP Compute)
 def destroy(widget):
     import gc
     widget.deleteLater()

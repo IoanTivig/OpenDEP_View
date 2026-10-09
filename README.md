@@ -9,8 +9,6 @@ It is part of the **OpenDEP** suite, free and open-source software for DEP resea
 | [OpenDEP Control](https://github.com/IoanTivig/OpenDEP_Control) | runs the experiments on a Raspberry Pi (camera, function generator, pump) and measures DEP spectra |
 | [OpenDEP Compute](https://github.com/IoanTivig/OpenDEP_Compute) | converts image sets into spectra, fits spectra, reports cell parameters |
 | **OpenDEP View** | compares spectra and model curves, averages replicates, simulates data, publication graphs |
-| [OpenDEP Neuralnet](https://github.com/IoanTivig/OpenDEP_Neuralnet) | classifies DEP population images |
-
 ## Features
 
 - **Model curves:** Re[CM], Im[CM] and the DEP force of a homogeneous particle and of single-, two-, three- and four-shell cells, from parameters you type in; the crossover frequencies are calculated exactly.
