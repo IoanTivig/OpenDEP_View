@@ -1,7 +1,9 @@
 import os
 import random
+import re
 
-from PyQt5.QtGui import QDoubleValidator
+from PyQt6.QtCore import QLocale
+from PyQt6.QtGui import QDoubleValidator
 from matplotlib.font_manager import findSystemFonts
 import numpy as np
 
@@ -21,9 +23,9 @@ def format_frequency(value):
     Returns:
         str: The formatted frequency string.
     """
-    if value == None:
-        # Return no CO
-        return f"0.00 Hz"
+    if value is None or value == 0:
+        # No crossover ("0.00 Hz" would read as a value)
+        return "none"
     elif value < 1000:
         # Value is in Hz
         return f"{value:.2f} Hz"
@@ -67,18 +69,51 @@ def get_all_os_fonts():
     return final_font_list
 
 
+# Locale of the number validators: "." as decimal point and no thousands separator. With the system locale,
+# Qt 6's validator rewrites a confirmed value as e.g. "9,755.66", which float() cannot read.
+def number_locale():
+    locale = QLocale.c()
+    locale.setNumberOptions(QLocale.NumberOption.OmitGroupSeparator | QLocale.NumberOption.RejectGroupSeparator)
+    return locale
+
+
+# A number typed or shown in a field (thousands separators, if any, ignored)
+def parse_number(text):
+    return float(str(text).strip().replace(",", ""))
+
+
+# A typed list of frequencies (Hz): separated by spaces, new lines, "," ";" "/" "_" or "-" ("1000-2000"); a "-" inside
+# a number ("5e-1") stays part of it. Raises ValueError naming what cannot be read, or a frequency that is not > 0.
+def parse_frequency_list(text):
+    parts = [p for p in re.split(r"[\s,;/_]+|(?<![eE])-", str(text)) if p]
+    frequencies = []
+    for part in parts:
+        try:
+            value = float(part)
+        except ValueError:
+            raise ValueError(f'"{part}" is not a frequency: type numbers in Hz (e.g. 1000, 2.5e4, 1e6)') from None
+        if not np.isfinite(value) or value <= 0:
+            raise ValueError(f"{part} Hz: frequencies must be greater than 0")
+        frequencies.append(value)
+    if not frequencies:
+        raise ValueError("Type at least one frequency (Hz)")
+    return np.array(frequencies)
+
+
 def lock_entry_to_float(entry):
     validator = QDoubleValidator()
+    validator.setLocale(number_locale())
     validator.setNotation(
-        QDoubleValidator.ScientificNotation
+        QDoubleValidator.Notation.ScientificNotation
     )  # Standard floating-point notation
-    validator.setDecimals(10)  # Allows up to 6 decimal places (adjust as needed)
+    validator.setDecimals(1000)  # No limit: a longer value would be rewritten ("fixed up") on Enter
     entry.setValidator(validator)
-    entry.setMaxLength(12)  # Limit the number of characters to 10
+    entry.setMaxLength(32)  # Allow enough room for scientific notation e.g. -1.23456789e-10
 
 
 def lock_entry_to_int(entry, min_value=1, max_value=2000, max_length=4):
     validator = QDoubleValidator()
+    validator.setLocale(number_locale())
     validator.setRange(min_value, max_value)
     validator.setDecimals(0)  # Disallow decimal points
     entry.setValidator(validator)

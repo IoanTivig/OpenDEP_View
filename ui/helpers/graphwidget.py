@@ -3,16 +3,16 @@
 # ------------------------------------------------------
 
 ### START IMPORTS ###
-## PyQt5 imports ##
-from PyQt5.QtWidgets import *
+## PyQt6 imports ##
+from PyQt6.QtWidgets import *
 
 
 ## Matplotlib imports ##
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_qt5agg import FigureCanvas
+from matplotlib.backends.backend_qtagg import FigureCanvas
 from matplotlib.font_manager import FontProperties
 from matplotlib.ticker import StrMethodFormatter, ScalarFormatter, LogFormatterMathtext
-from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
+from matplotlib.backends.backend_qtagg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.patches import Rectangle
 
 ### END IMPORTS ###
@@ -94,6 +94,11 @@ class GraphWidget(QWidget):
             self.canvas.axes.fill_between(
                 x_data, y_min, y_max, color=color, alpha=0.3, label=name
             )
+
+    # Points without error bars or band, open markers (e.g. frequencies a group measured only once)
+    def update_points(self, name, color, x_data, y_data, point_style="o", point_size=5):
+        self.canvas.axes.scatter(x_data, y_data, label=name, facecolors="none", edgecolors=color, zorder=2,
+                                 s=point_size, marker=point_style)
 
     def focus_curve(self, name):
         for line in self.canvas.axes.lines:

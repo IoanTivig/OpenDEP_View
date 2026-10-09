@@ -94,7 +94,7 @@ background: #F1F5F9;</string>
           <number>6</number>
          </property>
          <item row="0" column="0">
-          <widget class="QFrame" name="pyqt5_frame_buffer_group">
+          <widget class="QFrame" name="qt_frame_buffer_group">
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
            </property>
@@ -171,7 +171,7 @@ border-radius: 6px;</string>
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="pyqt5_entry_image_name">
+               <widget class="QLineEdit" name="qt_entry_image_name">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -253,7 +253,7 @@ QLineEdit:disabled {
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pyqt5_button_load_path">
+               <widget class="QPushButton" name="qt_button_load_path">
                 <property name="minimumSize">
                  <size>
                   <width>31</width>
@@ -314,7 +314,7 @@ QPushButton:pressed {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="pyqt5_entry_image_path">
+               <widget class="QLineEdit" name="qt_entry_image_path">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
@@ -396,7 +396,7 @@ QLineEdit:disabled {
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="pyqt5_combo_image_format">
+               <widget class="QComboBox" name="qt_combo_image_format">
                 <property name="minimumSize">
                  <size>
                   <width>175</width>
@@ -506,7 +506,7 @@ QComboBox::item {
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="pyqt5_combo_image_dpi">
+               <widget class="QComboBox" name="qt_combo_image_dpi">
                 <property name="minimumSize">
                  <size>
                   <width>175</width>
@@ -631,7 +631,7 @@ QComboBox::item {
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="pyqt5_combo_image_color">
+               <widget class="QComboBox" name="qt_combo_image_color">
                 <property name="minimumSize">
                  <size>
                   <width>175</width>
@@ -713,7 +713,7 @@ QComboBox::item {
                <number>0</number>
               </property>
               <item>
-               <widget class="QCheckBox" name="pyqt5_checkbox_size_fixed">
+               <widget class="QCheckBox" name="qt_checkbox_size_fixed">
                 <property name="minimumSize">
                  <size>
                   <width>31</width>
@@ -795,7 +795,7 @@ QCheckBox {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="pyqt5_entry_image_width">
+               <widget class="QLineEdit" name="qt_entry_image_width">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
@@ -861,7 +861,7 @@ QLineEdit:disabled {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="pyqt5_entry_image_height">
+               <widget class="QLineEdit" name="qt_entry_image_height">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
@@ -943,7 +943,7 @@ QLineEdit:disabled {
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pyqt5_button_image_save">
+          <widget class="QPushButton" name="qt_button_image_save">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -999,7 +999,7 @@ QPushButton:pressed {
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pyqt5_button_image_close">
+          <widget class="QPushButton" name="qt_button_image_close">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1076,9 +1076,9 @@ QPushButton:pressed {
  </resources>
  <connections>
   <connection>
-   <sender>pyqt5_checkbox_size_fixed</sender>
+   <sender>qt_checkbox_size_fixed</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_image_width</receiver>
+   <receiver>qt_entry_image_width</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1092,9 +1092,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_checkbox_size_fixed</sender>
+   <sender>qt_checkbox_size_fixed</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_image_height</receiver>
+   <receiver>qt_entry_image_height</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">

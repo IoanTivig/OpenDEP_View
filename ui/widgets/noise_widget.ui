@@ -94,7 +94,7 @@ background: #F1F5F9;</string>
           <number>6</number>
          </property>
          <item row="0" column="1">
-          <widget class="QFrame" name="pyqt5_frame_buffer_group_2">
+          <widget class="QFrame" name="qt_frame_buffer_group_2">
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
            </property>
@@ -165,7 +165,7 @@ border-radius: 6px;</string>
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="pyqt5_entry_noise_stdev">
+               <widget class="QLineEdit" name="qt_entry_noise_stdev">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -235,7 +235,7 @@ QLineEdit:disabled {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="pyqt5_entry_noise_scale">
+               <widget class="QLineEdit" name="qt_entry_noise_scale">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
@@ -274,7 +274,7 @@ QLineEdit:disabled {
              </layout>
             </item>
             <item>
-             <widget class="QRadioButton" name="pyqt5_radio_noise_awg">
+             <widget class="QRadioButton" name="qt_radio_noise_awg">
               <property name="styleSheet">
                <string notr="true">QRadioButton {
     border: none;  /* No border for the radio button */
@@ -314,7 +314,7 @@ QRadioButton::indicator:disabled {
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="pyqt5_radio_noise_speckle">
+             <widget class="QRadioButton" name="qt_radio_noise_speckle">
               <property name="styleSheet">
                <string notr="true">QRadioButton {
     border: none;  /* No border for the radio button */
@@ -351,7 +351,7 @@ QRadioButton::indicator:disabled {
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="pyqt5_radio_noise_pink">
+             <widget class="QRadioButton" name="qt_radio_noise_pink">
               <property name="styleSheet">
                <string notr="true">QRadioButton {
     border: none;  /* No border for the radio button */
@@ -388,7 +388,7 @@ QRadioButton::indicator:disabled {
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="pyqt5_radio_noise_poisson">
+             <widget class="QRadioButton" name="qt_radio_noise_poisson">
               <property name="styleSheet">
                <string notr="true">QRadioButton {
     border: none;  /* No border for the radio button */
@@ -425,7 +425,7 @@ QRadioButton::indicator:disabled {
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="pyqt5_radio_noise_frequency">
+             <widget class="QRadioButton" name="qt_radio_noise_frequency">
               <property name="styleSheet">
                <string notr="true">QRadioButton {
     border: none;  /* No border for the radio button */
@@ -478,7 +478,7 @@ QRadioButton::indicator:disabled {
           </widget>
          </item>
          <item row="0" column="0">
-          <widget class="QFrame" name="pyqt5_frame_buffer_group">
+          <widget class="QFrame" name="qt_frame_buffer_group">
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
            </property>
@@ -518,7 +518,7 @@ border-radius: 6px;</string>
              <number>9</number>
             </property>
             <item>
-             <widget class="QRadioButton" name="pyqt5_radio_frequencies_generated">
+             <widget class="QRadioButton" name="qt_radio_frequencies_generated">
               <property name="styleSheet">
                <string notr="true">QRadioButton {
     border: none;  /* No border for the radio button */
@@ -589,7 +589,7 @@ QRadioButton::indicator:disabled {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="pyqt5_entry_frequencies_no">
+               <widget class="QLineEdit" name="qt_entry_frequencies_no">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -659,7 +659,7 @@ QLineEdit:disabled {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="pyqt5_entry_frequencies_start">
+               <widget class="QLineEdit" name="qt_entry_frequencies_start">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -729,7 +729,7 @@ QLineEdit:disabled {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="pyqt5_entry_frequencies_stop">
+               <widget class="QLineEdit" name="qt_entry_frequencies_stop">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -768,7 +768,7 @@ QLineEdit:disabled {
              </layout>
             </item>
             <item>
-             <widget class="QRadioButton" name="pyqt5_radio_frequencies_manual">
+             <widget class="QRadioButton" name="qt_radio_frequencies_manual">
               <property name="styleSheet">
                <string notr="true">QRadioButton {
     border: none;  /* No border for the radio button */
@@ -805,7 +805,7 @@ QRadioButton::indicator:disabled {
              </widget>
             </item>
             <item>
-             <widget class="QTextEdit" name="pyqt5_entry_frequencies_manual">
+             <widget class="QTextEdit" name="qt_entry_frequencies_manual">
               <property name="enabled">
                <bool>false</bool>
               </property>
@@ -851,7 +851,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item row="0" column="2">
-          <widget class="QFrame" name="pyqt5_frame_buffer_group_3">
+          <widget class="QFrame" name="qt_frame_buffer_group_3">
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
            </property>
@@ -891,7 +891,7 @@ border-radius: 6px;</string>
              <number>9</number>
             </property>
             <item>
-             <widget class="QCheckBox" name="pyqt5_checkbox_errorbars_generate">
+             <widget class="QCheckBox" name="qt_checkbox_errorbars_generate">
               <property name="styleSheet">
                <string notr="true">/* Default State */
 QCheckBox {
@@ -966,7 +966,7 @@ QCheckBox {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="pyqt5_entry_errorbars_stdev_max">
+               <widget class="QLineEdit" name="qt_entry_errorbars_stdev_max">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -1036,7 +1036,7 @@ QLineEdit:disabled {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="pyqt5_entry_errorbars_stdev_min">
+               <widget class="QLineEdit" name="qt_entry_errorbars_stdev_min">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -1125,7 +1125,7 @@ QLineEdit:disabled {
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pyqt5_button_generate_scatter">
+          <widget class="QPushButton" name="qt_button_generate_scatter">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1190,7 +1190,7 @@ QPushButton:pressed {
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pyqt5_button_back">
+          <widget class="QPushButton" name="qt_button_back">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1267,9 +1267,9 @@ QPushButton:pressed {
  </resources>
  <connections>
   <connection>
-   <sender>pyqt5_radio_frequencies_generated</sender>
+   <sender>qt_radio_frequencies_generated</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_frequencies_no</receiver>
+   <receiver>qt_entry_frequencies_no</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1283,9 +1283,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_frequencies_generated</sender>
+   <sender>qt_radio_frequencies_generated</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_frequencies_start</receiver>
+   <receiver>qt_entry_frequencies_start</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1299,9 +1299,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_frequencies_generated</sender>
+   <sender>qt_radio_frequencies_generated</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_frequencies_stop</receiver>
+   <receiver>qt_entry_frequencies_stop</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1315,9 +1315,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_frequencies_generated</sender>
+   <sender>qt_radio_frequencies_generated</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_frequencies_manual</receiver>
+   <receiver>qt_entry_frequencies_manual</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1331,9 +1331,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_frequencies_manual</sender>
+   <sender>qt_radio_frequencies_manual</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_frequencies_no</receiver>
+   <receiver>qt_entry_frequencies_no</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1347,9 +1347,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_frequencies_manual</sender>
+   <sender>qt_radio_frequencies_manual</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_frequencies_start</receiver>
+   <receiver>qt_entry_frequencies_start</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1363,9 +1363,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_frequencies_manual</sender>
+   <sender>qt_radio_frequencies_manual</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_frequencies_stop</receiver>
+   <receiver>qt_entry_frequencies_stop</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1379,9 +1379,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_frequencies_manual</sender>
+   <sender>qt_radio_frequencies_manual</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_frequencies_manual</receiver>
+   <receiver>qt_entry_frequencies_manual</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1395,9 +1395,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_checkbox_errorbars_generate</sender>
+   <sender>qt_checkbox_errorbars_generate</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_errorbars_stdev_max</receiver>
+   <receiver>qt_entry_errorbars_stdev_max</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1411,9 +1411,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_checkbox_errorbars_generate</sender>
+   <sender>qt_checkbox_errorbars_generate</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_errorbars_stdev_min</receiver>
+   <receiver>qt_entry_errorbars_stdev_min</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1427,9 +1427,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_noise_awg</sender>
+   <sender>qt_radio_noise_awg</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_noise_stdev</receiver>
+   <receiver>qt_entry_noise_stdev</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1443,9 +1443,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_noise_awg</sender>
+   <sender>qt_radio_noise_awg</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_noise_scale</receiver>
+   <receiver>qt_entry_noise_scale</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1459,9 +1459,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_noise_speckle</sender>
+   <sender>qt_radio_noise_speckle</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_noise_stdev</receiver>
+   <receiver>qt_entry_noise_stdev</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1475,9 +1475,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_noise_speckle</sender>
+   <sender>qt_radio_noise_speckle</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_noise_scale</receiver>
+   <receiver>qt_entry_noise_scale</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1491,9 +1491,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_noise_pink</sender>
+   <sender>qt_radio_noise_pink</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_noise_stdev</receiver>
+   <receiver>qt_entry_noise_stdev</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1507,9 +1507,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_noise_pink</sender>
+   <sender>qt_radio_noise_pink</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_noise_scale</receiver>
+   <receiver>qt_entry_noise_scale</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1523,9 +1523,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_noise_poisson</sender>
+   <sender>qt_radio_noise_poisson</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_noise_stdev</receiver>
+   <receiver>qt_entry_noise_stdev</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1539,9 +1539,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_noise_poisson</sender>
+   <sender>qt_radio_noise_poisson</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_noise_scale</receiver>
+   <receiver>qt_entry_noise_scale</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1555,9 +1555,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_noise_frequency</sender>
+   <sender>qt_radio_noise_frequency</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_noise_stdev</receiver>
+   <receiver>qt_entry_noise_stdev</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1571,9 +1571,9 @@ QPushButton:pressed {
    </hints>
   </connection>
   <connection>
-   <sender>pyqt5_radio_noise_frequency</sender>
+   <sender>qt_radio_noise_frequency</sender>
    <signal>toggled(bool)</signal>
-   <receiver>pyqt5_entry_noise_scale</receiver>
+   <receiver>qt_entry_noise_scale</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">

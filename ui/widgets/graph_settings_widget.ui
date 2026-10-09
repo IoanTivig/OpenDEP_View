@@ -94,7 +94,7 @@ background: #F1F5F9;</string>
           <number>6</number>
          </property>
          <item row="0" column="1">
-          <widget class="QFrame" name="pyqt5_frame_buffer_group_2">
+          <widget class="QFrame" name="qt_frame_buffer_group_2">
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
            </property>
@@ -185,7 +185,7 @@ border-radius: 6px;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_axis_title_size">
+                  <widget class="QDoubleSpinBox" name="qt_spinbox_axis_title_size">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -311,7 +311,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_axis_title_padding">
+                  <widget class="QDoubleSpinBox" name="qt_spinbox_axis_title_padding">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -437,7 +437,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="pyqt5_combo_axis_font_weight">
+                  <widget class="QComboBox" name="qt_combo_axis_font_weight">
                    <property name="minimumSize">
                     <size>
                      <width>100</width>
@@ -455,6 +455,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -543,7 +544,7 @@ QComboBox::item {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="pyqt5_combo_axis_font_style">
+                  <widget class="QComboBox" name="qt_combo_axis_font_style">
                    <property name="minimumSize">
                     <size>
                      <width>100</width>
@@ -561,6 +562,7 @@ QComboBox::item {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -690,7 +692,7 @@ border-radius: 6px;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_tick_size">
+                  <widget class="QDoubleSpinBox" name="qt_spinbox_tick_size">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -816,7 +818,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_tick_label_padding">
+                  <widget class="QDoubleSpinBox" name="qt_spinbox_tick_label_padding">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -942,7 +944,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="pyqt5_combo_tick_font_weight">
+                  <widget class="QComboBox" name="qt_combo_tick_font_weight">
                    <property name="minimumSize">
                     <size>
                      <width>100</width>
@@ -960,6 +962,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -1048,7 +1051,7 @@ QComboBox::item {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="pyqt5_combo_tick_font_style">
+                  <widget class="QComboBox" name="qt_combo_tick_font_style">
                    <property name="minimumSize">
                     <size>
                      <width>100</width>
@@ -1066,6 +1069,7 @@ QComboBox::item {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -1145,7 +1149,7 @@ QComboBox::item {
          <item row="0" column="0">
           <layout class="QVBoxLayout" name="verticalLayout_5">
            <item>
-            <widget class="QFrame" name="pyqt5_frame_buffer_group">
+            <widget class="QFrame" name="qt_frame_buffer_group">
              <property name="layoutDirection">
               <enum>Qt::LeftToRight</enum>
              </property>
@@ -1216,7 +1220,7 @@ border-radius: 6px;</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="pyqt5_combo_font_family">
+                 <widget class="QComboBox" name="qt_combo_font_family">
                   <property name="minimumSize">
                    <size>
                     <width>150</width>
@@ -1234,6 +1238,7 @@ border-radius: 6px;</string>
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -1364,7 +1369,7 @@ border-radius: 6px;</string>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="pyqt5_spinbox_frame_width">
+                    <widget class="QDoubleSpinBox" name="qt_spinbox_frame_width">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                        <horstretch>0</horstretch>
@@ -1486,7 +1491,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QCheckBox" name="pyqt5_checkbox_frame_top_visibility">
+                    <widget class="QCheckBox" name="qt_checkbox_frame_top_visibility">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                        <horstretch>0</horstretch>
@@ -1555,7 +1560,7 @@ QCheckBox:focused {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QCheckBox" name="pyqt5_checkbox_frame_bottom_visibility">
+                    <widget class="QCheckBox" name="qt_checkbox_frame_bottom_visibility">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                        <horstretch>0</horstretch>
@@ -1624,7 +1629,7 @@ QCheckBox:focused {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QCheckBox" name="pyqt5_checkbox_frame_left_visibility">
+                    <widget class="QCheckBox" name="qt_checkbox_frame_left_visibility">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                        <horstretch>0</horstretch>
@@ -1693,7 +1698,7 @@ QCheckBox:focused {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QCheckBox" name="pyqt5_checkbox_frame_right_visibility">
+                    <widget class="QCheckBox" name="qt_checkbox_frame_right_visibility">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                        <horstretch>0</horstretch>
@@ -1844,7 +1849,7 @@ border-radius: 6px;</string>
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QCheckBox" name="pyqt5_checkbox_legend_visibility">
+                    <widget class="QCheckBox" name="qt_checkbox_legend_visibility">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                        <horstretch>0</horstretch>
@@ -1948,7 +1953,7 @@ QCheckBox:focused {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="pyqt5_spinbox_legend_font_size">
+                    <widget class="QDoubleSpinBox" name="qt_spinbox_legend_font_size">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                        <horstretch>0</horstretch>
@@ -2074,7 +2079,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QComboBox" name="pyqt5_combo_legend_position">
+                    <widget class="QComboBox" name="qt_combo_legend_position">
                      <property name="minimumSize">
                       <size>
                        <width>100</width>
@@ -2092,6 +2097,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -2195,7 +2201,7 @@ QComboBox::item {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QComboBox" name="pyqt5_combo_legend_font_weight">
+                    <widget class="QComboBox" name="qt_combo_legend_font_weight">
                      <property name="minimumSize">
                       <size>
                        <width>100</width>
@@ -2213,6 +2219,7 @@ QComboBox::item {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -2301,7 +2308,7 @@ QComboBox::item {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QComboBox" name="pyqt5_combo_legend_font_style">
+                    <widget class="QComboBox" name="qt_combo_legend_font_style">
                      <property name="minimumSize">
                       <size>
                        <width>100</width>
@@ -2319,6 +2326,7 @@ QComboBox::item {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -2398,7 +2406,7 @@ QComboBox::item {
           </layout>
          </item>
          <item row="0" column="2">
-          <widget class="QFrame" name="pyqt5_frame_buffer_group_3">
+          <widget class="QFrame" name="qt_frame_buffer_group_3">
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
            </property>
@@ -2502,7 +2510,7 @@ border-radius: 6px;</string>
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="pyqt5_checkbox_major_tick_visibility">
+                  <widget class="QCheckBox" name="qt_checkbox_major_tick_visibility">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                      <horstretch>0</horstretch>
@@ -2606,7 +2614,7 @@ QCheckBox:focused {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="pyqt5_combo_major_tick_direction">
+                  <widget class="QComboBox" name="qt_combo_major_tick_direction">
                    <property name="minimumSize">
                     <size>
                      <width>100</width>
@@ -2624,6 +2632,7 @@ QCheckBox:focused {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -2712,7 +2721,7 @@ QComboBox::item {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_major_tick_length">
+                  <widget class="QDoubleSpinBox" name="qt_spinbox_major_tick_length">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -2835,7 +2844,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_major_tick_width">
+                  <widget class="QDoubleSpinBox" name="qt_spinbox_major_tick_width">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -2994,7 +3003,7 @@ border-radius: 6px;</string>
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="pyqt5_checkbox_minor_tick_visibility">
+                  <widget class="QCheckBox" name="qt_checkbox_minor_tick_visibility">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                      <horstretch>0</horstretch>
@@ -3098,7 +3107,7 @@ QCheckBox:focused {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="pyqt5_combo_minor_tick_direction">
+                  <widget class="QComboBox" name="qt_combo_minor_tick_direction">
                    <property name="minimumSize">
                     <size>
                      <width>100</width>
@@ -3116,6 +3125,7 @@ QCheckBox:focused {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -3204,7 +3214,7 @@ QComboBox::item {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_minor_tick_length">
+                  <widget class="QDoubleSpinBox" name="qt_spinbox_minor_tick_length">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -3327,7 +3337,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_minor_tick_width">
+                  <widget class="QDoubleSpinBox" name="qt_spinbox_minor_tick_width">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -3438,7 +3448,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
           </widget>
          </item>
          <item row="0" column="3">
-          <widget class="QFrame" name="pyqt5_frame_buffer_group_4">
+          <widget class="QFrame" name="qt_frame_buffer_group_4">
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
            </property>
@@ -3542,7 +3552,7 @@ border-radius: 6px;</string>
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="pyqt5_checkbox_h_grid_visibility">
+                  <widget class="QCheckBox" name="qt_checkbox_h_grid_visibility">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                      <horstretch>0</horstretch>
@@ -3646,10 +3656,10 @@ QCheckBox:focused {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="pyqt5_combo_h_grid_style">
+                  <widget class="QComboBox" name="qt_combo_h_grid_style">
                    <property name="minimumSize">
                     <size>
-                     <width>100</width>
+                     <width>110</width>
                      <height>31</height>
                     </size>
                    </property>
@@ -3664,6 +3674,7 @@ QCheckBox:focused {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -3773,7 +3784,7 @@ QComboBox::item {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_h_grid_transparency">
+                  <widget class="QDoubleSpinBox" name="qt_spinbox_h_grid_transparency">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -3896,7 +3907,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_h_grid_width">
+                  <widget class="QDoubleSpinBox" name="qt_spinbox_h_grid_width">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -4037,7 +4048,7 @@ border-radius: 6px;</string>
     padding-top: 4px;  /* Padding */</string>
                    </property>
                    <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Horizontal Grid&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Vertical Grid&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                    </property>
                   </widget>
                  </item>
@@ -4055,7 +4066,7 @@ border-radius: 6px;</string>
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="pyqt5_checkbox_v_grid_visibility">
+                  <widget class="QCheckBox" name="qt_checkbox_v_grid_visibility">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                      <horstretch>0</horstretch>
@@ -4159,10 +4170,10 @@ QCheckBox:focused {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="pyqt5_combo_v_grid_style">
+                  <widget class="QComboBox" name="qt_combo_v_grid_style">
                    <property name="minimumSize">
                     <size>
-                     <width>100</width>
+                     <width>110</width>
                      <height>31</height>
                     </size>
                    </property>
@@ -4177,6 +4188,7 @@ QCheckBox:focused {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -4286,7 +4298,7 @@ QComboBox::item {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_v_grid_transparency">
+                  <widget class="QDoubleSpinBox" name="qt_spinbox_v_grid_transparency">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -4409,7 +4421,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="pyqt5_spinbox_v_grid_width">
+                  <widget class="QDoubleSpinBox" name="qt_spinbox_v_grid_width">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -4554,7 +4566,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pyqt5_button_update_graph_styling">
+          <widget class="QPushButton" name="qt_button_update_graph_styling">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -4611,7 +4623,7 @@ QPushButton:pressed {
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pyqt5_button_back">
+          <widget class="QPushButton" name="qt_button_back">
            <property name="enabled">
             <bool>true</bool>
            </property>

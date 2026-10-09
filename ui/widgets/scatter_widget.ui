@@ -52,7 +52,7 @@ QFrame:hover {
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1">
       <item>
-       <widget class="QFrame" name="pyqt5_frame_curve_details">
+       <widget class="QFrame" name="qt_frame_curve_details">
         <property name="layoutDirection">
          <enum>Qt::LeftToRight</enum>
         </property>
@@ -89,7 +89,7 @@ QFrame:hover {
           <number>0</number>
          </property>
          <item>
-          <widget class="QCheckBox" name="pyqt5_checkbox_scatter_visible">
+          <widget class="QCheckBox" name="qt_checkbox_scatter_visible">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -164,7 +164,7 @@ QCheckBox::indicator:disabled {
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="pyqt5_entry_scatter_name">
+          <widget class="QLineEdit" name="qt_entry_scatter_name">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -207,7 +207,7 @@ QLineEdit:disabled {
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pyqt5_button_pick_scatter_color">
+          <widget class="QPushButton" name="qt_button_pick_scatter_color">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -262,7 +262,7 @@ QPushButton:pressed {
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="pyqt5_combo_scatter_point_style">
+          <widget class="QComboBox" name="qt_combo_scatter_point_style">
            <property name="minimumSize">
             <size>
              <width>125</width>
@@ -283,6 +283,7 @@ QPushButton:pressed {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -353,7 +354,7 @@ QComboBox::item {
           </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="pyqt5_spinbox_scatter_size">
+          <widget class="QDoubleSpinBox" name="qt_spinbox_scatter_size">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -446,7 +447,7 @@ QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
           </widget>
          </item>
          <item>
-          <widget class="QCheckBox" name="pyqt5_checkbox_curves_expand">
+          <widget class="QCheckBox" name="qt_checkbox_curves_expand">
            <property name="minimumSize">
             <size>
              <width>31</width>
@@ -518,11 +519,11 @@ QCheckBox:focused {
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="pyqt5_frame_group_parameters">
+       <widget class="QFrame" name="qt_frame_group_parameters">
         <property name="styleSheet">
          <string notr="true">border: none;</string>
         </property>
-        <layout class="QVBoxLayout" name="pyqt5_group_parameters">
+        <layout class="QVBoxLayout" name="qt_group_parameters">
          <property name="leftMargin">
           <number>0</number>
          </property>
@@ -566,7 +567,7 @@ padding-right: 5px;</string>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_7">
            <item>
-            <widget class="QFrame" name="pyqt5_frame_menubar_models_3">
+            <widget class="QFrame" name="qt_frame_menubar_models_3">
              <property name="minimumSize">
               <size>
                <width>77</width>
@@ -621,7 +622,7 @@ border-radius: 6px;</string>
                <number>0</number>
               </property>
               <item>
-               <widget class="QPushButton" name="pyqt5_button_add_scatter_point">
+               <widget class="QPushButton" name="qt_button_add_scatter_point">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -689,7 +690,7 @@ QPushButton:disabled {
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pyqt5_button_remove_scatter_point">
+               <widget class="QPushButton" name="qt_button_remove_scatter_point">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
@@ -773,7 +774,7 @@ QPushButton:disabled {
             </spacer>
            </item>
            <item>
-            <widget class="QFrame" name="pyqt5_frame_menubar_models_2">
+            <widget class="QFrame" name="qt_frame_menubar_models_2">
              <property name="minimumSize">
               <size>
                <width>77</width>
@@ -828,7 +829,7 @@ border-radius: 6px;</string>
                <number>0</number>
               </property>
               <item>
-               <widget class="QPushButton" name="pyqt5_button_duplicate_scatter">
+               <widget class="QPushButton" name="qt_button_duplicate_scatter">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -896,7 +897,7 @@ QPushButton:pressed {
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pyqt5_button_save_scatter">
+               <widget class="QPushButton" name="qt_button_save_scatter">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -964,7 +965,7 @@ QPushButton:pressed {
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pyqt5_button_save_scatter_excel">
+               <widget class="QPushButton" name="qt_button_save_scatter_excel">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -1032,7 +1033,7 @@ QPushButton:pressed {
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pyqt5_button_delete_scatter">
+               <widget class="QPushButton" name="qt_button_delete_scatter">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -1105,8 +1106,8 @@ QPushButton:pressed {
           </layout>
          </item>
          <item>
-          <widget class="QFrame" name="pyqt5_frame_input_group">
-           <layout class="QGridLayout" name="pyqt5_group_singleshell">
+          <widget class="QFrame" name="qt_frame_input_group">
+           <layout class="QGridLayout" name="qt_group_singleshell">
             <property name="leftMargin">
              <number>0</number>
             </property>
@@ -1120,7 +1121,7 @@ QPushButton:pressed {
              <number>0</number>
             </property>
             <item row="0" column="0">
-             <widget class="QTableWidget" name="pyqt5_tablewidget_exp_spectra">
+             <widget class="QTableWidget" name="qt_tablewidget_exp_spectra">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -1143,58 +1144,48 @@ QPushButton:pressed {
                <cursorShape>SizeVerCursor</cursorShape>
               </property>
               <property name="styleSheet">
-               <string notr="true">QTableWidget {
- 	background: #FFFFFF;  /* Default background */
-    border: 1px solid #E2E8F0;;  /* Default border */
-    border-radius: 6px;  /* Rounded corners */
-    color: #0F172A;  /* Text color */
-    text-align: left;
-	font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
- /* Adding icon to the beginning */
+               <string notr="true">/* Same look as the Replicates table of Group plots */
+QTableWidget {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;
+	font-family: 'Segoe UI', sans-serif;
+	font-size: 13px;
+	gridline-color: #F1F5F9;  /* slate/100 */
+	selection-background-color: #DEE8F2;
+	selection-color: #0F172A;
 }
 
 QHeaderView::section {
-	background: #FFFFFF;  /* Default background */
-    border: 1px solid #E2E8F0;  /* Default border */
-    color: #0F172A;  /* Text color */
-	text-align: left;
-	font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 16px;  /* Font size */
-	padding-top: 9px;
-	padding-bottom: 9px;
+	background: #F8FAFC;  /* slate/50 */
+	border: none;
+	border-bottom: 1px solid #E2E8F0;
+	color: #0F172A;
+	font-family: 'Segoe UI', sans-serif;
+	font-weight: 600;
+	font-size: 13px;
+	padding: 4px;
 }
 
-QHeaderView::section:horizontal {
-    border: 1px solid #E2E8F0;
-}
-
+/* Row numbers: quiet, as a margin of the table */
 QHeaderView::section:vertical {
-    border: 1px solid #E2E8F0;
-	font-family: 'Segoe UI', sans-serif;  /* Font family */
-    font-style: normal;  /* Font style */
-    font-weight: 500;  /* Font weight */
-    font-size: 14px;  /* Font size */
-    line-height: 24px;  /* Line height */
-	padding-left: 5px;
+	border: none;
+	border-right: 1px solid #E2E8F0;
+	border-bottom: 1px solid #F1F5F9;
+	color: #64748B;  /* slate/500 */
+	font-weight: 400;
+	padding: 0px 6px;
 }
 
 QTableWidget::item {
-    border: None; /* Border color for each cell */
-	padding: 5px;
+	border: none;
+	padding: 4px;
 }
 
 QTableWidget::item:selected {
-    background-color: #F1F5F9;  /* slate/100 */ /* Background color for selected items */
+	background-color: #DEE8F2;
 	color: #0F172A;
-}
-
-QTableWidget::item:focus {
 }
 </string>
               </property>
@@ -1262,7 +1253,7 @@ QTableWidget::item:focus {
                <bool>false</bool>
               </attribute>
               <attribute name="verticalHeaderDefaultSectionSize">
-               <number>35</number>
+               <number>30</number>
               </attribute>
               <attribute name="verticalHeaderHighlightSections">
                <bool>true</bool>

@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WelcomeWidget</class>
+ <widget class="QWidget" name="WelcomeWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Welcome</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0,2">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <spacer name="verticalSpacer_top">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_center">
+     <item>
+      <spacer name="horizontalSpacer_left">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QFrame" name="qt_frame_welcome">
+       <property name="minimumSize">
+        <size>
+         <width>560</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>560</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QFrame#qt_frame_welcome {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+}</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_welcome">
+        <property name="spacing">
+         <number>12</number>
+        </property>
+        <property name="leftMargin">
+         <number>28</number>
+        </property>
+        <property name="topMargin">
+         <number>28</number>
+        </property>
+        <property name="rightMargin">
+         <number>28</number>
+        </property>
+        <property name="bottomMargin">
+         <number>28</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="qt_label_welcome_logo">
+          <property name="styleSheet">
+           <string notr="true">border: none;
+background: transparent;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="qt_label_welcome_title">
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+	border: none;
+	background: transparent;
+	color: #0F172A;  /* Text color */
+	font-family: 'Segoe UI', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+}</string>
+          </property>
+          <property name="text">
+           <string>Welcome to OpenDEP View</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="qt_label_welcome_description">
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+	border: none;
+	background: transparent;
+	color: #64748B;  /* slate/500 */
+	font-family: 'Segoe UI', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+}</string>
+          </property>
+          <property name="text">
+           <string>Generate Clausius-Mossotti curves with the dielectric particle models, load experimental DEP spectra from OpenDEP Control, OpenDEP Compute or Excel, and make publication-ready graphs. A project keeps copies of its scatters and curves together with the graph settings; your original files are never modified.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_buttons">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <property name="topMargin">
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="qt_button_welcome_create">
+            <property name="toolTip">
+             <string>Create a new project file, .odvproject (Ctrl+N)</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">/* Default State */
+QPushButton {
+    background-color: #0F172A;  /* Primary background color */
+    color: #FFFFFF;  /* Text color */
+    border: none;
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 8px 16px;  /* Padding */
+}
+
+/* Hover State */
+QPushButton:hover {
+    background-color: #334155;  /* Hover background color */
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background-color: #5F728C;  /* Pressed background color */
+}</string>
+            </property>
+            <property name="text">
+             <string>Create new project</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="qt_button_welcome_open">
+            <property name="toolTip">
+             <string>Open a project file, .odvproject, or a project folder of an older version (Ctrl+O)</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #E2E8F0;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    color: #0F172A;  /* Text color */
+    padding: 8px 16px;  /* Padding */
+}
+
+QPushButton:hover {
+    background: #F1F5F9;  /* Hover background */
+}
+
+QPushButton:pressed {
+    background: #DEE8F2;  /* Pressed background */
+}</string>
+            </property>
+            <property name="text">
+             <string>Open project</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/graphical_resources.qrc">
+              <normaloff>:/ui/qt/resources/buttons/open_folder_icon.png</normaloff>:/ui/qt/resources/buttons/open_folder_icon.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>18</width>
+              <height>18</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_buttons">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="qt_label_welcome_recent">
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+	border: none;
+	background: transparent;
+	color: #0F172A;  /* Text color */
+	font-family: 'Segoe UI', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	padding-top: 6px;
+}</string>
+          </property>
+          <property name="text">
+           <string>Recent projects</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="qt_list_recent_projects">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>180</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Double-click a project to open it</string>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="textElideMode">
+           <enum>Qt::ElideMiddle</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QListWidget {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	padding: 4px;
+	color: #0F172A;
+	font-family: 'Segoe UI', sans-serif;
+	font-size: 13px;
+	outline: none;
+}
+
+QListWidget::item {
+	padding: 6px 8px;
+	border-radius: 6px;
+}
+
+QListWidget::item:hover {
+	background: #F1F5F9;  /* slate/100 */
+}
+
+QListWidget::item:selected {
+	background: #DEE8F2;  /* Pressed background color */
+	color: #0F172A;
+}</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="qt_label_welcome_no_recent">
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+	border: none;
+	background: transparent;
+	color: #64748B;  /* slate/500 */
+	font-family: 'Segoe UI', sans-serif;
+	font-size: 13px;
+}</string>
+          </property>
+          <property name="text">
+           <string>No recent projects yet.</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_right">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_bottom">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../resources/graphical_resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

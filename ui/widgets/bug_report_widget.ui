@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BugReportWidget</class>
+ <widget class="QWidget" name="BugReportWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>740</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>OpenDEP View - Report a Bug</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#BugReportWidget {
+	background: #F1F5F9;
+}
+
+QFrame#qt_frame_bug_card {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+}
+
+/* The main window's background must not show inside the card */
+QFrame#qt_frame_tabbar_bug, QWidget#qt_frame_bug_new, QWidget#qt_frame_bug_list {
+	background: transparent;
+	border: none;
+}
+
+QLabel {
+	border: none;
+	background: transparent;
+	color: #0F172A;  /* Text color */
+	font-family: 'Segoe UI', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+QLabel[muted=&quot;true&quot;] {
+	color: #64748B;  /* slate/500 */
+	font-weight: 400;
+	font-size: 13px;
+}
+
+QLineEdit, QPlainTextEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    padding: 4px 8px;  /* Padding */
+}
+
+QPlainTextEdit[readOnly=&quot;true&quot;] {
+	background: #F8FAFC;
+	font-family: 'Consolas', monospace;
+	font-size: 12px;
+}
+
+QCheckBox {
+    border: none;
+    background: transparent;
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    padding: 2px 0px;
+    spacing: 8px;  /* Space between checkbox and text */
+}
+
+QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/ui/qt/resources/checkbox/chckbox_unchecked.png);  /* Unchecked icon */
+}
+
+QCheckBox::indicator:checked {
+   image: url(:/ui/qt/resources/checkbox/chckbox_checked.png);  /* Checked icon */
+}
+
+/* Outline buttons */
+QPushButton {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #E2E8F0;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    color: #0F172A;  /* Text color */
+    padding: 6px 16px;  /* Padding */
+}
+
+QPushButton:hover {
+    background: #F1F5F9;  /* Hover background */
+}
+
+QPushButton:pressed {
+    background: #DEE8F2;  /* Pressed background */
+}
+
+/* Primary button */
+QPushButton#qt_button_bug_save {
+    background-color: #0F172A;  /* Primary background color */
+    border: none;
+    color: #FFFFFF;  /* Text color */
+}
+
+QPushButton#qt_button_bug_save:hover {
+    background-color: #334155;  /* Hover background color */
+}
+
+QPushButton#qt_button_bug_save:pressed {
+    background-color: #5F728C;  /* Pressed background color */
+}
+
+/* Tab bar: ghost buttons, the active one highlighted */
+QFrame#qt_frame_tabbar_bug QPushButton {
+    border: none;
+	background: transparent;
+    padding: 8px 16px;
+}
+
+QFrame#qt_frame_tabbar_bug QPushButton:hover {
+    background: #F1F5F9;  /* slate/100 */
+}
+
+QFrame#qt_frame_tabbar_bug QPushButton[customState=&quot;true&quot;] {
+    background: #DEE8F2;  /* Pressed background color */
+}
+
+QTableWidget {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;
+	font-family: 'Segoe UI', sans-serif;
+	font-size: 13px;
+	gridline-color: #F1F5F9;
+	selection-background-color: #DEE8F2;
+	selection-color: #0F172A;
+}
+
+QHeaderView::section {
+	background: #F8FAFC;
+	border: none;
+	border-bottom: 1px solid #E2E8F0;
+	color: #0F172A;
+	font-family: 'Segoe UI', sans-serif;
+	font-weight: 600;
+	font-size: 13px;
+	padding: 6px;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>9</number>
+   </property>
+   <property name="topMargin">
+    <number>9</number>
+   </property>
+   <property name="rightMargin">
+    <number>9</number>
+   </property>
+   <property name="bottomMargin">
+    <number>9</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="qt_frame_bug_card">
+     <layout class="QVBoxLayout" name="verticalLayout_card">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="leftMargin">
+       <number>12</number>
+      </property>
+      <property name="topMargin">
+       <number>9</number>
+      </property>
+      <property name="rightMargin">
+       <number>12</number>
+      </property>
+      <property name="bottomMargin">
+       <number>12</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="qt_frame_tabbar_bug">
+        <layout class="QHBoxLayout" name="horizontalLayout_tabbar">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="qt_button_bug_tab_new">
+           <property name="text">
+            <string>New report</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="qt_button_bug_tab_list">
+           <property name="text">
+            <string>Reports</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_tabbar">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="qt_frame_bug_new" native="true">
+        <layout class="QVBoxLayout" name="verticalLayout_new" stretch="0,0,0,0,2,0,1,0,2,0,2,0,0,0">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="qt_label_bug_intro">
+           <property name="text">
+            <string>The report is saved in the bug_reports folder of the program. Commit and push it with the code when you finish testing.</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+           <property name="muted" stdset="0">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="qt_label_bug_title">
+           <property name="text">
+            <string>Title</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="qt_entry_bug_title">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string>Short title, e.g. 'Graph settings do not apply to the legend'</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="qt_label_bug_steps">
+           <property name="text">
+            <string>What I did</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPlainTextEdit" name="qt_text_bug_steps">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string>Files loaded, model, settings and the clicks that led to the problem</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="qt_label_bug_expected">
+           <property name="text">
+            <string>What I expected</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPlainTextEdit" name="qt_text_bug_expected">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string>What should have happened</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="qt_label_bug_actual">
+           <property name="text">
+            <string>What happened instead</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPlainTextEdit" name="qt_text_bug_actual">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string>What happened instead (message, wrong curve or value, freeze ...)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="qt_label_bug_error">
+           <property name="text">
+            <string>Error (filled in automatically)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPlainTextEdit" name="qt_text_bug_error">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="lineWrapMode">
+            <enum>QPlainTextEdit::NoWrap</enum>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="qt_checkbox_bug_output">
+           <property name="text">
+            <string>Attach the console and log (last 200 lines)</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="qt_checkbox_bug_screenshot">
+           <property name="text">
+            <string>Attach a screenshot of the main window</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_bug_buttons">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <property name="topMargin">
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="qt_label_bug_status">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::TextSelectableByMouse</set>
+             </property>
+             <property name="muted" stdset="0">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="qt_button_bug_save">
+             <property name="text">
+              <string>Save report</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="qt_button_bug_close">
+             <property name="text">
+              <string>Close</string>
+             </property>
+             <property name="icon">
+              <iconset resource="../resources/graphical_resources.qrc">
+               <normaloff>:/ui/qt/resources/buttons/back_icon.png</normaloff>:/ui/qt/resources/buttons/back_icon.png</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="qt_frame_bug_list" native="true">
+        <layout class="QVBoxLayout" name="verticalLayout_list">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="qt_label_bug_summary">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+           <property name="muted" stdset="0">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="qt_table_bug_reports">
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+           <property name="selectionMode">
+            <enum>QAbstractItemView::SingleSelection</enum>
+           </property>
+           <property name="selectionBehavior">
+            <enum>QAbstractItemView::SelectRows</enum>
+           </property>
+           <property name="columnCount">
+            <number>3</number>
+           </property>
+           <attribute name="verticalHeaderVisible">
+            <bool>false</bool>
+           </attribute>
+           <column>
+            <property name="text">
+             <string>Date</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Status</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Title</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_list_buttons">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="qt_button_bug_open">
+             <property name="text">
+              <string>Open report</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="qt_button_bug_folder">
+             <property name="text">
+              <string>Open folder</string>
+             </property>
+             <property name="icon">
+              <iconset resource="../resources/graphical_resources.qrc">
+               <normaloff>:/ui/qt/resources/buttons/open_folder_icon.png</normaloff>:/ui/qt/resources/buttons/open_folder_icon.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="qt_button_bug_refresh">
+             <property name="text">
+              <string>Refresh</string>
+             </property>
+             <property name="icon">
+              <iconset resource="../resources/graphical_resources.qrc">
+               <normaloff>:/ui/qt/resources/buttons/refresh_icon.png</normaloff>:/ui/qt/resources/buttons/refresh_icon.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_list_buttons">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../resources/graphical_resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

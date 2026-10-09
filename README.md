@@ -1,46 +1,67 @@
 # OpenDEP View
 
-OpenDEP View is a visualization and spectra generation software for Dielectrophoresis (DEP) experiments. It allows users to view and generate DEP spectra based on specific parameters. The program currently supports the homogeneous particle model and single-shell model, with ongoing development for the two-shell model.
+**Views, simulates and compares dielectrophoresis (DEP) spectra.** OpenDEP View draws Clausius-Mossotti (CM) curves from the dielectric models of cells and particles, shows measured spectra next to them, averages replicate measurements into groups, ranks how well two cell populations can be separated, and makes publication-ready graphs and statistics reports.
 
-This software is part of the OpenDEP project, which includes three key programs:
-1. [OpenDEP Compute](https://github.com/IoanTivig/OpenDEP) - for spectra fitting and data conversion.
-2. [OpenDEP Control](https://github.com/IoanTivig/OpenDEP_Control) - for automation and control of DEP experiments.
-3. [OpenDEP View](https://github.com/IoanTivig/OpenDEP_View) - for visualization of spectra and spectra generation based on parameters.
+It is part of the **OpenDEP** suite, free and open-source software for DEP research:
 
-Published under the GNU GPL v3.0 license.
+| Program | What it does |
+|---|---|
+| [OpenDEP Control](https://github.com/IoanTivig/OpenDEP_Control) | runs the experiments on a Raspberry Pi (camera, function generator, pump) and measures DEP spectra |
+| [OpenDEP Compute](https://github.com/IoanTivig/OpenDEP_Compute) | converts image sets into spectra, fits spectra, reports cell parameters |
+| **OpenDEP View** | compares spectra and model curves, averages replicates, simulates data, publication graphs |
+| [OpenDEP Neuralnet](https://github.com/IoanTivig/OpenDEP_Neuralnet) | classifies DEP population images |
 
 ## Features
-- **Spectra Visualization**: Easily visualize DEP spectra using the homogeneous particle model and single-shell model.
-- **Spectra Generation**: Generate DEP spectra based on user-defined parameters.
-- **Generation/Simulation of Synthetic Experimental Data**: Simulate synthetic experimental data for testing and analysis.
-- **Graphs Formating**: Customize and format graphs to be publication-ready without needing additional software.
-- **Compatibility with OpenDEP Compute Data**: Works with data exported from OpenDEP Compute (currently supports Excel exports).
-- **Standalone Execution on Windows**: The software can now be run directly from the `.exe` file in the root of the program.
+
+- **Model curves:** Re[CM], Im[CM] and the DEP force of a homogeneous particle and of single-, two-, three- and four-shell cells, from parameters you type in; the crossover frequencies are calculated exactly.
+- **Measured spectra:** opens the files of OpenDEP Control and OpenDEP Compute (`.odspec`, `.odcurve`, `.odfit`) and Excel tables, or simulates noisy data from a curve (white or pink noise).
+- **Links:** a curve linked to the scatter it was fitted to; both travel together.
+- **Replicate groups:** biological and technical replicates averaged into one spectrum and one curve per group, with mean ± SD of every parameter and crossover.
+- **Separation:** ranks every pair of groups by how well one frequency splits them into a pDEP and an nDEP population.
+- **Statistics report:** normality and pairwise tests (Welch t, Mann-Whitney U) of the crossovers and parameters, as PDF and Excel.
+- **Publication graphs:** fonts, ticks, grid, legend and frame adjustable; images at the size and resolution a journal asks for.
+- **Projects** as single `.odvproject` files, easy to send to a colleague; spectra and fits arrive directly from OpenDEP Compute (**Send to View**).
+- **User guide** inside the program (**F1**) and a **Report bug** form.
 
 ## Installation
-1. Download the latest release from this repository.
-2. Add the repository to your IDE (tested with PyCharm).
-3. Install the necessary requirements from the `requirements.txt` file.
-4. Run the `main.py` file to launch the application.
 
-   Alternatively, for Windows users:
-   - Run the software directly from the provided `.exe` file in the root of the program, without any other installation.
+**Windows:** download `OpenDEP_View_Setup_<version>.exe` from the [Releases](https://github.com/IoanTivig/OpenDEP_View/releases) page and run it (no administrator rights needed). It registers the suite's files, so a double-click opens a project or adds a spectrum, curve or fit.
 
-5. Enjoy exploring, generating, and customizing DEP spectra!
+**From the source code** (Windows, Linux, macOS; Python 3.12):
 
+```
+git clone https://github.com/IoanTivig/OpenDEP_View
+cd OpenDEP_View
+python -m venv venv
+venv/bin/python -m pip install -r requirements.txt        (Windows: venv\Scripts\python)
+venv/bin/python main.py
+```
 
-## Publications
-If you use this software in your research, please cite the following paper:
-1. [OpenDEP: An Open-Source Platform for Dielectrophoresis Spectra Acquisition and Analysis](https://pubs.acs.org/doi/10.1021/acsomega.3c06052)
+Start it from its own folder. Details, including notes for Linux: [Installation](docs/installation.md). Then the [Quick start](docs/quickstart.md): a first graph in a few minutes.
 
-Other papers published by our team using OpenDEP:
-1. [Early differentiation of mesenchymal stem cells is reflected in their dielectrophoretic behavior](https://www.nature.com/articles/s41598-024-54350-z)
-2. [Dielectrophoretic characterization of peroxidized retinal pigment epithelial cells as a model of age-related macular degeneration](https://bmcophthalmol.biomedcentral.com/articles/10.1186/s12886-024-03617-0)
+## Documentation
 
-## Other DEP Tools (not developed by OpenDEP)
-1. [MyDEP](https://mydepsoftware.github.io/)
+The user guide is in [docs/](docs/index.md) and inside the program (F1): [the window and projects](docs/user-guide/interface.md), [curve plots](docs/user-guide/curve-plots.md), [scatter plots](docs/user-guide/scatter-plots.md), [group plots](docs/user-guide/group-plots.md), the [statistics report](docs/user-guide/statistics-report.md), [the graph and images](docs/user-guide/graph.md), [files](docs/user-guide/files.md), and the concepts: [CM factor and models](docs/concepts/cm-factor-and-models.md), [replicates and averages](docs/concepts/replicates.md), [separation of two populations](docs/concepts/separation.md), [statistical tests](docs/concepts/statistics.md).
 
-## Additional Information
-- **Development Status**: OpenDEP View is still under active development, and bugs may occur. If you encounter any issues, please report them or contact the developer for assistance.
+## Earlier version
 
-Thank you for using OpenDEP View. Your feedback and contributions are highly appreciated!
+OpenDEP View 1.x (PyQt5) stays available as the branch [`v1`](https://github.com/IoanTivig/OpenDEP_View/tree/v1) of this repository. Version 2 opens the same Excel spectra and the Excel exports of OpenDEP Compute 1.x.
+
+## Citation
+
+If you use OpenDEP in your research, please cite:
+
+> Tivig I., et al. *OpenDEP: An Open-Source Platform for Dielectrophoresis Spectra Acquisition and Analysis.* ACS Omega 8 (2023) 38715–38722. [doi:10.1021/acsomega.3c06052](https://pubs.acs.org/doi/10.1021/acsomega.3c06052)
+
+Work using OpenDEP:
+
+- [Early differentiation of mesenchymal stem cells is reflected in their dielectrophoretic behavior](https://www.nature.com/articles/s41598-024-54350-z), *Scientific Reports* (2024)
+- [Dielectrophoretic characterization of peroxidized retinal pigment epithelial cells as a model of age-related macular degeneration](https://bmcophthalmol.biomedcentral.com/articles/10.1186/s12886-024-03617-0), *BMC Ophthalmology* (2024)
+
+## Other DEP tools
+
+- [MyDEP](https://mydepsoftware.github.io/) (not developed by OpenDEP)
+
+## License
+
+GNU General Public License v3.0 (see [LICENSE](LICENSE)).

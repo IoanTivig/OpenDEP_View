@@ -1,10 +1,10 @@
 import numpy as np
-from PyQt5.QtGui import QColor
-from PyQt5.QtWidgets import QDialog, QGraphicsDropShadowEffect
-from PyQt5.QtCore import Qt
-from PyQt5.uic import loadUi
+from PyQt6.QtGui import QColor
+from PyQt6.QtWidgets import QDialog, QGraphicsDropShadowEffect
+from PyQt6.QtCore import Qt
+from PyQt6.uic import loadUi
 
-from src.func import models, noise
+from src.func import general, models, noise
 
 
 class NoiseWidgetUI(QDialog):
@@ -23,48 +23,48 @@ class NoiseWidgetUI(QDialog):
         self.connect_buttons()
 
     def connect_buttons(self):
-        self.pyqt5_button_back.clicked.connect(self.exit)
-        self.pyqt5_button_generate_scatter.clicked.connect(lambda: self.parent_widget.generate_new_scatter(type="noise"))
+        self.qt_button_back.clicked.connect(self.exit)
+        self.qt_button_generate_scatter.clicked.connect(lambda: self.parent_widget.generate_new_scatter(type="noise"))
 
     def style_window(self):
         # Remove the title bar, logo, and exit button
-        self.setWindowFlags(Qt.Window | Qt.FramelessWindowHint)
+        self.setWindowFlags(Qt.WindowType.Window | Qt.WindowType.FramelessWindowHint)
 
         # Add Transparency
-        self.setAttribute(Qt.WA_TranslucentBackground, True)
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, True)
 
-        # Add a shadow effect
-        self.setAttribute(Qt.WA_TranslucentBackground, True)
-        shadow = QGraphicsDropShadowEffect(self)
+        # Add a shadow effect, on the inner frame (drawn in the window's transparent margin). A graphics effect on
+        # the window itself leaves the window blank when it is opened again, which blocks the program
+        shadow = QGraphicsDropShadowEffect(self.verticalFrame)
         shadow.setBlurRadius(15)
         shadow.setXOffset(0)
         shadow.setYOffset(0)
         shadow.setColor(QColor(0, 0, 0, 75))  # Black color with some transparency
-        self.setGraphicsEffect(shadow)
+        self.verticalFrame.setGraphicsEffect(shadow)
 
     def exit(self):
         self.close()
 
     def generate_frequencies(self):
-        if self.pyqt5_radio_frequencies_generated.isChecked():
-            no_freq = int(self.pyqt5_entry_frequencies_no.text())
-            start_freq = float(self.pyqt5_entry_frequencies_start.text())
-            stop_freq = float(self.pyqt5_entry_frequencies_stop.text())
+        if self.qt_radio_frequencies_generated.isChecked():
+            no_freq = int(self.qt_entry_frequencies_no.text())
+            start_freq = float(self.qt_entry_frequencies_start.text())
+            stop_freq = float(self.qt_entry_frequencies_stop.text())
 
             # Generate a log-spaced frequency array
             frequencies = np.logspace(np.log10(start_freq), np.log10(stop_freq), no_freq)
 
-        elif self.pyqt5_radio_frequencies_manual.isChecked():
-            string = self.pyqt5_entry_frequencies_manual.toPlainText()
-            frequencies = np.array([float(i) for i in string.replace(",", " ").replace("/", " ").replace("-", " ").replace("_", " ").split()])
+        elif self.qt_radio_frequencies_manual.isChecked():
+            # Separators , ; / _ - and spaces; "5e-1" stays one number; ValueError (shown) when a value is wrong
+            frequencies = general.parse_frequency_list(self.qt_entry_frequencies_manual.toPlainText())
 
         return frequencies
 
     def generate_errors(self, frequencies):
-        if self.pyqt5_checkbox_errorbars_generate.isChecked():
+        if self.qt_checkbox_errorbars_generate.isChecked():
 
-            stdev_max = float(self.pyqt5_entry_errorbars_stdev_max.text())
-            stdev_min = float(self.pyqt5_entry_errorbars_stdev_min.text())
+            stdev_max = float(self.qt_entry_errorbars_stdev_max.text())
+            stdev_min = float(self.qt_entry_errorbars_stdev_min.text())
 
             errors = np.random.uniform(stdev_min, stdev_max, len(frequencies))
 
@@ -74,82 +74,29 @@ class NoiseWidgetUI(QDialog):
         return errors
 
     def add_noise(self, frequencies, recm):
-        scale = float(self.pyqt5_entry_noise_scale.text())
-        stdev = float(self.pyqt5_entry_noise_stdev.text())
+        scale = float(self.qt_entry_noise_scale.text())
+        stdev = float(self.qt_entry_noise_stdev.text())
 
-        if self.pyqt5_radio_noise_awg.isChecked():
+        if self.qt_radio_noise_awg.isChecked():
             recm_noisy = noise.generate_awgn(recm, std_dev=stdev)
-        elif self.pyqt5_radio_noise_speckle.isChecked():
+        elif self.qt_radio_noise_speckle.isChecked():
             recm_noisy = noise.generate_speckle_noise(recm, std_dev=stdev)
-        elif self.pyqt5_radio_noise_pink.isChecked():
+        elif self.qt_radio_noise_pink.isChecked():
             recm_noisy = noise.generate_pink_noise(recm, std_dev=stdev)
-        elif self.pyqt5_radio_noise_poisson.isChecked():
+        elif self.qt_radio_noise_poisson.isChecked():
             recm_noisy = noise.generate_poisson_noise(recm, scale=scale)
-        elif self.pyqt5_radio_noise_frequency.isChecked():
+        elif self.qt_radio_noise_frequency.isChecked():
             recm_noisy = noise.generate_frequency_dependent_noise(recm, freqs=frequencies, scale=scale)
 
         return recm_noisy
 
     def generate_recm(self, frequencies):
+        # Re[CM] of the selected curve's model at the given frequencies
         parameters = self.parent_widget.curves_dict[self.selected_curve_id]["parameters"]
+        model = self.parent_widget.curves_dict[self.selected_curve_id]["model"]
 
-        recm_ho_list = []
-        recm_ss_list = []
-        recm_ts_list = []
-
-        for i in frequencies:
-            recm_ho, imcm_ho, depforce_ho = models.homogenous_particle_all(
-                freq=i,
-                fitting_gen_fieldgrad=parameters["electric_field"],
-                fitting_hopa_particle_radius=parameters["core_radius"],
-                fitting_hopa_particle_perm=parameters["core_perm"],
-                fitting_hopa_particle_cond=parameters["core_cond"],
-                fitting_gen_buffer_perm=parameters["buffer_perm"],
-                fitting_gen_buffer_cond=parameters["buffer_cond"])
-
-            recm_ss, imcm_ss, depforce_ss = models.single_shell_all(
-                freq=i,
-                fitting_gen_fieldgrad=parameters["electric_field"],
-                fitting_sish_particle_radius=parameters["core_radius"],
-                fitting_sish_membrane_thickness=parameters["1st_shell_thick"],
-                fitting_sish_membrane_perm=parameters["1st_shell_perm"],
-                fitting_sish_membrane_cond=parameters["1st_shell_cond"],
-                fitting_sish_cytoplasm_perm=parameters["core_perm"],
-                fitting_sish_cytoplasm_cond=parameters["core_cond"],
-                fitting_gen_buffer_perm=parameters["buffer_perm"],
-                fitting_gen_buffer_cond=parameters["buffer_cond"])
-
-            recm_ts, imcm_ts, depforce_ts = models.two_shell_all(
-                freq=i,
-                field_grad=parameters["electric_field"],
-                core_radius=parameters["core_radius"],
-                inner_shell_thickness=parameters["1st_shell_thick"],
-                inner_shell_perm=parameters["1st_shell_perm"],
-                inner_shell_cond=parameters["1st_shell_cond"],
-                outer_shell_thickness=parameters["2nd_shell_thick"],
-                outer_shell_perm=parameters["2nd_shell_perm"],
-                outer_shell_cond=parameters["2nd_shell_cond"],
-                core_perm=parameters["core_perm"],
-                core_cond=parameters["core_cond"],
-                buffer_perm=parameters["buffer_perm"],
-                buffer_cond=parameters["buffer_cond"])
-
-            recm_ho_list.append(recm_ho)
-            recm_ss_list.append(recm_ss)
-            recm_ts_list.append(recm_ts)
-
-        if self.parent_widget.curves_dict[self.selected_curve_id]["model"] == 0:
-            # transform to np.array
-            recm_ho_list = np.array(recm_ho_list)
-            return recm_ho_list
-
-        elif self.parent_widget.curves_dict[self.selected_curve_id]["model"] == 1:
-            recm_ss_list = np.array(recm_ss_list)
-            return recm_ss_list
-
-        elif self.parent_widget.curves_dict[self.selected_curve_id]["model"] == 2:
-            recm_ts_list = np.array(recm_ts_list)
-            return recm_ts_list
+        recm, imcm, depforce = models.model_all(model, np.asarray(frequencies, dtype=float), parameters)
+        return np.array(recm)
 
     def generate_noise_scatter(self):
         frequencies = self.generate_frequencies()

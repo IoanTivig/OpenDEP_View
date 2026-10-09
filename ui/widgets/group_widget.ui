@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GroupWidget</class>
+ <widget class="QWidget" name="GroupWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>510</width>
+    <height>560</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Group</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: #FFFFFF;
+border: none;
+border-radius: 6px;
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">QFrame#frame {
+	background: #FFFFFF;
+	border: none;
+	border-radius: 6px;
+}
+QFrame#frame:hover {
+	 border: 1px solid #CBD5E1;
+}
+
+/* Cards inside the group (results, parameter groups, replicates) */
+QFrame[card=&quot;true&quot;] {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+}
+
+QLabel {
+	border: none;
+	background: transparent;
+	color: #0F172A;  /* Text color */
+	font-family: 'Segoe UI', sans-serif;  /* Font family */
+	font-style: normal;  /* Font style */
+	font-weight: 500;  /* Font weight */
+	font-size: 14px;  /* Font size */
+}
+
+/* Card titles and parameter names as in the curve widget (Curve plots) */
+QLabel[title=&quot;true&quot;] {
+	font-size: 18px;
+	padding: 4px 5px;
+}
+
+QLabel[parameter=&quot;true&quot;] {
+	padding: 4px 8px;
+}
+
+QLabel[muted=&quot;true&quot;] {
+	color: #64748B;  /* slate/500 */
+	font-weight: 400;
+	font-size: 13px;
+}
+
+/* Results: read-only values (output style, the same in all cards) */
+QLabel[value=&quot;true&quot;] {
+	background: #F8FAFC;  /* slate/50 */
+	border: 1px solid #E2E8F0;  /* slate/200 */
+	border-radius: 6px;
+	color: #334155;  /* slate/700 */
+	padding: 5px 8px;
+}
+
+QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    padding: 4px 8px;  /* Padding */
+}
+
+QComboBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	padding-left: 9px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+}
+
+/* Drop-down button */
+QComboBox::drop-down {
+    border: none;
+}
+
+/* Down arrow */
+QComboBox::down-arrow {
+    image: url(:/ui/qt/resources/checkbox/down_icon.png);
+	padding-right: 12px;
+}
+
+/* Drop-down items */
+QComboBox QAbstractItemView {
+    border: 1px solid #E2E8F0; /* slate/200 */
+    selection-background-color: #F1F5F9;
+}
+
+/* Individual items */
+QComboBox::item {
+    background-color: white;
+    color: #0F172A;
+}
+
+QDoubleSpinBox {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+}
+
+QDoubleSpinBox::up-button {
+	background: #FFFFFF;
+	border: none;
+	subcontrol-position: center right;
+	padding-right: 6px;
+}
+
+QDoubleSpinBox::down-button {
+	background: #FFFFFF;
+	border: none;
+	subcontrol-position: center left;
+	padding-left: 6px;
+}
+
+QDoubleSpinBox::up-arrow {
+	image: url(:/ui/qt/resources/buttons/add_icon.png);
+	width: 16px;
+    height: 16px;
+}
+
+QDoubleSpinBox::down-arrow {
+	image: url(:/ui/qt/resources/buttons/substract_icon.png);
+	width: 16px;
+    height: 16px;
+}
+
+QTableWidget {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+	color: #0F172A;
+	font-family: 'Segoe UI', sans-serif;
+	font-size: 13px;
+	gridline-color: #F1F5F9;
+	selection-background-color: #DEE8F2;
+	selection-color: #0F172A;
+}
+
+QHeaderView::section {
+	background: #F8FAFC;
+	border: none;
+	border-bottom: 1px solid #E2E8F0;
+	color: #0F172A;
+	font-family: 'Segoe UI', sans-serif;
+	font-weight: 600;
+	font-size: 13px;
+	padding: 4px;
+}
+
+/* Colour button */
+QPushButton#qt_button_pick_group_color {
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+}
+
+/* Icon buttons */
+QPushButton[icon_button=&quot;true&quot;] {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    border-radius: 6px;  /* Rounded corners */
+	padding: 4px;
+}
+
+QPushButton[icon_button=&quot;true&quot;]:hover {
+    background: #F1F5F9;  /* slate/100 */
+}
+
+QPushButton[icon_button=&quot;true&quot;]:pressed {
+    background: #DEE8F2;  /* Pressed background color */
+}
+
+QPushButton#qt_button_export_group {
+	image: url(:/ui/qt/resources/buttons/upload_file_icon.png);
+}
+
+QPushButton#qt_button_export_group_table {
+	image: url(:/ui/qt/resources/buttons/upload_excel_icon.png);
+}
+
+QPushButton#qt_button_delete_group {
+	image: url(:/ui/qt/resources/buttons/trash_icon.png);
+}</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="qt_frame_group_details">
+        <layout class="QHBoxLayout" name="horizontalLayout_details">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QCheckBox" name="qt_checkbox_group_visible">
+           <property name="minimumSize">
+            <size>
+             <width>31</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>31</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Show the group (its mean scatter and curve) in Group plots</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+    border: none;
+	background: transparent;
+    border-radius: 6px;
+	padding: 4px;
+}
+
+QCheckBox:hover {
+	 background: #F1F5F9;  /* slate/100 */
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/ui/qt/resources/checkbox/visible_icon.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/ui/qt/resources/checkbox/hiden_icon.png);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="qt_entry_group_name">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Group (sample) name</string>
+           </property>
+           <property name="text">
+            <string>Group</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="qt_button_pick_group_color">
+           <property name="minimumSize">
+            <size>
+             <width>31</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>31</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Colour of the group: its mean scatter and its curve</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="qt_combo_group_point_style">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Shape of the mean points</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Circle</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Square</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Triangle</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Plus</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>X-marker</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Star</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="qt_spinbox_group_point_size">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Size of the mean points</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="decimals">
+            <number>0</number>
+           </property>
+           <property name="minimum">
+            <double>1.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>250.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>5.000000000000000</double>
+           </property>
+           <property name="value">
+            <double>50.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="qt_combo_group_line_style">
+           <property name="minimumSize">
+            <size>
+             <width>112</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>112</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Line type of the curve</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Solid</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/graphical_resources.qrc">
+              <normaloff>:/ui/qt/resources/dropdown/solid_line_icon.png</normaloff>:/ui/qt/resources/dropdown/solid_line_icon.png</iconset>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Dot</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/graphical_resources.qrc">
+              <normaloff>:/ui/qt/resources/dropdown/dot_line_icon.png</normaloff>:/ui/qt/resources/dropdown/dot_line_icon.png</iconset>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Dash</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/graphical_resources.qrc">
+              <normaloff>:/ui/qt/resources/dropdown/dashed_line_icon.png</normaloff>:/ui/qt/resources/dropdown/dashed_line_icon.png</iconset>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Dash-dot</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources/graphical_resources.qrc">
+              <normaloff>:/ui/qt/resources/dropdown/dotdash_line_icon.png</normaloff>:/ui/qt/resources/dropdown/dotdash_line_icon.png</iconset>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="qt_spinbox_group_line_width">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Thickness of the curve</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="decimals">
+            <number>1</number>
+           </property>
+           <property name="minimum">
+            <double>0.500000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>10.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.500000000000000</double>
+           </property>
+           <property name="value">
+            <double>1.500000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="qt_checkbox_group_expand">
+           <property name="minimumSize">
+            <size>
+             <width>31</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>31</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+    border: none;
+	background: transparent;
+    border-radius: 6px;
+	padding: 4px;
+}
+
+QCheckBox:hover {
+	 background: #F1F5F9;  /* slate/100 */
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/ui/qt/resources/checkbox/up_icon.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/ui/qt/resources/checkbox/down_icon.png);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="qt_frame_group_parameters">
+        <layout class="QVBoxLayout" name="qt_layout_group_parameters">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_group_toolbar" stretch="1,0">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QComboBox" name="qt_combo_group_add_scatter">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>41</height>
+              </size>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="sizeAdjustPolicy">
+              <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+             </property>
+             <property name="toolTip">
+              <string>Add a replicate: a curve with the scatter it is linked to (link them in the curve's "Linked to")</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="qt_frame_group_buttons">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>41</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>41</height>
+              </size>
+             </property>
+             <property name="card" stdset="0">
+              <bool>true</bool>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_group_buttons">
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <property name="leftMargin">
+               <number>3</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>3</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+               <item>
+                <widget class="QPushButton" name="qt_button_export_group">
+                 <property name="minimumSize">
+                  <size>
+                   <width>31</width>
+                   <height>31</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>31</width>
+                   <height>31</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Save the group as an OpenDEP file: OpenDEP Fit (.odfit: replicates, curves and results) or the mean as an OpenDEP Spectrum (.odspec)</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon_button" stdset="0">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="qt_button_export_group_table">
+                 <property name="minimumSize">
+                  <size>
+                   <width>31</width>
+                   <height>31</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>31</width>
+                   <height>31</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Save the group as a table: Excel (.xlsx: mean, parameters and replicates) or CSV (.csv: the mean)</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon_button" stdset="0">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="qt_button_delete_group">
+                 <property name="minimumSize">
+                  <size>
+                   <width>31</width>
+                   <height>31</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>31</width>
+                   <height>31</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Delete the group (its scatters and curves stay)</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon_button" stdset="0">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QFrame" name="qt_frame_group_results">
+           <property name="card" stdset="0">
+            <bool>true</bool>
+           </property>
+           <layout class="QVBoxLayout" name="qt_layout_group_results">
+            <property name="spacing">
+             <number>4</number>
+            </property>
+            <property name="leftMargin">
+             <number>9</number>
+            </property>
+            <property name="topMargin">
+             <number>6</number>
+            </property>
+            <property name="rightMargin">
+             <number>6</number>
+            </property>
+            <property name="bottomMargin">
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="qt_label_results_title">
+              <property name="toolTip">
+               <string>Calculated from the replicates, not editable: the mean ± SD of the scatters, and of the crossovers and parameters of their curves (technical replicates averaged first, then the biological ones)</string>
+              </property>
+              <property name="text">
+               <string>Results</string>
+              </property>
+              <property name="title" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="qt_frame_group_summary">
+              <property name="card" stdset="0">
+               <bool>true</bool>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_group_summary">
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>9</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_samples" stretch="0,1,0,0">
+                  <property name="spacing">
+                   <number>6</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="qt_label_samples_title">
+                    <property name="parameter" stdset="0">
+                     <bool>true</bool>
+                    </property>
+                    <property name="text">
+                     <string>Samples</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="qt_label_samples">
+                    <property name="toolTip">
+                     <string>Biological replicates (suspensions; the n of the SD) and technical replicates (all the scatters of the group)</string>
+                    </property>
+                    <property name="text">
+                     <string>–</string>
+                    </property>
+                    <property name="value" stdset="0">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="qt_label_results_model_icon">
+                    <property name="minimumSize">
+                     <size>
+                      <width>24</width>
+                      <height>24</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>24</width>
+                      <height>24</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="qt_label_results_model">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_crossovers" stretch="0,1,0,1">
+                  <property name="spacing">
+                   <number>6</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="qt_label_crossover_first_title">
+                    <property name="parameter" stdset="0">
+                     <bool>true</bool>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CO(f)&lt;span style=&quot; vertical-align:sub;&quot;&gt;first&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="qt_label_crossover_first">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                      <horstretch>1</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>–</string>
+                    </property>
+                    <property name="value" stdset="0">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="qt_label_crossover_second_title">
+                    <property name="parameter" stdset="0">
+                     <bool>true</bool>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CO(f)&lt;span style=&quot; vertical-align:sub;&quot;&gt;second&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="qt_label_crossover_second">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                      <horstretch>1</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>–</string>
+                    </property>
+                    <property name="value" stdset="0">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="qt_frame_parameter_results">
+              <layout class="QGridLayout" name="qt_layout_parameter_results">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>4</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="horizontalSpacing">
+                <number>6</number>
+               </property>
+               <property name="verticalSpacing">
+                <number>6</number>
+               </property>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="qt_frame_group_replicates">
+           <property name="card" stdset="0">
+            <bool>true</bool>
+           </property>
+           <layout class="QVBoxLayout" name="qt_layout_group_replicates">
+            <property name="spacing">
+             <number>6</number>
+            </property>
+            <property name="leftMargin">
+             <number>9</number>
+            </property>
+            <property name="topMargin">
+             <number>6</number>
+            </property>
+            <property name="rightMargin">
+             <number>6</number>
+            </property>
+            <property name="bottomMargin">
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="qt_label_replicates_title">
+              <property name="toolTip">
+               <string>Replicates with the same Sample No. (suspension) are its technical replicates: they are averaged first, then the samples (biological replicates) are averaged</string>
+              </property>
+              <property name="text">
+               <string>Replicates</string>
+              </property>
+              <property name="title" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="qt_table_group_members">
+              <property name="toolTip">
+               <string>Replicates with the same Sample No. (suspension) are its technical replicates: they are averaged first, then the samples (biological replicates) are averaged</string>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::NoSelection</enum>
+              </property>
+              <property name="columnCount">
+               <number>4</number>
+              </property>
+              <attribute name="verticalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
+              <column>
+               <property name="text">
+                <string>Curve</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Scatter</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Sample No.</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string/>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="qt_label_group_summary">
+              <property name="text">
+               <string>No replicates yet</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+              <property name="muted" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../resources/graphical_resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

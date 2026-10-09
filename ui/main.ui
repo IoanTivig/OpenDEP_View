@@ -17,7 +17,10 @@
    <string notr="true">background: #F1F5F9;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout" stretch="1">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1">
+    <property name="spacing">
+     <number>6</number>
+    </property>
     <property name="leftMargin">
      <number>9</number>
     </property>
@@ -31,7 +34,310 @@
      <number>9</number>
     </property>
     <item>
-     <widget class="QFrame" name="pyqt5_widget_frame">
+     <widget class="QFrame" name="qt_frame_header">
+      <property name="styleSheet">
+       <string notr="true">QFrame#qt_frame_header {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+}
+
+QLabel {
+	border: none;
+	background: transparent;
+	color: #0F172A;  /* Text color */
+	font-family: 'Segoe UI', sans-serif;
+	font-style: normal;
+}
+
+/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 6px 12px;  /* Padding */
+}
+
+/* Hover State */
+QPushButton:hover {
+    background: #F1F5F9;  /* slate/100 */
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;  /* Pressed background color */
+}
+
+QPushButton:disabled {
+    color: #94A3B8;  /* slate/400 */
+}</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_header">
+       <property name="spacing">
+        <number>6</number>
+       </property>
+       <property name="leftMargin">
+        <number>9</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="qt_label_header_logo">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="qt_label_header_title">
+         <property name="styleSheet">
+          <string notr="true">font-weight: 600;
+font-size: 16px;
+padding-left: 4px;</string>
+         </property>
+         <property name="text">
+          <string>OpenDEP View</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_header_title">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>16</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="qt_label_header_project">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+           <horstretch>1</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #64748B;  /* slate/500 */
+font-size: 13px;</string>
+         </property>
+         <property name="text">
+          <string>No project open</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="qt_button_project_new">
+         <property name="toolTip">
+          <string>Create a new project (Ctrl+N)</string>
+         </property>
+         <property name="text">
+          <string>New project</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources/graphical_resources.qrc">
+           <normaloff>:/ui/qt/resources/buttons/add_circle_icon.png</normaloff>:/ui/qt/resources/buttons/add_circle_icon.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>18</width>
+           <height>18</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="qt_button_project_open">
+         <property name="toolTip">
+          <string>Open a project (Ctrl+O)</string>
+         </property>
+         <property name="text">
+          <string>Open project</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources/graphical_resources.qrc">
+           <normaloff>:/ui/qt/resources/buttons/open_folder_icon.png</normaloff>:/ui/qt/resources/buttons/open_folder_icon.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>18</width>
+           <height>18</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="qt_button_project_save">
+         <property name="toolTip">
+          <string>Save the project (Ctrl+S)</string>
+         </property>
+         <property name="text">
+          <string>Save</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources/graphical_resources.qrc">
+           <normaloff>:/ui/qt/resources/buttons/save_icon.png</normaloff>:/ui/qt/resources/buttons/save_icon.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>18</width>
+           <height>18</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_header_bug">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>12</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QFrame" name="qt_frame_header_divider">
+         <property name="minimumSize">
+          <size>
+           <width>1</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: #CBD5E1;  /* slate/300: separates the project buttons from Help and Report bug */
+border: none;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_header_help">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>12</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="qt_button_help">
+         <property name="toolTip">
+          <string>User guide (F1): opens at the page of the tab you are working in</string>
+         </property>
+         <property name="text">
+          <string>Help</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources/graphical_resources.qrc">
+           <normaloff>:/ui/qt/resources/buttons/help_icon.png</normaloff>:/ui/qt/resources/buttons/help_icon.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>18</width>
+           <height>18</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="qt_button_report_bug">
+         <property name="toolTip">
+          <string>Report a bug: describe the problem, with the last error and output attached (saved in bug_reports/)</string>
+         </property>
+         <property name="text">
+          <string>Report bug</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources/graphical_resources.qrc">
+           <normaloff>:/ui/qt/resources/buttons/bug_icon.png</normaloff>:/ui/qt/resources/buttons/bug_icon.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>18</width>
+           <height>18</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="qt_stack_main">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="qt_page_welcome">
+       <layout class="QVBoxLayout" name="qt_page_welcome_layout">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="qt_page_workspace">
+       <layout class="QVBoxLayout" name="qt_page_workspace_layout">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+     <widget class="QFrame" name="qt_widget_frame">
       <property name="styleSheet">
        <string notr="true"/>
       </property>
@@ -41,7 +347,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,0">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="spacing">
         <number>6</number>
        </property>
@@ -58,7 +364,28 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QFrame" name="pyqt5_frame_graph">
+        <widget class="QSplitter" name="qt_splitter_main">
+         <property name="styleSheet">
+          <string notr="true">QSplitter::handle {
+    background: transparent;
+}
+
+/* Handle while hovered or dragged */
+QSplitter::handle:hover, QSplitter::handle:pressed {
+    background: #E2E8F0; /* slate/200 */
+    border-radius: 3px;
+}</string>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="handleWidth">
+          <number>6</number>
+         </property>
+         <property name="childrenCollapsible">
+          <bool>false</bool>
+         </property>
+        <widget class="QFrame" name="qt_frame_graph">
          <property name="styleSheet">
           <string notr="true">box-sizing: border-box;
 display: flex;
@@ -85,7 +412,7 @@ border-radius: 6px;</string>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,0">
             <item>
-             <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent">
+             <widget class="QFrame" name="qt_frame_toolbar_graphcontent">
               <property name="minimumSize">
                <size>
                 <width>0</width>
@@ -125,7 +452,7 @@ border-radius: 6px;</string>
                 <number>5</number>
                </property>
                <item>
-                <widget class="QPushButton" name="pyqt5_button_graphcontent_recmf">
+                <widget class="QPushButton" name="qt_button_graphcontent_recmf">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -182,7 +509,7 @@ QPushButton[customState=&quot;true&quot;] {
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pyqt5_button_graphcontent_depforce">
+                <widget class="QPushButton" name="qt_button_graphcontent_depforce">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
@@ -289,7 +616,7 @@ border-radius: 6px;</string>
                 <number>9</number>
                </property>
                <item>
-                <widget class="QCheckBox" name="pyqt5_checkbox_graph_size_lock">
+                <widget class="QCheckBox" name="qt_checkbox_graph_size_lock">
                  <property name="minimumSize">
                   <size>
                    <width>31</width>
@@ -354,7 +681,7 @@ QCheckBox:focused {
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="pyqt5_entry_graph_width">
+                <widget class="QLineEdit" name="qt_entry_graph_width">
                  <property name="enabled">
                   <bool>true</bool>
                  </property>
@@ -399,7 +726,7 @@ QLineEdit:disabled {
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="pyqt5_entry_graph_height">
+                <widget class="QLineEdit" name="qt_entry_graph_height">
                  <property name="enabled">
                   <bool>true</bool>
                  </property>
@@ -467,7 +794,7 @@ border-radius: 6px;</string>
             </property>
             <layout class="QGridLayout" name="gridLayout">
              <item row="0" column="0">
-              <widget class="GraphWidget" name="pyqt5_graph_widget" native="true">
+              <widget class="GraphWidget" name="qt_graph_widget" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -531,7 +858,7 @@ border-radius: 6px;</string>
                 <number>5</number>
                </property>
                <item>
-                <widget class="QPushButton" name="pyqt5_button_home_figure">
+                <widget class="QPushButton" name="qt_button_home_figure">
                  <property name="enabled">
                   <bool>true</bool>
                  </property>
@@ -598,7 +925,7 @@ QPushButton:pressed {
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pyqt5_button_zoom_figure">
+                <widget class="QPushButton" name="qt_button_zoom_figure">
                  <property name="enabled">
                   <bool>true</bool>
                  </property>
@@ -665,7 +992,7 @@ QPushButton:pressed {
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pyqt5_button_properties_figure">
+                <widget class="QPushButton" name="qt_button_properties_figure">
                  <property name="enabled">
                   <bool>true</bool>
                  </property>
@@ -732,7 +1059,7 @@ QPushButton:pressed {
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pyqt5_button_save_figure">
+                <widget class="QPushButton" name="qt_button_save_figure">
                  <property name="enabled">
                   <bool>true</bool>
                  </property>
@@ -799,7 +1126,7 @@ QPushButton:pressed {
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pyqt5_button_fitspace_figure">
+                <widget class="QPushButton" name="qt_button_fitspace_figure">
                  <property name="enabled">
                   <bool>true</bool>
                  </property>
@@ -883,7 +1210,7 @@ QPushButton:pressed {
              </spacer>
             </item>
             <item>
-             <widget class="QFrame" name="pyqt5_frame_menubar_experimental_display">
+             <widget class="QFrame" name="qt_frame_menubar_experimental_display">
               <property name="styleSheet">
                <string notr="true">box-sizing: border-box;
 display: flex;
@@ -914,7 +1241,7 @@ border-radius: 6px;</string>
                 <number>5</number>
                </property>
                <item>
-                <widget class="QPushButton" name="pyqt5_button_display_experimental_area">
+                <widget class="QPushButton" name="qt_button_display_experimental_area">
                  <property name="enabled">
                   <bool>true</bool>
                  </property>
@@ -987,7 +1314,7 @@ QPushButton[customState=&quot;true&quot;] {
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pyqt5_button_display_experimental_stdev">
+                <widget class="QPushButton" name="qt_button_display_experimental_stdev">
                  <property name="enabled">
                   <bool>true</bool>
                  </property>
@@ -1066,12 +1393,10 @@ QPushButton[customState=&quot;true&quot;] {
           </item>
          </layout>
         </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="pyqt5_frame_plots">
+        <widget class="QFrame" name="qt_frame_plots">
          <property name="minimumSize">
           <size>
-           <width>550</width>
+           <width>630</width>
            <height>0</height>
           </size>
          </property>
@@ -1080,7 +1405,7 @@ QPushButton[customState=&quot;true&quot;] {
 border: 1px solid #E2E8F0; /* slate/200 */
 border-radius: 6px;</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,1,1">
+         <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,1,1,1">
           <property name="spacing">
            <number>6</number>
           </property>
@@ -1097,7 +1422,7 @@ border-radius: 6px;</string>
            <number>9</number>
           </property>
           <item>
-           <widget class="QFrame" name="pyqt5_frame_tabbar_plots">
+           <widget class="QFrame" name="qt_frame_tabbar_plots">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -1130,7 +1455,7 @@ border-radius: 6px;</string>
               <number>0</number>
              </property>
              <item>
-              <widget class="QPushButton" name="pyqt5_button_plots_scatter">
+              <widget class="QPushButton" name="qt_button_plots_scatter">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -1187,7 +1512,7 @@ QPushButton[customState=&quot;true&quot;] {
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pyqt5_button_plots_curves">
+              <widget class="QPushButton" name="qt_button_plots_curves">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -1240,6 +1565,57 @@ QPushButton[customState=&quot;true&quot;] {
                </property>
               </widget>
              </item>
+             <item>
+              <widget class="QPushButton" name="qt_button_plots_groups">
+               <property name="font">
+                <font>
+                 <family>Segoe UI</family>
+                 <pointsize>-1</pointsize>
+                 <weight>62</weight>
+                 <italic>false</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>Replicate groups: the average spectrum of each sample (mean ± SD) with its curve; the graph shows the groups only</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    line-height: 24px;  /* Line height */
+    padding: 8px 16px;  /* Padding */
+}
+
+/* Hover State */
+QPushButton:hover {
+    background: #F1F5F9;  /* slate/100 */
+    color: #0F172A;  /* Text color */
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;  /* Pressed background color */
+    color: #0F172A;  /* Text color */
+}
+
+QPushButton[customState=&quot;true&quot;] {
+    background: #DEE8F2;  /* Pressed background color */
+    color: #0F172A;  /* Text color */
+}</string>
+               </property>
+               <property name="text">
+                <string>Group plots</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </item>
@@ -1275,7 +1651,7 @@ QPushButton[customState=&quot;true&quot;] {
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="pyqt5_entry_param_freq_start">
+             <widget class="QLineEdit" name="qt_entry_param_freq_start">
               <property name="enabled">
                <bool>true</bool>
               </property>
@@ -1315,7 +1691,7 @@ QLineEdit:disabled {
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="pyqt5_combo_param_freq_start_unit">
+             <widget class="QComboBox" name="qt_combo_param_freq_start_unit">
               <property name="minimumSize">
                <size>
                 <width>60</width>
@@ -1330,6 +1706,7 @@ QLineEdit:disabled {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -1402,7 +1779,7 @@ QComboBox::item {
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="pyqt5_entry_param_freq_stop">
+             <widget class="QLineEdit" name="qt_entry_param_freq_stop">
               <property name="enabled">
                <bool>true</bool>
               </property>
@@ -1442,7 +1819,7 @@ QLineEdit:disabled {
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="pyqt5_combo_param_freq_stop_unit">
+             <widget class="QComboBox" name="qt_combo_param_freq_stop_unit">
               <property name="minimumSize">
                <size>
                 <width>60</width>
@@ -1457,6 +1834,7 @@ QLineEdit:disabled {
 	background: #FFFFFF;
 	border: 1px solid #E2E8F0; /* slate/200 */
 	border-radius: 6px;
+	padding-left: 9px;
 	color: #0F172A;  /* Text color */
     font-family: 'Segoe UI', sans-serif;  /* Font family */
     font-style: normal;  /* Font style */
@@ -1514,7 +1892,7 @@ QComboBox::item {
            </layout>
           </item>
           <item>
-           <widget class="QFrame" name="pyqt5_frame_group_curve_plots">
+           <widget class="QFrame" name="qt_frame_group_curve_plots">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -1567,7 +1945,7 @@ border-radius: 6px;</string>
                  <number>9</number>
                 </property>
                 <item row="0" column="0">
-                 <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_3">
+                 <widget class="QFrame" name="qt_frame_toolbar_graphcontent_3">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
@@ -1608,7 +1986,7 @@ background: #FFFFFF;
                     <number>5</number>
                    </property>
                    <item>
-                    <widget class="QPushButton" name="pyqt5_button_curves_add">
+                    <widget class="QPushButton" name="qt_button_curves_add">
                      <property name="minimumSize">
                       <size>
                        <width>31</width>
@@ -1669,7 +2047,7 @@ QPushButton:pressed {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pyqt5_button_curve_load">
+                    <widget class="QPushButton" name="qt_button_curve_load">
                      <property name="minimumSize">
                       <size>
                        <width>30</width>
@@ -1730,7 +2108,7 @@ QPushButton:pressed {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pyqt5_button_curve_load_excel">
+                    <widget class="QPushButton" name="qt_button_curve_load_excel">
                      <property name="minimumSize">
                       <size>
                        <width>30</width>
@@ -1791,7 +2169,7 @@ QPushButton:pressed {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pyqt5_button_cruves_load_cloud">
+                    <widget class="QPushButton" name="qt_button_cruves_load_cloud">
                      <property name="minimumSize">
                       <size>
                        <width>30</width>
@@ -1865,7 +2243,7 @@ QPushButton:pressed {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QCheckBox" name="pyqt5_checkbox_curves_visibility">
+                    <widget class="QCheckBox" name="qt_checkbox_curves_visibility">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                        <horstretch>0</horstretch>
@@ -1939,21 +2317,54 @@ QCheckBox:focused {
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QScrollArea" name="pyqt5_scrollarea_plots_curve">
+                 <widget class="QScrollArea" name="qt_scrollarea_plots_curve">
                   <property name="styleSheet">
                    <string notr="true">QScrollArea {
 	border: none;
 }
 
-/* Hide vertical scroll bar */
+/* Slim scroll bar in the program's slate colours, shown only when the list is longer than the panel */
 QScrollBar:vertical {
-    width: 0px;
+	background: transparent;
+	width: 10px;
+	margin: 0px 0px 0px 2px;
+	border: none;
 }
 
-/* Hide horizontal scroll bar */
+QScrollBar::handle:vertical {
+	background: #CBD5E1;  /* slate/300 */
+	border-radius: 4px;
+	min-height: 32px;
+}
+
+QScrollBar::handle:vertical:hover {
+	background: #94A3B8;  /* slate/400 */
+}
+
+QScrollBar::handle:vertical:pressed {
+	background: #64748B;  /* slate/500 */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+	height: 0px;
+	border: none;
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+
+/* No horizontal scrolling: the cards follow the panel's width */
 QScrollBar:horizontal {
     height: 0px;
 }</string>
+                  </property>
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAsNeeded</enum>
+                  </property>
+                  <property name="horizontalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
                   </property>
                   <property name="widgetResizable">
                    <bool>true</bool>
@@ -1976,7 +2387,7 @@ QScrollBar:horizontal {
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
-                   <layout class="QVBoxLayout" name="pyqt5_scrollarea_plots_curve_layout" stretch="1,1">
+                   <layout class="QVBoxLayout" name="qt_scrollarea_plots_curve_layout" stretch="1,1">
                     <property name="spacing">
                      <number>0</number>
                     </property>
@@ -2017,7 +2428,7 @@ QScrollBar:horizontal {
            </widget>
           </item>
           <item>
-           <widget class="QFrame" name="pyqt5_frame_group_scatter_plots">
+           <widget class="QFrame" name="qt_frame_group_scatter_plots">
             <property name="styleSheet">
              <string notr="true">border: None;</string>
             </property>
@@ -2058,24 +2469,51 @@ border-radius: 6px;</string>
                  <number>9</number>
                 </property>
                 <item row="1" column="0">
-                 <widget class="QScrollArea" name="pyqt5_scrollarea_scatter_curves">
+                 <widget class="QScrollArea" name="qt_scrollarea_scatter_curves">
                   <property name="styleSheet">
                    <string notr="true">QScrollArea {
 	border: none;
 }
 
-/* Hide vertical scroll bar */
+/* Slim scroll bar in the program's slate colours, shown only when the list is longer than the panel */
 QScrollBar:vertical {
-    width: 0px;
+	background: transparent;
+	width: 10px;
+	margin: 0px 0px 0px 2px;
+	border: none;
 }
 
-/* Hide horizontal scroll bar */
+QScrollBar::handle:vertical {
+	background: #CBD5E1;  /* slate/300 */
+	border-radius: 4px;
+	min-height: 32px;
+}
+
+QScrollBar::handle:vertical:hover {
+	background: #94A3B8;  /* slate/400 */
+}
+
+QScrollBar::handle:vertical:pressed {
+	background: #64748B;  /* slate/500 */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+	height: 0px;
+	border: none;
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+
+/* No horizontal scrolling: the cards follow the panel's width */
 QScrollBar:horizontal {
     height: 0px;
 }</string>
                   </property>
                   <property name="verticalScrollBarPolicy">
-                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                   <enum>Qt::ScrollBarAsNeeded</enum>
                   </property>
                   <property name="horizontalScrollBarPolicy">
                    <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -2101,7 +2539,7 @@ QScrollBar:horizontal {
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
-                   <layout class="QVBoxLayout" name="pyqt5_scrollarea_scatter_curves_layout" stretch="1,1">
+                   <layout class="QVBoxLayout" name="qt_scrollarea_scatter_curves_layout" stretch="1,1">
                     <property name="spacing">
                      <number>0</number>
                     </property>
@@ -2136,7 +2574,7 @@ QScrollBar:horizontal {
                  </widget>
                 </item>
                 <item row="0" column="0">
-                 <widget class="QFrame" name="pyqt5_frame_toolbar_graphcontent_4">
+                 <widget class="QFrame" name="qt_frame_toolbar_graphcontent_4">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
@@ -2177,7 +2615,7 @@ background: #FFFFFF;
                     <number>5</number>
                    </property>
                    <item>
-                    <widget class="QPushButton" name="pyqt5_button_scatter_add">
+                    <widget class="QPushButton" name="qt_button_scatter_add">
                      <property name="minimumSize">
                       <size>
                        <width>31</width>
@@ -2238,7 +2676,7 @@ QPushButton:pressed {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pyqt5_button_scatter_load">
+                    <widget class="QPushButton" name="qt_button_scatter_load">
                      <property name="minimumSize">
                       <size>
                        <width>30</width>
@@ -2299,7 +2737,7 @@ QPushButton:pressed {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pyqt5_button_scatter_load_excel">
+                    <widget class="QPushButton" name="qt_button_scatter_load_excel">
                      <property name="minimumSize">
                       <size>
                        <width>30</width>
@@ -2373,7 +2811,7 @@ QPushButton:pressed {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QCheckBox" name="pyqt5_checkbox_scatters_visibility">
+                    <widget class="QCheckBox" name="qt_checkbox_scatters_visibility">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                        <horstretch>0</horstretch>
@@ -2452,10 +2890,561 @@ QCheckBox:focused {
             </layout>
            </widget>
           </item>
+          <item>
+           <widget class="QFrame" name="qt_frame_group_group_plots">
+            <property name="styleSheet">
+             <string notr="true">border: None;</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_groups">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QFrame" name="frame_groups">
+               <property name="styleSheet">
+                <string notr="true">background: #FFFFFF;
+border: 1px solid #E2E8F0; /* slate/200 */
+border-radius: 6px;</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_groups">
+                <property name="leftMargin">
+                 <number>9</number>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <property name="rightMargin">
+                 <number>9</number>
+                </property>
+                <item row="1" column="0">
+                 <widget class="QScrollArea" name="qt_scrollarea_groups">
+                  <property name="styleSheet">
+                   <string notr="true">QScrollArea {
+	border: none;
+}
+
+/* Slim scroll bar in the program's slate colours, shown only when the list is longer than the panel */
+QScrollBar:vertical {
+	background: transparent;
+	width: 10px;
+	margin: 0px 0px 0px 2px;
+	border: none;
+}
+
+QScrollBar::handle:vertical {
+	background: #CBD5E1;  /* slate/300 */
+	border-radius: 4px;
+	min-height: 32px;
+}
+
+QScrollBar::handle:vertical:hover {
+	background: #94A3B8;  /* slate/400 */
+}
+
+QScrollBar::handle:vertical:pressed {
+	background: #64748B;  /* slate/500 */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+	height: 0px;
+	border: none;
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+
+/* No horizontal scrolling: the cards follow the panel's width */
+QScrollBar:horizontal {
+    height: 0px;
+}</string>
+                  </property>
+                  <property name="verticalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAsNeeded</enum>
+                  </property>
+                  <property name="horizontalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAlwaysOff</enum>
+                  </property>
+                  <property name="widgetResizable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                  </property>
+                  <widget class="QWidget" name="scrollAreaWidgetContents_groups">
+                   <property name="geometry">
+                    <rect>
+                     <x>0</x>
+                     <y>0</y>
+                     <width>510</width>
+                     <height>176</height>
+                    </rect>
+                   </property>
+                   <layout class="QVBoxLayout" name="qt_scrollarea_groups_layout" stretch="1,1">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <spacer name="verticalSpacer_groups_1">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_groups_2">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </widget>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QFrame" name="qt_frame_separation">
+                  <property name="styleSheet">
+                   <string notr="true">/* Same sizes and output style as the cards of Curve plots and Group plots */
+QFrame#qt_frame_separation {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0;  /* slate/200 */
+	border-radius: 6px;
+}
+
+QLabel {
+	border: none;
+	background: transparent;
+	color: #0F172A;
+	font-family: 'Segoe UI', sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+QLabel[muted=&quot;true&quot;] {
+	padding: 4px 8px;
+}
+
+QLabel[value=&quot;true&quot;] {
+	background: #F8FAFC;  /* slate/50 */
+	border: 1px solid #E2E8F0;  /* slate/200 */
+	border-radius: 6px;
+	color: #334155;  /* slate/700 */
+	padding: 5px 8px;
+}
+
+QLabel#qt_label_separation_title {
+	font-size: 18px;
+	padding: 4px 5px;
+}</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_separation">
+                   <property name="leftMargin">
+                    <number>9</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>9</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>9</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>9</number>
+                   </property>
+                   <property name="horizontalSpacing">
+                    <number>6</number>
+                   </property>
+                   <property name="verticalSpacing">
+                    <number>6</number>
+                   </property>
+                   <item row="0" column="0" colspan="2">
+                    <widget class="QLabel" name="qt_label_separation_title">
+                     <property name="toolTip">
+                      <string>Of the visible groups, the two that one frequency splits best: one population in pDEP, the other in nDEP (hide a group to leave it out)</string>
+                     </property>
+                     <property name="text">
+                      <string>Best separation</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2" colspan="2">
+                    <widget class="QLabel" name="qt_label_separation_pair">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                       <horstretch>1</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>–</string>
+                     </property>
+                     <property name="textFormat">
+                      <enum>Qt::RichText</enum>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="qt_label_separation_frequency_title">
+                     <property name="toolTip">
+                      <string>Frequency at which the separation score is highest</string>
+                     </property>
+                     <property name="text">
+                      <string>Frequency</string>
+                     </property>
+                     <property name="muted" stdset="0">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QLabel" name="qt_label_separation_frequency">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                       <horstretch>1</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>–</string>
+                     </property>
+                     <property name="value" stdset="0">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QLabel" name="qt_label_separation_score_title">
+                     <property name="toolTip">
+                      <string>Chance that a cell of one group is in pDEP while a cell of the other is in nDEP at this frequency, from the crossovers of each group's samples (0: no window, 1: complete separation)</string>
+                     </property>
+                     <property name="text">
+                      <string>Separation score</string>
+                     </property>
+                     <property name="muted" stdset="0">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QLabel" name="qt_label_separation_score">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                       <horstretch>1</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>–</string>
+                     </property>
+                     <property name="value" stdset="0">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="qt_label_separation_ratio_title">
+                     <property name="toolTip">
+                      <string>Higher / lower mean first crossover of the two groups</string>
+                     </property>
+                     <property name="text">
+                      <string>Crossover ratio</string>
+                     </property>
+                     <property name="muted" stdset="0">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLabel" name="qt_label_separation_ratio">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                       <horstretch>1</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>–</string>
+                     </property>
+                     <property name="value" stdset="0">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QLabel" name="qt_label_separation_contrast_title">
+                     <property name="toolTip">
+                      <string>Re[CM] of the pDEP group minus that of the nDEP group at this frequency, from the groups' mean-parameter curves (in brackets: each group's Re[CM])</string>
+                     </property>
+                     <property name="text">
+                      <string>ΔRe[CM]</string>
+                     </property>
+                     <property name="muted" stdset="0">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="3">
+                    <widget class="QLabel" name="qt_label_separation_contrast">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                       <horstretch>1</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>–</string>
+                     </property>
+                     <property name="value" stdset="0">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QFrame" name="qt_frame_toolbar_groups">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">border: none;
+background: #FFFFFF;
+</string>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_groups_toolbar">
+                   <property name="spacing">
+                    <number>2</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>5</number>
+                   </property>
+                   <item>
+                    <widget class="QPushButton" name="qt_button_group_add">
+                     <property name="minimumSize">
+                      <size>
+                       <width>31</width>
+                       <height>31</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>31</width>
+                       <height>31</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>New replicate group</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    border-radius: 6px;  /* Rounded corners */
+	padding: 4px;
+	image: url(:/ui/qt/resources/buttons/add_circle_icon.png);
+}
+
+/* Hover State */
+QPushButton:hover {
+    background: #F1F5F9;  /* slate/100 */
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;  /* Pressed background color */
+}</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_groups">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="qt_button_statistics_report">
+                     <property name="minimumSize">
+                      <size>
+                       <width>31</width>
+                       <height>31</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>170</width>
+                       <height>31</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>Statistics report of the visible groups: every pair ranked by separation, mean ± SD, normality and pairwise tests (Welch t, Mann-Whitney U) of the crossovers and parameters; PDF and / or Excel (.xlsx, also for LibreOffice)</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">/* Default State */
+QPushButton {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+	padding: 4px 8px 4px 4px;
+}
+
+/* Hover State */
+QPushButton:hover {
+    background: #F1F5F9;  /* slate/100 */
+}
+
+/* Pressed State */
+QPushButton:pressed {
+    background: #DEE8F2;  /* Pressed background color */
+}</string>
+                     </property>
+                     <property name="text">
+                      <string>Statistics report</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resources/graphical_resources.qrc">
+                       <normaloff>:/ui/qt/resources/buttons/report_icon.png</normaloff>:/ui/qt/resources/buttons/report_icon.png</iconset>
+                     </property>
+                     <property name="iconSize">
+                      <size>
+                       <width>22</width>
+                       <height>22</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="qt_checkbox_group_single_points">
+                     <property name="minimumSize">
+                      <size>
+                       <width>31</width>
+                       <height>31</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>140</width>
+                       <height>31</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>Show or hide the single points in Group plots: frequencies measured in only one replicate (open markers, no SD)</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">/* Default State */
+QCheckBox {
+    border: none;
+	background: transparent;  /* Ghost button with no background */
+    color: #0F172A;  /* Text color */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-style: normal;  /* Font style */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+	padding: 4px;
+}
+
+QCheckBox:hover {
+	 background: #F1F5F9;  /* slate/100 */
+}
+
+QCheckBox:pressed {
+	background: #DEE8F2;  /* Pressed background color */
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/ui/qt/resources/checkbox/visible_icon.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(:/ui/qt/resources/checkbox/hiden_icon.png);
+}</string>
+                     </property>
+                     <property name="text">
+                      <string>Single points</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
          </layout>
+        </widget>
         </widget>
        </item>
       </layout>
+     </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>

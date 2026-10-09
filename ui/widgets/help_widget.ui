@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HelpWidget</class>
+ <widget class="QWidget" name="HelpWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>760</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>OpenDEP View - User Guide</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#HelpWidget {
+	background: #F1F5F9;
+}
+
+QFrame#qt_frame_help_card, QFrame#qt_frame_help_contents {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0; /* slate/200 */
+	border-radius: 6px;
+}
+
+QFrame#qt_frame_help_toolbar {
+	background: transparent;
+	border: none;
+}
+
+QLabel {
+	border: none;
+	background: transparent;
+	color: #64748B;  /* slate/500 */
+	font-family: 'Segoe UI', sans-serif;
+	font-weight: 400;
+	font-size: 13px;
+}
+
+QLineEdit {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #CBD5E1;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    color: #0F172A;  /* Text color */
+    font-family: 'Segoe UI', sans-serif;  /* Font family */
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    padding: 4px 8px;  /* Padding */
+}
+
+/* Outline buttons */
+QPushButton {
+    background: #FFFFFF;  /* Default background */
+    border: 1px solid #E2E8F0;  /* Default border */
+    border-radius: 6px;  /* Rounded corners */
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;  /* Font weight */
+    font-size: 14px;  /* Font size */
+    color: #0F172A;  /* Text color */
+    padding: 5px 14px;  /* Padding */
+}
+
+QPushButton:hover {
+    background: #F1F5F9;  /* Hover background */
+}
+
+QPushButton:pressed {
+    background: #DEE8F2;  /* Pressed background */
+}
+
+QPushButton:disabled {
+    color: #CBD5E1;
+}
+
+/* Contents */
+QTreeWidget {
+	background: transparent;
+	border: none;
+	color: #0F172A;
+	font-family: 'Segoe UI', sans-serif;
+	font-size: 14px;
+	outline: 0;
+}
+
+QTreeWidget::item {
+	padding: 4px 2px;
+	border-radius: 4px;
+}
+
+QTreeWidget::item:hover {
+	background: #F1F5F9;  /* slate/100 */
+}
+
+QTreeWidget::item:selected {
+	background: #DEE8F2;
+	color: #0F172A;
+}
+
+/* Page */
+QTextBrowser {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0;
+	border-radius: 6px;
+	color: #0F172A;
+	font-family: 'Segoe UI', sans-serif;
+	font-size: 14px;
+	padding: 8px 14px;
+}
+
+QSplitter::handle {
+	background: transparent;
+}
+
+/* Slim scroll bars as in the plot lists of the main window */
+QScrollBar:vertical {
+	background: transparent;
+	width: 10px;
+	margin: 0px 0px 0px 2px;
+	border: none;
+}
+
+QScrollBar:horizontal {
+	background: transparent;
+	height: 10px;
+	margin: 2px 0px 0px 0px;
+	border: none;
+}
+
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+	background: #CBD5E1;  /* slate/300 */
+	border-radius: 4px;
+	min-height: 32px;
+	min-width: 32px;
+}
+
+QScrollBar::handle:vertical:hover, QScrollBar::handle:horizontal:hover {
+	background: #94A3B8;  /* slate/400 */
+}
+
+QScrollBar::handle:vertical:pressed, QScrollBar::handle:horizontal:pressed {
+	background: #64748B;  /* slate/500 */
+}
+
+QScrollBar::add-line, QScrollBar::sub-line {
+	width: 0px;
+	height: 0px;
+	border: none;
+	background: none;
+}
+
+QScrollBar::add-page, QScrollBar::sub-page {
+	background: none;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1">
+   <property name="spacing">
+    <number>9</number>
+   </property>
+   <property name="leftMargin">
+    <number>9</number>
+   </property>
+   <property name="topMargin">
+    <number>9</number>
+   </property>
+   <property name="rightMargin">
+    <number>9</number>
+   </property>
+   <property name="bottomMargin">
+    <number>9</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="qt_frame_help_toolbar">
+     <layout class="QHBoxLayout" name="horizontalLayout_toolbar">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="qt_button_help_back">
+        <property name="toolTip">
+         <string>Previous page (Alt+Left)</string>
+        </property>
+        <property name="text">
+         <string>← Back</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="qt_button_help_forward">
+        <property name="toolTip">
+         <string>Next page (Alt+Right)</string>
+        </property>
+        <property name="text">
+         <string>Forward →</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="qt_button_help_home">
+        <property name="toolTip">
+         <string>The overview page of the guide</string>
+        </property>
+        <property name="text">
+         <string>Contents</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_toolbar">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>12</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="qt_entry_help_search">
+        <property name="placeholderText">
+         <string>Search the guide (Ctrl+F)…</string>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="qt_label_help_matches">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QSplitter" name="qt_splitter_help">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="handleWidth">
+      <number>9</number>
+     </property>
+     <property name="childrenCollapsible">
+      <bool>false</bool>
+     </property>
+     <widget class="QFrame" name="qt_frame_help_contents">
+      <property name="minimumSize">
+       <size>
+        <width>230</width>
+        <height>0</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_contents">
+       <property name="leftMargin">
+        <number>6</number>
+       </property>
+       <property name="topMargin">
+        <number>6</number>
+       </property>
+       <property name="rightMargin">
+        <number>6</number>
+       </property>
+       <property name="bottomMargin">
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QTreeWidget" name="qt_tree_help_contents">
+         <attribute name="headerVisible">
+          <bool>false</bool>
+         </attribute>
+         <column>
+          <property name="text">
+           <string notr="true">1</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QTextBrowser" name="qt_browser_help">
+      <property name="openLinks">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

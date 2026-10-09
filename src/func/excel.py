@@ -30,6 +30,81 @@ def save_scatter_to_excel(file, scatter_data):
     wb.save(filename=file)
 
 
+# A replicate group: sheet "Mean" (the first three columns as in a View scatter, so it loads back as a scatter;
+# then n and the kind of error per point), sheet "Parameters" (mean ± SD of the crossovers and of the parameters of
+# the replicates' curves) and sheet "Replicates" (every scatter of the group)
+# average: replicates.average_group(...); replicates: [{"name", "biological", "scatter": {...}}]
+# model: replicates.average_curves(...) or None; parameter_info: src.func.parameters
+def save_group_to_excel(file, group_name, average, replicates, model=None, parameter_info=None):
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Mean"
+    header = ['Frequency (Hz)', 'Mean CM factor', 'Error (SD)', 'Biological replicates (n)',
+              'Technical replicates', 'Error from']
+    for column, title in enumerate(header, 1):
+        ws.cell(row=1, column=column).value = title
+    for row, point in enumerate(zip(average["frequencies"], average["values"], average["errors"],
+                                    average["n_biological"], average["n_technical"], average["kind"]), 2):
+        for column, value in enumerate(point, 1):
+            ws.cell(row=row, column=column).value = value
+    last = len(average["frequencies"]) + 1
+    ws.cell(row=1, column=8).value = 'Group'
+    ws.cell(row=1, column=9).value = group_name
+    ws.cell(row=2, column=8).value = 'Error'
+    ws.cell(row=2, column=9).value = average["summary"]["error"]
+    ws.cell(row=3, column=8).value = 'Biological replicates'
+    ws.cell(row=3, column=9).value = average["summary"]["n_biological"]
+    set_background_color(ws, top=1, bottom=1, left=1, right=len(header), color='00C4D79B')
+    set_tabel_background(ws, top=2, bottom=last, left=1, right=len(header), color1='00C0C0C0', color2='00FFFFFF')
+    for column, width in zip("ABCDEFGHI", (16, 18, 14, 24, 20, 14, 2, 22, 40)):
+        ws.column_dimensions[column].width = width
+
+    if model is not None:
+        ws = wb.create_sheet("Parameters")
+        header = ['Quantity', 'Unit', 'Mean', 'SD', 'Biological replicates (n)', 'Curves', 'SD from']
+        for column, title in enumerate(header, 1):
+            ws.cell(row=1, column=column).value = title
+        rows = []
+        if model["model"] is None:
+            rows.append((model["warning"], "", None, None, None, None, ""))
+        else:
+            rows.append((f'Model: {parameter_info.MODEL_NAMES[model["model"]]}', "", None, None, None,
+                         model["n_curves"], ""))
+            for key, title in (("first_crossover", "First crossover"), ("second_crossover", "Second crossover")):
+                stats = model[key]
+                rows.append((title, "Hz", stats["mean"], stats["sd"], stats["n_biological"], stats["n_technical"],
+                             stats["kind"]))
+            for group_title, keys in parameter_info.grouped_parameters(model["model"]):
+                for key in keys:
+                    _, label, unit = parameter_info.PARAMETER_INFO[key]
+                    stats = model["parameters"][key]
+                    rows.append((f"{group_title}: {label}", unit, stats["mean"], stats["sd"],
+                                 stats["n_biological"], stats["n_technical"], stats["kind"]))
+        for row, values in enumerate(rows, 2):
+            for column, value in enumerate(values, 1):
+                ws.cell(row=row, column=column).value = value
+        set_background_color(ws, top=1, bottom=1, left=1, right=len(header), color='00C4D79B')
+        for column, width in zip("ABCDEFG", (36, 10, 16, 14, 24, 8, 14)):
+            ws.column_dimensions[column].width = width
+
+    ws = wb.create_sheet("Replicates")
+    column = 1
+    for replicate in replicates:
+        ws.cell(row=1, column=column).value = replicate["name"]
+        ws.cell(row=2, column=column).value = f'Biological replicate {replicate["biological"]}'
+        for offset, title in enumerate(('Frequency (Hz)', 'CM factor', 'Error')):
+            ws.cell(row=3, column=column + offset).value = title
+        data = replicate["scatter"]
+        for row, (f, v, e) in enumerate(zip(data["frequencies"], data["recm_values"], data["recm_errors"]), 4):
+            ws.cell(row=row, column=column).value = f
+            ws.cell(row=row, column=column + 1).value = v
+            ws.cell(row=row, column=column + 2).value = e
+        set_background_color(ws, top=3, bottom=3, left=column, right=column + 2, color='00C4D79B')
+        column += 4
+
+    wb.save(filename=file)
+
+
 def load_scatter_from_excel(file):
     wb = load_workbook(filename=file)
     ws = wb.active
