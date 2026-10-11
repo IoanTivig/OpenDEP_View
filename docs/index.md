@@ -29,7 +29,7 @@
 
 ## Help inside the program
 
-Press **F1** or click **Help** in the top bar. The guide opens at the page of the tab you are working in. Hover over a field or button for a short explanation (tooltip). **Report bug** in the top bar saves a description of a problem, with the last error attached.
+Press **F1** or click **Help** in the top bar. The guide opens at the page of the tab you are working in. Hover over a field or button for a short explanation (tooltip). **Report bug** in the top bar sends a description of a problem to the OpenDEP team (or saves it), with the last error attached.
 
 ## Citation
 

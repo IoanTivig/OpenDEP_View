@@ -44,4 +44,4 @@
 
 ## Reporting a problem
 
-Click **Report bug** in the top bar: describe what you did, what you expected and what happened. The report is saved in `bug_reports/` with the last error and the recent program output; send it to the developers or attach it to an issue on GitHub.
+Click **Report bug** in the top bar: describe what you did, what you expected and what happened. **Send to OpenDEP** sends it, with the last error and the recent program output, to the OpenDEP team (tester account needed, see [Report bug](user-guide/interface.md#report-bug)). Without an account, **Save report** keeps it in `bug_reports/`: send it to the developers or attach it to an issue on GitHub.

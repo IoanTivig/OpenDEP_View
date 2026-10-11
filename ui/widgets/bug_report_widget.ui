@@ -109,18 +109,22 @@ QPushButton:pressed {
 }
 
 /* Primary button */
-QPushButton#qt_button_bug_save {
+QPushButton#qt_button_bug_send, QPushButton#qt_button_bug_send_selected {
     background-color: #0F172A;  /* Primary background color */
     border: none;
     color: #FFFFFF;  /* Text color */
 }
 
-QPushButton#qt_button_bug_save:hover {
+QPushButton#qt_button_bug_send:hover, QPushButton#qt_button_bug_send_selected:hover {
     background-color: #334155;  /* Hover background color */
 }
 
-QPushButton#qt_button_bug_save:pressed {
+QPushButton#qt_button_bug_send:pressed, QPushButton#qt_button_bug_send_selected:pressed {
     background-color: #5F728C;  /* Pressed background color */
+}
+
+QPushButton#qt_button_bug_send:disabled, QPushButton#qt_button_bug_send_selected:disabled {
+    background-color: #CBD5E1;  /* While sending */
 }
 
 /* Tab bar: ghost buttons, the active one highlighted */
@@ -242,7 +246,7 @@ QHeaderView::section {
       </item>
       <item>
        <widget class="QWidget" name="qt_frame_bug_new" native="true">
-        <layout class="QVBoxLayout" name="verticalLayout_new" stretch="0,0,0,0,2,0,1,0,2,0,2,0,0,0">
+        <layout class="QVBoxLayout" name="verticalLayout_new" stretch="0,0,0,0,0,2,0,1,0,2,0,2,0,0,0">
          <property name="spacing">
           <number>6</number>
          </property>
@@ -261,7 +265,7 @@ QHeaderView::section {
          <item>
           <widget class="QLabel" name="qt_label_bug_intro">
            <property name="text">
-            <string>The report is saved in the bug_reports folder of the program. Commit and push it with the code when you finish testing.</string>
+            <string>Send the report to the OpenDEP team (tester account needed), or save it in the bug_reports folder of the program.</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -270,6 +274,36 @@ QHeaderView::section {
             <bool>true</bool>
            </property>
           </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_bug_account">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="qt_label_bug_account">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Not signed in to the OpenDEP website</string>
+             </property>
+             <property name="muted" stdset="0">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="qt_button_bug_account">
+             <property name="text">
+              <string>Sign in…</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
           <widget class="QLabel" name="qt_label_bug_title">
@@ -422,7 +456,20 @@ QHeaderView::section {
             </widget>
            </item>
            <item>
+            <widget class="QPushButton" name="qt_button_bug_send">
+             <property name="toolTip">
+              <string>Send the report to the OpenDEP team through the OpenDEP website</string>
+             </property>
+             <property name="text">
+              <string>Send to OpenDEP</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QPushButton" name="qt_button_bug_save">
+             <property name="toolTip">
+              <string>Save the report as a file on this computer</string>
+             </property>
              <property name="text">
               <string>Save report</string>
              </property>
@@ -481,13 +528,13 @@ QHeaderView::section {
             <set>QAbstractItemView::NoEditTriggers</set>
            </property>
            <property name="selectionMode">
-            <enum>QAbstractItemView::SingleSelection</enum>
+            <enum>QAbstractItemView::ExtendedSelection</enum>
            </property>
            <property name="selectionBehavior">
             <enum>QAbstractItemView::SelectRows</enum>
            </property>
            <property name="columnCount">
-            <number>3</number>
+            <number>4</number>
            </property>
            <attribute name="verticalHeaderVisible">
             <bool>false</bool>
@@ -504,9 +551,27 @@ QHeaderView::section {
            </column>
            <column>
             <property name="text">
+             <string>Sent</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
              <string>Title</string>
             </property>
            </column>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="qt_label_bug_list_status">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+           <property name="muted" stdset="0">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item>
@@ -514,6 +579,26 @@ QHeaderView::section {
            <property name="spacing">
             <number>6</number>
            </property>
+           <item>
+            <widget class="QPushButton" name="qt_button_bug_send_selected">
+             <property name="toolTip">
+              <string>Send the selected reports to the OpenDEP team (Ctrl or Shift for several)</string>
+             </property>
+             <property name="text">
+              <string>Send selected</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="qt_button_bug_send_unsent">
+             <property name="toolTip">
+              <string>Send every saved report that is not on the OpenDEP website yet</string>
+             </property>
+             <property name="text">
+              <string>Send all unsent</string>
+             </property>
+            </widget>
+           </item>
            <item>
             <widget class="QPushButton" name="qt_button_bug_open">
              <property name="text">

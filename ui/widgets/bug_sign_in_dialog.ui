@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BugSignInDialog</class>
+ <widget class="QDialog" name="BugSignInDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>440</width>
+    <height>330</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>420</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Sign in to the OpenDEP website</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog#BugSignInDialog {
+	background: #FFFFFF;
+}
+
+QLabel {
+	border: none;
+	background: transparent;
+	color: #0F172A;  /* Text color */
+	font-family: 'Segoe UI', sans-serif;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+QLabel[muted=&quot;true&quot;] {
+	color: #64748B;  /* slate/500 */
+	font-weight: 400;
+	font-size: 13px;
+}
+
+QLineEdit {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    color: #0F172A;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 4px 8px;
+    min-height: 22px;
+}
+
+/* Outline buttons */
+QPushButton {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #0F172A;
+    padding: 6px 16px;
+}
+
+QPushButton:hover {
+    background: #F1F5F9;
+}
+
+/* Primary button */
+QPushButton#qt_button_signin {
+    background-color: #0F172A;
+    border: none;
+    color: #FFFFFF;
+}
+
+QPushButton#qt_button_signin:hover {
+    background-color: #334155;
+}
+
+QPushButton#qt_button_signin:disabled {
+    background-color: #CBD5E1;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_signin">
+   <property name="spacing">
+    <number>6</number>
+   </property>
+   <property name="leftMargin">
+    <number>14</number>
+   </property>
+   <property name="topMargin">
+    <number>12</number>
+   </property>
+   <property name="rightMargin">
+    <number>14</number>
+   </property>
+   <property name="bottomMargin">
+    <number>12</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="qt_label_signin_intro">
+     <property name="text">
+      <string>Bug reports are accepted only from tester accounts. Ask the OpenDEP team for one.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="muted" stdset="0">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="qt_label_signin_server">
+     <property name="text">
+      <string>Website</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="qt_entry_signin_server">
+     <property name="placeholderText">
+      <string>https://…</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="qt_label_signin_user">
+     <property name="text">
+      <string>User name</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="qt_entry_signin_user"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="qt_label_signin_password">
+     <property name="text">
+      <string>Password</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="qt_entry_signin_password">
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="qt_label_signin_status">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="muted" stdset="0">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_signin_buttons">
+     <property name="spacing">
+      <number>6</number>
+     </property>
+     <item>
+      <spacer name="horizontalSpacer_signin">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="qt_button_signin">
+       <property name="text">
+        <string>Sign in</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="qt_button_signin_cancel">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

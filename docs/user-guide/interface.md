@@ -57,4 +57,8 @@ The two programs talk over a local channel of the computer (a named pipe on Wind
 
 ## Report bug
 
-**Report bug** saves a short description of a problem in the `bug_reports/` folder of the program, with the last error message, the recent program output and, if you want, a screenshot. When the program meets an unexpected error, the same window opens by itself with the error filled in.
+**Report bug** opens a short form for a problem; the last error message, the recent program output and, if you want, a screenshot go with it. When the program meets an unexpected error, the same window opens by itself with the error filled in.
+
+- **Send to OpenDEP** sends the report to the OpenDEP team through the OpenDEP website. It needs a tester account (ask the team for one): the first time, sign in with your user name and password; the program then keeps a sign-in token for this computer, never your password (**Sign out** at the top of the form forgets it).
+- **Save report** saves it in the `bug_reports/` folder of the program instead, on this computer only.
+- The **Reports** tab lists the saved reports; **Sent** shows their number on the OpenDEP website. **Send selected** (Ctrl or Shift for several) or **Send all unsent** sends saved reports later, with their screenshots and output. The website never stores a report twice: one it already has (the same file, or the same text) is only confirmed with its number.
