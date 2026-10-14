@@ -9,7 +9,10 @@ A curve is the Re[CM] spectrum (or the DEP force) of one dielectric model with o
 | **+** | new curve (single-shell, typical cell values) |
 | open file | load a curve: OpenDEP Curve (`.odcurve`, also the older `.odc`) or OpenDEP Fit (`.odfit`, with its scatters) |
 | open Excel | load a fitted curve exported by the older OpenDEP Compute (Excel) |
+| **Sort** | order of the list: newest first (default), oldest first, name (A–Z), 1st crossover, 2nd crossover (low to high), model |
 | **Curves Visibility** | show or hide all curves |
+
+The sort order is saved with the project. Names sort with their numbers as numbers (*Sample 2* before *Sample 10*); curves without the crossover go to the end, and equal values are ordered by name. New curves take their place in the order. A curve you are editing stays where it is until you click outside the list.
 
 ## A curve's row
 

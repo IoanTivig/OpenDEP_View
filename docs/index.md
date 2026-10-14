@@ -7,7 +7,7 @@
 - **Model curves.** Re[CM] and the DEP force of a homogeneous particle and of single-, two-, three- and four-shell cells, from parameters you type in. The crossover frequencies are calculated exactly.
 - **Measured spectra (scatters).** Opens the files of OpenDEP Control and OpenDEP Compute and Excel tables, or simulates noisy data from a curve.
 - **Links.** A curve can be linked to the scatter it was fitted to; both then travel together (`.odfit` files).
-- **Replicate groups.** Biological and technical replicates are averaged into one spectrum and one curve per group, with mean ± SD of every parameter and crossover.
+- **Replicate groups.** Biological and technical replicates are averaged into one spectrum and one curve per group, with the geometric mean ×/÷ geometric SD of every parameter and crossover (they are log-normal), so each group's curve crosses where its crossover says.
 - **Separation.** Ranks every pair of groups by how well one frequency splits them into a pDEP and an nDEP population.
 - **Statistics report.** Normality and pairwise tests of the groups, as PDF and Excel.
 - **Graphs.** Fonts, ticks, grid, legend and frame are adjustable; images are saved at the size and resolution a journal asks for.

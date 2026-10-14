@@ -25,7 +25,8 @@
 | **Add a replicate…** is empty | Only curves linked to a scatter can be added: link them under **Linked to** in Curve plots. |
 | A group shows no parameters | Its replicates' curves use different models, or no replicate has a curve. |
 | SD labelled *technical* | All replicates have the same Sample No.: if they are different suspensions, give each its own number. |
-| Best separation says it needs two groups | At least two visible groups need curves with a first crossover. |
+| Best separation says it needs two groups | At least two visible groups need curves with a first crossover, and their scatters a common frequency range. |
+| Separation score 0 although the crossovers differ | At the frequencies between the crossovers the two Re[CM] do not have opposite signs (or the curves sit outside the measured range): the force does not pull the groups apart. |
 
 ## Send to View (from OpenDEP Compute)
 

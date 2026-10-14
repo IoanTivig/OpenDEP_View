@@ -23,6 +23,7 @@ from src.func import links
 from src.func import replicates
 from src.func import parameters as model_parameters
 from src.func import separation
+from src.func import sorting
 from src.func import group_statistics
 from src.func import statistics_report
 from src.func.general import format_frequency
@@ -40,6 +41,7 @@ from ui.helpers.welcome_widget_ui import WelcomeWidgetUI, set_logo
 from ui.helpers.bug_report_widget_ui import BugReportWidgetUI
 from ui.helpers.help_widget_ui import HelpWidgetUI, HELP_PAGES
 from ui.helpers.group_widget_ui import GroupWidgetUI
+from ui.helpers import separation_help
 
 APP_NAME = "OpenDEP View"
 PROJECT_FILTER = (f"OpenDEP View project (*{project_files.PROJECT_SUFFIX});;"
@@ -86,6 +88,14 @@ class MainUI(QMainWindow):
         self.no_curve_points = 100
         self.curve_keys = ["homogenous_particle", "single_shell", "two_shell", "three_shell", "four_shell"]
         self.graph_y_index = 0
+
+        # Sort drop-downs of the plot lists (see sort_plot_list): a list waiting to be sorted until the user leaves it
+        self.sort_pending = set()
+        for kind, (_, combo, _, _) in self.plot_lists().items():
+            for key, label in sorting.SORT_OPTIONS[kind]:
+                combo.addItem(label, key)
+            combo.currentIndexChanged.connect(lambda index, kind=kind: self.sort_plot_list(kind))
+        QApplication.instance().focusChanged.connect(self.sort_pending_lists)
 
         # Project: the open project file, the saved state (to detect unsaved changes), the recent projects
         self.settings = settings or QSettings("OpenDEP", APP_NAME)
@@ -150,6 +160,24 @@ class MainUI(QMainWindow):
         self.qt_button_group_add.clicked.connect(lambda: self.generate_new_group())
         self.qt_button_statistics_report.clicked.connect(lambda: self.statistics_report())
         self.qt_checkbox_group_single_points.clicked.connect(self.refresh_graph)
+
+        # Best separation: what the pairs are ranked by, and what each entry means (tooltips)
+        self.separation_rank = "score"
+        self.qt_separation_rank_buttons = {"score": self.qt_button_separation_rank_score,
+                                           "ratio": self.qt_button_separation_rank_ratio,
+                                           "contrast": self.qt_button_separation_rank_contrast}
+        for key, button in self.qt_separation_rank_buttons.items():
+            button.setToolTip(separation_help.HELP[f"rank_{key}"])
+            button.clicked.connect(lambda checked=False, key=key: self.set_separation_rank(key))
+        for label, key in ((self.qt_label_separation_title, "title"), (self.qt_label_separation_rank, "title"),
+                           (self.qt_label_separation_pair, "pair"),
+                           (self.qt_label_separation_frequency_title, "frequency"),
+                           (self.qt_label_separation_score_title, "score"),
+                           (self.qt_label_separation_ratio_title, "ratio"),
+                           (self.qt_label_separation_contrast_title, "contrast"),
+                           (self.qt_label_separation_second_title, "second")):
+            label.setToolTip(separation_help.HELP[key])
+        self.set_separation_rank("score")
 
         # Graph size lock and size entry - all functionality for resizing the graph
         self.qt_checkbox_graph_size_lock.clicked.connect(self.lock_graph_widget_size)
@@ -319,11 +347,11 @@ class MainUI(QMainWindow):
         # Connect the buttons after the setup
         scatter_widget.connect_buttons_after_setup()
 
+        # Dock the widget at index 0 from the top (the refresh puts the list in the chosen order)
+        self.qt_scrollarea_scatter_curves_layout.insertWidget(0, scatter_widget)
+
         # Refresh all graphs with new data
         self.refresh_graph()
-
-        # Dock the widget at index 0 from the top
-        self.qt_scrollarea_scatter_curves_layout.insertWidget(0, scatter_widget)
         return id
 
     # Delete scatter from the dictionary and refresh the graph
@@ -412,11 +440,11 @@ class MainUI(QMainWindow):
         new_curve_widget.parent_widget = self
         new_curve_widget.set_entries_with_data()
 
+        # Dock the widget at index 0 from the top (the refresh puts the list in the chosen order)
+        self.qt_scrollarea_plots_curve_layout.insertWidget(0, new_curve_widget)
+
         # Refresh all graphs with new data
         self.refresh_graph()
-
-        # Dock the widget at index 0 from the top
-        self.qt_scrollarea_plots_curve_layout.insertWidget(0, new_curve_widget)
 
     # Modify single curve from the dictionary and refresh the graph. edited: the user changed a value or the model
     # (not a recalculation); a curve fitted in OpenDEP Compute then loses its fit results
@@ -472,11 +500,11 @@ class MainUI(QMainWindow):
         new_curve_widget.parent_widget = self
         new_curve_widget.set_entries_with_data()
 
+        # Dock the widget at index 0 from the top (the refresh puts the list in the chosen order)
+        self.qt_scrollarea_plots_curve_layout.insertWidget(0, new_curve_widget)
+
         # Refresh all graphs with new data
         self.modify_all_curves()
-
-        # Dock the widget at index 0 from the top
-        self.qt_scrollarea_plots_curve_layout.insertWidget(0, new_curve_widget)
 
     # Delete curve from the dictionary and refresh the graph
     def delete_curve(self, id):
@@ -569,11 +597,11 @@ class MainUI(QMainWindow):
         new_curve_widget.parent_widget = self
         new_curve_widget.set_entries_with_data()
 
+        # Dock the widget at index 0 from the top (the refresh puts the list in the chosen order)
+        self.qt_scrollarea_plots_curve_layout.insertWidget(0, new_curve_widget)
+
         # Curve data for the current frequency range, then refresh the graph
         self.modify_single_curve(new_id)
-
-        # Dock the widget at index 0 from the top
-        self.qt_scrollarea_plots_curve_layout.insertWidget(0, new_curve_widget)
         return new_id
 
     # Add an OpenDEP Fit (.odfit): its spectra as scatters (on the CM-factor scale) and its curve(s).
@@ -726,9 +754,11 @@ class MainUI(QMainWindow):
             [{"biological": biological, "model": curve["model"], "parameters": curve["parameters"],
               "crossovers": (curve["parameters"]["1st_cross_over"].get(models.MODEL_KEYS[curve["model"]]),
                              curve["parameters"]["2nd_cross_over"].get(models.MODEL_KEYS[curve["model"]]))}
-             for biological, curve in curves], model_parameters.MODEL_PARAMETERS, model_parameters.MODEL_NAMES)
+             for biological, curve in curves], model_parameters.MODEL_PARAMETERS, model_parameters.MODEL_NAMES,
+            model_parameters.LINEAR_SCALE)
 
-        # The curve of the mean parameters (the model's parameters averaged, the others as in the first curve)
+        # The curve of the mean parameters (the model's parameters averaged: geometric means, so it crosses at the
+        # geometric-mean crossover, see replicates.average_scalar; the others as in the first curve)
         mean_curve = None
         if model["model"] is not None:
             mean_parameters = {**copy.deepcopy(curves[0][1]["parameters"]),
@@ -1009,6 +1039,7 @@ class MainUI(QMainWindow):
         # Group plots: only the replicate groups (mean ± SD) and the curves linked to them
         if self.active_plots_tab() == 2:
             self.draw_groups(curves)
+            self.sort_plot_list("groups")
             self.update_link_widgets()
             self.update_separation()
             self.update_graph_styling()
@@ -1061,6 +1092,7 @@ class MainUI(QMainWindow):
             for key in self.scatter_dict.keys():
                 self.scatter_dict[key]["widget"].setEnabled(False)
 
+        self.sort_plot_list(["curves", "scatters"][self.active_plots_tab()])
         self.update_link_widgets()
 
         # Format the graph and draw it
@@ -1070,6 +1102,86 @@ class MainUI(QMainWindow):
     def active_plots_tab(self):
         buttons = getattr(self, "qt_plots_buttons", [])        # not set yet while the window is built
         return next((i for i, b in enumerate(buttons) if b.property("customState")), 0)
+
+    # SORTING - the order of the cards in the plot lists (Sort drop-down of each list, see src/func/sorting.py)
+    # Each list: its items, Sort drop-down, scroll area and the layout of its cards
+    def plot_lists(self):
+        return {"curves": (self.curves_dict, self.qt_combo_curves_sort, self.qt_scrollarea_plots_curve,
+                           self.qt_scrollarea_plots_curve_layout),
+                "scatters": (self.scatter_dict, self.qt_combo_scatters_sort, self.qt_scrollarea_scatter_curves,
+                             self.qt_scrollarea_scatter_curves_layout),
+                "groups": (self.groups_dict, self.qt_combo_groups_sort, self.qt_scrollarea_groups,
+                           self.qt_scrollarea_groups_layout)}
+
+    # Put the cards of a list in the chosen order. Only the list of the visible plots tab is sorted at each refresh of
+    # the graph (switching tabs refreshes it). Nothing moves while the user works in a card of the list (the keyboard
+    # focus is in it, e.g. typing a name or a value): the list is sorted when the focus leaves it
+    def sort_plot_list(self, kind):
+        items, combo, area, layout = self.plot_lists()[kind]
+        focus = QApplication.focusWidget()
+        if focus is not None and area.isAncestorOf(focus):
+            self.sort_pending.add(kind)
+            return
+        self.sort_pending.discard(kind)
+
+        mode = combo.currentData()
+        order = sorting.sort_ids(items, mode, lambda i: items[i]["name"], self.sort_value(kind, mode))
+        wanted = [items[i]["widget"] for i in order if layout.indexOf(items[i]["widget"]) >= 0]
+        current = [layout.itemAt(i).widget() for i in range(layout.count())]
+        if [card for card in current if card in wanted] == wanted:
+            return
+        for card in wanted:                            # deleted cards (closed) and the spacers stay at the end
+            layout.removeWidget(card)
+        for index, card in enumerate(wanted):
+            layout.insertWidget(index, card)
+
+    def sort_pending_lists(self, old=None, new=None):
+        for kind in list(self.sort_pending):
+            self.sort_plot_list(kind)
+
+    # What a list is sorted on besides newest / oldest / name: a function of the id, or None (no such order)
+    def sort_value(self, kind, mode):
+        if kind == "curves" and mode == "model":
+            return lambda i: self.curves_dict[i]["model"]
+        if kind == "curves" and mode in ("first_crossover", "second_crossover"):
+            return lambda i: self.curve_crossover(self.curves_dict[i], mode)
+        if kind == "scatters" and mode == "first_crossover":
+            return self.scatter_crossover
+        if kind == "scatters" and mode == "group":
+            return self.scatter_group_key
+        if kind == "groups" and mode in ("first_crossover", "second_crossover"):
+            return lambda i: self.group_crossover(i, mode)
+        return None
+
+    # Crossover frequency of a curve's model, None when it has none
+    def curve_crossover(self, curve, which="first_crossover"):
+        key = "1st_cross_over" if which == "first_crossover" else "2nd_cross_over"
+        return sorting.frequency_or_none(curve["parameters"][key].get(models.MODEL_KEYS[curve["model"]]))
+
+    # 1st crossover of a scatter: that of its linked curve, or else where its measured values change sign
+    def scatter_crossover(self, scatter_id):
+        curve_id = self.curve_linked_to("scatter", scatter_id)
+        crossover = self.curve_crossover(self.curves_dict[curve_id]) if curve_id is not None else None
+        if crossover is None:
+            data = self.scatter_dict[scatter_id]["scatter"]
+            crossover = next(iter(sorting.data_crossovers(data["frequencies"], data["recm_values"])), None)
+        return crossover
+
+    # Groups of a scatter, by name: the first one (None when it is in no group)
+    def scatter_group_key(self, scatter_id):
+        return min((sorting.natural_key(group["name"]) for group in self.groups_dict.values()
+                    if any(m["scatter"] == scatter_id for m in group["members"])), default=None)
+
+    # Mean crossover of a group's replicate curves, or else where its mean changes sign
+    def group_crossover(self, group_id, which):
+        result = self.group_result(group_id)
+        stats = result["model"][which]
+        crossover = sorting.frequency_or_none(stats["mean"]) if stats else None
+        if crossover is None:
+            crossovers = sorting.data_crossovers(result["average"]["frequencies"], result["average"]["values"])
+            index = 0 if which == "first_crossover" else 1
+            crossover = crossovers[index] if len(crossovers) > index else None
+        return crossover
 
     # Names, links and group make-up shown on the curve and group widgets. Only the widgets of the visible plots tab are
     # updated (with many groups, rebuilding the hidden ones made every refresh slow); a tab's widgets are brought up
@@ -1118,53 +1230,80 @@ class MainUI(QMainWindow):
                     y_data=[average["values"][i] for i in single],
                     point_style=group["point_style"], point_size=group["point_size"])
 
-    # Best separation (bottom of Group plots): of the visible groups, the pair one frequency splits best into a pDEP
-    # and an nDEP population (see separation.py); the other pairs are listed in the tooltip
+    # Best separation (bottom of Group plots): of the visible groups, the pair ranked first by the chosen criterion
+    # (Rank by: separation score, crossover ratio or ΔRe[CM]; see separation.py); the other pairs are listed in the
+    # card's tooltip, each entry explains itself in its own
     def update_separation(self):
         groups = [self.separation_input(group_id) for group_id, group in self.groups_dict.items()
                   if group["visibility"]]
-        pairs = separation.rank_pairs(groups)
+        pairs = separation.rank_pairs(groups, self.separation_rank)
 
-        values = (self.qt_label_separation_frequency, self.qt_label_separation_score,
-                  self.qt_label_separation_ratio, self.qt_label_separation_contrast)
+        values = {"frequency": self.qt_label_separation_frequency, "score": self.qt_label_separation_score,
+                  "ratio": self.qt_label_separation_ratio, "contrast": self.qt_label_separation_contrast,
+                  "second": self.qt_label_separation_second}
+        for key, tip in separation_help.value_tooltips(pairs[0] if pairs else None).items():
+            values[key].setToolTip(tip)
         if not pairs:
             usable = sum(1 for g in groups if g["samples"])
             self.qt_label_separation_pair.setText(f"needs 2 groups with crossovers ({usable} now)")
-            for label in values:
+            for label in values.values():
                 label.setText("–")
-            self.qt_frame_separation.setToolTip("Needs two visible groups whose curves have a first crossover")
+            self.qt_frame_separation.setToolTip("Needs two visible groups whose curves have a first crossover, "
+                                                "measured over a common frequency range")
             return
 
-        def name(group, kind):
+        # Each group with how many of its samples are on its side at the best frequency (why the pair scores so)
+        def name(group, kind, on_side, samples):
             return f"<span style='color:{group['color']}'>●</span> {group['name']} <span style='color:#64748B'>" \
-                   f"{kind}</span>"
+                   f"{kind} {on_side}/{samples}</span>"
 
         best = pairs[0]
-        self.qt_label_separation_pair.setText(f"{name(best['pdep'], 'pDEP')} &nbsp;·&nbsp; "
-                                              f"{name(best['ndep'], 'nDEP')}")
+        (pdep_in, pdep_out), (ndep_in, ndep_out) = best["pdep_samples"], best["ndep_samples"]
+        self.qt_label_separation_pair.setText(f"{name(best['pdep'], 'pDEP', pdep_in, pdep_in + pdep_out)} "
+                                              f"&nbsp;·&nbsp; {name(best['ndep'], 'nDEP', ndep_out, ndep_in + ndep_out)}")
         self.qt_label_separation_frequency.setText(format_frequency(best["frequency"]))
         self.qt_label_separation_score.setText(f"{best['score']:.2f}")
         self.qt_label_separation_ratio.setText(f"{best['ratio']:.2f}×" if best["ratio"] else "–")
         self.qt_label_separation_contrast.setText(
-            f"{best['contrast']:.2f}   ({best['recm_pdep']:+.2f} / {best['recm_ndep']:+.2f})"
+            f"{best['contrast']:.2f} ({best['recm_pdep']:+.2f} / {best['recm_ndep']:+.2f})"
             if best["contrast"] is not None else "–")
-        others = [f"{p['pdep']['name']} + {p['ndep']['name']}: {p['score']:.2f} at "
-                  f"{format_frequency(p['frequency'])}" for p in pairs[1:]]
-        self.qt_frame_separation.setToolTip("Other pairs:\n" + "\n".join(others) if others else "")
+        second = best["second"]
+        self.qt_label_separation_second.setText(
+            f"{second['score']:.2f} at {format_frequency(second['frequency'])}   ({second['pdep']['name']} pDEP)"
+            if second else "– (second crossovers not both in the measured range)")
+        others = [f"{rank}. {p['pdep']['name']} + {p['ndep']['name']}: score {p['score']:.2f}, ratio "
+                  + (f"{p['ratio']:.2f}×" if p["ratio"] else "–") + ", ΔRe[CM] "
+                  + (f"{p['contrast']:.2f}" if p["contrast"] is not None else "–")
+                  + f" at {format_frequency(p['frequency'])} (pDEP {p['pdep_samples'][0]}/{sum(p['pdep_samples'])},"
+                  f" nDEP {p['ndep_samples'][1]}/{sum(p['ndep_samples'])})" for rank, p in enumerate(pairs[1:], 2)]
+        self.qt_frame_separation.setToolTip(f"Other pairs, ranked by {separation.RANKINGS[self.separation_rank]}:\n"
+                                            + "\n".join(others) if others else "")
 
-    # A group as separation.py needs it: its samples' crossovers, mean first crossover and the Re[CM] of its
-    # mean-parameter curve
+    # Rank the pairs of Best separation by "score", "ratio" or "contrast" (separation.RANKINGS; kept in the project)
+    def set_separation_rank(self, key):
+        self.separation_rank = key if key in separation.RANKINGS else "score"
+        for name, button in self.qt_separation_rank_buttons.items():
+            button.setProperty("customState", name == self.separation_rank)
+            button.setStyle(button.style())                   # refresh style to apply property
+        if not self.loading and self.active_plots_tab() == 2:
+            self.update_separation()
+
+    # A group as separation.py needs it: its samples' crossovers, mean first crossover, the frequency range its
+    # scatters were measured over and the Re[CM] of its mean-parameter curve
     def separation_input(self, group_id):
         group = self.groups_dict[group_id]
         result = self.group_result(group_id)
         mean_curve = result["mean_curve"]
         recm = None
         if mean_curve is not None:
-            recm = (lambda f, c=mean_curve: float(models.model_all(c["model"], np.array([f]),
-                                                                   c["parameters"])[0][0]))
+            recm = (lambda f, c=mean_curve: models.model_all(c["model"], np.atleast_1d(np.asarray(f, dtype=float)),
+                                                             c["parameters"])[0])
+        measured = [float(f) for m in group["members"] if m["scatter"] in self.scatter_dict
+                    for f in self.scatter_dict[m["scatter"]]["scatter"]["frequencies"] if float(f) > 0]
         first = result["model"]["first_crossover"]
         return {"name": group["name"], "color": group["color"], "samples": separation.samples(result["curves"]),
-                "recm": recm, "first_crossover": first["mean"] if first else None}
+                "recm": recm, "first_crossover": first["mean"] if first else None,
+                "range": (min(measured), max(measured)) if measured else (None, None)}
 
     # Statistics report of the visible groups: every pair ranked by separation, descriptive statistics, normality
     # and pairwise tests of the crossovers and parameters (see group_statistics.py), as PDF and / or Excel
@@ -1201,7 +1340,7 @@ class MainUI(QMainWindow):
                            "curves": result["curves"], "n_biological": summary["n_biological"],
                            "n_technical": sum(summary["technical_per_biological"].values()),
                            "separation": self.separation_input(group_id)})
-        report = group_statistics.build_report(groups)
+        report = group_statistics.build_report(groups, self.separation_rank)
         project_name = self.project["name"] if self.project else ""
 
         written = []
@@ -1312,6 +1451,8 @@ class MainUI(QMainWindow):
 
         settings["plots_tab"] = self.active_plots_tab()
         settings["group_single_points"] = self.qt_checkbox_group_single_points.isChecked()
+        settings["sort"] = {kind: combo.currentData() for kind, (_, combo, _, _) in self.plot_lists().items()}
+        settings["separation_rank"] = self.separation_rank
         scatter_index = {scatter_id: i for i, scatter_id in enumerate(self.scatter_dict)}
         curve_index = {curve_id: i for i, curve_id in enumerate(self.curves_dict)}
         groups = []
@@ -1356,6 +1497,10 @@ class MainUI(QMainWindow):
         self.qt_checkbox_scatters_visibility.setChecked(settings.get("scatters_visible", True))
 
         self.qt_checkbox_group_single_points.setChecked(settings.get("group_single_points", True))
+        for kind, (_, combo, _, _) in self.plot_lists().items():
+            index = combo.findData((settings.get("sort") or {}).get(kind, sorting.DEFAULT_SORT))
+            combo.setCurrentIndex(max(index, 0))
+        self.set_separation_rank(settings.get("separation_rank", "score"))
 
         for buttons, key in ((self.qt_graphcontent_buttons, "graph_content"),
                              (self.qt_experimentaldisplay_buttons, "experimental_display"),

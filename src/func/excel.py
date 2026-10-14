@@ -31,8 +31,9 @@ def save_scatter_to_excel(file, scatter_data):
 
 
 # A replicate group: sheet "Mean" (the first three columns as in a View scatter, so it loads back as a scatter;
-# then n and the kind of error per point), sheet "Parameters" (mean ± SD of the crossovers and of the parameters of
-# the replicates' curves) and sheet "Replicates" (every scatter of the group)
+# then n and the kind of error per point), sheet "Parameters" (geometric mean ×/÷ geometric SD of the crossovers and
+# of the parameters of the replicates' curves, with the ordinary mean ± SD) and sheet "Replicates" (every scatter of
+# the group)
 # average: replicates.average_group(...); replicates: [{"name", "biological", "scatter": {...}}]
 # model: replicates.average_curves(...) or None; parameter_info: src.func.parameters
 def save_group_to_excel(file, group_name, average, replicates, model=None, parameter_info=None):
@@ -60,31 +61,35 @@ def save_group_to_excel(file, group_name, average, replicates, model=None, param
         ws.column_dimensions[column].width = width
 
     if model is not None:
+        # Geometric mean ×/÷ geometric SD (log scale; mean ± SD for values ≤ 0), and the ordinary mean ± SD
         ws = wb.create_sheet("Parameters")
-        header = ['Quantity', 'Unit', 'Mean', 'SD', 'Biological replicates (n)', 'Curves', 'SD from']
+        header = ['Quantity', 'Unit', 'Mean (geometric on the log scale)', 'GSD (×/÷, log scale)',
+                  'SD (linear scale)', 'Ordinary mean', 'Ordinary SD', 'Biological replicates (n)', 'Curves',
+                  'Spread from']
         for column, title in enumerate(header, 1):
             ws.cell(row=1, column=column).value = title
+
+        def row_of(title, unit, stats):
+            return (title, unit, stats["mean"], stats["gsd"], stats["sd"], stats["arithmetic_mean"],
+                    stats["arithmetic_sd"], stats["n_biological"], stats["n_technical"], stats["kind"])
+
         rows = []
         if model["model"] is None:
-            rows.append((model["warning"], "", None, None, None, None, ""))
+            rows.append((model["warning"],) + ("",) + (None,) * 7 + ("",))
         else:
-            rows.append((f'Model: {parameter_info.MODEL_NAMES[model["model"]]}', "", None, None, None,
-                         model["n_curves"], ""))
+            rows.append((f'Model: {parameter_info.MODEL_NAMES[model["model"]]}', "") + (None,) * 6 +
+                        (model["n_curves"], ""))
             for key, title in (("first_crossover", "First crossover"), ("second_crossover", "Second crossover")):
-                stats = model[key]
-                rows.append((title, "Hz", stats["mean"], stats["sd"], stats["n_biological"], stats["n_technical"],
-                             stats["kind"]))
+                rows.append(row_of(title, "Hz", model[key]))
             for group_title, keys in parameter_info.grouped_parameters(model["model"]):
                 for key in keys:
                     _, label, unit = parameter_info.PARAMETER_INFO[key]
-                    stats = model["parameters"][key]
-                    rows.append((f"{group_title}: {label}", unit, stats["mean"], stats["sd"],
-                                 stats["n_biological"], stats["n_technical"], stats["kind"]))
+                    rows.append(row_of(f"{group_title}: {label}", unit, model["parameters"][key]))
         for row, values in enumerate(rows, 2):
             for column, value in enumerate(values, 1):
                 ws.cell(row=row, column=column).value = value
         set_background_color(ws, top=1, bottom=1, left=1, right=len(header), color='00C4D79B')
-        for column, width in zip("ABCDEFG", (36, 10, 16, 14, 24, 8, 14)):
+        for column, width in zip("ABCDEFGHIJ", (36, 10, 18, 14, 14, 16, 14, 24, 8, 14)):
             ws.column_dimensions[column].width = width
 
     ws = wb.create_sheet("Replicates")

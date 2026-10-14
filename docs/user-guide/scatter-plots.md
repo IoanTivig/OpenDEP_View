@@ -9,7 +9,10 @@ A scatter is a DEP spectrum as points: frequency, Re[CM] (the CM factor) and its
 | **+** | new scatter with five example points (overwrite them in its table) |
 | open file | load a spectrum: OpenDEP Spectrum (`.odspec`, also the older `.ods`) or OpenDEP Fit (`.odfit`) |
 | open Excel | load an Excel table (see below) |
+| **Sort** | order of the list: newest first (default), oldest first, name (A–Z), 1st crossover (low to high), group |
 | **Scatter Visibility** | show or hide all scatters |
+
+**Sort** by 1st crossover uses the crossover of the curve linked to the scatter, or else the frequency where its measured values change sign. By group puts the scatters of each replicate group together (groups by name, scatters in no group at the end). The order is saved with the project; a scatter you are editing stays where it is until you click outside the list.
 
 **Excel tables**: first sheet, row 1 is a header, then one point per row: column A frequency (Hz), B Re[CM], C error (empty = 0). Files exported by View have this form.
 

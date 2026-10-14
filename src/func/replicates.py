@@ -9,8 +9,8 @@ biological replicate are its technical replicates. So the same structure covers:
     biological replicates only             one scatter per suspension
     technical replicates only              one suspension, several scatters
 
-Averaging (CM-factor values; scaling relative spectra to a model is done by the fit in OpenDEP Compute), at each
-frequency:
+Averaging of the spectra (CM-factor values, arithmetic: Re[CM] changes sign; scaling relative spectra to a model is
+done by the fit in OpenDEP Compute), at each frequency:
     1. technical replicates are averaged within each suspension
     2. the suspension means are averaged; error = SD across suspensions (n = number of suspensions)
 With a single suspension at a frequency, the error is the SD of its technical replicates (marked "technical").
@@ -87,41 +87,71 @@ def average_group(members, tolerance=FREQUENCY_TOLERANCE):
     return result
 
 
-# Mean ± SD of one value over the group (a parameter or a crossover of the replicates' curves), with the same
+# Average of one value over the group (a parameter or a crossover of the replicates' curves), with the same
 # hierarchy as the spectra: technical replicates averaged per suspension first, then the suspensions.
+#
+# On the log scale (scale "log", all values > 0): geometric mean ×/÷ geometric SD (gsd = exp(SD of ln values)).
+# Crossovers and fitted parameters of repeated runs are log-normal (their spread is multiplicative, see
+# docs/concepts/replicates.md), and the first crossover is a product / ratio of parameters (fc ≈ σm / 2πrCmem), so
+# the curve of the geometric-mean parameters crosses at the geometric-mean crossover; with arithmetic means it does
+# not. Values that are 0 or negative cannot be on the log scale, and quantities that can be zero (log=False, e.g. a
+# membrane conductance at the fit's lower bound) should not be: arithmetic mean ± SD (scale "linear").
+# The ordinary mean ± SD (same hierarchy) is always given too, to compare with published values.
+#
 # items: [{"biological": label, "value": number or None}] (None, e.g. no crossover, is left out)
-# returns: {"mean", "sd", "n_biological", "n_technical", "kind"}; kind "none" when no item has a value
-def average_scalar(items):
+# log: False keeps the quantity on the linear scale
+# returns: {"mean", "gsd", "sd", "scale", "arithmetic_mean", "arithmetic_sd", "fixed", "n_biological",
+#           "n_technical", "kind"}; gsd only on the log scale, sd only on the linear scale (None without spread);
+#           kind "none" when no item has a value
+def average_scalar(items, log=True):
     by_biological = {}
     for item in items:
         if item["value"] is not None and np.isfinite(item["value"]):
             by_biological.setdefault(str(item["biological"]), []).append(float(item["value"]))
     n_technical = sum(len(values) for values in by_biological.values())
     if n_technical == 0:
-        return {"mean": None, "sd": None, "n_biological": 0, "n_technical": 0, "kind": "none"}
+        return {"mean": None, "gsd": None, "sd": None, "scale": None, "arithmetic_mean": None,
+                "arithmetic_sd": None, "fixed": False, "n_biological": 0, "n_technical": 0, "kind": "none"}
     everything = [value for values in by_biological.values() for value in values]
+    log = log and all(value > 0 for value in everything)
+    result = {"scale": "log" if log else "linear", "fixed": False, "n_technical": n_technical}
+
     if n_technical >= 2 and np.allclose(everything, everything[0], rtol=1e-12, atol=0):
-        # The same value everywhere (e.g. a parameter fixed in the fits): SD 0, not rounding noise of the mean
-        return {"mean": everything[0], "sd": 0.0, "n_biological": len(by_biological), "n_technical": n_technical,
-                "kind": "biological" if len(by_biological) >= 2 else "technical"}
+        # The same value everywhere (e.g. a parameter fixed in the fits): no spread, not rounding noise of the mean
+        return {**result, "mean": everything[0], "gsd": 1.0 if log else None, "sd": None if log else 0.0,
+                "arithmetic_mean": everything[0], "arithmetic_sd": 0.0, "fixed": True,
+                "n_biological": len(by_biological), "kind": "biological" if len(by_biological) >= 2 else "technical"}
+
     if len(by_biological) >= 2:
-        means = [float(np.mean(values)) for values in by_biological.values()]
-        return {"mean": float(np.mean(means)), "sd": float(np.std(means, ddof=1)),
-                "n_biological": len(means), "n_technical": n_technical, "kind": "biological"}
-    values = next(iter(by_biological.values()))
-    if len(values) >= 2:
-        return {"mean": float(np.mean(values)), "sd": float(np.std(values, ddof=1)),
-                "n_biological": 1, "n_technical": n_technical, "kind": "technical"}
-    return {"mean": values[0], "sd": None, "n_biological": 1, "n_technical": 1, "kind": "single"}
+        samples = list(by_biological.values())                       # each suspension's technical replicates
+        kind = "biological"
+    else:
+        samples = [[value] for value in next(iter(by_biological.values()))]     # one suspension: its replicates
+        kind = "technical" if n_technical >= 2 else "single"
+    values = np.array([_center(sample, log) for sample in samples])
+    arithmetic = np.array([np.mean(sample) for sample in samples])
+    spread = len(values) >= 2
+    return {**result, "mean": _center(values, log),
+            "gsd": float(np.exp(np.std(np.log(values), ddof=1))) if log and spread else None,
+            "sd": float(np.std(values, ddof=1)) if not log and spread else None,
+            "arithmetic_mean": float(np.mean(arithmetic)),
+            "arithmetic_sd": float(np.std(arithmetic, ddof=1)) if spread else None,
+            "n_biological": len(by_biological), "kind": kind}
 
 
-# The model of a group from the curves of its replicates: mean ± SD of every parameter of the model and of the
-# first and second crossover. All curves must use the same model (the parameters of different models do not mean
+# Mean of values: geometric (log scale) or arithmetic
+def _center(values, log):
+    return float(np.exp(np.mean(np.log(values)))) if log else float(np.mean(values))
+
+
+# The model of a group from the curves of its replicates: the average (average_scalar: geometric mean ×/÷ geometric
+# SD) of every parameter of the model and of the first and second crossover. All curves must use the same model (the parameters of different models do not mean
 # the same thing); otherwise nothing is averaged and "warning" says why.
 # curves: [{"biological": label, "model": index, "parameters": {...}, "crossovers": (first, second)}]
+# linear_scale: parameters kept on the linear scale (parameters.LINEAR_SCALE)
 # returns: {"model", "n_curves", "parameters": {key: average_scalar}, "first_crossover", "second_crossover",
 #           "warning"}
-def average_curves(curves, model_parameters, model_names):
+def average_curves(curves, model_parameters, model_names, linear_scale=()):
     result = {"model": None, "n_curves": len(curves), "parameters": {}, "first_crossover": None,
               "second_crossover": None, "warning": ""}
     if not curves:
@@ -137,7 +167,8 @@ def average_curves(curves, model_parameters, model_names):
     result["model"] = model
     for key in model_parameters[model]:
         result["parameters"][key] = average_scalar(
-            [{"biological": c["biological"], "value": c["parameters"].get(key)} for c in curves])
+            [{"biological": c["biological"], "value": c["parameters"].get(key)} for c in curves],
+            log=key not in linear_scale)
     for index, name in enumerate(("first_crossover", "second_crossover")):
         result[name] = average_scalar([{"biological": c["biological"], "value": c["crossovers"][index] or None}
                                        for c in curves])

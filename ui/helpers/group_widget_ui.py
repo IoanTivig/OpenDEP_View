@@ -22,31 +22,46 @@ QPushButton:hover {
 }"""
 
 
-# A calculated value (replicates.average_scalar) as shown: "mean ± SD" (frequencies in one unit: "29.44 ± 3.93
-# kHz"), the mean alone when there is no spread; and the tooltip that says where it comes from
+# A calculated value (replicates.average_scalar) as shown: "geometric mean ×/÷ geometric SD" (frequencies in one
+# unit: "31.15 kHz ×/÷ 2.01"), "mean ± SD" for values that cannot be on the log scale (0 or negative), the mean alone
+# when there is no spread; and the tooltip that says where it comes from, with the ordinary mean ± SD
 def format_result(stats, unit="", frequency=False):
     if stats is None or stats["kind"] == "none":
         return ("none" if frequency else "–"), "No value"
 
-    if frequency:
-        text = format_frequency(stats["mean"])
-        if stats["sd"]:
-            number, frequency_unit = text.split(" ")
+    def plain(value, digits):
+        return format_frequency(value) if frequency else f"{value:.{digits}g}"
+
+    def with_sd(mean, sd):
+        if frequency:
+            number, frequency_unit = format_frequency(mean).split(" ")
             factor = {"Hz": 1, "kHz": 1e3, "MHz": 1e6}[frequency_unit]
-            text = f"{number} ± {stats['sd'] / factor:.2f} {frequency_unit}"
+            return f"{number} ± {sd / factor:.2f} {frequency_unit}"
+        return f"{mean:.4g} ± {sd:.2g}"
+
+    log = stats["scale"] == "log"
+    if stats["fixed"] or (stats["gsd"] if log else stats["sd"]) is None:
+        text = plain(stats["mean"], 4)
+    elif log:
+        text = f"{plain(stats['mean'], 4)} ×/÷ {stats['gsd']:.2f}"
     else:
-        text = f"{stats['mean']:.4g}" + (f" ± {stats['sd']:.2g}" if stats["sd"] else "")
+        text = with_sd(stats["mean"], stats["sd"])
 
     unit_text = f" {unit}" if unit else ""
+    average = "Geometric mean ×/÷ geometric SD" if log else \
+        "Mean ± SD (linear scale: a value ≤ 0, or a conductance that can be zero)"
     if stats["kind"] == "single":
         tip = "From 1 curve"
-    elif stats["sd"] == 0:
+    elif stats["fixed"]:
         tip = "The same in all the curves"
     elif stats["kind"] == "biological":
-        tip = f"Mean ± SD over {stats['n_biological']} biological replicates ({stats['n_technical']} curves)"
+        tip = f"{average} over {stats['n_biological']} biological replicates ({stats['n_technical']} curves)"
     else:
-        tip = f"Mean ± SD of {stats['n_technical']} technical replicates (1 biological replicate)"
-    return text, f"{tip}{unit_text and ', in' + unit_text}"
+        tip = f"{average} of {stats['n_technical']} technical replicates (1 biological replicate)"
+    tip += unit_text and ", in" + unit_text
+    if log and not stats["fixed"] and stats["arithmetic_sd"] is not None:
+        tip += f"\nOrdinary mean ± SD: {with_sd(stats['arithmetic_mean'], stats['arithmetic_sd'])}{unit_text}"
+    return text, tip
 
 
 # A replicate group (Group plots): its replicates (a curve with the scatter it is linked to, and the sample = the

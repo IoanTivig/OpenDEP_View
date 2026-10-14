@@ -45,6 +45,11 @@ PARAMETER_INFO = {
     "nucleoplasm_cond": ("Nucleoplasm", "Conductivity", "S/m"),
 }
 
+# Conductances of insulating layers that can be zero: the fits put "zero" at their lower bound (e.g. 1e-10 S/m), and
+# on a log scale such values would weigh as much as real ones. Averaged and compared on the linear scale (mean ± SD);
+# every other parameter and the crossovers on the log scale (see replicates.average_scalar)
+LINEAR_SCALE = {"1st_shell_cond", "envelope_cond", "core_surface_cond"}
+
 GROUP_ORDER = ["Buffer", "Cytoplasm", "Other", "Shell dimensions", "Membrane", "Cell wall", "Nuclear envelope",
                "Nucleoplasm"]
 

@@ -300,6 +300,38 @@ QListWidget::item:hover {
 QListWidget::item:selected {
 	background: #DEE8F2;  /* Pressed background color */
 	color: #0F172A;
+}
+
+/* Slim scroll bar in the program's slate colours, shown only when the list is longer than the box */
+QScrollBar:vertical {
+	background: transparent;
+	width: 10px;
+	margin: 0px 0px 0px 2px;
+	border: none;
+}
+
+QScrollBar::handle:vertical {
+	background: #CBD5E1;  /* slate/300 */
+	border-radius: 4px;
+	min-height: 32px;
+}
+
+QScrollBar::handle:vertical:hover {
+	background: #94A3B8;  /* slate/400 */
+}
+
+QScrollBar::handle:vertical:pressed {
+	background: #64748B;  /* slate/500 */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+	height: 0px;
+	border: none;
+	background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
 }</string>
           </property>
          </widget>

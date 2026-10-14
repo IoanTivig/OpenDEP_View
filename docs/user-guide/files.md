@@ -17,7 +17,7 @@ An `.odfit` keeps what belongs together:
 - **the spectra** (one or several) and **the curve**, with the link between them;
 - for each spectrum its **scale** (OpenDEP Compute fits relative spectra by scaling them to the model) and its **biological replicate**;
 - the **fit** from OpenDEP Compute: settings and results (R², errors). When the curve is changed in View, this block is dropped (the values no longer come from that fit);
-- for a group saved from View: its style, the averaged spectrum, the results (mean ± SD of parameters and crossovers) and each replicate's own curve.
+- for a group saved from View: its style, the averaged spectrum, the results (geometric mean ×/÷ geometric SD of parameters and crossovers, with the ordinary mean ± SD) and each replicate's own curve.
 
 Opened in View: one spectrum becomes a scatter linked to its curve; several spectra become a [replicate group](group-plots.md). Spectra are converted to CM factor (divided by their scale).
 
